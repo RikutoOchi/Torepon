@@ -14,4 +14,4 @@
                 <li class="ad-item"><img src="" alt=""></li>
             </ul>
             <!-- /広告コンテンツ -->
-        </aside>
+</aside>

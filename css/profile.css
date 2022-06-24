@@ -107,6 +107,50 @@
     -ms-transition-duration:0.3s;
 }
 
+.btn3{
+	width: 150px;
+	height: 50px;
+	display: inline-block;
+	vertical-align: middle;
+	margin: 0 10px;
+	padding: 4px 5px;
+	color: white;
+	font-weight: bold;
+	letter-spacing: 0.5pt;
+	text-decoration: none;
+	background-color: #414BB2;
+	border: 1px solid #4169e1;
+  border-radius: 10px;
+	cursor: pointer;
+	transition-duration:0.3s;
+    -webkit-transition-duration:0.3s;
+    -moz-transition-duration:0.3s;
+    -o-transition-duration:0.3s;
+    -ms-transition-duration:0.3s;
+}
+
+.btn4{
+	width: 150px;
+	height: 50px;
+	display: inline-block;
+	vertical-align: middle;
+	margin: 0 10px;
+	padding: 4px 5px;
+	color: white;
+	font-weight: bold;
+	letter-spacing: 0.5pt;
+	text-decoration: none;
+	background-color: red;
+	border: 1px solid red;
+  border-radius: 10px;
+	cursor: pointer;
+	transition-duration:0.3s;
+    -webkit-transition-duration:0.3s;
+    -moz-transition-duration:0.3s;
+    -o-transition-duration:0.3s;
+    -ms-transition-duration:0.3s;
+}
+
 .box1 {
   padding: 10px 20px;
   margin: 0em 0;

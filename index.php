@@ -47,6 +47,7 @@
                <a href="./ex-confirm.php"><li class="goods-item">グッズ6</li></a>
             </ul>        
         </section>
+        </main>
     <!-- /mainコンテンツ -->
 
 <!-- サイドコンテンツ -->

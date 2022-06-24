@@ -89,6 +89,7 @@ require_once('./temp/head.php'); ?>
             </h3>
           </div>
       </section>
+      </main>
        <!-- /mainコンテンツ -->
 
 <!-- サイドコンテンツ -->

@@ -33,6 +33,7 @@
           <input type="button" value="登録完了" class="login-btn" />
         </div>
       </form>
+      </main>
       </body>
 </html>
 <!-- 

@@ -62,9 +62,10 @@
         </div>
 
             
-        <!-- /mainコンテンツ -->
+      
       </section>
-
+      </main>
+  <!-- /mainコンテンツ -->
      <!-- サイドコンテンツ -->
      <?php require_once('./temp/side.php'); ?>
      <!-- /サイドコンテンツ -->

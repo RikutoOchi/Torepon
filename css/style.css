@@ -386,6 +386,7 @@ button {
     margin: 0 auto;
     border: 1px solid #000;
     border-radius: 25px;
+    object-fit: cover;
 }
 
 .ad-item:last-of-type {

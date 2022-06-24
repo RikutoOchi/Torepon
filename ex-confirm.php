@@ -1,62 +1,17 @@
-<!DOCTYPE html>
-<html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/reset.css" />
-    <link rel="stylesheet" href="./css/style.css" />
-    <link rel="stylesheet" href="./css/ex-confirm.css" />
-    <script
-      src="https://kit.fontawesome.com/95076eb005.js"
-      crossorigin="anonymous"
-    ></script>
+<!-- ヘッドの全体に関わる共有部分 -->
+<?php require_once('./temp/head.php'); ?>
+<!-- /ヘッドの全体に関わる共有部分 -->
 
-    <title>ex-confirm</title>
-  </head>
-  <body>
-    <header class="header">
-      <div class="header-wrapper">
-        <div class="header-innder">
-          <h1 class="header-logo">
-            <a href="./index.html"><img src="" alt="L" /></a>
-          </h1>
-          <form action="./" method="post" class="header-form">
-            <select name="select" class="header-select">
-              <option value="title">ガチャタイトル</option>
-              <option value="character">キャラクター</option>
-              <option value="gensaku">原作</option>
-              <option value="maker">メーカー</option>
-            </select>
-            <input
-              type="text"
-              placeholder="何かお探しですか？"
-              class="index-text"
-            />
-            <span class="header-search-icon">
-              <a class="testResult" href="./SearchResults.html">
-                <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-                </a>
-            </span>
-          </form>
-          <ul class="header-list">
-            <li class="header-item">
-              <a href="./news.html" class="news-btn">お知らせ</a>
-            </li>
-            <li class="header-item">
-              <div class="icon-wrapper">
-                <a href="./profile.html"><i class="fa-solid fa-circle-user fa-2x"></i></i></a>
-              </div>
-            </li>
-            <button class="burger-btn">
-                <span class="bar bar_top"></span>
-                <span class="bar bar_mid"></span>
-                <span class="bar bar_bottom"></span>
-            </button>
-          </ul>
-        </div>
-      </div>
-    </header>
+<!-- ↓↓↓　ここに各画面専用のスタイルのリンクタグを書きます ↓↓↓ -->
+
+<link rel="stylesheet" href="./css/ex-confirm.css">
+
+<!-- ↑↑↑　/ここに各画面専用のスタイルのリンクタグを書きます　↑↑↑ -->
+
+<!-- ヘッダー -->
+<?php require_once("./temp/header.php"); ?>
+<!-- /ヘッダー -->
+
     <main class="main-side-content">
       <section class="main-content">
         <!-- mainコンテンツ -->
@@ -128,18 +83,11 @@
           </ul>
         <!-- /広告コンテンツ -->
       </aside>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-wrapper">
-        <div class="footer-inner">
-          <p class="copy-text">&copy;PBL2_G班</p>
-        </div>
-      </div>
-    </footer>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="./script/script.js"></script>
-
-  </body>
-</html>
+      
+     <!-- サイドコンテンツ -->
+     <?php require_once('./temp/side.php'); ?>
+     <!-- /サイドコンテンツ -->
+     
+    <!-- フッター -->
+    <?php require_once('./temp/footer.php'); ?>
+    <!-- /フッター -->

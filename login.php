@@ -1,14 +1,13 @@
-<!DOCTYPE html>
-<html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/reset.css" />
-    <link rel="stylesheet" href="./css/style.css" />
-    <link rel="stylesheet" href="./css/login.css" />
+<!-- ヘッドの全体に関わる共有部分 -->
+<?php require_once('./temp/head.php'); ?>
+<!-- /ヘッドの全体に関わる共有部分 -->
 
-    <title>ログイン</title>
+<!-- ↓↓↓　ここに各画面専用のスタイルのリンクタグを書きます ↓↓↓ -->
+
+<link rel="stylesheet" href="./css/login.css">
+
+<!-- ↑↑↑　/ここに各画面専用のスタイルのリンクタグを書きます　↑↑↑ -->
+
   </head>
   <body>
     <main class="form-content">
@@ -31,11 +30,11 @@
           </div>
         </div>
         <div class="login-btn-center">
-         <a href="./index.html" class="testResult"> <input type="button" value="ログイン" class="login-btn" /></a>
+         <a href="./index.php" class="testResult"> <input type="button" value="ログイン" class="login-btn" /></a>
         </div>
         <div class="link-center">
           <a href="">パスワードを変更したい、忘れた方はこちら</a><br />
-          <a href="register.html">新規会員登録はこちら</a>
+          <a href="register.php">新規会員登録はこちら</a>
         </div>
       </form>
     </main>
@@ -43,5 +42,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js"></script>
     <script src="./script/script.js"></script>
+
   </body>
 </html>

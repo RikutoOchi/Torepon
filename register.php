@@ -1,86 +1,76 @@
+<!-- ヘッドの全体に関わる共有部分 -->
+<?php require_once('./temp/head.php'); ?>
+<!-- /ヘッドの全体に関わる共有部分 -->
+
+<!-- ↓↓↓　ここに各画面専用のスタイルのリンクタグを書きます ↓↓↓ -->
+
+<link rel="stylesheet" href="./css/login.css">
+
+<!-- ↑↑↑　/ここに各画面専用のスタイルのリンクタグを書きます　↑↑↑ -->
+</head>
+<body>
+
+    <main class="form-content">
+      <p class="ttl-text">新規会員登録</p>
+      <form action="./" method="post">
+        <label for="email" class="label-text">emailを入力してください。</label>
+        <div class="email_box">
+          <div class="text_inner">
+            <input type="email" id="email" class="email_text" />
+            <div class="email_string">emailを入力</div>
+          </div>
+        </div>
+        <label for="password" class="label-text">
+          パスワードを入力してください</label
+        >
+        <div class="password_box">
+          <div class="text_inner">
+            <input type="password" id="password" class="password_text" />
+            <div class="password_string">passwordを入力</div>
+          </div>
+        </div>
+        <div class="login-btn-center">
+          <input type="button" value="登録完了" class="login-btn" />
+        </div>
+      </form>
+      </body>
+</html>
+<!-- 
 <!DOCTYPE html>
 <html lang="ja">
 <head>
 	<meta charset="UTF-8">
-	<title>ユーザー登録</title>
-	<link rel="stylesheet" href="./css/login.css">
+	<title>新規ユーザー登録</title>
+	<link rel="stylesheet" href="login.css">
 </head>
 <body>
 <div id="main">
-<?php
-	// 共通するデータ・関数を定義したPHPファイルを読み込む
-	require_once __DIR__ . '/util.php';
-
-	// 受信データを変数に格納
-	$ident = $_POST[ 'input_id' ];
-	$pass = $_POST[ 'input_pass' ];
-	// $name = $_POST[ 'input_name' ];
-
-	// 発生したエラー、例外を特定するコード番号を代入する変数
-	$error_code = 0;
-
-	// 受信データの値の有効性チェック
-	if ( empty( $ident ) || empty( $pass )){
-		// 受信データが有効でない場合のエラーコード(その他のチェックは今回省略)
-		$error_code = 100;
-	} else {
-		try {
-			// 入力されたユーザーIDをキーに、データベースからデータを抽出
-			$sql = "select * from password where ident = ?";
-			$stmt = $pdo->prepare( $sql );
-			$stmt->execute( [ $ident ] );
-			$result = $stmt->fetch( );
-
-			if ( empty( $result[ 'ident' ] ) ) {
-				// empty( )の戻り値がTRUE → データがない → 未登録
-				// 受け取ったユーザーID、パスワード、名前でデータベースに登録する
-				$sql = "insert into password ( ident, pass, name ) values ( ?, ?, ?)";
-				$stmt = $pdo->prepare( $sql );
-				$stmt->execute( [$ident, $pass, $name] );
-			} else {
-				// empty( )の戻り値がFALSE → データがある → 既に登録済み
-				$error_code = 200;
-			}
-		} catch ( Exception $e ) {
-			// データベース関連の例外発生
-			$error_code = 900;
-			// die( );	// エラーメッセージを表示するためここではdie( )しない
-		}
-		$pdo = null;
-	}
-	// errro_codeの値に応じたメッセージを表示する
-	if ( $error_code == 0 ) {
-		// エラーがなく、正しく登録された場合
-		echo "<h2>ユーザー登録が完了しました。</h2>";
-		echo "<hr><br>";
-		echo "<table id='regiTable'>";
-		echo "<tr><th>ユーザーID</th><td>" . h ( $ident ) . "</td></tr>";
-		echo "<tr><th>パスワード</th><td>" . h ( $pass ) . "</td></tr>";
-		echo "<tr><th>お名前</th><td>" . h ( $name ) . "</td></tr>";
-		echo "</table><br>";
-		echo "<a href='login.html'>ログインページへ</a>";
-	} else if ( $error_code == 100 ) {
-		echo "<h2>未入力項目があります。</h2>";
-		echo "<hr><br>";
-		echo "ユーザーID、パスワード、お名前のすべての項目を入力してください。<br><br>";
-		echo "<a href='register.html'>新規ユーザー登録へ戻る</a>";
-	} else if ( $error_code == 200 ) {
-		echo "<h2>ユーザーIDは登録済みです。</h2>";
-		echo "<hr><br>";
-		echo "入力されたユーザーID(<b>" . $ident . "</b>)は、すでに登録済みです。<br>";
-		echo "他のユーザーIDをご利用ください。<br /><br>";
-		echo "<a href='register.html'>新規ユーザー登録へ戻る</a>";
-	} else if ( $error_code == 900 ) {
-		echo "<h2>データベースエラー</h2>";
-		echo "<hr><br>";
-		echo "データベースでエラーが発生しました。<br>";
-		echo "管理者に連絡してください。<br><br>";
-		echo "<a href='login.html'>ログインページへ</a>";
-	}
-?>
-<br><br>
+<h2>新規ユーザー登録</h2>
 <hr>
-<p>4組 15番 富垣　翔騎</p>
+<p>ご希望のユーザーID、パスワード、お名前を入力してください。</p>
+<form method="POST" action="register.php">
+<table id="mainTable">
+	<tr>
+		<th class="right-align">ユーザーID:</th>
+		<td class="left-align"><input type="text" name="input_id"></td>
+	</tr>
+	<tr>
+		<th class="right-align">パスワード:</th>
+		<td class="left-align"><input type="password" name="input_pass"></td>
+	</tr>
+	<tr>
+		<th class="right-align">お名前:</th>
+		<td class="left-align"><input type="text" name="input_name"></td>
+	</tr>
+	<tr>
+		<th class="right-align">&nbsp;</th>
+		<td class="left-align"><input type="submit" value="登録する"></td>
+	</tr>
+</table>
+</form>
+<hr>
 </div>
 </body>
 </html>
+-->
+

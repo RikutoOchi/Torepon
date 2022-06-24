@@ -47,13 +47,15 @@
     <p>29</p>
     <p>20</p>
   </section>
-</main>
-  <!-- /mainコンテンツ -->
+
 
   <!-- サイドコンテンツ -->
   <?php require_once('./temp/side.php'); ?>
   <!-- /サイドコンテンツ -->
 
+  </main>
+  <!-- /mainコンテンツ -->
+  
   <!-- フッター -->
   <?php require_once('./temp/footer.php'); ?>
   <!-- /フッター -->

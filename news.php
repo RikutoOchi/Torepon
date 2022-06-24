@@ -32,12 +32,14 @@
             </div>
         </div>
       </section>
-      </main>
-      <!-- /mainコンテンツ -->
+     
 
 <!-- サイドコンテンツ -->
 <?php require_once('./temp/side.php'); ?>
 <!-- /サイドコンテンツ -->
+
+</main>
+<!-- /mainコンテンツ -->
 
 <!-- フッター -->
 <?php require_once('./temp/footer.php'); ?>

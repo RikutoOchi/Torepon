@@ -11,7 +11,8 @@
 <!-- ヘッダー -->
 <?php require_once("./temp/header.php"); ?>
 <!-- /ヘッダー -->
-    <main class="main-side-content">
+
+  <main class="main-side-content">
       <section class="main-content">
     </dl>
 
@@ -61,13 +62,15 @@
       </table>
     </div>
   </section>
-  </main>
-   <!-- /mainコンテンツ -->
+ 
 
    <!-- サイドコンテンツ -->
      <?php require_once('./temp/side.php'); ?>
      <!-- /サイドコンテンツ -->
-     
+
+</main>
+<!-- /mainコンテンツ -->
+
     <!-- フッター -->
     <?php require_once('./temp/footer.php'); ?>
     <!-- /フッター -->

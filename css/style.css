@@ -80,6 +80,7 @@
   transition: 0.3s;
   outline: 0;
 }
+
 .index-text {
   padding: 8px;
   width: 300px;
@@ -90,6 +91,13 @@
   border: 2px solid #fff !important;
   outline: 0;
 }
+.index-text:focus {
+  box-shadow: 0 0 5px 0 #ef5923;
+  transition: 0.3s;
+  border: 2px solid #fff !important;
+  outline: 0;
+}
+
 .header-list {
   list-style: none;
   margin: 0;
@@ -213,6 +221,7 @@ button {
   width: 300px;
   height: 100vh;
 }
+
 .humburger-nav.active {
   right: 0;
 }
@@ -250,15 +259,9 @@ button {
 .copy-text {
   padding: 20px 0;
 }
-
 /**********************************/
-
 /*         メインコンテンツ         */
-
 /*********************************/
-
-.main-content {
-}
 
 /*人気タグ*/
 
@@ -286,7 +289,10 @@ button {
   text-decoration: none;
   color: black;
 }
-
+.PopularTags a {
+  text-decoration: none;
+  color: black;
+}
 /*おすすめアイテム*/
 
 .RecommendedItems {
@@ -307,13 +313,69 @@ button {
 .FavoriteItems {
   width: 100%;
   height: 170px;
-  display: inline-block;
   transform: translate(0, -120%);
 }
 
 .FavoriteItems iframe {
   width: 100%;
-  height: 300%;
+  height: 300px;
   transform: scale(100%);
   border: none;
+}
+.testResult {
+  text-decoration: none;
+  color: black;
+}
+.goods-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+  text-align: center;
+  padding: 0 20px;
+}
+.goods-list a {
+  text-decoration: none;
+  color: #000;
+}
+.goods-item {
+  border: 1px solid #000;
+  height: 150px;
+}
+/**********************************/
+/*           メイン　             */
+/*********************************/
+
+.box {
+  display: flex;
+}
+.fashionable-box1 {
+  display: inline-block;
+  margin: 5em 3em 0em 8em;
+  padding: 2em;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 10px #fff59d, 0 0 0 25px #fdd835;
+  border-radius: 0px;
+}
+
+.fashionable-box1 p {
+  margin: 0;
+  padding: 0px;
+}
+
+.fashionable-box2 {
+  display: inline-block;
+  margin: 5em 0em 0em 10em;
+  padding: 2em;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 10px #fff59d, 0 0 0 25px #fdd835;
+  border-radius: 0px;
+}
+
+.fashionable-box2 p {
+  margin: 0;
+  padding: 0px;
+}
+.sub-ttl {
+  margin-top: 40px;
 }

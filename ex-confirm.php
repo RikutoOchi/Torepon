@@ -64,26 +64,7 @@
             
         <!-- /mainコンテンツ -->
       </section>
-      <aside class="side-content">
-        <!-- 広告コンテンツ -->
-          <nav class="humburger-nav">
-            <ul class="nav-list">
-              <li class="nav-item"><a href="./index.html">HOME</a></li>
-              <li class="nav-item"><a href="./profile.html">プロフィール</a></li>
-              <li class="nav-item"><a href="./ex-list.html">出品リスト</a></li>
-              <li class="nav-item"><a href="./fav-list.html">お気に入りリスト</a></li>
-              <li class="nav-item"><a href="./check.html">チケット確認</a></li>
-              <li class="nav-item"><a href="./login.html">ログイン</a></li>
-            </ul>
-          </nav>
-          <ul class="ad-list">
-            <li class="ad-item"><img src="" alt=""></li>
-            <li class="ad-item"><img src="" alt=""></li>
-            <li class="ad-item"><img src="" alt=""></li>
-          </ul>
-        <!-- /広告コンテンツ -->
-      </aside>
-      
+
      <!-- サイドコンテンツ -->
      <?php require_once('./temp/side.php'); ?>
      <!-- /サイドコンテンツ -->

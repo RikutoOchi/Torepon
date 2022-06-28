@@ -35,6 +35,6 @@
     </script>
     <br>
     <input type="button" class="btn4" style="margin-left:30px" value="キャンセル" onClick="window.close()"/>
-    <button class="btn3" style="margin-left:520px" onclick="location.href='./profile_pict_db.php'">変更する</button>
+    <input type="button" class="btn3" style="margin-left:520px" value="変更する" href="./index.html"/>
   </body>
 </html>

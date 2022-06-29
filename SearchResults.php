@@ -14,26 +14,51 @@
 
     <main class="main-side-content">
         <!-- mainコンテンツ -->
+
+        <?
+            //検索ワードを受け取る
+            $select = $_POST['select'];
+            $text = $_POST['text'];
+            //検索するSOL文
+            $Searchdata = "%" . $text . "%";
+
+            // Searchクラスを利用する
+            require_once __DIR__ . '/../classes/Search.php';
+            $product = new Search( );
+
+            // 選択されたジャンルのデータを抽出
+            $datas = $product->getItems( $Searchdata, $select );
+        ?>
+
+        <?
+            foreach ($data as $datas){ 
+                $judge = $data['EXHIBIT_ID'];
+        ?>
+
         <section class="main-content">
+
             <!--検索結果-->
             <div class="SearchResults">
-                <h1 class="SearchKeyword">検索したキーワード</h1>
-                <ul class="Results">
-                    <li class="ResultItem"><img src="">
-                        <a hreF="./"></a>
-                    </li>
-                    <li class="ResultItem"><img src="">
-                        <a hreF="./"></a>
-                    </li>
-                    <li class="ResultItem"><img src="">
-                        <a hreF="./"></a>
-                    </li>
-                    <li class="ResultItem"><img src="">
-                        <a hreF="./"></a>
-                    </li>
-                </ul>
+                <h1 class="SearchKeyword"><? $text ?></h1>
+
+                    <!-- 検索結果が0の場合 -->
+                    <? if($judge != ""){ ?>
+                        <!--   ★検索結果が０の場合の表示画面★   --> 
+
+                    <!-- 検索結果が1つ以上ある場合  -->
+                    <? } else { ?>
+                        <? foreach ($data as $datas){ ?>
+                                <ul class="Results">
+                                    <li class="ResultItem"><img src="<? $row['EXHIBIT_PIC_URL'] ?>">
+                                        <a hreF="./ex-confirm.php?data=<? $row['EXHIBIT_ID'] ?>"></a>
+                                    </li>
+                                </ul>
+                            <? } ?>
+                    <? } ?>
+                </class>
             </div>
         </section>
+    </main>
     
 
 <!-- サイドコンテンツ -->

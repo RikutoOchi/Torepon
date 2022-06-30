@@ -13,7 +13,7 @@
   <body>
     <main class="form-content">
       <p class="ttl-text">ログイン</p>
-      <form action="./" method="post">
+      <form action="./login.php" method="post">
         <label for="email" class="label-text">emailアドレスを入力してください。</label>
         <div class="email_box">
           <div class="text_inner">
@@ -21,9 +21,7 @@
             <div class="email_string">emailアドレスを入力</div>
           </div>
         </div>
-        <label for="password" class="label-text">
-          パスワードを入力してください</label
-        >
+        <label for="password" class="label-text">パスワードを入力してください。</label>
         <div class="password_box">
           <div class="text_inner">
             <input type="password" id="password" class="password_text" />
@@ -31,7 +29,7 @@
           </div>
         </div>
         <div class="login-btn-center">
-         <a href="./index.html" class="testResult"> <input type="button" value="ログイン" class="login-btn" /></a>
+         <div class="testResult"> <input type="submit" value="ログイン" class="login-btn" /></div>
         </div>
         <div class="link-center">
           <a href="password.html">パスワードを変更したい、忘れた方はこちら</a><br />

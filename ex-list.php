@@ -4,7 +4,7 @@
 
 <!-- ↓↓↓　ここに各画面専用のスタイルのリンクタグを書きます ↓↓↓ -->
 
-<link rel="stylesheet" href="./css/">
+<link rel="stylesheet" href="./css/ex-list.css">
 
 <!-- ↑↑↑　/ここに各画面専用のスタイルのリンクタグを書きます　↑↑↑ -->
 
@@ -16,36 +16,100 @@
   <section class="main-content">
     <!-- mainコンテンツ -->
     <h1>出品リスト</h1>
-    <p>1</p>
-    <p>2</p>
-    <p>3</p>
-    <p>4</p>
-    <p>5</p>
-    <p>6</p>
-    <p>7</p>
-    <p>8</p>
-    <p>9</p>
-    <p>10</p>
-    <p>11</p>
-    <p>12</p>
-    <p>13</p>
-    <p>14</p>
-    <p>15</p>
-    <p>16</p>
-    <p>17</p>
-    <p>18</p>
-    <p>19</p>
-    <p>20</p>
-    <p>21</p>
-    <p>22</p>
-    <p>23</p>
-    <p>24</p>
-    <p>25</p>
-    <p>26</p>
-    <p>27</p>
-    <p>28</p>
-    <p>29</p>
-    <p>20</p>
+      <div class="responsive">
+          <div class="img">
+            <a target="_blank" href="./ex-confirm.html">
+              <img
+                src=".\images\keyholder_kuma.png"
+                alt="くま"
+                width="300"
+                height="300"
+              />
+            </a>
+            <div class="desc">動物キーホルダー くま</div>
+          </div>
+      </div>
+        <div class="responsive">
+          <div class="img">
+            <a target="_blank" href="./ex-confirm.html">
+              <img
+                src="https://bandai-a.akamaihd.net/bc/img/model/b/1000168623_2.jpg"
+                alt="アイテム名"
+                width="300"
+                height="300"
+              />
+            </a>
+            <div class="desc">アイテム名</div>
+          </div>
+        </div>
+        <div class="responsive">
+          <div class="img">
+            <a target="_blank" href="./ex-confirm.html">
+              <img
+                src="https://bandai-a.akamaihd.net/bc/img/model/b/1000170272_2.jpg"
+                alt="アイテム名"
+                width="300"
+                height="300"
+              />
+            </a>
+            <div class="desc">アイテム名</div>
+          </div>
+        </div>
+        <div class="responsive">
+          <div class="img">
+            <a target="_blank" href="./ex-confirm.html">
+              <img
+                src="https://bandai-a.akamaihd.net/bc/img/model/b/1000171571_2.jpg"
+                alt="アイテム名"
+                width="300"
+                height="300"
+              />
+            </a>
+            <div class="desc">アイテム名</div>
+          </div>
+        </div>
+        <div class="responsive">
+          <div class="img">
+            <a target="_blank" href="./ex-confirm.html">
+              <img
+                src="https://bandai-a.akamaihd.net/bc/img/model/b/1000172915_2.jpg"
+                alt="アイテム名"
+                width="300"
+                height="300"
+              />
+            </a>
+            <div class="desc">アイテム名</div>
+          </div>
+        </div>
+        <div class="responsive">
+          <div class="img">
+            <a target="_blank" href="./ex-confirm.html">
+              <img
+                src="https://bandai-a.akamaihd.net/bc/img/model/b/1000172905_2.jpg"
+                alt="アイテム名"
+                width="300"
+                height="300"
+              />
+            </a>
+            <div class="desc">アイテム名</div>
+          </div>
+        </div>
+        <div class="responsive">
+          <div class="img">
+            <a target="_blank" href="./ex-confirm.html">
+              <img src="" alt="アイテム名" width="300" height="300" />
+            </a>
+            <div class="desc">アイテム名</div>
+          </div>
+        </div>
+          <div class="responsive">
+            <div class="img">
+              <a target="_blank" href="./ex-confirm.html">
+                <img src="" alt="アイテム名" width="300" height="300" />
+              </a>
+              <div class="desc">アイテム名</div>
+            </div>
+          </div>
   </section>
   <!-- /mainコンテンツ -->
 

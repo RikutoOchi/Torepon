@@ -71,7 +71,7 @@
 
             ?>
 
-            <!--検索結果-->
+            // 検索結果
             <div class="SearchResults">
 
                 <h1 class="SearchKeyword"><? $text ?></h1>

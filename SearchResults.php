@@ -22,9 +22,6 @@
                 $select = $_POST['select'];
                 $text = $_POST['text'];
 
-                // $text = "フリキュア";
-                // $select = "title";
-
                 //　検索文字列と一致 or 検索文字列が含まれる　に加工
                 $Searchdata = "%" . $text . "%";
 
@@ -34,21 +31,21 @@
                             from EXHIBITS LEFT OUTER JOIN GACHA_TITLES ON EXHIBITS.GACHA_TITLE_ID = GACHA_TITLES.GACHA_TITLE_ID 
                             where GACHA_TITLE_NAME LIKE '" . $Searchdata . "' or EXHIBITS.EXHIBIT_NAME LIKE '" . $Searchdata . "'";     // タイトルで検索された場合のSQL文（対象：ガチャタイトル、出品名）
                 } elseif ( $select == 'character' ) {
-                    $sql = "select EXHIBIT_PIC_URL,EXHIBIT_ID 
-                            from EXHIBITS 
+                    $sql = "select EXHIBIT_PIC_URL,EXHIBIT_ID
+                            from EXHIBITS
                             where EXHIBIT_NAME LIKE '" . $Searchdata . "'";       // キャラクターで検索された場合のSQL文（対象：出品名）
                 } elseif ( $select == 'gensaku' ) {
                     $sql = "select EXHIBITS.EXHIBIT_PIC_URL,EXHIBITS.EXHIBIT_ID 
-                            from (EXHIBITS LEFT OUTER JOIN GACHA_TITLES ON EXHIBITS.GACHA_TITLE_ID = GACHA_TITLES.GACHA_TITLE_ID) 
-                            LEFT OUTER JOIN ORIGINAL_TITLES ON GACHA_TITLES.ORIGINAL_TITLE_ID = ORIGINAL_TITLES.ORIGINAL_TITLE_ID
-                            where ORIGINAL_TITLES.ORIGINAL_TITLE_NAME '" . $Searchdata . "' or EXHIBITS.EXHIBIT_NAME LIKE '" . $Searchdata . "'";       // 原作で検索された場合のSQL文（対象：原作タイトル名、出品名）
+                    from ((EXHIBITS LEFT OUTER JOIN GACHA_TITLES ON EXHIBITS.GACHA_TITLE_ID = GACHA_TITLES.GACHA_TITLE_ID) 
+                    LEFT OUTER JOIN ORIGINAL_TITLES ON GACHA_TITLES.ORIGINAL_TITLE_ID = ORIGINAL_TITLES.ORIGINAL_TITLE_ID)
+                    where ORIGINAL_TITLES.ORIGINAL_TITLE_NAME LIKE '" . $Searchdata . "' or EXHIBITS.EXHIBIT_NAME LIKE '" . $Searchdata . "'";                // 原作で検索された場合のSQL文（対象：原作タイトル名、出品名）
                 } elseif ( $select == 'maker' ) {
                     $sql = "select EXHIBITS.EXHIBIT_PIC_URL,EXHIBITS.EXHIBIT_ID 
-                            from (EXHIBITS LEFT OUTER JOIN GACHA_TITLES ON EXHIBITS.GACHA_TITLE_ID = GACHA_TITLES.GACHA_TITLE_ID) 
-                            LEFT OUTER JOIN MAKERS ON GACHA_TITLES.MAKER_ID = MAKERS.MAKER_ID
-                            where MAKERS.MAKER_NAME '" . $Searchdata . "' or EXHIBITS.EXHIBIT_NAME LIKE '" . $Searchdata . "'";       // メーカーで検索された場合のSQL文
+                            from ((EXHIBITS LEFT OUTER JOIN GACHA_TITLES ON EXHIBITS.GACHA_TITLE_ID = GACHA_TITLES.GACHA_TITLE_ID) 
+                            LEFT OUTER JOIN MAKERS ON GACHA_TITLES.MAKER_ID = MAKERS.MAKER_ID)
+                            where MAKERS.MAKER_NAME LIKE '" . $Searchdata . "' or EXHIBITS.EXHIBIT_NAME LIKE '" . $Searchdata . "'";       // メーカーで検索された場合のSQL文（対象：メーカー名、出品名）
                 } else {
-                    /*　エラー表示　*/
+                    /*　★★★ エラー表示 ★★★　*/
                 }
 
                 // DB接続に必要なやつ

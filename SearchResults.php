@@ -91,12 +91,8 @@
                         <!-- 検索結果が0の画面や表示を記載 -->
                         <?php echo '検索結果：０件' ?>
                     <?php } ?>
-
-                </class>
             </div>
         </section>
-    </main>
-
 <!-- サイドコンテンツ -->
 <?php require_once('./temp/side.php'); ?>
 <!-- /サイドコンテンツ -->

@@ -9,6 +9,7 @@
   padding-top: 70px;
   /*ヘッダー分の空白*/
   grid-template-columns: 1fr 300px;
+  min-height: 100vh;
 }
 
 .main-content {
@@ -378,4 +379,12 @@ button {
 }
 .sub-ttl {
   margin-top: 40px;
+}
+.ResultItem img {
+  width: 250px;
+  height: 150px;
+  margin: 0 auto;
+  border: 1px solid #000;
+  border-radius: 25px;
+  object-fit: cover;
 }

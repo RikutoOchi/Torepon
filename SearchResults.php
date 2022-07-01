@@ -73,7 +73,7 @@
 
             <div class="SearchResults">
 
-                <h1 class="SearchKeyword"><? $text ?></h1>
+                <h1 class="SearchKeyword"><?php $text ?></h1>
 
                     <!-- 検索結果が1つ以上ある場合 -->
                     <?php if( empty( $judge ) == false){ ?>

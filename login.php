@@ -10,28 +10,65 @@
 <?php
 
 	// データベース接続に必要なPHPファイルを読み込む
-	require_once __DIR__ . 'loginpdo.php';
+	require_once __DIR__ . './loginpdo.php';
 
 	// 受信データを変数に格納
-	$ident = $_POST['email'];
-	$pass = $_POST['password'];
-	
+	if(isset($_POST['email'])){
+		$add = $_POST['email'];
+	}
+	if(isset($_POST['password'])){
+		$pass = $_POST['password'];
+	}
 	
 	// 発生したエラー、例外を特定するコード番号を代入する
 	$error_code = 0;
 	
 	// 受信データの値の有効性チェック
-	if ( empty( $ident ) || empty( $pass ) ) {
+	if ( empty( $add ) || empty( $pass ) ) {
 		// 受信データが有効でない場合のエラーコード（その他のチェックは今回省略）
 		$error_code = 100;
 	} else {
 		try {
-			// 入力されたユーザーIDをキーに、データベースからデータを抽出
-			$sql = "select * from password where ident = ? and pass = ?";
+			// 入力されたメールアドレスをキーに、データベースからデータを抽出
+			$sql = "select * from password where add = ? and pass = ?";
 			$stmt = $pdo->prepare( $sql );
-			$stmt->execute( [ $ident, $pass ] );
+			$stmt->execute( [ $add, $pass ] );
 			$result = $stmt->fetch( );
-			if( empty( $result[ 'ident' ] ) ) {
+			if( empty( $result[ 'add' ] ) ) {
+				// empty()の戻り値がTRUE → データがない → ユーザーIDとパスワードが正しくない
+				$error_code = 200;
+			}
+		} catch ( Exception $e ) {
+			// データベース関連の例外発生
+			$error_code = 900;
+			// die();           // エラーメッセージを表示するためここではdie()しない
+		}
+		$pdo = null;
+	}
+	
+?>
+<br><br>
+<hr>
+</div>
+</body>
+</html>
+
+<!-- <php
+// 発生したエラー、例外を特定するコード番号を代入する
+	$error_code = 0;
+	
+	// 受信データの値の有効性チェック
+	if ( empty( $add ) || empty( $pass ) ) {
+		// 受信データが有効でない場合のエラーコード（その他のチェックは今回省略）
+		$error_code = 100;
+	} else {
+		try {
+			// 入力されたメールアドレスをキーに、データベースからデータを抽出
+			$sql = "select * from password where add = ? and pass = ?";
+			$stmt = $pdo->prepare( $sql );
+			$stmt->execute( [ $add, $pass ] );
+			$result = $stmt->fetch( );
+			if( empty( $result[ 'add' ] ) ) {
 				// empty()の戻り値がTRUE → データがない → ユーザーIDとパスワードが正しくない
 				$error_code = 200;
 			} else {
@@ -68,9 +105,4 @@
 		echo "管理者に連絡してください。<br><br>";
 		echo "<a href='login.html'>ログインページへ</a>";
 	}
-?>
-<br><br>
-<hr>
-</div>
-</body>
-</html>
+	?> -->

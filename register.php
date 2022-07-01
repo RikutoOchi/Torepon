@@ -9,7 +9,7 @@
 <div id="main">
 <?php
 	// 共通するデータ・関数を定義したPHPファイルを読み込む
-	require_once __DIR__ . '/util.php';
+	require_once __DIR__ . './loginpdo.php';
 
 	// 受信データを変数に格納
 	$ident = $_POST[ 'input_id' ];

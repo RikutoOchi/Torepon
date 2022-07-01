@@ -60,13 +60,11 @@
 
       </table>
     </div>
-
-
-    <!-- /mainコンテンツ -->
   </section>
  <!-- サイドコンテンツ -->
  <?php require_once('./temp/side.php'); ?>
  <!-- /サイドコンテンツ -->
+
 </main>
 <!-- /mainコンテンツ -->
 

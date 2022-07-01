@@ -16,23 +16,25 @@
         <!-- mainコンテンツ -->
         <section class="main-content">
             <!--検索結果-->
-            <div class="SearchResults">
+                <div class="SearchResults">
                 <h1 class="SearchKeyword">検索したキーワード</h1>
                 <ul class="Results">
-                    <li class="ResultItem"><img src="">
-                        <a hreF="./"></a>
+                    <li class="ResultItem"><img src="./images/keyholder1.png">
+                        <a class="Username" hreF="./">ユーザ名</a>
+                        <a class="Title" href="./">商品タイトル</a>
                     </li>
-                    <li class="ResultItem"><img src="">
-                        <a hreF="./"></a>
+                    <li class="ResultItem"><img src="./images/keyholder2.png">
+                        <a class="Username" hreF="./">ユーザ名</a>
+                        <a class="Title" href="./">商品タイトル</a>
                     </li>
-                    <li class="ResultItem"><img src="">
-                        <a hreF="./"></a>
+                    <li class="ResultItem"><img src="./images/keyholder3.png">
+                        <a class="Username" hreF="./">ユーザ名</a>
+                        <a class="Title" href="./">商品タイトル</a>
                     </li>
-                    <li class="ResultItem"><img src="">
-                        <a hreF="./"></a>
+                    <li class="ResultItem"><img src="./images/Hobby1.png">
+                        <a class="Username" hreF="./">ユーザ名</a>
+                        <a class="Title" href="./">商品タイトル</a>
                     </li>
-                </ul>
-            </div>
         </section>
     
 

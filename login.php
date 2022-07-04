@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 	<meta charset="UTF-8">
-	<title>ようこそ</title>
+	<title>ログイン</title>
 	<link rel="stylesheet" href="login.css">
 </head>
 <body>
@@ -13,12 +13,11 @@
 	require_once __DIR__ . './loginpdo.php';
 
 	// 受信データを変数に格納
-	if(isset($_POST['email'])){
+	
 		$add = $_POST['email'];
-	}
-	if(isset($_POST['password'])){
+	
 		$pass = $_POST['password'];
-	}
+	
 	
 	// 発生したエラー、例外を特定するコード番号を代入する
 	$error_code = 0;
@@ -35,7 +34,7 @@
 			$stmt->execute( [ $add, $pass ] );
 			$result = $stmt->fetch( );
 			if( empty( $result[ 'add' ] ) ) {
-				// empty()の戻り値がTRUE → データがない → ユーザーIDとパスワードが正しくない
+				// empty()の戻り値がTRUE → データがない → メールアドレスとパスワードが正しくない
 				$error_code = 200;
 			}
 		} catch ( Exception $e ) {
@@ -69,7 +68,7 @@
 			$stmt->execute( [ $add, $pass ] );
 			$result = $stmt->fetch( );
 			if( empty( $result[ 'add' ] ) ) {
-				// empty()の戻り値がTRUE → データがない → ユーザーIDとパスワードが正しくない
+				// empty()の戻り値がTRUE → データがない → メールアドレスとパスワードが正しくない
 				$error_code = 200;
 			} else {
 				// 入力されたユーザーIDとパスワードがデータベースと一致

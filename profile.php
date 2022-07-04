@@ -10,6 +10,18 @@
 <?php require_once("./temp/header.php"); ?>
 <!-- /ヘッダー -->
 
+<script type="text/javascript">
+  function disp(url){  
+    window.open(url, "window_name", "width=600,height=400,scrollbars=yes");
+  }
+</script>
+
+<script type="text/javascript">
+  function disp2(url){  
+    window.open(url, "window_name", "width=900,height=600,scrollbars=yes");
+  }
+</script>
+
     <main class="main-side-content">
       <section class="main-content">
         <!-- mainコンテンツ -->
@@ -21,9 +33,9 @@
           </div>
           <div class="box">
             <h3>
-              <p style="margin-left:50px">ユ ー ザ ー 名　：　<? $data['USER_NAME'] ?></p>
+              <p style="margin-left:50px">ユ ー ザ ー 名　：　</p>
               <br>
-              <p style="margin-left:50px" style="margin-top:50px">メールアドレス ：　<? $data['USER_NAME'] ?></p>
+              <p style="margin-left:50px" style="margin-top:50px">メールアドレス ：　</p>
               <br>
               <p style="margin-left:50px">自己紹介　　　</p>
               <div class="box2" style="margin-left:50px">
@@ -38,7 +50,7 @@
             <img class="img2" style="margin-left:30px" src="./images/test_2.jpg">
           </div>
           <div class="box">
-            <input type="button" style="margin-left:500px" class="btn" value="変更する" onClick="disp('./profile_data.html')"/>
+            <input type="button" style="margin-left:500px" class="btn" value="変更する" onclick="location.href='./profile_data.php'"/>
           </div>
         </div>
         

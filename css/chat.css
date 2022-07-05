@@ -53,8 +53,7 @@
 .UserIcon img {
   object-fit: cover;
 }
-.UserInfo {
-}
+
 .UserInfo-list {
   padding: 0;
   list-style: none;

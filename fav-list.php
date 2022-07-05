@@ -16,6 +16,7 @@
   <section class="main-content">
   <!-- mainコンテンツ -->
       <h1>お気に入りリスト</h1>
+      <div class="item-list"> 
       <div class="responsive">
         <div class="img">
         <a target="_blank" href="./ex-confirm.html">
@@ -50,6 +51,7 @@
         </a>
         <div class="desc">アイテム名</div>
         </div>
+      </div>
       </div>
 </section>
 

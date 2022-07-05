@@ -16,6 +16,7 @@
   <section class="main-content">
     <!-- mainコンテンツ -->
     <h1>出品リスト</h1>
+     <div class="item-list"> 
       <div class="responsive">
           <div class="img">
             <a target="_blank" href="./ex-confirm.html">
@@ -110,6 +111,7 @@
               <div class="desc">アイテム名</div>
             </div>
           </div>
+   </div>
   </section>
 
 

@@ -36,7 +36,7 @@
     if($judge != ''){
 
         // セッションスタート
-        session_start();  
+        session_start();
 
         // セッション変数に【ユーザーID、メールアドレス、ユーザー名、アイコン、ひと言】格納
         foreach($data as $row) {

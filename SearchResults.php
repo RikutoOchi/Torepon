@@ -25,25 +25,40 @@
                 //　検索文字列と一致 or 検索文字列が含まれる　に加工
                 $Searchdata = "%" . $text . "%";
 
-                //検索するSOL文
+                // タイトルで検索された場合
                 if ( $select == 'title' ) {
+
+                    // SQL文（抽出対象：ガチャタイトル、出品名）
                     $sql = "select EXHIBITS.EXHIBIT_PIC_URL,EXHIBITS.EXHIBIT_ID 
                             from EXHIBITS LEFT OUTER JOIN GACHA_TITLES ON EXHIBITS.GACHA_TITLE_ID = GACHA_TITLES.GACHA_TITLE_ID 
-                            where GACHA_TITLE_NAME LIKE '" . $Searchdata . "' or EXHIBITS.EXHIBIT_NAME LIKE '" . $Searchdata . "'";     // タイトルで検索された場合のSQL文（対象：ガチャタイトル、出品名）
+                            where GACHA_TITLE_NAME LIKE '" . $Searchdata . "' or EXHIBITS.EXHIBIT_NAME LIKE '" . $Searchdata . "'";
+                
+                // キャラクターで検索された場合
                 } elseif ( $select == 'character' ) {
+
+                    // SQL文（抽出対象：出品名）
                     $sql = "select EXHIBIT_PIC_URL,EXHIBIT_ID
                             from EXHIBITS
-                            where EXHIBIT_NAME LIKE '" . $Searchdata . "'";       // キャラクターで検索された場合のSQL文（対象：出品名）
+                            where EXHIBIT_NAME LIKE '" . $Searchdata . "'";
+
+                // 原作で検索された場合
                 } elseif ( $select == 'gensaku' ) {
+
+                    // SQL文（抽出対象：原作タイトル名、出品名）
                     $sql = "select EXHIBITS.EXHIBIT_PIC_URL,EXHIBITS.EXHIBIT_ID 
                     from ((EXHIBITS LEFT OUTER JOIN GACHA_TITLES ON EXHIBITS.GACHA_TITLE_ID = GACHA_TITLES.GACHA_TITLE_ID) 
                     LEFT OUTER JOIN ORIGINAL_TITLES ON GACHA_TITLES.ORIGINAL_TITLE_ID = ORIGINAL_TITLES.ORIGINAL_TITLE_ID)
-                    where ORIGINAL_TITLES.ORIGINAL_TITLE_NAME LIKE '" . $Searchdata . "' or EXHIBITS.EXHIBIT_NAME LIKE '" . $Searchdata . "'";                // 原作で検索された場合のSQL文（対象：原作タイトル名、出品名）
+                    where ORIGINAL_TITLES.ORIGINAL_TITLE_NAME LIKE '" . $Searchdata . "' or EXHIBITS.EXHIBIT_NAME LIKE '" . $Searchdata . "'";
+                
+                    // メーカーで検索された場合
                 } elseif ( $select == 'maker' ) {
+
+                    // SQL文（抽出対象：メーカー名、出品名）
                     $sql = "select EXHIBITS.EXHIBIT_PIC_URL,EXHIBITS.EXHIBIT_ID 
                             from ((EXHIBITS LEFT OUTER JOIN GACHA_TITLES ON EXHIBITS.GACHA_TITLE_ID = GACHA_TITLES.GACHA_TITLE_ID) 
                             LEFT OUTER JOIN MAKERS ON GACHA_TITLES.MAKER_ID = MAKERS.MAKER_ID)
-                            where MAKERS.MAKER_NAME LIKE '" . $Searchdata . "' or EXHIBITS.EXHIBIT_NAME LIKE '" . $Searchdata . "'";       // メーカーで検索された場合のSQL文（対象：メーカー名、出品名）
+                            where MAKERS.MAKER_NAME LIKE '" . $Searchdata . "' or EXHIBITS.EXHIBIT_NAME LIKE '" . $Searchdata . "'";
+                
                 } else {
                     /*　★★★ エラー表示 ★★★　*/
                 }

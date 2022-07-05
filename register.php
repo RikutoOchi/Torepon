@@ -12,7 +12,7 @@
 
     <main class="form-content">
       <p class="ttl-text">新規会員登録</p>
-      <form action="./" method="post">
+      <form action="./register_db.php" method="post" name="c_form">
         <label for="email" class="label-text">emailを入力してください。</label>
         <div class="email_box">
           <div class="text_inner">
@@ -30,7 +30,7 @@
           </div>
         </div>
         <div class="login-btn-center">
-          <input type="button" value="登録完了" class="login-btn" />
+          <input type="button" value="登録完了" class="login-btn" onclick="document.c_form.submit();"/>
         </div>
       </form>
       </main>

@@ -21,11 +21,11 @@
         }
       ?>
 
-      <form action="./login_db.php" method="post">
+      <form action="./login_db.php" method="post" name="b_form">
         <label for="email" class="label-text">emailを入力してください。</label>
         <div class="email_box">
           <div class="text_inner">
-            <input type="email" id="email" class="email_text" name="email" />
+            <input type="email" id="email" class="email_text" name="email"/>
             <div class="email_string">emailを入力</div>
           </div>
         </div>
@@ -34,12 +34,15 @@
         >
         <div class="password_box">
           <div class="text_inner">
-            <input type="password" id="password" class="password_text" />
+            <input type="password" id="password" class="password_text" name="password"/>
             <div class="password_string">passwordを入力</div>
           </div>
         </div>
         <div class="login-btn-center">
-         <a href="./login_db.php" class="testResult"> <input type="button" value="ログイン" class="login-btn" /></a>
+
+          <!--　変更　-->
+          <input type="button" value="ログイン" class="login-btn" onclick="document.b_form.submit();"/>
+          
         </div>
         <div class="link-center">
           <a href="">パスワードを変更したい、忘れた方はこちら</a><br />

@@ -7,22 +7,22 @@
           <h1 class="header-logo">
             <a href="./index.php"><img src="" alt="L" /></a>
           </h1>
-          <form action="./SearchResults.php" method="post" class="header-form">
+          <form action="./SearchResults.php" method="post" class="header-form" name="a_form">
             <select name="select" class="header-select">
               <option value="title">ガチャタイトル</option>
               <option value="character">キャラクター</option>
               <option value="gensaku">原作</option>
               <option value="maker">メーカー</option>
             </select>
-            <input
-              type="text"
-              placeholder="何かお探しですか？"
-              class="index-text"
-            />
+              <input
+                type="text"
+                placeholder="何かお探しですか？"
+                class="index-text"
+                name = "text"
+              />
             <span class="header-search-icon">
-              <a class="testResult" href="./SearchResults.php">
-                <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-                </a>
+              <a class="testResult" href="./SearchResults.php" onclick="document.a_form.submit();">
+              </a>
             </span>
           </form>
           <ul class="header-list">

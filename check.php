@@ -18,7 +18,7 @@
 
     
       <label>チケット残数:</label>
-      <a href = "./ticket-confirm.html">詳細</a><br><br><br>
+      <a href = "./ticket-confirm.php">詳細</a><br><br><br>
       
       <font size="5">チケット履歴</font>
       <table border="1">

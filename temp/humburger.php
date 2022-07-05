@@ -6,5 +6,7 @@
         <li class="nav-item"><a href="./fav-list.php">お気に入りリスト<a></li>
         <li class="nav-item"><a href="./check.php">チケット確認</a></li>
         <li class="nav-item"><a href="./login.php">ログイン</a></li>
+        <li class="nav-item"><a href="./chat.php">チャット</a></li>
+        <li class="nav-item"><a href="./tradelist.php">トレード中</a></li>
     </ul>
 </nav>

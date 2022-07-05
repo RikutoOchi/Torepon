@@ -25,7 +25,6 @@
     <main class="main-side-content">
       <section class="main-content">
         <!-- mainコンテンツ -->
-
         <div class="boxContainer">
           <div class="box relative" >
             <img class="img" style="margin-left:30px" src="<?= $_SESSION['user_icon_url'] ?>">
@@ -53,11 +52,11 @@
             <input type="button" style="margin-left:500px" class="btn" value="変更する" onclick="location.href='./profile_data.php'"/>
           </div>
         </div>
-        
+          
         <div>
           <p style="margin-left:140px">評価</p>
         </div>
-        
+          
         <h2>
           <br>
           <p style="margin-left:30px">取引実績</p>
@@ -76,6 +75,8 @@
             </div>
           </h3>
         </div>
+
+
 
 <!--
   

@@ -12,6 +12,19 @@
 
     <main class="form-content">
       <p class="ttl-text">新規会員登録</p>
+
+      <!-- エラー内容の表示 -->
+      <?php if($judge == 1){ ?>
+        
+
+      } elseif($judge == 2){
+
+      } elseif($judge == 3){
+
+      } elseif($judge == 4){
+
+      }
+
       <form action="./register_db.php" method="post" name="c_form">
         <label for="email" class="label-text">emailを入力してください。</label>
         <div class="email_box">

@@ -212,20 +212,27 @@ button {
 /*********************************/
 
 .side-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   min-height: 100%;
   padding: 0 10px;
-  border-left: 1px solid #000;
+  border-left: 1px solid gray;
   background-color: #fff;
 }
 
 .ad-list {
   list-style: none;
-  margin: 0;
+  margin: 30px 0;
   padding: 0;
 }
 
 .ad-item {
   margin-top: 30px;
+}
+.ad-item:first-of-type {
+  margin-top: 0;
 }
 
 .ad-item img {
@@ -243,7 +250,7 @@ button {
 /*         ハンバーガー            */
 /*********************************/
 .humburger-nav {
-  border-left: 1px solid #000;
+  border-left: 1px solid gray;
   background-color: #f2f2f2;
   position: fixed;
   transition: all 0.3s;

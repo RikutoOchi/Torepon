@@ -12,11 +12,20 @@
   <body>
     <main class="form-content">
       <p class="ttl-text">ログイン</p>
-      <form action="./" method="post">
+
+      <!-- 追記 -->
+      <?php
+        // "パスワード" もしくは "メールアドレス" に誤りがあった場合（ログイン試行　2回目～）
+        if ( isset($_GET['data']) ) {
+          // ★★★　パスワード もしくは メールアドレス に誤りがある旨の文を表示　★★★
+        }
+      ?>
+
+      <form action="./login_db.php" method="post">
         <label for="email" class="label-text">emailを入力してください。</label>
         <div class="email_box">
           <div class="text_inner">
-            <input type="email" id="email" class="email_text" />
+            <input type="email" id="email" class="email_text" name="email" />
             <div class="email_string">emailを入力</div>
           </div>
         </div>
@@ -30,7 +39,7 @@
           </div>
         </div>
         <div class="login-btn-center">
-         <a href="./index.php" class="testResult"> <input type="button" value="ログイン" class="login-btn" /></a>
+         <a href="./login_db.php" class="testResult"> <input type="button" value="ログイン" class="login-btn" /></a>
         </div>
         <div class="link-center">
           <a href="">パスワードを変更したい、忘れた方はこちら</a><br />

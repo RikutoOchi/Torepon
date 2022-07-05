@@ -16,7 +16,7 @@
         <label for="email" class="label-text">emailを入力してください。</label>
         <div class="email_box">
           <div class="text_inner">
-            <input type="email" id="email" class="email_text" />
+            <input type="email" id="email" class="email_text" name="email" />
             <div class="email_string">emailを入力</div>
           </div>
         </div>
@@ -25,7 +25,7 @@
         >
         <div class="password_box">
           <div class="text_inner">
-            <input type="password" id="password" class="password_text" />
+            <input type="password" id="password" class="password_text" name="password" />
             <div class="password_string">passwordを入力</div>
           </div>
         </div>

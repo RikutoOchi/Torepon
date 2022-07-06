@@ -32,11 +32,16 @@
             <li class="header-item">
               <a href="./news.php" class="news-btn">お知らせ</a>
             </li>
-            <li class="header-item">
-              <div class="icon-wrapper">
-                <a href="./profile.php"><i class="fa-solid fa-circle-user fa-2x"></i></i></a>
-              </div>
-            </li>
+
+            <!--　修正　ログアウト時は非表示に修正 -->
+            <?php if(isset($_SESSION['user_name']) == True) { ?> 
+              <li class="header-item">
+                <div class="icon-wrapper">
+                  <a href="./profile.php"><i class="fa-solid fa-circle-user fa-2x"></i></i></a>
+                </div>
+              </li>
+            <?php } ?>
+            
             <button class="burger-btn">
                 <span class="bar bar_top"></span>
                 <span class="bar bar_mid"></span>

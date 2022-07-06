@@ -14,16 +14,36 @@
       <p class="ttl-text">新規会員登録</p>
 
       <!-- エラー内容の表示 -->
-      <?php if($judge == 1){ ?>
-        
+      <?php
 
-      } elseif($judge == 2){
+        // 試行2回目～
+        if ( isset($_GET['mail']) ) {
+          $mail = $_GET['mail'];        // メールアドレス
+          // $length = $_GET['length'];    // パスワードの長さ
+          // $spel = $_GET['spel'];        // パスワードに使われている文字
+        }
 
-      } elseif($judge == 3){
+        if($mail == 10){
 
-      } elseif($judge == 4){
+          // ↓要修正
+          echo 'メールアドレスが正しくありません';    // 有効なメールアドレスでない旨のメッセージを表示
+          
+        } elseif ($mail == 20) {
 
-      }
+          // ↓要修正
+          echo 'メールアドレスは既に登録されています';    // メールアドレスが既に登録されている旨のメッセージを表示
+          
+        }
+
+        /*
+        if($length == False){
+
+          echo 'パスワードは6文字以上12文字以内';    // 有効なパスワードの長さでない旨のメッセージを表示
+
+        }
+        */
+
+      ?>
 
       <form action="./register_db.php" method="post" name="c_form">
         <label for="email" class="label-text">emailを入力してください。</label>
@@ -38,7 +58,7 @@
         >
         <div class="password_box">
           <div class="text_inner">
-            <input type="password" id="password" class="password_text" name="password" />
+            <input type="password" id="password" class="password_text" name="password"/>
             <div class="password_string">passwordを入力</div>
           </div>
         </div>

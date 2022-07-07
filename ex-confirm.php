@@ -1,6 +1,6 @@
 <?php
   // 送られてきた商品番号を受け取る（エスケープ処理は不要）
-  $exhibit_id = 3; //$_GET['ident'];
+  $exhibit_id = 2; //$_GET['ident'];
 
   // Dbdataオブジェクトを生成する
   require_once __DIR__ . './classes/dbdata.php';

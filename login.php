@@ -14,15 +14,10 @@
       <p class="ttl-text">ログイン</p>
 
       <!-- 追記 -->
-      <?php
-        // "パスワード" もしくは "メールアドレス" に誤りがあった場合（ログイン試行　2回目～）
-        if ( isset($_GET['data']) ) {
-
-          // ↓要修正
-          echo 'パスワード もしくは メールアドレス に誤りがあります';   // パスワード もしくは メールアドレス に誤りがある旨の文を表示
-        
-        }
-      ?>
+      <?php if ( isset($_GET['data']) ) { ?>
+        <h3><font color="red"><center><?php echo 'パスワード もしくは メールアドレス に誤りがあります' ?></center></font></h3>
+        <br>
+      <?php } ?>
 
       <form action="./login_db.php" method="post" name="b_form">
         <label for="email" class="label-text">emailを入力してください。</label>

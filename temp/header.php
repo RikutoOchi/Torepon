@@ -33,7 +33,7 @@
             </li>
 
             <!--　修正　ログアウト時は非表示に修正 -->
-            <?php if(isset($_SESSION['user_name']) == True) { ?> 
+            <?php if(isset($_SESSION['user_id']) == True) { ?> 
               <li class="header-item">
                 <div class="icon-wrapper">
                   <a href="./profile.php"><i class="fa-solid fa-circle-user fa-2x"></i></i></a>

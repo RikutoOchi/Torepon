@@ -18,9 +18,14 @@
 
             <!-- mainコンテンツ -->
             <?php
+
+                require_once __DIR__ . './classes/dbdata.php';
+
                 //検索ワードを受け取る
                 $select = $_POST['select'];
                 $text = $_POST['text'];
+
+                $exh = new Dbdata();
 
                 //　検索文字列と一致 or 検索文字列が含まれる　に加工
                 $Searchdata = "%" . $text . "%";
@@ -32,6 +37,8 @@
                     $sql = "select EXHIBITS.EXHIBIT_PIC_URL,EXHIBITS.EXHIBIT_ID 
                             from EXHIBITS LEFT OUTER JOIN GACHA_TITLES ON EXHIBITS.GACHA_TITLE_ID = GACHA_TITLES.GACHA_TITLE_ID 
                             where GACHA_TITLE_NAME LIKE '" . $Searchdata . "' or EXHIBITS.EXHIBIT_NAME LIKE '" . $Searchdata . "'";
+
+                    $data = $exh->getRecord_0($sql);
                 
                 // キャラクターで検索された場合
                 } elseif ( $select == 'character' ) {
@@ -41,6 +48,8 @@
                             from EXHIBITS
                             where EXHIBIT_NAME LIKE '" . $Searchdata . "'";
 
+                    $data = $exh->getRecord_0($sql);
+
                 // 原作で検索された場合
                 } elseif ( $select == 'gensaku' ) {
 
@@ -49,7 +58,9 @@
                             from ((EXHIBITS LEFT OUTER JOIN GACHA_TITLES ON EXHIBITS.GACHA_TITLE_ID = GACHA_TITLES.GACHA_TITLE_ID) 
                             LEFT OUTER JOIN ORIGINAL_TITLES ON GACHA_TITLES.ORIGINAL_TITLE_ID = ORIGINAL_TITLES.ORIGINAL_TITLE_ID)
                             where ORIGINAL_TITLES.ORIGINAL_TITLE_NAME LIKE '" . $Searchdata . "' or EXHIBITS.EXHIBIT_NAME LIKE '" . $Searchdata . "'";
-                
+                    
+                    $data = $exh->getRecord_0($sql);
+
                     // メーカーで検索された場合
                 } elseif ( $select == 'maker' ) {
 
@@ -58,29 +69,12 @@
                             from ((EXHIBITS LEFT OUTER JOIN GACHA_TITLES ON EXHIBITS.GACHA_TITLE_ID = GACHA_TITLES.GACHA_TITLE_ID) 
                             LEFT OUTER JOIN MAKERS ON GACHA_TITLES.MAKER_ID = MAKERS.MAKER_ID)
                             where MAKERS.MAKER_NAME LIKE '" . $Searchdata . "' or EXHIBITS.EXHIBIT_NAME LIKE '" . $Searchdata . "'";
-                
+                    
+                    $data = $exh->getRecord_0($sql);
+
                 } else {
                     /*　★★★ エラー表示 ★★★　*/
                 }
-
-                // DB接続に必要なやつ
-                $pdo = new PDO(
-                    'mysql:host=localhost;dbname=torepon;charset=utf8',     //　mysql:host=localhost;dbname="作成したデータベース名”;charset=utf8
-                    'shopping',     // ユーザー名
-                    'site');        // パスワード 
-
-                //検索結果を$data1,data2に格納
-                $data1 = $pdo->query($sql);
-                $data2 = $pdo->query($sql);
-
-                // 接続終了
-                unset($pdo);
-
-                // 検索結果の有無を調べる為のもの
-                foreach ($data1 as $row){ 
-                    $judge = $row['EXHIBIT_ID'];
-                }
-
             ?>
 
             <!-- 検索結果 -->
@@ -89,19 +83,13 @@
                 <h1 class="SearchKeyword"><? $text ?></h1>
 
                     <!-- 検索結果が1つ以上ある場合 -->
-                    <?php if( empty( $judge ) == false){ ?>
-                        
-                        <?php foreach ($data2 as $row){ ?>
-                            <ul class="Results">
-                                <a href="ex-confirm.php?data=<?php $row['EXHIBIT_ID'] ?>">
-                                    <img src="<?= $row['EXHIBIT_PIC_URL'] ?>">
-                                </a>
-                            </ul>
-                        <?php } ?>
-
-                    <!-- 検索結果が0場合  -->
+                    <?php if( empty( $data ) == false){ ?>
+                        <ul class="Results">
+                            <a href="ex-confirm.php?data=<?php $data['EXHIBIT_ID'] ?>">
+                                <img src="<?= $data['EXHIBIT_PIC_URL'] ?>">
+                            </a>
+                        </ul>
                     <?php } else { ?>
-                        <!-- 検索結果が0の画面や表示を記載 -->
                         <?php echo '検索結果：０件' ?>
                     <?php } ?>
 

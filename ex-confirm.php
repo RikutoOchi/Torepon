@@ -1,16 +1,21 @@
 <?php
   // 送られてきた商品番号を受け取る（エスケープ処理は不要）
-  $exhibit_id = 1; //$_GET['ident'];
-  // Productオブジェクトを生成する
-  require_once __DIR__ . './classes/product.php';
-  $product = new Product();
-  // Userオブジェクトを生成する
-  require_once __DIR__ . './classes/user.php';
-  $user = new User();
+  $exhibit_id = 3; //$_GET['ident'];
+
+  // Dbdataオブジェクトを生成する
+  require_once __DIR__ . './classes/dbdata.php';
+  $exh = new Dbdata();
   // 選択された商品を取り出す
-  $exhibit = $product->getExhibit($exhibit_id);
+  $exhibit = $exh->getRecord('exhibits','EXHIBIT_ID',$exhibit_id);
+  // Dbdataオブジェクトを生成する
+  $usr = new Dbdata();
   // 出品者情報を取り出す
-  $exhibit_user = $user->getUser($exhibit['USER_ID']);
+  $exhibit_user = $usr->getRecord('users','USER_ID',$exhibit['USER_ID']);
+
+  // Dbdataオブジェクトを生成する
+  $gch = new Dbdata();
+  // ガチャタイトルを取り出す
+  $exhibit_gacha = $gch->getRecord('gacha_titles','GACHA_TITLE_ID',$exhibit['GACHA_TITLE_ID']);
 ?>
 <!-- ヘッドの全体に関わる共有部分 -->
 <?php require_once('./temp/head.php'); ?>
@@ -45,13 +50,13 @@
             <div class="icon-wrapper" style="float:left ;">
               <a href="./profile.html"><i class="fa-solid fa-circle-user fa-2x"></i></i></a>
             </div>
-            <p><?= $exhibit['USER_ID'] ?><?= $exhibit_user['USER_NAME'] ?></p>
+            <p><?= $exhibit_user['USER_NAME'] ?></p>
             <br>
             <p>出品日時</p>
             <p><?= $exhibit['EXHIBIT_TIME'] ?></p>
             <hr>
             <p>ガシャポンタイトル</p>
-            <p><?= $exhibit['GACHA_TITLE_ID'] ?></p>
+            <p><?= $exhibit_gacha['GACHA_TITLE_NAME'] ?></p>
             <hr>
             <p>タグ</p>
             <p><?= $exhibit['TAG_TEXT'] ?></p>
@@ -64,8 +69,7 @@
             <p>必要枚数</p>
             <p><?= $exhibit['NUMBER_OF_TICKETS'] ?>枚</p>
             <hr>
-            動物キーホルダーvol.1のクマのキーホルダーです。<br>
-            開封済みですが未使用で保存しているので状態は良いと思います。<br>
+            <?= $exhibit['EXHIBIT_TEXT'] ?>
             <hr>
             <h2>取引申請</h2>
             <textarea class="dealingrequest-textarea" type="text"></textarea>

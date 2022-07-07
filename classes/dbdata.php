@@ -20,7 +20,14 @@
           $stmt = $this->pdo->prepare( $sql );                      
           $stmt->execute( $array_params );                      
           return  $stmt;          // PDOステートメントオブジェクトを返すのでfetch( )、fetchAll( )で結果セットを取得           
-      }                     
+      } 
+      public function getRecord($table,$column,$id){
+        $sql = "select * from $table where $column = ?";
+        $stmt = $this->query($sql, [$id]);
+        $record = $stmt->fetch();
+        return $record;
+    }
+                          
                       
       protected function exec ( $sql,  $array_params ) {  // INSERT、UPDATE、DELETE文実行用のメソッド
           $stmt = $this->pdo->prepare( $sql );                      

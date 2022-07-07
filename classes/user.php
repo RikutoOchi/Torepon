@@ -13,7 +13,7 @@
         //}
 
         // 選択された商品を取り出す
-        public function getUser($User_id){
+        public function getUser($user_id){
             $sql = "select * from users where USER_ID = ?";
             $stmt = $this->query($sql, [$user_id]);
             $user = $stmt->fetch();

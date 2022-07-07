@@ -32,13 +32,13 @@
           </div>
           <div class="box">
             <h3>
-              <p style="margin-left:50px">ユ ー ザ ー 名　：　<?php echo $_SESSION['user_name'] ?> </p>
+              <p style="margin-left:50px">ユ ー ザ ー 名　：　<?php echo 'abcd xxx'//$_SESSION['user_name'] ?> </p>
               <br>
               <p style="margin-left:50px" style="margin-top:50px">メールアドレス ：　<?php echo $_SESSION['mail'] ?></p>
               <br>
               <p style="margin-left:50px">自己紹介　　　</p>
               <div class="box2" style="margin-left:50px">
-                <?php echo $_SESSION['user_text'] ?>
+                <?php echo 'はじめまして、こんにちは！！'//$_SESSION['user_text'] ?>
               </div>
             </h3>
           </div>

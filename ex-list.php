@@ -19,7 +19,7 @@
      <div class="item-list"> 
         <div class="responsive">
           <div class="img">
-            <a target="_blank" href="./ex-confirm.html">
+            <a target="_blank" href="./ex-confirm.php">
               <img
                 src=".\images\keyholder_kuma.png"
                 alt="くま"

@@ -15,7 +15,7 @@
     } else{
 
         // 入力されたメールアドレスが、 " MAIL_ADDRESS " に登録されている場合、ユーザーIDを取り出す
-        $sql = "select USER_ID from USERS where MAIL_ADDRESS = '" . $Searchdata . "'";
+        $sql = "select USER_ID from USERS where MAIL_ADDRESS = '" . $email . "'";
 
         // DB接続に必要なやつ
         $pdo = new PDO('mysql:host=localhost;dbname=torepon;charset=utf8',     //　mysql:host=localhost;dbname="作成したデータベース名”;charset=utf8
@@ -32,16 +32,18 @@
             $judge = $row['USER_ID'];
         }
 
-        if($judge == ''){
+        if( isset($_GET['data']) ){
             $mail = 20;
             $judge = False;
+        } else {
+            $mail = 0;
         }
 
     }
 
     // パスワードのチェック
         // ※文字数制限：6文字以上12文字以下　であるかの確認
-    if(preg_match('{6,12}', $password) == 0){
+    if(mb_strlen($password) < 6 || mb_strlen($password) > 12){
         $length = False;
         $judge = False;
     }
@@ -60,7 +62,7 @@
 
 
     if($judge == False){
-        header('Location:register.php?mail=' . $mail . '');
+        header('Location:register.php?mail=' . $mail . '&length=' . $length . '');
         // header('Location:register.php?mail=' . $mail . '"&length=' . $length . '"&spel' . $spel . '"');
     }else{
         // DB接続に必要なやつ【★★★ 後で、アレした方が良い　★★★】
@@ -82,7 +84,7 @@
         unset($pdo);
 
         // 再度login.phpへ
-        header('Location:login.php');
+        header('Location:login.php');       // 登録完了しました画面　→　ログイン画面
     }
 
 ?>

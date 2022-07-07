@@ -1,249 +1,105 @@
-/*ヘッダー、フッター、ハンバーガー、広告*/
-
-/**********************************/
-/*              base             */
-/*********************************/
-
-.main-side-content {
-  display: grid;
-  padding-top: 70px; /*ヘッダー分の空白*/
-  grid-template-columns: 1fr 300px;
-}
 .main-content {
-  padding: 20px 10px;
+  padding: 70px 0 0 0;
+}
+.side-content {
+  padding-top: 70px;
+}
+.chat-main-side-container {
+  font-size: 1.4rem;
+  display: grid;
+  /*ヘッダー分の空白*/
+  grid-template-columns: 300px 1fr 300px;
+  min-height: 100vh;
 }
 
 /**********************************/
-/*            ヘッダー            */
+/*     　 チャットユーザー         */
 /*********************************/
-.header {
-  width: 100%;
-  position: fixed;
-  z-index: 999;
-  top: 0;
-  left: 0;
-  background-color: #ffaaaa;
-  border-bottom: 1px solid #000;
+
+.ChatUser-disp {
+  overflow-y: scroll;
+  padding-top: 58px;
+  background-color: #fff;
+  border-right: 1px solid gray;
 }
-.header-wrapper {
-  max-width: 1200px;
-  margin: 0 auto;
+.ChatUser-list {
+  padding: 0;
 }
-.header-innder {
+.ChatUser {
+  padding: 10px;
+  list-style: none;
+  border-bottom: 1px solid gray;
+}
+.ChatUser a {
+  text-decoration: none;
   width: 100%;
-  padding: 10px 20px;
+  height: 100%;
+  display: block;
+  color: #000;
+  margin: -10px 0;
+  padding: 10px 0;
+}
+.ChatUser-detail {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+}
+.UserIcon {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+  border: 1px solid #000;
+  border-radius: 50%;
+}
+.UserIcon img {
+  object-fit: cover;
 }
 
-.header-form {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.header-logo {
-  width: 50px;
-  height: 50px;
-}
-.header-logo a {
-  display: block;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-}
-.header-logo img {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background-color: gray;
-}
-.header-select {
-  padding: 8px;
-  margin-right: 20px;
-}
-.header-select:focus {
-  box-shadow: 0 0 5px 0 rgb(237, 117, 101);
-  border: 2px solid #fff !important;
-  transition: 0.3s;
-  outline: 0;
-}
-.index-text {
-  padding: 8px;
-  width: 300px;
-}
-.index-text:focus {
-  box-shadow: 0 0 5px 0 rgb(237, 117, 101);
-  transition: 0.3s;
-  border: 2px solid #fff !important;
-  outline: 0;
-}
-.header-list {
-  list-style: none;
-  margin: 0;
+.UserInfo-list {
   padding: 0;
+  list-style: none;
   display: flex;
-  align-items: center;
-  justify-content: end;
 }
-.header-item {
-  margin-right: 20px;
+.UserName {
+  padding: 0;
+  margin-right: 10px;
 }
-.news-btn {
-  text-decoration: none;
-  color: #000;
-  background-color: #fff;
-  padding: 3px 6px;
-  border: 1px solid #000;
-}
-.news-btn:hover {
-  opacity: 0.7;
-}
-.icon-wrapper a {
-  text-decoration: none;
-  display: block;
+.UserId {
   color: gray;
 }
-.icon-wrapper a:hover {
-  opacity: 0.7;
+.UserId::before {
+  content: "@";
 }
-.icon-wrapper i {
-  display: block;
-}
-
-button {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  outline: none;
-  padding: 0;
-  appearance: none;
-}
-.burger-btn {
-  display: block;
-}
-.burger-btn .bar {
-  display: block;
-  height: 4px;
-  width: 30px;
-  background-color: #000;
-  transition: 0.3s;
-  border-radius: 5px;
-}
-.bar_top,
-.bar_mid {
-  margin-bottom: 5px;
-}
-.burger-btn.cross .bar_top {
-  transform: rotate(45deg) translate(6px, 6px);
-  transition: 0.3s;
-}
-.burger-btn.cross .bar_mid {
-  opacity: 0;
-  transition: 0.3s;
-}
-.burger-btn.cross .bar_bottom {
-  transform: rotate(-45deg) translate(6px, -6px);
-  transition: 0.3s;
-}
-.header-search-icon {
-  position: absolute;
-  right: 2%;
-}
-/**********************************/
-/*            広告                */
-/*********************************/
-
-.side-content {
-  min-height: 100%;
-  padding: 0 10px;
-  border-left: 1px solid #000;
-}
-.ad-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.ad-item {
-  margin-top: 30px;
-}
-.ad-item img {
-  width: 250px;
-  height: 150px;
-  margin: 0 auto;
-  border: 1px solid #000;
-}
-.ad-item:last-of-type {
-  margin-bottom: 30px;
+.ChatHistory {
+  color: gray;
 }
 
 /**********************************/
-/*         ハンバーガー            */
+/*            チャット            */
 /*********************************/
 
-.humburger-nav {
-  border-left: 1px solid #000;
-  background-color: #f2f2f2;
-  position: fixed;
-  transition: all 0.3s;
-  text-align: center;
-  right: -120%;
-  width: 300px;
-  height: 100vh;
+.message-content {
+  width: 100%;
+  height: 80vh;
+  background: white;
+  font-size: 1.6rem;
+  overflow-y: scroll;
 }
-.humburger-nav.active {
-  right: 0;
-}
-.nav-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-.nav-item {
-  margin-top: 20px;
-}
-.nav-item a {
-  text-decoration: none;
-  color: #000;
-}
-.nav-item a:hover {
-  opacity: 0.7;
-}
-
-/**********************************/
-/*           フッター             */
-/*********************************/
-.footer {
-  color: #f2f2f2;
-  border-top: 1px solid #000;
-  background-color: gray;
-}
-.footer-wrapper {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-.footer-inner {
-  text-align: center;
-}
-.copy-text {
-  padding: 20px 0;
-}
-
 /*フレームとフォント*/
 .kaiwa.imessage {
-  width: 100%;
-  max-width: 700px;
-  margin: 40px;
-  padding: 30px 50px;
-  border: 3px #ddd solid;
-  background: white;
-  font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",
-    "Helvetica Neue", "Lucida Sans Unicode", "Arial";
-  font-size: 30px;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px 0;
   color: #333;
   line-height: 1.4;
-  overflow: hidden;
+  list-style: none;
+  margin-bottom: 30px;
+}
+.message-disp {
+  display: flex;
+  align-items: center;
+}
+.message-disp.right {
+  flex-direction: row-reverse;
 }
 /*フキダシ共通*/
 .kaiwa.imessage .fukidasi {
@@ -258,17 +114,15 @@ button {
   box-sizing: content-box; /*はてな用*/
 }
 /*しっぽをつけないとき*/
-.kaiwa.imessage .fukidasi.notail {
+.kaiwa.imessage .fukidasiright.notail {
   margin-bottom: 0;
 }
 /*フキダシ左*/
 .kaiwa.imessage .fukidasi.left {
-  float: left;
   background: #e9e9ed;
 }
 /*フキダシ右*/
 .kaiwa.imessage .fukidasi.right {
-  float: right;
   background: #2793fa;
   color: white;
 }
@@ -282,32 +136,78 @@ button {
 }
 /*しっぽ左*/
 .kaiwa.imessage .fukidasi.left::after {
-  left: -6px;
-  border-radius: 0px 0 17px 0px/ 0px 0 13px 0;
-  box-shadow: -14px 2px 0 -3px #e9e9ed inset;
+  left: -4px;
+  bottom: -1px;
+  transform: rotate(35deg);
+  border-radius: 0px 0 20px 0px/ 0px 0 13px 0;
+  box-shadow: -14px 1px 0 -3px #e9e9ed inset;
 }
 /*しっぽ右*/
 .kaiwa.imessage .fukidasi.right::after {
-  right: -6px;
+  right: -3px;
+  bottom: -1px;
+  transform: rotate(-35deg);
   border-radius: 0px 0 0 17px/ 0px 0 0 13px;
   box-shadow: 14px 2px 0 -3px #2793fa inset;
 }
 
 .my-message {
-  text-align: center;
-  margin: 30px;
-  font-size: 40%;
+  position: absolute;
+  background-color: #ffc0c0;
+  bottom: 0;
+  left: 300px;
+  right: 300px;
+  padding: 4px 30px;
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  border-top: 1px gray solid;
+  justify-content: space-between;
+}
+.my-message a {
+  text-decoration: none;
+  color: #000;
+}
+.my-message a:hover {
+  opacity: 0.7;
+}
+.message-send {
+  width: 300px;
+  font-size: 1.6rem;
+  border-radius: 30px;
+  line-height: 2;
+  padding: 0 10px;
+  margin-right: 5px;
+  border: #333 1px solid;
+}
+.message-send:focus {
+  outline: none;
+  border: #333 1px solid;
 }
 
-.button {
-  border-radius: 10%;
-  font-size: 20pt;
-  text-align: center;
+/* iOSでのデフォルトスタイルをリセット */
+input[type="submit"],
+input[type="button"] {
+  border-radius: 0;
+  -webkit-box-sizing: content-box;
+  -webkit-appearance: button;
+  appearance: button;
+  border: none;
+  box-sizing: border-box;
   cursor: pointer;
-  padding: 8px 30px;
-  background: #007fff;
-  color: #ffff;
-  line-height: 1em;
-  transition: 0.3s;
-  border: 1px solid #000;
+}
+input[type="submit"]::-webkit-search-decoration,
+input[type="button"]::-webkit-search-decoration {
+  display: none;
+}
+input[type="submit"]::focus,
+input[type="button"]::focus {
+  outline-offset: -2px;
+}
+/*広告を３つにする*/
+.chat-ad .ad-none {
+  display: none;
+}
+.fa-paper-plane {
+  color: #2793fa;
 }

@@ -13,11 +13,25 @@
 
     <main class="form-content">
       <p class="ttl-text">新規会員登録</p>
-      <form action="./" method="post">
+
+      <!-- エラー内容の表示 -->
+      <?php if($judge == 1){ 
+        
+
+      } elseif($judge == 2){
+
+      } elseif($judge == 3){
+
+      } elseif($judge == 4){
+
+      }
+      ?>
+
+      <form action="./register_db.php" method="post" name="c_form">
         <label for="email" class="label-text">emailを入力してください。</label>
         <div class="email_box">
           <div class="text_inner">
-            <input type="email" id="email" class="email_text" />
+            <input type="email" id="email" class="email_text" name="email" />
             <div class="email_string">emailを入力</div>
           </div>
         </div>
@@ -26,12 +40,12 @@
         >
         <div class="password_box">
           <div class="text_inner">
-            <input type="password" id="password" class="password_text" />
+            <input type="password" id="password" class="password_text" name="password" />
             <div class="password_string">passwordを入力</div>
           </div>
         </div>
         <div class="login-btn-center">
-          <input type="button" value="登録完了" class="login-btn" />
+          <input type="button" value="登録完了" class="login-btn" onclick="document.c_form.submit();"/>
         </div>
       </form>
       </main>

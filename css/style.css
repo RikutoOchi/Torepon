@@ -1,7 +1,9 @@
 /*ヘッダー、フッター、ハンバーガー、広告*/
 
 /**********************************/
+
 /*              base             */
+
 /*********************************/
 
 .main-side-content {
@@ -18,7 +20,9 @@
 }
 
 /**********************************/
+
 /*            ヘッダー            */
+
 /*********************************/
 
 .header {
@@ -116,12 +120,14 @@ select {
   padding: 8px;
   width: 300px;
 }
+
 .index-text:focus {
   box-shadow: 0 0 5px 0 #ef5923;
   transition: 0.3s;
   border: 2px solid #fff !important;
   outline: 0;
 }
+
 .index-text:focus {
   box-shadow: 0 0 5px 0 #ef5923;
   transition: 0.3s;
@@ -208,7 +214,9 @@ button {
 }
 
 /**********************************/
+
 /*            広告                */
+
 /*********************************/
 
 .side-content {
@@ -247,8 +255,11 @@ button {
 }
 
 /**********************************/
+
 /*         ハンバーガー            */
+
 /*********************************/
+
 .humburger-nav {
   border-left: 1px solid gray;
   background-color: #f2f2f2;
@@ -264,42 +275,55 @@ button {
 .humburger-nav.active {
   right: 0;
 }
+
 .nav-list {
   list-style: none;
   padding: 0;
   margin: 0;
 }
+
 .nav-item {
   margin-top: 20px;
 }
+
 .nav-item a {
   text-decoration: none;
   color: #000;
 }
+
 .nav-item a:hover {
   opacity: 0.7;
 }
 
 /**********************************/
+
 /*           フッター             */
+
 /*********************************/
+
 .footer {
   color: #f2f2f2;
   border-top: 1px solid #000;
   background-color: gray;
 }
+
 .footer-wrapper {
   max-width: 1200px;
   margin: 0 auto;
 }
+
 .footer-inner {
   text-align: center;
 }
+
 .copy-text {
   padding: 20px 0;
 }
+
 /**********************************/
+
 /*         メインコンテンツ         */
+
 /*********************************/
 
 /*人気タグ*/
@@ -324,14 +348,17 @@ button {
   background-color: rgb(255, 243, 165);
   border-radius: 5px;
 }
+
 .PopularTags a {
   text-decoration: none;
   color: black;
 }
+
 .PopularTags a {
   text-decoration: none;
   color: black;
 }
+
 /*おすすめアイテム*/
 
 .RecommendedItems {
@@ -361,10 +388,12 @@ button {
   transform: scale(100%);
   border: none;
 }
+
 .testResult {
   text-decoration: none;
   color: black;
 }
+
 .goods-list {
   list-style: none;
   display: grid;
@@ -373,21 +402,27 @@ button {
   text-align: center;
   padding: 0 20px;
 }
+
 .goods-list a {
   text-decoration: none;
   color: #000;
 }
+
 .goods-item {
   border: 1px solid #000;
   height: 150px;
 }
+
 /**********************************/
+
 /*           メイン　             */
+
 /*********************************/
 
 .box {
   display: flex;
 }
+
 .fashionable-box1 {
   display: inline-block;
   margin: 5em 3em 0em 8em;
@@ -415,9 +450,11 @@ button {
   margin: 0;
   padding: 0px;
 }
+
 .sub-ttl {
   margin-top: 40px;
 }
+
 .ResultItem img {
   width: 250px;
   height: 150px;
@@ -425,4 +462,23 @@ button {
   border: 1px solid #000;
   border-radius: 25px;
   object-fit: cover;
+}
+
+/**********************************/
+
+/*           検索結果画面　       */
+
+/*********************************/
+
+.SearchResults li {
+  float: left;
+  list-style: none;
+  padding: 3px;
+}
+
+.SearchKeyword {
+  text-align: center;
+}
+
+.Results {
 }

@@ -207,8 +207,6 @@ button {
   right: 2%;
 }
 
-
-
 /**********************************/
 /*            広告                */
 /*********************************/
@@ -258,6 +256,7 @@ button {
   transition: all 0.3s;
   text-align: center;
   right: -120%;
+  top: 70px;
   width: 300px;
   height: 100vh;
 }

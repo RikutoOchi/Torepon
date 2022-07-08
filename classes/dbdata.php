@@ -27,11 +27,15 @@
         $record = $stmt->fetch();
         return $record;
     }
+<<<<<<< HEAD
         public function getRecord_0($sql){
             $stmt = $this->query($sql, []);
             $record = $stmt->fetch();
             return $record;
     }               
+=======
+                          
+>>>>>>> 1bb0ac7857dfe42a446226bd82a7f49d96e348f6
                       
       protected function exec ( $sql,  $array_params ) {  // INSERT、UPDATE、DELETE文実行用のメソッド
           $stmt = $this->pdo->prepare( $sql );                      

@@ -66,13 +66,21 @@
           </div>
           <div class="box">
             <h3>
+<<<<<<< HEAD
               <p style="margin-left:50px">ユ ー ザ ー 名　：　<?php if(isset($user_name)) { echo $user_name; } else { echo ''; } ?></p>
+=======
+              <p style="margin-left:50px">ユ ー ザ ー 名　：　<?php echo 'abcd xxx'//$_SESSION['user_name'] ?> </p>
+>>>>>>> 1bb0ac7857dfe42a446226bd82a7f49d96e348f6
               <br>
               <p style="margin-left:50px" style="margin-top:50px">メールアドレス ：　<?php if(isset($mail)) { echo $mail; } else { echo ''; } ?></p>
               <br>
               <p style="margin-left:50px">自己紹介　　　</p>
               <div class="box2" style="margin-left:50px">
+<<<<<<< HEAD
                 <?php if(isset($user_text)) { echo $user_text; } else { echo ''; } ?>
+=======
+                <?php echo 'はじめまして、こんにちは！！'//$_SESSION['user_text'] ?>
+>>>>>>> 1bb0ac7857dfe42a446226bd82a7f49d96e348f6
               </div>
             </h3>
           </div>

@@ -10,12 +10,14 @@
             <a href="./index.php"><img src="" alt="L" /></a>
           </h1>
           <form action="./SearchResults.php" method="post" class="header-form" name="a_form">
-            <select name="select" class="header-select">
+            <div class="select-block">
+            <select name="select" class="header-select custom-select-trigger">
               <option value="title">ガチャタイトル</option>
               <option value="character">キャラクター</option>
               <option value="gensaku">原作</option>
               <option value="maker">メーカー</option>
             </select>
+            </div>
               <input
                 type="text"
                 placeholder="何かお探しですか？"

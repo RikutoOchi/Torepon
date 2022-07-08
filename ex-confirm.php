@@ -1,6 +1,6 @@
 <?php
   // 送られてきた商品番号を受け取る（エスケープ処理は不要）
-  $exhibit_id = 2; //$_GET['ident'];
+  $exhibit_id = $_GET['id'];
 
   // Dbdataオブジェクトを生成する
   require_once __DIR__ . './classes/dbdata.php';
@@ -64,16 +64,16 @@
             <!-- </ul> -->
             <hr>
             <p> 必要チケット</p>
-            <p><?= $exhibit['TICKET_TYPE_ID'] ?></p>
+            <p><?= $exhibit_gacha['GACHA_TITLE_NAME'] ?>用チケット</p>
             <br>
             <p>必要枚数</p>
             <p><?= $exhibit['NUMBER_OF_TICKETS'] ?>枚</p>
             <hr>
             <?= $exhibit['EXHIBIT_TEXT'] ?>
             <hr>
-            <h2>取引申請</h2>
+            <h2>トレード申請</h2>
             <textarea class="dealingrequest-textarea" type="text"></textarea>
-            <button class="dealingrequest-button">取引申請する</button>
+            <button class="dealingrequest-button">トレード申請する</button>
           </div>
         </div>
 

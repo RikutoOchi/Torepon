@@ -6,12 +6,12 @@
       public function __construct( ) {   // コンストラクタ     
           // PDOオブジェクトを生成する                     
           $dsn = 'mysql:host=localhost;dbname=torepon;charset=utf8';                     
-          $user = 'shopping';                     
-          $password = 'site';                     
+          $user = 'root';                     
+          $password = '';                     
           try{                      
               $this->pdo = new PDO($dsn, $user, $password);                     
           } catch(Exception  $e){                     
-              echo 'Error:' . $e->getMessage( );                      
+              echo 'Error:' . $e->getMessage( );              
               die( );                     
           }                     
       }                     
@@ -26,6 +26,12 @@
         $stmt = $this->query($sql, [$id]);
         $record = $stmt->fetch();
         return $record;
+    }
+      public  function  getRecords ($table,$column,$value) {
+        $sql = "select * from $table where $column = ?";
+        $stmt = $this->query($sql, [$value]);
+        $records = $stmt->fetchAll( );
+        return  $records;
     }
                           
                       

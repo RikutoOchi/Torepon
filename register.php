@@ -35,7 +35,7 @@
         <?php } ?>
 
 
-      <form action="./register_db.php" method="post" name="c_form">
+      <form action="./register_check.php" method="post" name="c_form">
         <label for="email" class="label-text">emailを入力してください。</label>
         <div class="email_box">
           <div class="text_inner">
@@ -53,7 +53,7 @@
           </div>
         </div>
         <div class="login-btn-center">
-          <input type="button" value="登録完了" class="login-btn" onclick="document.c_form.submit();"/>
+          <input type="button" value="次へ" class="login-btn" onclick="document.c_form.submit();"/>
         </div>
       </form>
     </main>

@@ -22,23 +22,57 @@
   }
 </script>
 
+<?php
+
+  $data1 = $_SESSION['user_id'];
+
+  $sql = "select MAIL_ADDRESS,USER_NAME,USER_ICON_URL,USER_TEXT,USER_RATING
+          from USERS
+          where USER_ID = '" . $data1 . "'";   // ★★useridを入れる
+
+  // DB接続に必要なやつ
+  $pdo = new PDO(
+      'mysql:host=localhost;dbname=torepon;charset=utf8',     //　mysql:host=localhost;dbname="作成したデータベース名”;charset=utf8
+      'shopping',     // ユーザー名
+      'site');        // パスワード 
+
+  //検索結果を$data1,data2に格納
+  $data = $pdo->query($sql);
+
+  // 接続終了
+  unset($pdo);
+
+  foreach($data as $row){
+    $user_icon_url = $row['USER_ICON_Url'];
+    $user_name = $row['USER_NAME'];
+    $mail = $row['MAIL_ADDRESS'];
+    $user_text = $row['USER_TEXT'];
+    $user_rating = $row['USER_RATING'];
+  }
+
+  if($user_rating = 1) {
+    
+  }
+
+?>
+
     <main class="main-side-content">
       <section class="main-content">
         <!-- mainコンテンツ -->
         <div class="boxContainer">
           <div class="box relative" >
-            <img class="img" style="margin-left:30px" src="<?= $_SESSION['user_icon_url'] ?>">
+            <img class="img" style="margin-left:30px" src="<?= $user_icon_url ?>">
             <input type="button" class="btn2 absolute" style="margin-left:20px" value="変更する" onClick="disp2('./profile_pict.html')"/>
           </div>
           <div class="box">
             <h3>
-              <p style="margin-left:50px">ユ ー ザ ー 名　：　<?php echo $_SESSION['user_name'] ?> </p>
+              <p style="margin-left:50px">ユ ー ザ ー 名　：　<?php if(isset($user_name)) { echo $user_name; } else { echo ''; } ?></p>
               <br>
-              <p style="margin-left:50px" style="margin-top:50px">メールアドレス ：　<?php echo $_SESSION['mail'] ?></p>
+              <p style="margin-left:50px" style="margin-top:50px">メールアドレス ：　<?php if(isset($mail)) { echo $mail; } else { echo ''; } ?></p>
               <br>
               <p style="margin-left:50px">自己紹介　　　</p>
               <div class="box2" style="margin-left:50px">
-                <?php echo $_SESSION['user_text'] ?>
+                <?php if(isset($user_text)) { echo $user_text; } else { echo ''; } ?>
               </div>
             </h3>
           </div>
@@ -46,7 +80,7 @@
 
         <div class="boxContainer">
           <div class="box">
-            <img class="img2" style="margin-left:30px" src="./images/test_2.jpg">
+            <img class="img2" style="margin-left:30px" src="">
           </div>
           <div class="box">
             <input type="button" style="margin-left:500px" class="btn" value="変更する" onclick="location.href='./profile_data.php'"/>

@@ -82,26 +82,12 @@
                 <h1 class="SearchKeyword"><?php $text ?></h1>
 
                     <!-- 検索結果が1つ以上ある場合 -->
-<<<<<<< HEAD
                     <?php if( empty( $data ) == false){ ?>
                         <ul class="Results">
                             <a href="ex-confirm.php?data=<?php $data['EXHIBIT_ID'] ?>">
                                 <img src="<?= $data['EXHIBIT_PIC_URL'] ?>">
                             </a>
                         </ul>
-=======
-                    <?php if( empty( $judge ) == false){ ?>
-                        
-                        <?php foreach ($data2 as $row){ ?>
-                            <ul class="Results">
-                                <li><a href="ex-confirm.php?data=<?php $row['EXHIBIT_ID'] ?>">
-                                    <img src="<?= $row['EXHIBIT_PIC_URL'] ?>">
-                                </a></li>
-                            </ul>
-                        <?php } ?>
-
-                    <!-- 検索結果が0場合  -->
->>>>>>> 1bb0ac7857dfe42a446226bd82a7f49d96e348f6
                     <?php } else { ?>
                         <?php echo '検索結果：０件' ?>
                     <?php } ?>

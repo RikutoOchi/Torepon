@@ -92,9 +92,9 @@
                         
                         <?php foreach ($data2 as $row){ ?>
                             <ul class="Results">
-                                <a href="ex-confirm.php?data=<?php $row['EXHIBIT_ID'] ?>">
+                                <li><a href="ex-confirm.php?data=<?php $row['EXHIBIT_ID'] ?>">
                                     <img src="<?= $row['EXHIBIT_PIC_URL'] ?>">
-                                </a>
+                                </a></li>
                             </ul>
                         <?php } ?>
 

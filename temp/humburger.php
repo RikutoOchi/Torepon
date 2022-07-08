@@ -7,6 +7,7 @@
             <li class="nav-item"><a href="./ex-list.php">出品リスト</a></li>
             <li class="nav-item"><a href="./fav-list.php">お気に入りリスト<a></li>
             <li class="nav-item"><a href="./check.php">チケット確認</a></li>
+            <li class="nav-item"><a href="./chat.php">チャット</a></li>
         <?php } ?>
         <!--　修正（ログイン時→"ログアウト"、ログアウト時→"ログイン"　表記になるように修正） -->
         <?php if(isset($_SESSION['user_name']) == False){ ?>

@@ -1,3 +1,4 @@
+
 <!-- ヘッドの全体に関わる共有部分 -->
 <?php require_once('./temp/head.php'); ?>
 <!-- /ヘッドの全体に関わる共有部分 -->
@@ -18,44 +19,54 @@
         <div class="Disp-Post">
             <h1>商品の出品</h1>
             <div class="Display_images">
-                <h1>出品したい物の画像 （最大5枚）</h1>
+                <form action="./ex-add.php" method="post" enctype="multipart/form-data" >
+                <h1>出品したい物の画像</h1>
                 <div class="disp_img">
+                    <!--
                     <form method="post" enctype="multipart/form-data" accept=".png, .jpg, .jpeg, .pdf, .doc">
                         <input type="file" name="avatar">
                         <button type="submit">送信する</button>
                     </form>
+                    -->
+                    
+                        <input type="file" name="upload" size="30" />
+                        
+                    
                 </div>
 
                 <div class="Product_Deta">
                     <h1>商品の詳細</h1>
 
-                    <h2>ジャンル</h2>
-                    <select name="pref" class="Genre_pref">
-                            <option value="G1">ジャンル１</option>
-                            <option value="G2">ジャンル2</option>
-                            <option value="G3">ジャンル3</option>
-                    </select>
+                    
 
                     <h2>商品名</h2>
-                    <input type="text" name="name" class="Product_name" maxlength="50" />
+                    <input type="text" name="exhibit_name" class="Product_name" maxlength="50" />
+
+                    <h2>シリーズタイトル</h2>
+                    <select name="gacha_title_id" class="Genre_pref">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                    </select>
 
                     <h2>商品の説明</h2>
-                    <textarea class="Product_description" rows="10" cols="60" placeholder="ここに記入してください"></textarea>
+                    <textarea name="exhibit_text" class="Product_description" rows="10" cols="60" placeholder="ここに記入してください"></textarea>
 
-                    <h2>必要なチケットのジャンル</h2>
-                    <select name="pref" class="Ticet_pref">
-                            <option value="G1">ジャンル１</option>
-                            <option value="G2">ジャンル2</option>
-                            <option value="G3">ジャンル3</option>
+                    <h2>必要チケット</h2>
+                    <select name="ticket_type_id" class="Ticet_pref">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
                     </select>
 
                     <h2>枚数</h2>
-                    <input type="number" name="name" class="Ticket_required" max="10" min="1" />
+                    <input type="number" name="number_of_tickets" class="Ticket_required" max="10" min="1" />
 
                     <div class="exhibit">
-                        <a href="" class="btn btn--yellow btn--cubic">出品する!</a>
+                    <button class="btn btn--yellow btn--cubic" type="submit" >出品する!</button>
                     </div>
                 </div>
+                </form>
             </div>
         </div>
 

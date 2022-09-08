@@ -27,10 +27,10 @@
         $record = $stmt->fetch();
         return $record;
     }
-        public function getRecord_0($sql){
-            $stmt = $this->query($sql, []);
-            $record = $stmt->fetch();
-            return $record;
+      public function getRecord_0($sql){
+        $stmt = $this->query($sql, []);
+        $record = $stmt->fetchall();
+        return $record;
     }               
 
       protected function exec ( $sql,  $array_params ) {  // INSERT、UPDATE、DELETE文実行用のメソッド

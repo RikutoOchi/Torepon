@@ -43,7 +43,7 @@
 
         </div>
         <div class="link-center">
-          <a href="">パスワードを変更したい、忘れた方はこちら</a><br />
+          <a href="password_change.php">パスワードを変更したい、忘れた方はこちら</a><br />
           <a href="register.php">新規会員登録はこちら</a>
         </div>
       </form>

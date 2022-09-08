@@ -11,6 +11,10 @@
     if(empty($data) == False){
         session_start();
         $_SESSION['user_id'] = $data;   // ユーザーID
+
+
+        
+
         header('Location:index.php');
     }else{
         header('Location:login.php?data=1');

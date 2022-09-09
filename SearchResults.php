@@ -151,9 +151,23 @@
 
             <div class="SearchResults">
 
-                    <h1>検索結果</h1><br>
+                    <font size="4">絞り込み条件</font><br>
+                    <font size="2">
+                        <?php if($sort_id == 0){ ?>
+                            　キャラクター名：<input type="text" name="kyara"><br>
+                        <?php }elseif($sort_id == 1) {?>
+                            　ガチャタイトル：<input type="text" name="kyara"><br>
+                        <?php } ?>
+                        　出　品　日　時：<input type="date" name="kyara">～<input type="date" name="kyara"><br>
+                        　チケット種類　：<input type="text" name="kyara"><br>
+                        　チケット枚数　：<input type="text" name="kyara">～<input type="text" name="kyara">　<input type="button" value="絞り込む" class="search" onclick="location.href='SearchResults.php?sort_id=1'"/><br><br>
+                    </font>
+                    <!--
+                        <br><br><input type="button" value="詳細な条件から絞り込む" class="search" onclick="location.href='SearchResults.php?sort_id=1'"/>
+                    -->
 
-                    <label>並び順</label><br>
+                    <h2 style=display:inline;>検索結果</h2>
+                    <br><label>　ソート順：</label>
                     <?php if($sort_id == 0){ ?>
                         <input type="button" value="新しい順" class="sort-btn" style="background-color:#87CEFA" onclick="location.href='SearchResults.php?sort_id=0'"/>
                         <input type="button" value="古い順" class="sort-btn" onclick="location.href='SearchResults.php?sort_id=1'"/>

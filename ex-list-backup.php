@@ -20,7 +20,7 @@
 require_once __DIR__ . './classes/dbdata.php';
 $exh = new Dbdata();
 // 選択された商品を取り出す
-$exhibits = $exh->getRecord('exhibits','USER_ID',$_SESSION['user_id']);
+$exhibits = $exh->getRecords('exhibits','USER_ID',$_SESSION['user_id']);
 ?>
 
 <main class="main-side-content">

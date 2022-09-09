@@ -37,14 +37,26 @@
                 <iframe src="./Carousel_tests/carousel_test.html"></iframe>
             </div>
             <!-- 商品リスト -->
+
+            <!-- 追記 -->
+            <?php
+                require_once __DIR__ . './classes/dbdata.php';
+                $exh = new Dbdata();
+                $sql = "select EXHIBIT_ID,EXHIBIT_NAME,EXHIBIT_PIC_URL from EXHIBITS ORDER BY EXHIBIT_TIME LIMIT 6";
+                $data = $exh->getRecord_0($sql);
+            ?>
+            <!---------->
+
             <h1 class="sub-ttl">新着アイテム</h1>
             <ul class="goods-list">
-               <a href="./ex-confirm.php"><li class="goods-item">グッズ１</li></a> 
-               <a href="./ex-confirm.php"><li class="goods-item">グッズ２</li></a> 
-               <a href="./ex-confirm.php"><li class="goods-item">グッズ３</li></a>
-               <a href="./ex-confirm.php"><li class="goods-item">グッズ４</li></a> 
-               <a href="./ex-confirm.php"><li class="goods-item">グッズ５</li></a>
-               <a href="./ex-confirm.php"><li class="goods-item">グッズ6</li></a>
+                <?php foreach($data as $data_part){ ?>
+                    <a href="./ex-confirm.php?ident=<?php echo $data_part['EXHIBIT_ID'] ?>">
+                        <li class="goods-item">
+                            <?php $data_part['EXHIBIT_NAME'] ?>
+                            <img src="<?= $data_part['EXHIBIT_PIC_URL'] ?>" />
+                        </li>
+                    </a>
+                <?php } ?>
             </ul>        
         </section>
 

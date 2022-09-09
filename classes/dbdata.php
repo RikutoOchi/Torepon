@@ -27,15 +27,13 @@
         $record = $stmt->fetch();
         return $record;
     }
-      public  function  getRecords ($table,$column,$value) {
-        $sql = "select * from $table where $column = ?";
-        $stmt = $this->query($sql, [$value]);
-        $records = $stmt->fetchAll( );
-        return  $records;
-    }
-                          
-                      
-      protected function exec ( $sql,  $array_params ) {  
+      public function getRecord_0($sql){
+        $stmt = $this->query($sql, []);
+        $record = $stmt->fetchall();
+        return $record;
+    }               
+
+      protected function exec ( $sql,  $array_params ) {  // INSERT、UPDATE、DELETE文実行用のメソッド
           $stmt = $this->pdo->prepare( $sql );                      
           return  $stmt->execute( $array_params ); 
       }                     

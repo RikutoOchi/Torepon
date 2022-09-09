@@ -1,4 +1,3 @@
-
 <!-- ヘッドの全体に関わる共有部分 -->
 <?php require_once('./temp/head.php'); ?>
 <!-- /ヘッドの全体に関わる共有部分 -->
@@ -16,28 +15,26 @@
 
       <!-- エラー内容の表示 -->
       <?php
-        // 試行2回目～
         if ( isset($_GET['mail']) ) {
           $mail = $_GET['mail'];        // メールアドレス
           $length = $_GET['length'];    // パスワードの長さ
           // $spel = $_GET['spel'];        // パスワードに使われている文字
       ?>
           <?php if($mail == 10){ ?>
-            <p><center><?php echo 'メールアドレスが正しくありません' ?></center></p>    <!-- 有効なメールアドレスでない旨のメッセージを表示 -->
+            <h3><font color="red"><center><?php echo 'メールアドレスが正しくありません' ?></center></font></h3>    <!-- 有効なメールアドレスでない旨のメッセージを表示 -->
             <br>
             <?php } elseif ($mail == 20) { ?>
-            <p><center><?php echo 'メールアドレスは既に登録されています' ?></center></p>    <!-- メールアドレスが既に登録されている旨のメッセージを表示 -->
+            <h3><font color="red"><center><?php echo 'メールアドレスは既に登録されています' ?></center></font></h3>    <!-- メールアドレスが既に登録されている旨のメッセージを表示 -->
             <br>
             <?php } elseif ($mail == 0) { ?>
             <?php if($length == False){ ?>
-              <p><center><?php echo 'パスワードは6文字以上12文字以内' ?></center></p>    <!-- 有効なパスワードの長さでない旨のメッセージを表示 -->
+              <h3><font color="red"><center><?php echo 'パスワードは6文字以上12文字以内にしてください' ?></center></font></h3>    <!-- 有効なパスワードの長さでない旨のメッセージを表示 -->
               <br>
               <?php } ?>
           <?php } ?>
         <?php } ?>
 
-
-      <form action="./register_db.php" method="post" name="c_form">
+      <form action="./register_check.php" method="post" name="c_form">
         <label for="email" class="label-text">emailを入力してください。</label>
         <div class="email_box">
           <div class="text_inner">
@@ -46,7 +43,7 @@
           </div>
         </div>
         <label for="password" class="label-text">
-          パスワードを入力してください</label
+          パスワードを入力してください　　※6文字以上12文字以内</label
         >
         <div class="password_box">
           <div class="text_inner">
@@ -55,10 +52,9 @@
           </div>
         </div>
         <div class="login-btn-center">
-          <input type="button" value="登録完了" class="login-btn" onclick="document.c_form.submit();"/>
+          <input type="button" value="次へ" class="login-btn" onclick="document.c_form.submit();"/>
         </div>
       </form>
     </main>
   </body>
 </html>
-

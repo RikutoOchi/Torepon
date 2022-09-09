@@ -9,7 +9,7 @@
           <h1 class="header-logo">
             <a href="./index.php"><img src="" alt="L" /></a>
           </h1>
-          <form action="./SearchResults.php" method="post" class="header-form" name="a_form">
+          <form action="./data retention.php" method="post" class="header-form" name="a_form">
             <div class="select-block">
             <select name="select" class="header-select custom-select-trigger">
               <option value="title">ガチャタイトル</option>
@@ -25,7 +25,7 @@
                 name = "text"
               />
             <span class="header-search-icon">
-              <a class="testResult" href="./SearchResults.php" onclick="document.a_form.submit();">
+              <a class="testResult" href="./data retention.php" onclick="document.a_form.submit();">
               </a>
             </span>
           </form>
@@ -35,7 +35,7 @@
             </li>
 
             <!--　修正　ログアウト時は非表示に修正 -->
-            <?php if(isset($_SESSION['user_name']) == True) { ?> 
+            <?php if(isset($_SESSION['user_id']) == True) { ?> 
               <li class="header-item">
                 <div class="icon-wrapper">
                   <a href="./profile.php"><i class="fa-solid fa-circle-user fa-2x"></i></i></a>

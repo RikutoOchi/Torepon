@@ -33,6 +33,11 @@
         $records = $stmt->fetchAll( );
         return  $records;
     }
+    public function getRecord_0($sql){
+        $stmt = $this->query($sql, []);
+        $record = $stmt->fetchall();
+        return $record;
+    }   
                           
                       
       protected function exec ( $sql,  $array_params ) {  

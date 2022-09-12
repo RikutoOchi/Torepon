@@ -5,5 +5,5 @@
     $_SESSION["select"] = $_POST['select'];
     $_SESSION["text"] = $_POST['text'];
 
-    header('Location:SearchResults.php?sort_id=0');
+    header('Location:SearchResults.php?sort_id=0&sarch_id=0');
 ?>

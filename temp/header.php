@@ -9,7 +9,7 @@
           <h1 class="header-logo">
             <a href="./index.php"><img src="" alt="L" /></a>
           </h1>
-          <form action="./data retention.php" method="post" class="header-form" name="a_form">
+          <form action="./data retention?no=1.php" method="post" class="header-form" name="a_form">
             <div class="select-block">
             <select name="select" class="header-select custom-select-trigger">
               <option value="title">ガチャタイトル</option>
@@ -25,7 +25,7 @@
                 name = "text"
               />
             <span class="header-search-icon">
-              <a class="testResult" href="./data retention.php" onclick="document.a_form.submit();">
+              <a class="testResult" href="./data retention?no=1.php" onclick="document.a_form.submit();">
               </a>
             </span>
           </form>

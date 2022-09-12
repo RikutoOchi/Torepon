@@ -69,7 +69,7 @@
         <?php foreach($data as $data_part){ ?>
           <div class="responsive">
             <div class="img">
-              <a target="_blank" href="./ex-confirm.php?ident=<?php echo $data_part['EXHIBIT_ID'] ?>">
+              <a target="_blank" href="./ex-confirm.php?id=<?php echo $data_part['EXHIBIT_ID'] ?>">
                 <img src="<?= $data_part['EXHIBIT_PIC_URL'] ?>" />
               </a>
               <div class="desc">

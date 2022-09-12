@@ -1,90 +1,54 @@
 <?php
-    // データを受け取る
-    $email = $_POST['email'];           // メールアドレス
-    $password = $_POST['password'];     // パスワード
+    // セッション再開
+    session_start();
 
-    $judge = True;
-
-    // メールアドレスチェック（入力されたものが "メールアドレス" かどうかの確認）
-    if(filter_var($email, FILTER_VALIDATE_EMAIL) == False){
-
-        $mail = 10;
-        $judge = False;
-
-    // メールアドレスチェック（入力されたものが、既に登録されていないかの確認）
-    } else{
-
-        // 入力されたメールアドレスが、 " MAIL_ADDRESS " に登録されている場合、ユーザーIDを取り出す
-        $sql = "select USER_ID from USERS where MAIL_ADDRESS = '" . $email . "'";
-
-        // DB接続に必要なやつ
-        $pdo = new PDO('mysql:host=localhost;dbname=torepon;charset=utf8',     //　mysql:host=localhost;dbname="作成したデータベース名”;charset=utf8
-                        'shopping',     // ユーザー名
-                        'site');        // パスワード 
-
-        // SQL文実行
-        $judge = $pdo->query($sql);
-
-        // 接続終了
-        unset($pdo);
-
-        foreach ($judge as $row){ 
-            $judge = $row['USER_ID'];
-        }
-
-        if( isset($_GET['data']) ){
-            $mail = 20;
-            $judge = False;
-        } else {
-            $mail = 0;
-        }
-
+    if( empty($_POST['code']) == True ) {
+        header('Location:register_certification.php?data=1');
     }
 
-    // パスワードのチェック
-        // ※文字数制限：6文字以上12文字以下　であるかの確認
-    if(mb_strlen($password) < 6 || mb_strlen($password) > 12){
-        $length = False;
-        $judge = False;
-    }
+    // データ取得
+    $output_code = $_SESSION['code'];       // 送信した認証コード
+    $input_code = $_POST['code'];           // ユーザーが入力した認証コード
 
+    // 正しい認証コードであった場合
+    if($output_code == $input_code ){
+        // データを取得
+        $mail = $_SESSION['mail'];
+        $password = $_SESSION['password'];
 
-    /* ----- 【パスワードは。英大文字+英小文字+数字　を含むもの】等としていする場合用 -----
+        // セッションを初期化
+        $_SESSION = array();
 
-    // パスワードのチェック
-        // ※英大文字＋英小文字＋数字が入っているか　の確認
-    if(preg_match('/^[a-z]+$/', $password) == 0 || preg_match('/^[A-Z]+$/', $password) == 0 || preg_match('/^[0-9]+$/', $password) == 0){
-        $spel = False;
-        $judge = False;
-    }
-
-    ------------------------------------------------------------------------------------ */
-
-
-    if($judge == False){
-        header('Location:register.php?mail=' . $mail . '&length=' . $length . '');
-        // header('Location:register.php?mail=' . $mail . '"&length=' . $length . '"&spel' . $spel . '"');
-    }else{
         // DB接続に必要なやつ【★★★ 後で、アレした方が良い　★★★】
         $pdo = new PDO(
             'mysql:host=localhost;dbname=torepon;charset=utf8',     //　mysql:host=localhost;dbname="作成したデータベース名”;charset=utf8
             'shopping',     // ユーザー名
-            'site');        // パスワード 
-
+            'site');
+                    // パスワード 
         $pdo->query('SET NAMES utf8;');
-            
+
         //SQL文の実行
         $stmt = $pdo->prepare('INSERT INTO USERS(MAIL_ADDRESS,USER_PASSWORD) VALUES(:mail,:pass)');
-
-        $stmt->bindValue(':mail', $email, PDO::PARAM_STR);
+        $stmt->bindValue(':mail', $mail, PDO::PARAM_STR);
         $stmt->bindValue(':pass', $password, PDO::PARAM_STR);
 
         //DB切断
         $stmt->execute();
         unset($pdo);
 
-        // 再度login.phpへ
-        header('Location:login.php');       // 登録完了しました画面　→　ログイン画面
-    }
-
 ?>
+
+
+        <!-- ★★★  ここのデザイン  ★★★ -->
+        <h1><center>新規登録が完了しました。</center></h1>
+        <br>
+        <h2><center>ログイン画面より、ログインしてください。</center></h2>
+        <br>
+        <br>
+        <a href='./login.php'><h3><center>ログイン画面へ</center></h3></a>
+        <!------------------------------------>
+
+
+    <?php } else {
+        header('Location:register_certification.php?data=1');
+    } ?>

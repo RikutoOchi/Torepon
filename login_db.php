@@ -17,8 +17,8 @@
     // DB接続に必要なやつ【★★★ 後で、アレした方が良い　★★★】
     $pdo = new PDO(
         'mysql:host=localhost;dbname=torepon;charset=utf8',     //　mysql:host=localhost;dbname="作成したデータベース名”;charset=utf8
-        'root',     // ユーザー名
-        '');        // パスワード 
+        'shopping',     // ユーザー名
+        'site');        // パスワード 
 
     //検索結果を格納
     $judge_data = $pdo->query($sql_judge);

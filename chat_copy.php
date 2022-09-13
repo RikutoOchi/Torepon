@@ -35,52 +35,53 @@
   </section>
   <!-- チャットユーザーリストの表示 -->
 
-  <?php
-
-    $user = $_SESSION['user_id'];   // 自分のuser_idの取得
-    $trade_id = 1;
-
-    // 取引IDからtime順d－田尾取ってくる
-
-    require_once __DIR__ . './classes/dbdata.php';
-    $exh = new Dbdata();
-
-    $sql = "select CHAT_TEXT,USER_ID 
-            from CHATS
-            where TRADE_ID = '" . $trade_id . "' ORDER BY CHAT_TIME";
-
-    $data = $exh->getRecord_0($sql);
-
-  ?>
-
   <section class="main-content">
     <!-- /mainコンテンツ -->
     <!--追加-->
     <div class="message-content">
       <ul class="kaiwa imessage">
+        <li class="message-disp left">
+          <div class="UserIcon"><img src="" alt=""></div>
+          <p class="fukidasi left">初めまして！！</p>                         
+        </li>
+        
+     
+        <li class="message-disp right">
+          <div class="UserIcon"><img src="" alt=""></div>
+          <p class="fukidasi right">初めまして、こんにちはー</p> 
+        </li>
+        <li class="message-disp right">
+          <div class="UserIcon"><img src="" alt=""></div>
+          <p class="fukidasi right">クマのキーホルダー欲しいのですが、良かったら交換してください…</p> 
+        </li>
+        <li class="message-disp left">
+          <div class="UserIcon"><img src="" alt=""></div>
+          <p class="fukidasi left">クマのキーホルダーと交換になりますか？</p>
+        </li>
+        <li class="message-disp right">
+          <div class="UserIcon"><img src="" alt=""></div>
+          <p class="fukidasi right">〇〇と交換でどうでしょうか？</p> 
+        </li>
+        <li class="message-disp left">
+          <div class="UserIcon"><img src="" alt=""></div>
+          <p class="fukidasi left">〇〇ですね、了解しました！</p>
+        </li>
+        <li class="message-disp left">
+          <div class="UserIcon"><img src="" alt=""></div>
+          <p class="fukidasi left">よろしくお願いします。</p>
+        </li>
+        <li class="message-disp right">
+          <div class="UserIcon"><img src="" alt=""></div>
+          <p class="fukidasi right">こちらこそ、よろしくお願いします！</p> 
+        </li>
 
-        <?php foreach($data as $data_detail) { ?>
-          <?php if($data_detail['USER_ID'] == $user) { ?>
-            <li class="message-disp left">
-              <div class="UserIcon"><img src="" alt=""></div>
-              <p class="fukidasi left"><?php echo $data_detail['CHAT_TEXT'] ?></p>                         
-            </li>
-          <?php } else { ?>
-            <li class="message-disp right">
-              <div class="UserIcon"><img src="" alt=""></div>
-              <p class="fukidasi right"><?php echo $data_detail['CHAT_TEXT'] ?></p> 
-            </li>
-          <?php } ?>
-        <?php } ?>
       </ul>
    
     <div class="my-message">
     <a href = "cancel.html">取引キャンセル申請</a>
       <div>
-        <form action="./chat_db.php" method="post" name="chat_form">
-          <input class="message-send" type="text" placeholder="メッセージを入力" name="chat_text">
-          <button><i class="fa-solid fa-paper-plane"></i></button>
-        </form>
+      <input class="message-send" type="text" placeholder="メッセージを入力">
+      <button><i class="fa-solid fa-paper-plane"></i></button>
       </div>
       
     </div>

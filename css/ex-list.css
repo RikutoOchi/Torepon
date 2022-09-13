@@ -1,8 +1,12 @@
+div.item-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 10px;
+}
+.responsive {
+}
 .img {
-  margin: 10px;
   border: 3px solid #ccc;
-  float: left;
-  width: 270px;
 }
 
 div.img:hover {
@@ -11,10 +15,13 @@ div.img:hover {
 
 div.img img {
   width: 100%;
-  height: 300;
+  height: 200px;
 }
 
 div.desc {
-  padding: 15px;
-  text-align: center;
+  padding: 5px;
+  height: 65px; /*カードの高さ270px = 画像200 + padding5 + height65px*/
+  display: flex; /*---上下左右中央揃え---*/
+  align-items: center;
+  justify-content: center; /*---/上下左右中央揃え---*/
 }

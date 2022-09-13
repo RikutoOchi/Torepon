@@ -4,14 +4,14 @@
 
 <!-- ↓↓↓　ここに各画面専用のスタイルのリンクタグを書きます ↓↓↓ -->
 
-<!-- <link rel="stylesheet" href=""> -->
+<link rel="stylesheet" href="./css/check.css">
 
 <!-- ↑↑↑　/ここに各画面専用のスタイルのリンクタグを書きます　↑↑↑ -->
 
 <!-- ヘッダー -->
 <?php require_once("./temp/header.php"); ?>
 <!-- /ヘッダー -->
-    <main class="main-side-content">
+<main class="main-side-content">
       <section class="main-content">
     </dl>
 
@@ -61,10 +61,9 @@
       </table>
     </div>
   </section>
- 
-<!-- サイドコンテンツ -->
-<?php require_once('./temp/side.php'); ?>
-<!-- /サイドコンテンツ -->
+ <!-- サイドコンテンツ -->
+ <?php require_once('./temp/side.php'); ?>
+ <!-- /サイドコンテンツ -->
 
 </main>
 <!-- /mainコンテンツ -->

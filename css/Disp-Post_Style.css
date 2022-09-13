@@ -423,7 +423,7 @@ button {
     margin: auto;
     width: 600px;
     height: 200px;
-    border: 1px #000 dotted;
+    border: 1px #000 solid;
 }
 
 .Product_Deta {
@@ -439,7 +439,6 @@ button {
     width: 400px;
     height: 50px;
     font-size: 20px;
-    box-shadow: 0 3px 8px 0 rgba(0, 0, 0, .5);
 }
 
 .Product_name {
@@ -447,14 +446,12 @@ button {
     width: 500px;
     height: 50px;
     font-size: 20px;
-    box-shadow: 0 3px 8px 0 rgba(0, 0, 0, .5);
 }
 
 .Product_description {
     width: 500px;
     font-size: 15px;
     resize: vertical;
-    box-shadow: 0 3px 8px 0 rgba(0, 0, 0, .5);
 }
 
 .Ticet_pref {
@@ -462,7 +459,6 @@ button {
     width: 400px;
     height: 50px;
     font-size: 20px;
-    box-shadow: 0 3px 8px 0 rgba(0, 0, 0, .5);
 }
 
 .Ticket_required {
@@ -470,11 +466,10 @@ button {
     width: 400px;
     height: 50px;
     font-size: 20px;
-    box-shadow: 0 3px 8px 0 rgba(0, 0, 0, .5);
 }
 
 
-/*以下凝ったボタン*/
+/*以下なんか凝ったボタン*/
 
 .exhibit {
     margin-top: 20px;

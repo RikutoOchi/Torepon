@@ -3,6 +3,10 @@ $(".burger-btn").on("click", function () {
   $(".humburger-nav").toggleClass("active");
   $(this).toggleClass("cross");
 });
+//headerセレクト
+$(".header-select").on("click", function () {
+  $(".header-select").toggleClass("opened");
+});
 
 //ログイン画面アニメーション
 $(".email_text")

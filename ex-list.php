@@ -61,8 +61,8 @@
       <input type="button" value="古い順" class="sort-btn" onclick="location.href='ex-list.php?sort_id=1'"/>
       <label>　　</label>
       <input type="button" value="チケット数　昇順" class="sort-btn" onclick="location.href='ex-list.php?sort_id=2'"/>
-      <input type="button" value="チケット数　降順" class="sort-btn" style="background-color:#87CEF ">
-
+      <input type="button" value="チケット数　降順" class="sort-btn" style="background-color:#87CEFA">
+    <?php } ?>
     <div class="item-list"> 
         <?php foreach($data as $data_part){ ?>
           <div class="responsive">

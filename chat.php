@@ -16,7 +16,7 @@
 
   <?php
     $user = $_SESSION['user_id'];   // 自分のuser_idの取得
-    $partner_user_id = $_GET['id'];   // 
+    $partner_user_id = $_GET['id'];   // チャット送信先のuser_idの取得
 
     require_once __DIR__ . './classes/dbdata.php';
     $exh = new Dbdata();

@@ -64,8 +64,7 @@
 }
 
 .header-logo img {
-  width: 100%;
-  height: 100%;
+  object-fit: cover;
   border-radius: 50%;
   background-color: gray;
 }
@@ -238,10 +237,10 @@ button {
 }
 
 .ad-item img {
+  z-index: 999;
   width: 250px;
   height: 150px;
   margin: 0 auto;
-  border: 1px solid #000;
 }
 
 .ad-item:last-of-type {

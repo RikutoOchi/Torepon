@@ -81,7 +81,6 @@
       $maisu_end = "9999999";
     }
 
-
     /* ----------------------------------- db接続関連 --------------------------------------- */
       require_once __DIR__ . './classes/dbdata.php';
       $exh = new Dbdata();
@@ -105,12 +104,12 @@
         from (((EXHIBITS LEFT OUTER JOIN GACHA_TITLES ON EXHIBITS.GACHA_TITLE_ID = GACHA_TITLES.GACHA_TITLE_ID) 
         LEFT OUTER JOIN ORIGINAL_TITLES ON GACHA_TITLES.ORIGINAL_TITLE_ID = ORIGINAL_TITLES.ORIGINAL_TITLE_ID)
         LEFT OUTER JOIN MAKERS ON GACHA_TITLES.MAKER_ID = MAKERS.MAKER_ID)
-        where GACHA_TITLES.GACHA_TITLES LIKE '" . $gatya . "' 
-        EXHIBITS.EXHIBIT_TEXT LIKE '" . $kyara . "' 
-        ORIGINAL_TITLES.ORIGINAL_TITLE_NAME LIKE '" . $gensaku . "' 
-        MAKERS.MAKER_NAME LIKE '" . $meka . "' 
-        EXHIBITS.EXHIBIT_TIME >= '" . $nitizi_start . "' 
-        EXHIBITS.TICKET_TYPE_ID LIKE '" . $syurui . "' 
+        where GACHA_TITLES.GACHA_TITLE_NAME LIKE '" . $gatya . "' and 
+        EXHIBITS.EXHIBIT_TEXT LIKE '" . $kyara . "' and 
+        ORIGINAL_TITLES.ORIGINAL_TITLE_NAME LIKE '" . $gensaku . "' and 
+        MAKERS.MAKER_NAME LIKE '" . $meka . "' and
+        EXHIBITS.EXHIBIT_TIME >= '" . $nitizi_start . "' and 
+        EXHIBITS.TICKET_TYPE_ID LIKE '" . $syurui . "' and
         EXHIBITS.NUMBER_OF_TICKETS <= '" . $maisu_end . "' order by EXHIBIT_TIME desc";
         // $sql = "select EXHIBIT_ID,EXHIBIT_PIC_URL,EXHIBIT_NAME from exhibits order by EXHIBIT_TIME desc";
       } elseif($sort_id == 2) {
@@ -118,12 +117,12 @@
         from (((EXHIBITS LEFT OUTER JOIN GACHA_TITLES ON EXHIBITS.GACHA_TITLE_ID = GACHA_TITLES.GACHA_TITLE_ID) 
         LEFT OUTER JOIN ORIGINAL_TITLES ON GACHA_TITLES.ORIGINAL_TITLE_ID = ORIGINAL_TITLES.ORIGINAL_TITLE_ID)
         LEFT OUTER JOIN MAKERS ON GACHA_TITLES.MAKER_ID = MAKERS.MAKER_ID)
-        where GACHA_TITLES.GACHA_TITLES LIKE '" . $gatya . "' 
-        EXHIBITS.EXHIBIT_TEXT LIKE '" . $kyara . "' 
-        ORIGINAL_TITLES.ORIGINAL_TITLE_NAME LIKE '" . $gensaku . "' 
-        MAKERS.MAKER_NAME LIKE '" . $meka . "' 
-        EXHIBITS.EXHIBIT_TIME >= '" . $nitizi_start . "' 
-        EXHIBITS.TICKET_TYPE_ID LIKE '" . $syurui . "' 
+        where GACHA_TITLES.GACHA_TITLE_NAME LIKE '" . $gatya . "' and
+        EXHIBITS.EXHIBIT_TEXT LIKE '" . $kyara . "' and
+        ORIGINAL_TITLES.ORIGINAL_TITLE_NAME LIKE '" . $gensaku . "' and
+        MAKERS.MAKER_NAME LIKE '" . $meka . "' and
+        EXHIBITS.EXHIBIT_TIME >= '" . $nitizi_start . "' and
+        EXHIBITS.TICKET_TYPE_ID LIKE '" . $syurui . "' and
         EXHIBITS.NUMBER_OF_TICKETS <= '" . $maisu_end . "' order by NUMBER_OF_TICKETS";
         //$sql = "select EXHIBIT_ID,EXHIBIT_PIC_URL,EXHIBIT_NAME, NUMBER_OF_TICKETS from exhibits order by NUMBER_OF_TICKETS";
       } elseif($sort_id == 3) {
@@ -131,12 +130,12 @@
         from (((EXHIBITS LEFT OUTER JOIN GACHA_TITLES ON EXHIBITS.GACHA_TITLE_ID = GACHA_TITLES.GACHA_TITLE_ID) 
         LEFT OUTER JOIN ORIGINAL_TITLES ON GACHA_TITLES.ORIGINAL_TITLE_ID = ORIGINAL_TITLES.ORIGINAL_TITLE_ID)
         LEFT OUTER JOIN MAKERS ON GACHA_TITLES.MAKER_ID = MAKERS.MAKER_ID)
-        where GACHA_TITLES.GACHA_TITLES LIKE '" . $gatya . "' 
-        EXHIBITS.EXHIBIT_TEXT LIKE '" . $kyara . "' 
-        ORIGINAL_TITLES.ORIGINAL_TITLE_NAME LIKE '" . $gensaku . "' 
-        MAKERS.MAKER_NAME LIKE '" . $meka . "' 
-        EXHIBITS.EXHIBIT_TIME >= '" . $nitizi_start . "' 
-        EXHIBITS.TICKET_TYPE_ID LIKE '" . $syurui . "' 
+        where GACHA_TITLES.GACHA_TITLE_NAME LIKE '" . $gatya . "' and
+        EXHIBITS.EXHIBIT_TEXT LIKE '" . $kyara . "' and
+        ORIGINAL_TITLES.ORIGINAL_TITLE_NAME LIKE '" . $gensaku . "' and
+        MAKERS.MAKER_NAME LIKE '" . $meka . "' and
+        EXHIBITS.EXHIBIT_TIME >= '" . $nitizi_start . "' and
+        EXHIBITS.TICKET_TYPE_ID LIKE '" . $syurui . "' and
         EXHIBITS.NUMBER_OF_TICKETS <= '" . $maisu_end . "' order by NUMBER_OF_TICKETS desc";
         //$sql = "select EXHIBIT_ID,EXHIBIT_PIC_URL,EXHIBIT_NAME, NUMBER_OF_TICKETS from exhibits order by NUMBER_OF_TICKETS desc";
       }
@@ -168,29 +167,29 @@
     <br><label>並び順</label><br>
 
     <?php if($sort_id == 0){ ?>
-      <input type="button" value="新しい順" class="sort-btn" style="background-color:#87CEFA" onclick="location.href='ex-list.php?sort_id=0&sarch_id=<?php echo $sarch_id ?>'"/>
-      <input type="button" value="古い順" class="sort-btn" onclick="location.href='ex-list.php?sort_id=1&sarch_id=<?php echo $sarch_id ?>'"/>
+      <input type="button" value="新しい順" class="sort-btn" style="background-color:#87CEFA" onclick="location.href='ex-list.php?sort_id=0&sarch_id=1'"/>
+      <input type="button" value="古い順" class="sort-btn" onclick="location.href='ex-list.php?sort_id=1&sarch_id=1'"/>
       <label>　　</label>
-      <input type="button" value="チケット数　昇順" class="sort-btn" onclick="location.href='ex-list.php?sort_id=2&sarch_id=<?php echo $sarch_id ?>'"/>
-      <input type="button" value="チケット数　降順" class="sort-btn" onclick="location.href='ex-list.php?sort_id=3&sarch_id=<?php echo $sarch_id ?>'"/>
+      <input type="button" value="チケット数　昇順" class="sort-btn" onclick="location.href='ex-list.php?sort_id=2&sarch_id=1'"/>
+      <input type="button" value="チケット数　降順" class="sort-btn" onclick="location.href='ex-list.php?sort_id=3&sarch_id=1'"/>
     <?php } elseif($sort_id == 1){ ?>
-      <input type="button" value="新しい順" class="sort-btn" onclick="location.href='ex-list.php?sort_id=0&sarch_id=<?php echo $sarch_id ?>'"/>
-      <input type="button" value="古い順" class="sort-btn" style="background-color:#87CEFA" onclick="location.href='ex-list.php?sort_id=1&sarch_id=<?php echo $sarch_id ?>'"/>
+      <input type="button" value="新しい順" class="sort-btn" onclick="location.href='ex-list.php?sort_id=0&sarch_id=1'"/>
+      <input type="button" value="古い順" class="sort-btn" style="background-color:#87CEFA" onclick="location.href='ex-list.php?sort_id=1&sarch_id=1'"/>
       <label>　　</label>
-      <input type="button" value="チケット数　昇順" class="sort-btn" onclick="location.href='ex-list.php?sort_id=2&sarch_id=<?php echo $sarch_id ?>'"/>
-      <input type="button" value="チケット数　降順" class="sort-btn" onclick="location.href='ex-list.php?sort_id=3&sarch_id=<?php echo $sarch_id ?>'"/>
+      <input type="button" value="チケット数　昇順" class="sort-btn" onclick="location.href='ex-list.php?sort_id=2&sarch_id=1'"/>
+      <input type="button" value="チケット数　降順" class="sort-btn" onclick="location.href='ex-list.php?sort_id=3&sarch_id=1'"/>
     <?php } elseif($sort_id == 2){ ?>
-      <input type="button" value="新しい順" class="sort-btn" onclick="location.href='ex-list.php?sort_id=0&sarch_id=<?php echo $sarch_id ?>'"/>
-      <input type="button" value="古い順" class="sort-btn" onclick="location.href='ex-list.php?sort_id=1&sarch_id=<?php echo $sarch_id ?>'"/>
+      <input type="button" value="新しい順" class="sort-btn" onclick="location.href='ex-list.php?sort_id=0&sarch_id=1'"/>
+      <input type="button" value="古い順" class="sort-btn" onclick="location.href='ex-list.php?sort_id=1&sarch_id=1'"/>
       <label>　　</label>
-      <input type="button" value="チケット数　昇順" class="sort-btn" style="background-color:#87CEFA" onclick="location.href='ex-list.php?sort_id=2&sarch_id=<?php echo $sarch_id ?>'"/>
-      <input type="button" value="チケット数　降順" class="sort-btn" onclick="location.href='ex-list.php?sort_id=3&sarch_id=<?php echo $sarch_id ?>'"/>
+      <input type="button" value="チケット数　昇順" class="sort-btn" style="background-color:#87CEFA" onclick="location.href='ex-list.php?sort_id=2&sarch_id=1'"/>
+      <input type="button" value="チケット数　降順" class="sort-btn" onclick="location.href='ex-list.php?sort_id=3&sarch_id=1'"/>
     <?php } elseif($sort_id == 3){ ?>
-      <input type="button" value="新しい順" class="sort-btn" onclick="location.href='ex-listhp?sort_id=0&sarch_id=<?php echo $sarch_id ?>'"/>
-      <input type="button" value="古い順" class="sort-btn" onclick="location.href='ex-list.php?sort_id=1&sarch_id=<?php echo $sarch_id ?>'"/>
+      <input type="button" value="新しい順" class="sort-btn" onclick="location.href='ex-list.php?sort_id=0&sarch_id=1'"/>
+      <input type="button" value="古い順" class="sort-btn" onclick="location.href='ex-list.php?sort_id=1&sarch_id=1'"/>
       <label>　　</label>
-      <input type="button" value="チケット数　昇順" class="sort-btn" onclick="location.href='ex-list.php?sort_id=2&sarch_id=<?php echo $sarch_id ?>'"/>
-      <input type="button" value="チケット数　降順" class="sort-btn" style="background-color:#87CEFA" onclick="location.href='ex-list.php?sort_id=3&sarch_id=<?php echo $sarch_id ?>'"/>
+      <input type="button" value="チケット数　昇順" class="sort-btn" onclick="location.href='ex-list.php?sort_id=2&sarch_id=1'"/>
+      <input type="button" value="チケット数　降順" class="sort-btn" style="background-color:#87CEFA" onclick="location.href='ex-list.php?sort_id=3&sarch_id=1'"/>
     <?php } ?>
     <br><br>
 

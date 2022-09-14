@@ -339,11 +339,11 @@
                                 　原作　　　　　　：　　<input type="text" name="gensaku"><br>
                                 　メーカー　　　　：　　<input type="text" name="me-ka-"><br>
                             <?php }elseif($sort_id == 2) {?>
-                                　ガチャタイトル：<input type="text" name="gatya"><br>
+                                　ガチャタイトル　：　　<input type="text" name="gatya"><br>
                                 　キャラクター名　：　　<input type="text" name="kyara"><br>
                                 　メーカー　　　　：　　<input type="text" name="me-ka-"><br>
                             <?php }elseif($sort_id == 3) {?>
-                                　ガチャタイトル：<input type="text" name="gatya"><br>
+                                　ガチャタイトル　：　　<input type="text" name="gatya"><br>
                                 　キャラクター名　：　　<input type="text" name="kyara"><br>
                                 　原作　　　　　　：　　<input type="text" name="gensaku"><br>
                             <?php } ?>
@@ -359,29 +359,29 @@
                     <h2 style=display:inline;>検索結果</h2>
                     <br><label>　ソート順：</label>
                     <?php if($sort_id == 0){ ?>
-                        <input type="button" value="新しい順" class="sort-btn" style="background-color:#87CEFA" onclick="location.href='SearchResults.php?sort_id=0'"/>
-                        <input type="button" value="古い順" class="sort-btn" onclick="location.href='SearchResults.php?sort_id=1'"/>
+                        <input type="button" value="新しい順" class="sort-btn" style="background-color:#87CEFA" onclick="location.href='SearchResults.php?sort_id=0&sarch_id=1'"/>
+                        <input type="button" value="古い順" class="sort-btn" onclick="location.href='SearchResults.php?sort_id=1&sarch_id=1'"/>
                         <label>　　</label>
-                        <input type="button" value="チケット数　昇順" class="sort-btn" onclick="location.href='SearchResults.php?sort_id=2'"/>
-                        <input type="button" value="チケット数　降順" class="sort-btn" onclick="location.href='SearchResults.php?sort_id=3'"/>
+                        <input type="button" value="チケット数　昇順" class="sort-btn" onclick="location.href='SearchResults.php?sort_id=2&sarch_id=1'"/>
+                        <input type="button" value="チケット数　降順" class="sort-btn" onclick="location.href='SearchResults.php?sort_id=3&sarch_id=1'"/>
                     <?php } elseif($sort_id == 1){ ?>
-                        <input type="button" value="新しい順" class="sort-btn" onclick="location.href='SearchResults.php?sort_id=0'"/>
-                        <input type="button" value="古い順" class="sort-btn" style="background-color:#87CEFA" onclick="location.href='SearchResults.php?sort_id=1'"/>
+                        <input type="button" value="新しい順" class="sort-btn" onclick="location.href='SearchResults.php?sort_id=0&sarch_id=1'"/>
+                        <input type="button" value="古い順" class="sort-btn" style="background-color:#87CEFA" onclick="location.href='SearchResults.php?sort_id=1&sarch_id=1'"/>
                         <label>　　</label>
-                        <input type="button" value="チケット数　昇順" class="sort-btn" onclick="location.href='SearchResults.php?sort_id=2'"/>
-                        <input type="button" value="チケット数　降順" class="sort-btn" onclick="location.href='SearchResults.php?sort_id=3'"/>
+                        <input type="button" value="チケット数　昇順" class="sort-btn" onclick="location.href='SearchResults.php?sort_id=2&sarch_id=1'"/>
+                        <input type="button" value="チケット数　降順" class="sort-btn" onclick="location.href='SearchResults.php?sort_id=3&sarch_id=1'"/>
                     <?php } elseif($sort_id == 2){ ?>
-                        <input type="button" value="新しい順" class="sort-btn" onclick="location.href='SearchResults.php?sort_id=0'"/>
-                        <input type="button" value="古い順" class="sort-btn" onclick="location.href='SearchResults.php?sort_id=1'"/>
+                        <input type="button" value="新しい順" class="sort-btn" onclick="location.href='SearchResults.php?sort_id=0&sarch_id=1'"/>
+                        <input type="button" value="古い順" class="sort-btn" onclick="location.href='SearchResults.php?sort_id=1&sarch_id=1'"/>
                         <label>　　</label>
-                        <input type="button" value="チケット数　昇順" class="sort-btn" style="background-color:#87CEFA" onclick="location.href='SearchResults.php?sort_id=2'"/>
-                        <input type="button" value="チケット数　降順" class="sort-btn" onclick="location.href='SearchResults.php?sort_id=3'"/>
+                        <input type="button" value="チケット数　昇順" class="sort-btn" style="background-color:#87CEFA" onclick="location.href='SearchResults.php?sort_id=2&sarch_id=1'"/>
+                        <input type="button" value="チケット数　降順" class="sort-btn" onclick="location.href='SearchResults.php?sort_id=3&sarch_id=1'"/>
                     <?php } elseif($sort_id == 3){ ?>
-                        <input type="button" value="新しい順" class="sort-btn" onclick="location.href='SearchResults.php?sort_id=0'"/>
-                        <input type="button" value="古い順" class="sort-btn" onclick="location.href='SearchResults.php?sort_id=1'"/>
+                        <input type="button" value="新しい順" class="sort-btn" onclick="location.href='SearchResults.php?sort_id=0&sarch_id=1'"/>
+                        <input type="button" value="古い順" class="sort-btn" onclick="location.href='SearchResults.php?sort_id=1&sarch_id=1'"/>
                         <label>　　</label>
-                        <input type="button" value="チケット数　昇順" class="sort-btn" onclick="location.href='SearchResults.php?sort_id=2'"/>
-                        <input type="button" value="チケット数　降順" class="sort-btn" style="background-color:#87CEFA" onclick="location.href='SearchResults.php?sort_id=3'"/>
+                        <input type="button" value="チケット数　昇順" class="sort-btn" onclick="location.href='SearchResults.php?sort_id=2&sarch_id=1'"/>
+                        <input type="button" value="チケット数　降順" class="sort-btn" style="background-color:#87CEFA" onclick="location.href='SearchResults.php?sort_id=3&sarch_id=1'"/>
                     <?php } ?>
                         <br><br>
 

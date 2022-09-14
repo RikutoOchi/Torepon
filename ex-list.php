@@ -61,9 +61,7 @@
       <input type="button" value="古い順" class="sort-btn" onclick="location.href='ex-list.php?sort_id=1'"/>
       <label>　　</label>
       <input type="button" value="チケット数　昇順" class="sort-btn" onclick="location.href='ex-list.php?sort_id=2'"/>
-      <input type="button" value="チケット数　降順" class="sort-btn" style="background-color:#87CEFA" onclick="location.href='ex-list.php?sort_id=3'"/>
-    <?php } ?>
-    <br><br>
+      <input type="button" value="チケット数　降順" class="sort-btn" style="background-color:#87CEF https://placehold.jp/fbf7a2/000000/250x150.png?text=%E5%BA%83%E5%91%8A">
 
     <div class="item-list"> 
         <?php foreach($data as $data_part){ ?>

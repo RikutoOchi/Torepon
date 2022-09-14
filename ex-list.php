@@ -168,29 +168,29 @@
     <br><label>並び順</label><br>
 
     <?php if($sort_id == 0){ ?>
-      <input type="button" value="新しい順" class="sort-btn" style="background-color:#87CEFA" onclick="location.href='ex-list.php?sort_id=0'"/>
-      <input type="button" value="古い順" class="sort-btn" onclick="location.href='ex-list.php?sort_id=1'"/>
+      <input type="button" value="新しい順" class="sort-btn" style="background-color:#87CEFA" onclick="location.href='ex-list.php?sort_id=0&sarch_id=<?php echo $sarch_id ?>'"/>
+      <input type="button" value="古い順" class="sort-btn" onclick="location.href='ex-list.php?sort_id=1&sarch_id=<?php echo $sarch_id ?>'"/>
       <label>　　</label>
-      <input type="button" value="チケット数　昇順" class="sort-btn" onclick="location.href='ex-list.php?sort_id=2'"/>
-      <input type="button" value="チケット数　降順" class="sort-btn" onclick="location.href='ex-list.php?sort_id=3'"/>
+      <input type="button" value="チケット数　昇順" class="sort-btn" onclick="location.href='ex-list.php?sort_id=2&sarch_id=<?php echo $sarch_id ?>'"/>
+      <input type="button" value="チケット数　降順" class="sort-btn" onclick="location.href='ex-list.php?sort_id=3&sarch_id=<?php echo $sarch_id ?>'"/>
     <?php } elseif($sort_id == 1){ ?>
-      <input type="button" value="新しい順" class="sort-btn" onclick="location.href='ex-list.php?sort_id=0'"/>
-      <input type="button" value="古い順" class="sort-btn" style="background-color:#87CEFA" onclick="location.href='ex-list.php?sort_id=1'"/>
+      <input type="button" value="新しい順" class="sort-btn" onclick="location.href='ex-list.php?sort_id=0&sarch_id=<?php echo $sarch_id ?>'"/>
+      <input type="button" value="古い順" class="sort-btn" style="background-color:#87CEFA" onclick="location.href='ex-list.php?sort_id=1&sarch_id=<?php echo $sarch_id ?>'"/>
       <label>　　</label>
-      <input type="button" value="チケット数　昇順" class="sort-btn" onclick="location.href='ex-list.php?sort_id=2'"/>
-      <input type="button" value="チケット数　降順" class="sort-btn" onclick="location.href='ex-list.php?sort_id=3'"/>
+      <input type="button" value="チケット数　昇順" class="sort-btn" onclick="location.href='ex-list.php?sort_id=2&sarch_id=<?php echo $sarch_id ?>'"/>
+      <input type="button" value="チケット数　降順" class="sort-btn" onclick="location.href='ex-list.php?sort_id=3&sarch_id=<?php echo $sarch_id ?>'"/>
     <?php } elseif($sort_id == 2){ ?>
-      <input type="button" value="新しい順" class="sort-btn" onclick="location.href='ex-list.php?sort_id=0'"/>
-      <input type="button" value="古い順" class="sort-btn" onclick="location.href='ex-list.php?sort_id=1'"/>
+      <input type="button" value="新しい順" class="sort-btn" onclick="location.href='ex-list.php?sort_id=0&sarch_id=<?php echo $sarch_id ?>'"/>
+      <input type="button" value="古い順" class="sort-btn" onclick="location.href='ex-list.php?sort_id=1&sarch_id=<?php echo $sarch_id ?>'"/>
       <label>　　</label>
-      <input type="button" value="チケット数　昇順" class="sort-btn" style="background-color:#87CEFA" onclick="location.href='ex-list.php?sort_id=2'"/>
-      <input type="button" value="チケット数　降順" class="sort-btn" onclick="location.href='ex-list.php?sort_id=3'"/>
+      <input type="button" value="チケット数　昇順" class="sort-btn" style="background-color:#87CEFA" onclick="location.href='ex-list.php?sort_id=2&sarch_id=<?php echo $sarch_id ?>'"/>
+      <input type="button" value="チケット数　降順" class="sort-btn" onclick="location.href='ex-list.php?sort_id=3&sarch_id=<?php echo $sarch_id ?>'"/>
     <?php } elseif($sort_id == 3){ ?>
-      <input type="button" value="新しい順" class="sort-btn" onclick="location.href='ex-listhp?sort_id=0'"/>
-      <input type="button" value="古い順" class="sort-btn" onclick="location.href='ex-list.php?sort_id=1'"/>
+      <input type="button" value="新しい順" class="sort-btn" onclick="location.href='ex-listhp?sort_id=0&sarch_id=<?php echo $sarch_id ?>'"/>
+      <input type="button" value="古い順" class="sort-btn" onclick="location.href='ex-list.php?sort_id=1&sarch_id=<?php echo $sarch_id ?>'"/>
       <label>　　</label>
-      <input type="button" value="チケット数　昇順" class="sort-btn" onclick="location.href='ex-list.php?sort_id=2'"/>
-      <input type="button" value="チケット数　降順" class="sort-btn" style="background-color:#87CEFA" onclick="location.href='ex-list.php?sort_id=3'"/>
+      <input type="button" value="チケット数　昇順" class="sort-btn" onclick="location.href='ex-list.php?sort_id=2&sarch_id=<?php echo $sarch_id ?>'"/>
+      <input type="button" value="チケット数　降順" class="sort-btn" style="background-color:#87CEFA" onclick="location.href='ex-list.php?sort_id=3&sarch_id=<?php echo $sarch_id ?>'"/>
     <?php } ?>
     <br><br>
 

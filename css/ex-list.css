@@ -24,3 +24,19 @@ div.desc {
   align-items: center;
   justify-content: center; /*---/上下左右中央揃え---*/
 }
+
+/*---------------------*/
+/*------sort style-----*/
+/*---------------------*/
+
+.searchBy-box .searchBy {
+  margin-bottom: 10px;
+}
+.searchBy-ttl {
+  font-size: 2.4rem;
+  margin-bottom: 10px;
+  font-weight: 400;
+}
+.sortBy-box {
+  margin-bottom: 5px;
+}

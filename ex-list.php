@@ -147,18 +147,20 @@
   <!-- mainコンテンツ -->
     <h1>出品リスト</h1><br>
 
-    <font size="4">絞り込み条件</font><br>
+    <h3 class="searchBy-ttl">絞り込み条件</h3>
       <font size="2">
 
 <!------------- セッション（$_SESSION）にデータを格納させるために、data retension.phpへデータを飛ばす ------------>
-      <form action="./dataretention2.php?id=0" method="post" name="terms_form">
-        　ガチャタイトル　：　　<input type="text" name="gatya"><br>
-        　キャラクター名　：　　<input type="text" name="kyara"><br>
-        　原　　　　　作　：　　<input type="text" name="gensaku"><br>
-        　メ　ー　カ　ー　：　　<input type="text" name="me-ka-"><br>
-        　出　品　日　時　：　　<input type="date" name="nitizi-start">～<br>
-        　チケット種類　　：　　<input type="text" name="syurui"><br>
-        　チケット枚数　　：　～<input type="text" name="maisu-end">　
+      <form action="./dataretention2.php?id=0" method="post" name="terms_form" class="searchBy-box ">
+        <ul>
+          <li>　ガチャタイトル　：　　<input type="text" name="gatya" ></li>
+          <li>　キャラクター名　：　　<input type="text" name="kyara" ></li>
+          <li> 　原　　　　　作　：　　<input type="text" name="gensaku" ></li>
+          <li>　メ　ー　カ　ー　：　　<input type="text" name="me-ka-"></li>
+          <li>　出　品　日　時　：　　<input type="date" name="nitizi-start">～</li>
+          <li>　チケット種類　　：　　<input type="text" name="syurui"></li>
+          <li>　チケット枚数　　：　～<input type="text" name="maisu-end">　</li>
+        </ul>
         <input type="button" value="絞り込む" class="search" onclick="document.terms_form.submit();"/><br><br>
       </form>
 <!------------------------------------------------------------------------------------------------------------->

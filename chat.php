@@ -36,7 +36,7 @@
         <?php 
           $partner_user_id = $user_info['PARTNER_USER_ID'];
         ?>
-        <li class="ChatUser"><a href="./chat.php?id=<?php echo $partner_user_id ?>">
+        <li class="ChatUser"><?php if($partner_user_id == $_GET['id']) { ?><a class='ChatUser-choise' href="./chat.php?id=<?php echo $partner_user_id ?>"><?php } else { ?><a class='ChatUser-not-choise' href="./chat.php?id=<?php echo $partner_user_id ?>"> <?php } ?>
           <div class="ChatUser-detail">
           <div class="UserIcon"><img src="<?php echo $user_info['USER_ICON_URL'] ?>" alt=""></div>
           <div class="UserInfo">

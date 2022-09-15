@@ -15,9 +15,6 @@
 <meta http-equiv="refresh" content="10; url="<?php echo $_SERVER['PHP_SELF']; ?>">
 
   <?php
-    $user = $_SESSION['user_id'];   // 自分のuser_idの取得
-    $partner_user_id = $_GET['id'];   // チャット送信先のuser_idの取得
-
     require_once __DIR__ . './classes/dbdata.php';
     $exh = new Dbdata();
   ?>
@@ -29,17 +26,19 @@
 
       <!--　チャット相手の情報取得＆表示 -->
       <?php
-        $chat_user_data_sql = "select DISTINCT CHATS.PARTNER_USER_ID,USERS.USER_NAME 
+        $chat_user_data_sql = "select DISTINCT CHATS.PARTNER_USER_ID,USERS.USER_NAME,USERS.USER_ICON_URL  
                                from CHATS LEFT OUTER JOIN USERS ON CHATS.PARTNER_USER_ID = USERS.USER_ID
-                               where CHATS.USER_ID = '" . $user . "'";
+                               where CHATS.USER_ID = '" . $_SESSION['user_id'] . "'";
         $chat_user_data = $exh->getRecord_0($chat_user_data_sql);
       ?>
 
       <?php foreach($chat_user_data as $user_info) { ?>
-        <?php $partner_user_id = $user_info['PARTNER_USER_ID']; ?>
+        <?php 
+          $partner_user_id = $user_info['PARTNER_USER_ID'];
+        ?>
         <li class="ChatUser"><a href="./chat.php?id=<?php echo $partner_user_id ?>">
           <div class="ChatUser-detail">
-          <div class="UserIcon"><img src="" alt=""></div>
+          <div class="UserIcon"><img src="<?php echo $user_info['USER_ICON_URL'] ?>" alt=""></div>
           <div class="UserInfo">
             <ul class="UserInfo-list">
               <li class="UserName"><?php echo $user_info['USER_NAME'] ?></li>
@@ -50,8 +49,8 @@
             <?php
               $chat_detail_sql = "select CHAT_TEXT
                                   from CHATS
-                                  where USER_ID = '" . $user . "' and PARTNER_USER_ID = '" . $partner_user_id . "' 
-                                  or USER_ID = '" . $partner_user_id . "' and PARTNER_USER_ID = '" . $user . "' ORDER BY CHAT_TIME DESC LIMIT 1";
+                                  where USER_ID = '" . $_SESSION['user_id'] . "' and PARTNER_USER_ID = '" . $partner_user_id . "' 
+                                  or USER_ID = '" . $partner_user_id . "' and PARTNER_USER_ID = '" . $_SESSION['user_id'] . "' ORDER BY CHAT_TIME DESC LIMIT 1";
               $chat_detail = $exh->getRecord_0($chat_detail_sql);
             ?>
 
@@ -70,7 +69,7 @@
   </section>
   <!-- チャットユーザーリストの表示 -->
 
-  <?php if($partner_user_id != -1){ ?>
+  <?php if($_GET['id'] != 0){ ?>
     <section class="main-content">
     <!-- /mainコンテンツ -->
     <!--追加-->
@@ -78,22 +77,36 @@
         <ul class="kaiwa imessage">
 
           <?php
+            // チャット内容取り出しSQL
             $sql = "select CHAT_TEXT,USER_ID,PARTNER_USER_ID 
                     from CHATS
-                    where USER_ID = '" . $user . "' or PARTNER_USER_ID = '" . $user . "' ORDER BY CHAT_TIME";
-
+                    where USER_ID = '" .$_GET['id'] . "' and PARTNER_USER_ID = '" . $_SESSION['user_id'] . "'
+                    or USER_ID = '" . $_SESSION['user_id'] . "' and PARTNER_USER_ID = '" . $_GET['id'] . "' ORDER BY CHAT_TIME";
+            // チャット相手のユーザーアイコン取り出しSQL
+            $partner_user_icon_sql = "select USER_ID,USER_ICON_URL 
+                                      from USERS
+                                      where USER_ID = '" .$_GET['id'] . "'";
+            // チャット内容取り出しSQL実行                   
             $data = $exh->getRecord_0($sql);
+            // チャット相手のユーザーアイコン取り出しSQL実行
+            $partner_user_icon_data = $exh->getRecord_0($partner_user_icon_sql);
+          ?>
+          
+          <?php
+            foreach($partner_user_icon_data as $icon) {
+              $partner_user_icon = $icon['USER_ICON_URL'];
+            }
           ?>
         
           <?php foreach($data as $data_detail) { ?>
-            <?php if($data_detail['USER_ID'] != $user) { ?>
+            <?php if($data_detail['USER_ID'] != $_SESSION['user_id']) { ?>
               <li class="message-disp left">
-                <div class="UserIcon"><img src="" alt=""></div>
+                <div class="UserIcon"><img src="<?php echo $partner_user_icon ?>" alt=""></div>
                 <p class="fukidasi left"><?php echo $data_detail['CHAT_TEXT'] ?></p>                         
               </li>
             <?php } else { ?>
               <li class="message-disp right">
-                <div class="UserIcon"><img src="" alt=""></div>
+                <div class="UserIcon"><img src="<?php echo $_SESSION['user_icon_url'] ?>" alt=""></div>
                 <p class="fukidasi right"><?php echo $data_detail['CHAT_TEXT'] ?></p> 
               </li>
             <?php } ?>

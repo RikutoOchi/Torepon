@@ -36,10 +36,10 @@
         <!-- mainコンテンツ -->
         <div class="ex-description">
           <div class="ex-images">
-            <img class="ex-mainimage" src="./images/<?= $exhibit['EXHIBIT_PIC_URL'] ?>" alt="出品画像1" >
+            <img class="ex-mainimage" src="<?= $exhibit['EXHIBIT_PIC_URL'] ?>" alt="出品画像1" >
             <ul class="ex-subimagelist">
-              <li><img src="./images/<?= $exhibit['EXHIBIT_PIC_URL'] ?>" alt="出品画像2" ></li>
-              <li><img src="./images/<?= $exhibit['EXHIBIT_PIC_URL'] ?>" alt="出品画像3" ></li>
+              <li><img src="<?= $exhibit['EXHIBIT_PIC_URL'] ?>" alt="出品画像2" ></li>
+              <li><img src="<?= $exhibit['EXHIBIT_PIC_URL'] ?>" alt="出品画像3" ></li>
             </ul>
           </div>
           <div class="ex-texts">

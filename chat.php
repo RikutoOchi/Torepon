@@ -39,7 +39,7 @@
         <?php $partner_user_id = $user_info['PARTNER_USER_ID']; ?>
         <li class="ChatUser"><a href="./chat.php?id=<?php echo $partner_user_id ?>">
           <div class="ChatUser-detail">
-          <div class="UserIcon"><img src="" alt=""></div>
+          <div class="UserIcon"><img src="./images/プリキュア.png" alt=""></div>
           <div class="UserInfo">
             <ul class="UserInfo-list">
               <li class="UserName"><?php echo $user_info['USER_NAME'] ?></li>
@@ -88,12 +88,12 @@
           <?php foreach($data as $data_detail) { ?>
             <?php if($data_detail['USER_ID'] != $user) { ?>
               <li class="message-disp left">
-                <div class="UserIcon"><img src="" alt=""></div>
+                <div class="UserIcon"><img src="./images/プリキュア.png" alt=""></div>
                 <p class="fukidasi left"><?php echo $data_detail['CHAT_TEXT'] ?></p>                         
               </li>
             <?php } else { ?>
               <li class="message-disp right">
-                <div class="UserIcon"><img src="" alt=""></div>
+                <div class="UserIcon"><img src="./images/ハンコック.png" alt=""></div>
                 <p class="fukidasi right"><?php echo $data_detail['CHAT_TEXT'] ?></p> 
               </li>
             <?php } ?>

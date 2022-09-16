@@ -147,21 +147,24 @@
   <!-- mainコンテンツ -->
     <h1>出品リスト</h1><br>
 
-    <h3 class="searchBy-ttl">絞り込み条件</h3>
+    <div class="search-box"><div class="searchBy-ttl">絞り込み条件</div><button class="disp-search"></button></div>
       <font size="2">
 
 <!------------- セッション（$_SESSION）にデータを格納させるために、data retension.phpへデータを飛ばす ------------>
-      <form action="./dataretention2.php?id=0" method="post" name="terms_form" class="searchBy-box ">
-        <ul>
-          <li>　ガチャタイトル　：　　<input type="text" name="gatya" ></li>
-          <li>　キャラクター名　：　　<input type="text" name="kyara" ></li>
-          <li> 　原　　　　　作　：　　<input type="text" name="gensaku" ></li>
-          <li>　メ　ー　カ　ー　：　　<input type="text" name="me-ka-"></li>
-          <li>　出　品　日　時　：　　<input type="date" name="nitizi-start">～</li>
-          <li>　チケット種類　　：　　<input type="text" name="syurui"></li>
-          <li>　チケット枚数　　：　～<input type="text" name="maisu-end">　</li>
+      <form action="./dataretention2.php?id=0" method="post" name="terms_form">
+        <ul class="searchBy-list none">
+          <li>ガチャタイトル　:<input class="searchBy-text" type="text" name="gatya" ></li>
+          <li>キャラクター名　:<input class="searchBy-text" type="text" name="kyara" ></li>
+          <li>原　　　　　作　:<input class="searchBy-text" type="text" name="gensaku" ></li>
+          <li>メ　ー　カ　ー　:<input class="searchBy-text" type="text" name="me-ka-"></li>
+          <li>出　品　日　時　:<input class="searchBy-text mr-none" type="date" name="nitizi-start">～</li>
+          <li>チケット種類　　:<input class="searchBy-text" type="text" name="syurui"></li>
+          <li>チケット枚数　　:～<input class="searchBy-text ml-none" type="text" name="maisu-end">
+          <input type="button" value="絞り込む" class="search" onclick="document.terms_form.submit();"/>
+        </li>
+
         </ul>
-        <input type="button" value="絞り込む" class="search" onclick="document.terms_form.submit();"/><br><br>
+        
       </form>
 <!------------------------------------------------------------------------------------------------------------->
 

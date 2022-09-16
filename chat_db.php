@@ -26,7 +26,6 @@
         $stmt->bindValue(':partner_user_id', $partner_user_id);
         $stmt->bindValue(':chat_time', $chat_time);
         $stmt->bindValue(':chat_text', $chat_text);
-        $stmt->bindValue(':flag', $flag_no);
         $stmt->execute();
         unset($pdo);
         

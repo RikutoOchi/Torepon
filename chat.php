@@ -80,8 +80,8 @@
             // チャット内容取り出しSQL
             $sql = "select CHAT_TEXT,USER_ID,PARTNER_USER_ID 
                     from CHATS
-                    where USER_ID = '" .$_GET['id'] . "' and PARTNER_USER_ID = '" . $_SESSION['user_id'] . "'
-                    or USER_ID = '" . $_SESSION['user_id'] . "' and PARTNER_USER_ID = '" . $_GET['id'] . "' ORDER BY CHAT_TIME";
+                    where USER_ID = '" .$_GET['id'] . "' and PARTNER_USER_ID = '" . $_SESSION['user_id'] . "' and FLAG = 0
+                    or USER_ID = '" . $_SESSION['user_id'] . "' and PARTNER_USER_ID = '" . $_GET['id'] . "' and FLAG = 0 ORDER BY CHAT_TIME";
             // チャット相手のユーザーアイコン取り出しSQL
             $partner_user_icon_sql = "select USER_ID,USER_ICON_URL 
                                       from USERS
@@ -116,7 +116,7 @@
         <div class="my-message">
           <a href = "cancel.html">取引キャンセル申請</a>
           <div>
-            <form action="./chat_db.php?id=<?php echo $partner_user_id ?>" method="post" name="chat_form">
+            <form action="./chat_db.php?id=<?php echo $_GET['id'] ?>" method="post" name="chat_form">
               <input class="message-send" type="text" placeholder="メッセージを入力" name="chat_text">
               <button><i class="fa-solid fa-paper-plane"></i></button>
             </form>

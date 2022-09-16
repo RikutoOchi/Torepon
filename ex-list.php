@@ -71,7 +71,7 @@
           $maisu_end = $_SESSION['maisu-end']; 
         };
       /* ------------------------------------------------------------------------------------- */
-    } else{
+    } else{  
       $gatya = "%_%";
       $kyara = "%_%";
       $gensaku = "%_%";
@@ -79,6 +79,16 @@
       $nitizi_start = "0000-01-01";
       $syurui = "%_%";
       $maisu_end = "9999999";
+
+      $_SESSION["gatya"] = $gatya;
+      $_SESSION["kyara"] = $kyara;
+      $_SESSION["gensaku"] = $gensaku;
+      $_SESSION["me-ka-"] = $meka;
+      $_SESSION["nitizi-start"] = $nitizi_start;
+      $_SESSION["syurui"] = $syurui;
+      $_SESSION["maisu-end"] = $maisu_end;
+
+
     }
 
     /* ----------------------------------- db接続関連 --------------------------------------- */

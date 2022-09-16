@@ -30,18 +30,7 @@
   list-style: none;
   border-bottom: 1px solid gray;
 }
-.ChatUser-choise {
-  text-decoration: none;
-  width: 100%;
-  height: 100%;
-  display: block;
-  color: #000;
-  margin: -10px 0;
-  padding: 10px 0;
-
-  background-color: #CCFFFF;
-}
-.ChatUser-not-choise {
+.ChatUser a {
   text-decoration: none;
   width: 100%;
   height: 100%;

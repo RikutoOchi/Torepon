@@ -6,10 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/reset.css" />
-    <link rel="stylesheet" href="./css/inspection_exhibit.css" />
+    <link rel="stylesheet" href="./css/tra-info.css" />
     <script src="https://kit.fontawesome.com/95076eb005.js" crossorigin="anonymous"></script>
 
-    <title>取引情報確認画面</title>
+    <title>取引情報確認画面 </title>
 </head>
 
 <body>
@@ -22,14 +22,13 @@
                 <form action="./" method="post" class="header-form">
                     <select name="select" class="header-select">
               <option value="title">ガチャタイトル</option>
-              <option value="character">キャラクター</option>
+              <option value="character">キャラクター名</option>
               <option value="gensaku">原作</option>
               <option value="maker">メーカー</option>
+              <option value="maker">タグ</option>
             </select>
-                    <input type="text" placeholder="何かお探しですか？" class="index-text" />
-                    <span class="header-search-icon">
-              <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-            </span>
+                    <input type="text" placeholder="何かお探しですか？" class="index-text" /><span class="header-search-icon"><i class="fa-solid fa-magnifying-glass fa-lg"></i
+            ></span>
                 </form>
                 <ul class="header-list">
                     <li class="header-item">
@@ -37,7 +36,7 @@
                     </li>
                     <li class="header-item">
                         <div class="icon-wrapper">
-                            <a href="./profile.html"><i class="fa-solid fa-circle-user fa-2x"></i></i></a>
+                            <a href="./"><i class="fa-solid fa-circle-user fa-2x"></i></i></a>
                         </div>
                     </li>
                     <button class="burger-btn">
@@ -50,41 +49,27 @@
         </div>
     </header>
     <main class="main-side-content">
-        <section class="main-content">
-            <!-- mainコンテンツ -->
-            <div class="maincol">
-                <div class="maincol-container">
-                    <div class="news">
-                        <ul class="news-contents">
-                            <li><img src="images/series2.jpg" height="100" alt="">
-                                <a href="inspection_exhibit1.html">
-                                    <p>クマのキーホルダー　vol.1</p>
-                                </a>
-                            </li>
-
-                            <li><img src="images/series1.jpg" height="100" alt="">
-                                <a href="inspection_exhibit1.html">
-                                    <p>森の動物シリーズ vol.1</p>
-                                </a>
-                            </li>
-
-                            <li><img src="images/series3.jpg" height="100" alt="">
-                                <a href="inspection_exhibit1.html">
-                                    <p>アイドル　キーホルダーコレクション　vol.3</p>
-                                </a>
-                            </li>
-
-                            <li><img src="images/series4.jpg" height="100" alt="">
-                                <a href="inspection_exhibit1.html">
-                                    <p>〇△レンジャー</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+        <!-- mainコンテンツ -->
+        <div class="tr-info">
+            <div class="Trade-ID">
+                <p>トレードID</p>
             </div>
-            <!-- /mainコンテンツ -->
-        </section>
+            <div class="User-ID">
+                <p>取引相手のID</p>
+            </div>
+            <div class="Trade-Date">
+                <p>取引を開始した日時</p>
+                <p>取引が終了する日時</p>
+            </div>
+            <div class="Trade-Situation">
+                <p>現在の取引状況</p>
+            </div>
+            <div class="Trade-Evaluation">
+                <p>この取引の評価</p>
+            </div>
+
+        </div>
+        <!-- /mainコンテンツ -->
         <aside class="side-content">
             <!-- 広告コンテンツ -->
             <nav class="humburger-nav">
@@ -105,7 +90,6 @@
             <!-- /広告コンテンツ -->
         </aside>
     </main>
-
     <footer class="footer">
         <div class="footer-wrapper">
             <div class="footer-inner">
@@ -113,10 +97,8 @@
             </div>
         </div>
     </footer>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="./script/script.js"></script>
-
 </body>
 
 </html>

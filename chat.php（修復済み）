@@ -80,8 +80,8 @@
             // チャット内容取り出しSQL
             $sql = "select CHAT_TEXT,USER_ID,PARTNER_USER_ID 
                     from CHATS
-                    where USER_ID = '" .$_GET['id'] . "' and PARTNER_USER_ID = '" . $_SESSION['user_id'] . "'
-                    or USER_ID = '" . $_SESSION['user_id'] . "' and PARTNER_USER_ID = '" . $_GET['id'] . "' ORDER BY CHAT_TIME";
+                    where USER_ID = '" .$_GET['id'] . "' and PARTNER_USER_ID = '" . $_SESSION['user_id'] . "' and FLAG = 0
+                    or USER_ID = '" . $_SESSION['user_id'] . "' and PARTNER_USER_ID = '" . $_GET['id'] . "' and FLAG = 0 ORDER BY CHAT_TIME";
             // チャット相手のユーザーアイコン取り出しSQL
             $partner_user_icon_sql = "select USER_ID,USER_ICON_URL 
                                       from USERS

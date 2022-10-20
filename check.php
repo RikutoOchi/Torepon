@@ -17,10 +17,10 @@
     </dl>
 
     
-      <label>チケット残数:</label>
+      <label>トレード履歴:</label>
       <a href = "./ticket-confirm.php">詳細</a><br><br><br>
       
-      <font size="5">チケット履歴</font>
+      <font size="5">チケット枚数</font>
       <table border="1">
         <tr bgcolor="#87cefa">
           <th>チケット名</th>
@@ -28,10 +28,10 @@
           <th>利用日時</th>
         </tr>
         <tr>
+          <th><?= $exhibit_gacha['GACHA_TITLE_NAME'] ?>用チケット</th>
           <th>&nbsp;</th>
           <th>&nbsp;</th>
-          <th>&nbsp;</th>
-        </tr> 
+        </tr>
         <tr>
           <th>&nbsp;</th>
           <th>&nbsp;</th>

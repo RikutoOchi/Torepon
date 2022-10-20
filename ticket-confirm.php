@@ -14,12 +14,8 @@
 <main class="main-side-content">
       <section class="main-content">
     </dl>
-
     
-      <label>チケット残数:</label>
-      <a href = "detail.html">詳細</a><br><br><br>
-      
-      <font size="5">チケット履歴</font>
+    <font size="5">トレード履歴</font>
       <table border="1">
         <tr bgcolor="#87cefa">
           <th>チケット名</th>

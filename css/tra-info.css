@@ -7,6 +7,8 @@
 
 
 .item-info {
+
+    text-align: left;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
@@ -21,10 +23,15 @@
 
 .item-img {
     grid-area: item-img;
+    transform: scale(60%);
 }
 
 .counter-info {
     grid-area: counter-info;
+}
+
+.counter-info img {
+    transform: scale(60%);
 }
 
 .item-deta {

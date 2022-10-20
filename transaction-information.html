@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/tra-info.css" />
     <script src="https://kit.fontawesome.com/95076eb005.js" crossorigin="anonymous"></script>
 
@@ -21,14 +22,14 @@
                 </h1>
                 <form action="./" method="post" class="header-form">
                     <select name="select" class="header-select">
-              <option value="title">ガチャタイトル</option>
-              <option value="character">キャラクター名</option>
-              <option value="gensaku">原作</option>
-              <option value="maker">メーカー</option>
-              <option value="maker">タグ</option>
-            </select>
-                    <input type="text" placeholder="何かお探しですか？" class="index-text" /><span class="header-search-icon"><i class="fa-solid fa-magnifying-glass fa-lg"></i
-            ></span>
+                        <option value="title">ガチャタイトル</option>
+                        <option value="character">キャラクター名</option>
+                        <option value="gensaku">原作</option>
+                        <option value="maker">メーカー</option>
+                        <option value="maker">タグ</option>
+                    </select>
+                    <input type="text" placeholder="何かお探しですか？" class="index-text" /><span class="header-search-icon"><i
+                            class="fa-solid fa-magnifying-glass fa-lg"></i></span>
                 </form>
                 <ul class="header-list">
                     <li class="header-item">
@@ -40,10 +41,10 @@
                         </div>
                     </li>
                     <button class="burger-btn">
-                <span class="bar bar_top"></span>
-                <span class="bar bar_mid"></span>
-                <span class="bar bar_bottom"></span>
-            </button>
+                        <span class="bar bar_top"></span>
+                        <span class="bar bar_mid"></span>
+                        <span class="bar bar_bottom"></span>
+                    </button>
                 </ul>
             </div>
         </div>
@@ -51,44 +52,48 @@
     <main class="main-side-content">
         <!-- mainコンテンツ -->
         <div class="tr-info">
-            <div class="Trade-ID">
-                <p>トレードID</p>
+            <div class="info-title">
+                <h1>トレード情報</h1>
             </div>
-            <div class="User-ID">
-                <p>取引相手のID</p>
+            <div class="item-info">
+                <div class="item-img">
+                    <img src="images/kuma1.jpg">
+                </div>
+                <div class="counter-info">
+                    <img class="counter-icon" src="images/userIcon.png">
+                    <p class="counter-name">取引相手の名前</p>
+                    <p class="counter-id">取引相手のID</p>
+                </div>
+                <div class="item-deta">
+                    <p>商品タイトル</p>
+                    <p>商品名</p>
+                    <p>商品コンディション</p>
+                    <p>必要チケット種類・枚数</p>
+                </div>
+                <div class="delivery-address">
+                    <p>お届け先</p>
+                </div>
             </div>
-            <div class="Trade-Date">
-                <p>取引を開始した日時</p>
-                <p>取引が終了する日時</p>
-            </div>
-            <div class="Trade-Situation">
-                <p>現在の取引状況</p>
-            </div>
-            <div class="Trade-Evaluation">
-                <p>この取引の評価</p>
-            </div>
-
-        </div>
-        <!-- /mainコンテンツ -->
-        <aside class="side-content">
-            <!-- 広告コンテンツ -->
-            <nav class="humburger-nav">
-                <ul class="nav-list">
-                    <li class="nav-item"><a href="./index.html">HOME</a></li>
-                    <li class="nav-item"><a href="./profile.html">プロフィール</a></li>
-                    <li class="nav-item"><a href="./ex-list.html">出品リスト</a></li>
-                    <li class="nav-item"><a href="./fav-list.html">お気に入りリスト</a></li>
-                    <li class="nav-item"><a href="./ticket-confirm.html">チケット確認</a></li>
-                    <li class="nav-item"><a href="./login.html">ログイン</a></li>
+            <!-- /mainコンテンツ -->
+            <aside class="side-content">
+                <!-- 広告コンテンツ -->
+                <nav class="humburger-nav">
+                    <ul class="nav-list">
+                        <li class="nav-item"><a href="./index.html">HOME</a></li>
+                        <li class="nav-item"><a href="./profile.html">プロフィール</a></li>
+                        <li class="nav-item"><a href="./ex-list.html">出品リスト</a></li>
+                        <li class="nav-item"><a href="./fav-list.html">お気に入りリスト</a></li>
+                        <li class="nav-item"><a href="./ticket-confirm.html">チケット確認</a></li>
+                        <li class="nav-item"><a href="./login.html">ログイン</a></li>
+                    </ul>
+                </nav>
+                <ul class="ad-list">
+                    <li class="ad-item"><img src="" alt=""></li>
+                    <li class="ad-item"><img src="" alt=""></li>
+                    <li class="ad-item"><img src="" alt=""></li>
                 </ul>
-            </nav>
-            <ul class="ad-list">
-                <li class="ad-item"><img src="" alt=""></li>
-                <li class="ad-item"><img src="" alt=""></li>
-                <li class="ad-item"><img src="" alt=""></li>
-            </ul>
-            <!-- /広告コンテンツ -->
-        </aside>
+                <!-- /広告コンテンツ -->
+            </aside>
     </main>
     <footer class="footer">
         <div class="footer-wrapper">

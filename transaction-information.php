@@ -14,20 +14,25 @@
 
 <?php
 
-
     // どの商品の詳細画面に飛ぶかの情報
     $id = $_GET['id'];
+    // 自分が出品した物か否か
     $flag = $_GET['flag'];
+
+    require_once __DIR__ . './classes/dbdata.php';
 
     if( $flag == 0 ){
 
-        require_once __DIR__ . './classes/dbdata.php';
+        // DB接続 & SQL文
         $exh = new Dbdata();
         $sql = "select * from EXHIBITS where EXHIBIT_ID = '" . $id . "'";
         $data = $exh->getRecord_0($sql);
 
+        // DBから取り出した各種データの取得
         foreach($data as $detail){
 
+            // ユーザーアイコン
+            $user_icon = $_SESSION['user_icon'];
             // 取引相手のユーザーIDの取得
             $partner_user_id = '-----';
             // 商品タイトルの取得
@@ -48,7 +53,6 @@
         
     } else if ( $flag == 1 ){
 
-        require_once __DIR__ . './classes/dbdata.php';
         $exh = new Dbdata();
         $sql = "select * from EXHIBITS LEFT OUTER JOIN TRADES ON EXHIBITS.EXHIBIT_ID = TRADES.USER_ID
                 where EXHIBITS.EXHIBIT_ID = '" . $id . "'";
@@ -88,8 +92,6 @@
         }
     }
 
-
-
 ?>
 
     <main class="main-side-content">
@@ -104,7 +106,7 @@
                     <img src="images/kuma1.jpg">
                 </div>
                 <div class="counter-info">
-                    <img class="counter-icon" src="images/userIcon.png">
+                    <img class="counter-icon" src="">
                     <p class="counter-name">取引相手の名前　：　<?php echo $user_name ?></p>
                     <p class="counter-id">取引相手のID　：　<?php echo $partner_user_id ?></p>
                 </div>

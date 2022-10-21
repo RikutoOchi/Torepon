@@ -14,258 +14,202 @@
 
 <?php
   require_once __DIR__ . './classes/dbdata.php';
+
   $exh = new Dbdata();
-  // user_id（出品者のユーザーID）が自分のユーザーIDと同じ、もしくは、other_party_id（申請者のユーザーID）が自分のユーザーIDと同じ
-  $sql =  "select * from EXHIBITS LEFT OUTER JOIN TRADES ON EXHIBITS.EXHIBIT_ID = TRADES.USER_ID 
-           where TRADES.OTHER_PARTY_ID = '" . $_SESSION['user_id'] . "' 
-           order by TRADE_START_TIME";
-  $data = $exh->getRecord_0($sql);
+  // other_party_id（申請者のユーザーID）が自分のユーザーIDと同じ
+  $get_exhibit_id_sql =  "select * from EXHIBITS LEFT OUTER JOIN TRADES ON EXHIBITS.EXHIBIT_ID = TRADES.USER_ID 
+                          where TRADES.OTHER_PARTY_ID = '" . $_SESSION['user_id'] . "' 
+                          order by TRADE_START_TIME";
+  $get_exhibit_id = $exh->getRecord_0($get_exhibit_id_sql);
 ?>
 
     <main class="main-side-content">
       <section class="main-content">
+
         <!-- mainコンテンツ -->
         <div class="maincol">
+
           <div class="maincol-container">
+
             <div class="news">
+
               <h2>進行中のトレードリスト</h2>
+
               <ul class="news-contents">
                 <!-- ここのAタグに詳細画面のURL貼り付け -->
 
-                <?php 
-                  require_once __DIR__ . './classes/dbdata.php';
+                <!-------------------- 自分が出品した物の状況の情報取得・表示 ------------------->
+                <?php
+
+                  // DB接続・情報の取得
                   $exh = new Dbdata();
-                  $sql2 = "select * from EXHIBITS 
+                  $myself_sql = "select * from EXHIBITS 
                           where USER_ID = '" . $_SESSION['user_id'] . "' order by EXHIBIT_TIME";
-                  $data2 = $exh->getRecord_0($sql2);
+                  $myself_info = $exh->getRecord_0($myself_sql);
 
-                  foreach($data2 as $detail2){ ?>
+                  foreach($myself_info as $myself_info_detail){ ?>
 
-                    <li><a href="./transaction-information.php?id=<?php echo $detail2['EXHIBIT_ID']?>&flag=0"><img src="<?= $detail2['EXHIBIT_PIC_URL']?>" height="100" alt="">
-                      <p><?php echo $detail2['EXHIBIT_NAME'] ?></p>
+                    <li>
+                      <a href="./transaction-information.php?id=<?php echo $myself_info_detail['EXHIBIT_ID']?>&flag=0"><img src="<?= $myself_info_detail['EXHIBIT_PIC_URL']?>" height="100" alt=""></a>
+                      
+                      <p><?php echo $myself_info_detail['EXHIBIT_NAME'] ?></p>
 
                       <div class="Group">
-                          <div class="Group-Bar"></div>
-                          <div class="Group-Item isActive">
-                            <div class="Group-Item-CircleOuter Circle Shapeborder isActive">
-                              <div class="Group-Item-CircleInner Circle Shapeborder isActive"></div>
-                            </div>
-                            <p class="Group-Item-Text">申請</p>
+
+                        <div class="Group-Bar"></div>
+
+                        <div class="Group-Item isActive">
+                          <div class="Group-Item-CircleOuter Circle Shapeborder isActive">
+                            <div class="Group-Item-CircleInner Circle Shapeborder isActive"></div>
                           </div>
-                          <div class="Group-Item">
-                            <div class="Group-Item-CircleOuter Circle Shapeborder">
-                              <div class="Group-Item-CircleInner Circle Shapeborder"></div>
-                            </div>
-                            <p class="Group-Item-Text">承認・拒否</p>
+                          <p class="Group-Item-Text">申請</p>
+                        </div>
+
+                        <div class="Group-Item">
+                          <div class="Group-Item-CircleOuter Circle Shapeborder">
+                            <div class="Group-Item-CircleInner Circle Shapeborder"></div>
                           </div>
-                          <div class="Group-Item">
-                            <div class="Group-Item-CircleOuter Circle Shapeborder">
-                              <div class="Group-Item-CircleInner Circle Shapeborder"></div>
-                            </div>
-                            <p class="Group-Item-Text">交渉中</p>
+                          <p class="Group-Item-Text">承認・拒否</p>
+                        </div>
+
+                        <div class="Group-Item">
+                          <div class="Group-Item-CircleOuter Circle Shapeborder">
+                            <div class="Group-Item-CircleInner Circle Shapeborder"></div>
                           </div>
-                          <div class="Group-Item">
-                            <div class="Group-Item-CircleOuter Circle Shapeborder">
-                              <div class="Group-Item-CircleInner Circle Shapeborder"></div>
-                            </div>
-                            <p class="Group-Item-Text">発送中</p>
+                          <p class="Group-Item-Text">交渉中</p>
+                        </div>
+
+                        <div class="Group-Item">
+                          <div class="Group-Item-CircleOuter Circle Shapeborder">
+                            <div class="Group-Item-CircleInner Circle Shapeborder"></div>
                           </div>
-                          <div class="Group-Item">
-                            <div class="Group-Item-CircleOuter Circle Shapeborder">
-                              <div class="Group-Item-CircleInner Circle Shapeborder"></div>
-                            </div>
-                            <p class="Group-Item-Text">到着</p>
+                          <p class="Group-Item-Text">発送中</p>
+                        </div>
+
+                        <div class="Group-Item">
+                          <div class="Group-Item-CircleOuter Circle Shapeborder">
+                            <div class="Group-Item-CircleInner Circle Shapeborder"></div>
                           </div>
-                      </div></a>
+                          <p class="Group-Item-Text">到着</p>
+                        </div>
+
+                      </div>
+
                     </li>
+
                   <?php } 
                 ?>
+                <!------------------------------------------------------------------------------->
 
-                <?php foreach($data as $detail){
-                  $exhibit_id = $detail['EXHIBIT_ID'];
+                <?php foreach($get_exhibit_id as $get_exhibit_id_detail){
 
-                  $exh = new Dbdata();
-                  $sql3 = "select * from EXHIBITS LEFT OUTER JOIN TRADES ON EXHIBITS.EXHIBIT_ID = TRADES.USER_ID
-                           where EXHIBITS.EXHIBIT_ID = '" . $exhibit_id . "' order by TRADE_PROGRESS , TRADE_START_TIME";
-                  $data3 = $exh->getRecord_0($sql3);
+                  // exhibit_id（出品ID）
+                  $exhibit_id = $get_exhibit_id_detail['EXHIBIT_ID'];
                   
-                  foreach($data3 as $detail3){ ?>
-                    <li><a href="./transaction-information.php?id=<?php echo $detail3['EXHIBIT_ID']?>&flag=1"><img src="<?= $detail3['EXHIBIT_PIC_URL']?>" height="100" alt="">
-                      <p><?php echo $detail3['EXHIBIT_NAME'] ?></p>
+                  // DB接続・SQL文
+                  $exh = new Dbdata();
+                  $applicant_sql = "select * from EXHIBITS LEFT OUTER JOIN TRADES ON EXHIBITS.EXHIBIT_ID = TRADES.USER_ID
+                                    where EXHIBITS.EXHIBIT_ID = '" . $exhibit_id . "' order by TRADE_PROGRESS , TRADE_START_TIME";
+                  $applicant_info = $exh->getRecord_0($applicant_sql);
+                  
+                  foreach($applicant_info as $applicant_info_detail){ ?>
+
+                    <li>
+
+                      <a href="./transaction-information.php?id=<?php echo $applicant_info_detail['EXHIBIT_ID']?>&flag=1"><img src="<?= $applicant_info_detail['EXHIBIT_PIC_URL']?>" height="100" alt=""></a>
+                      
+                      <p><?php echo $applicant_info_detail['EXHIBIT_NAME'] ?></p>
 
                       <div class="Group">
-                        <?php if( $detail3['TRADE_PROGRESS'] == 1 ){ ?>
-                          <div class="Group-Bar"></div>
-                          <div class="Group-Item isActive">
-                            <div class="Group-Item-CircleOuter Circle Shapeborder isActive">
-                              <div class="Group-Item-CircleInner Circle Shapeborder isActive"></div>
-                            </div>
-                            <p class="Group-Item-Text">申請</p>
-                          </div>
-                          <div class="Group-Item">
-                            <div class="Group-Item-CircleOuter Circle Shapeborder">
-                              <div class="Group-Item-CircleInner Circle Shapeborder"></div>
-                            </div>
-                            <p class="Group-Item-Text">承認・拒否</p>
-                          </div>
-                          <div class="Group-Item">
-                            <div class="Group-Item-CircleOuter Circle Shapeborder">
-                              <div class="Group-Item-CircleInner Circle Shapeborder"></div>
-                            </div>
-                            <p class="Group-Item-Text">交渉中</p>
-                          </div>
-                          <div class="Group-Item">
-                            <div class="Group-Item-CircleOuter Circle Shapeborder">
-                              <div class="Group-Item-CircleInner Circle Shapeborder"></div>
-                            </div>
-                            <p class="Group-Item-Text">発送中</p>
-                          </div>
-                          <div class="Group-Item">
-                            <div class="Group-Item-CircleOuter Circle Shapeborder">
-                              <div class="Group-Item-CircleInner Circle Shapeborder"></div>
-                            </div>
-                            <p class="Group-Item-Text">到着</p>
-                          </div>
-                        <?php } else if( $detail3['TRADE_PROGRESS'] == 2 ) { ?>
-                          <div class="Group-Bar"></div>
-                          <div class="Group-Item">
-                            <div class="Group-Item-CircleOuter Circle Shapeborder">
-                              <div class="Group-Item-CircleInner Circle Shapeborder"></div>
-                            </div>
-                            <p class="Group-Item-Text">申請</p>
-                          </div>
-                          <div class="Group-Item isActive">
-                            <div class="Group-Item-CircleOuter Circle Shapeborder isActive">
-                              <div class="Group-Item-CircleInner Circle Shapeborder isActive"></div>
-                            </div>
-                            <p class="Group-Item-Text">承認・拒否</p>
-                          </div>
-                          <div class="Group-Item">
-                            <div class="Group-Item-CircleOuter Circle Shapeborder">
-                              <div class="Group-Item-CircleInner Circle Shapeborder"></div>
-                            </div>
-                            <p class="Group-Item-Text">交渉中</p>
-                          </div>
-                          <div class="Group-Item">
-                            <div class="Group-Item-CircleOuter Circle Shapeborder">
-                              <div class="Group-Item-CircleInner Circle Shapeborder"></div>
-                            </div>
-                            <p class="Group-Item-Text">発送中</p>
-                          </div>
-                          <div class="Group-Item">
-                            <div class="Group-Item-CircleOuter Circle Shapeborder">
-                              <div class="Group-Item-CircleInner Circle Shapeborder"></div>
-                            </div>
-                            <p class="Group-Item-Text">到着</p>
-                          </div>
-                        <?php } else if( $detail3['TRADE_PROGRESS'] == 3 ) { ?>
-                          <div class="Group-Bar"></div>
-                          <div class="Group-Item">
-                            <div class="Group-Item-CircleOuter Circle Shapeborder">
-                              <div class="Group-Item-CircleInner Circle Shapeborder"></div>
-                            </div>
-                            <p class="Group-Item-Text">申請</p>
-                          </div>
-                          <div class="Group-Item">
-                            <div class="Group-Item-CircleOuter Circle Shapeborder">
-                              <div class="Group-Item-CircleInner Circle Shapeborder"></div>
-                            </div>
-                            <p class="Group-Item-Text">承認・拒否</p>
-                          </div>
-                          <div class="Group-Item isActive">
-                            <div class="Group-Item-CircleOuter Circle Shapeborder isActive">
-                              <div class="Group-Item-CircleInner Circle Shapeborder isActive"></div>
-                            </div>
-                            <p class="Group-Item-Text">交渉中</p>
-                          </div>
-                          <div class="Group-Item">
-                            <div class="Group-Item-CircleOuter Circle Shapeborder">
-                              <div class="Group-Item-CircleInner Circle Shapeborder"></div>
-                            </div>
-                            <p class="Group-Item-Text">発送中</p>
-                          </div>
-                          <div class="Group-Item">
-                            <div class="Group-Item-CircleOuter Circle Shapeborder">
-                              <div class="Group-Item-CircleInner Circle Shapeborder"></div>
-                            </div>
-                            <p class="Group-Item-Text">到着</p>
-                          </div>
-                        <?php } else if( $detail3['TRADE_PROGRESS'] == 4 ) { ?>
-                          <div class="Group-Bar"></div>
-                          <div class="Group-Item">
-                            <div class="Group-Item-CircleOuter Circle Shapeborder">
-                              <div class="Group-Item-CircleInner Circle Shapeborder"></div>
-                            </div>
-                            <p class="Group-Item-Text">申請</p>
-                          </div>
-                          <div class="Group-Item">
-                            <div class="Group-Item-CircleOuter Circle Shapeborder">
-                              <div class="Group-Item-CircleInner Circle Shapeborder"></div>
-                            </div>
-                            <p class="Group-Item-Text">承認・拒否</p>
-                          </div>
-                          <div class="Group-Item">
-                            <div class="Group-Item-CircleOuter Circle Shapeborder">
-                              <div class="Group-Item-CircleInner Circle Shapeborder"></div>
-                            </div>
-                            <p class="Group-Item-Text">交渉中</p>
-                          </div>
-                          <div class="Group-Item isActive">
-                            <div class="Group-Item-CircleOuter Circle Shapeborder isActive">
-                              <div class="Group-Item-CircleInner Circle Shapeborder isActive"></div>
-                            </div>
-                            <p class="Group-Item-Text">発送中</p>
-                          </div>
-                          <div class="Group-Item">
-                            <div class="Group-Item-CircleOuter Circle Shapeborder">
-                              <div class="Group-Item-CircleInner Circle Shapeborder"></div>
-                            </div>
-                            <p class="Group-Item-Text">到着</p>
-                          </div>
-                        <?php } else if( $detail3['TRADE_PROGRESS'] == 5 ) { ?>
-                          <div class="Group-Bar"></div>
-                          <div class="Group-Item">
-                            <div class="Group-Item-CircleOuter Circle Shapeborder">
-                              <div class="Group-Item-CircleInner Circle Shapeborder"></div>
-                            </div>
-                            <p class="Group-Item-Text">申請</p>
-                          </div>
-                          <div class="Group-Item">
-                            <div class="Group-Item-CircleOuter Circle Shapeborder">
-                              <div class="Group-Item-CircleInner Circle Shapeborder"></div>
-                            </div>
-                            <p class="Group-Item-Text">承認・拒否</p>
-                          </div>
-                          <div class="Group-Item">
-                            <div class="Group-Item-CircleOuter Circle Shapeborder">
-                              <div class="Group-Item-CircleInner Circle Shapeborder"></div>
-                            </div>
-                            <p class="Group-Item-Text">交渉中</p>
-                          </div>
-                          <div class="Group-Item">
-                            <div class="Group-Item-CircleOuter Circle Shapeborder">
-                              <div class="Group-Item-CircleInner Circle Shapeborder"></div>
-                            </div>
-                            <p class="Group-Item-Text">発送中</p>
-                          </div>
-                          <div class="Group-Item isActive">
-                            <div class="Group-Item-CircleOuter Circle Shapeborder isActive">
-                              <div class="Group-Item-CircleInner Circle Shapeborder isActive"></div>
-                            </div>
-                            <p class="Group-Item-Text">到着</p>
-                          </div>
-                        <?php } ?>
 
-                      </div></a>
+                        <div class="Group-Bar"></div>
+
+                        <?php if( $applicant_info_detail['TRADE_PROGRESS'] == 1 ){ ?>
+                          <div class="Group-Item isActive">
+                            <div class="Group-Item-CircleOuter Circle Shapeborder isActive">
+                              <div class="Group-Item-CircleInner Circle Shapeborder isActive"></div>
+                            </div>
+                        <?php } else { ?>
+                          <div class="Group-Item">
+                            <div class="Group-Item-CircleOuter Circle Shapeborder">
+                              <div class="Group-Item-CircleInner Circle Shapeborder"></div>
+                            </div>
+                        <?php } ?>
+                              <p class="Group-Item-Text">申請</p>
+                          </div>
+
+
+                        <?php if( $applicant_info_detail['TRADE_PROGRESS'] == 2 ){ ?>
+                          <div class="Group-Item isActive">
+                            <div class="Group-Item-CircleOuter Circle Shapeborder isActive">
+                              <div class="Group-Item-CircleInner Circle Shapeborder isActive"></div>
+                            </div>
+                        <?php } else { ?>
+                          <div class="Group-Item">
+                            <div class="Group-Item-CircleOuter Circle Shapeborder">
+                              <div class="Group-Item-CircleInner Circle Shapeborder"></div>
+                            </div>
+                        <?php } ?>
+                            <p class="Group-Item-Text">承認・拒否</p>
+                          </div>
+                              
+                        <?php if( $applicant_info_detail['TRADE_PROGRESS'] == 3 ){ ?>
+                          <div class="Group-Item isActive">
+                            <div class="Group-Item-CircleOuter Circle Shapeborder isActive">
+                              <div class="Group-Item-CircleInner Circle Shapeborder isActive"></div>
+                            </div>
+                        <?php } else{ ?>
+                          <div class="Group-Item">
+                            <div class="Group-Item-CircleOuter Circle Shapeborder">
+                              <div class="Group-Item-CircleInner Circle Shapeborder"></div>
+                            </div>
+                        <?php } ?>
+                            <p class="Group-Item-Text">交渉中/p>
+                          </div>
+
+                        <?php if( $applicant_info_detail['TRADE_PROGRESS'] == 4 ){ ?>
+                          <div class="Group-Item isActive">
+                            <div class="Group-Item-CircleOuter Circle Shapeborder isActive">
+                              <div class="Group-Item-CircleInner Circle Shapeborder isActive"></div>
+                            </div>
+                        <?php } else { ?>
+                          <div class="Group-Item">
+                            <div class="Group-Item-CircleOuter Circle Shapeborder">
+                              <div class="Group-Item-CircleInner Circle Shapeborder"></div>
+                            </div>
+                        <?php } ?>
+                            <p class="Group-Item-Text">発送中</p>
+                          </div>
+
+                        <?php if( $applicant_info_detail['TRADE_PROGRESS'] == 5 ){ ?>
+                          <div class="Group-Item isActive">
+                            <div class="Group-Item-CircleOuter Circle Shapeborder isActive">
+                              <div class="Group-Item-CircleInner Circle Shapeborder isActive"></div>
+                            </div>
+                        <?php } else { ?>
+                          <div class="Group-Item">
+                            <div class="Group-Item-CircleOuter Circle Shapeborder">
+                              <div class="Group-Item-CircleInner Circle Shapeborder"></div>
+                            </div>
+                        <?php } ?>
+                            <p class="Group-Item-Text">到着</p>
+                          </div>
+
+                      </div>
+
                     </li>
 
                   <?php } ?>
                 <?php } ?>
                   
               </ul>
+
             </div>
+
           </div>
+
         </div>
+
       </section>
   
  <!-- サイドコンテンツ -->

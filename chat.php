@@ -16,7 +16,8 @@
 
   <?php
     $user = $_SESSION['user_id'];   // 自分のuser_idの取得
-    $partner_user_id = $_GET['id'];   // 
+    $partner_user_id = $_GET['id'];   //相手のuser_id取得
+    $trade_id=$_GET['trade_id'];
 
     require_once __DIR__ . './classes/dbdata.php';
     $exh = new Dbdata();
@@ -80,7 +81,7 @@
           <?php
             $sql = "select CHAT_TEXT,USER_ID,PARTNER_USER_ID 
                     from CHATS
-                    where USER_ID = '" . $user . "' or PARTNER_USER_ID = '" . $user . "' ORDER BY CHAT_TIME";
+                    where TRADE_ID = '" . $trade_id . "' and (USER_ID = '" . $user . "' or PARTNER_USER_ID = '" . $user . "') ORDER BY CHAT_TIME";
 
             $data = $exh->getRecord_0($sql);
           ?>

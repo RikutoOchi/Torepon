@@ -7,6 +7,7 @@
   $exh = new Dbdata();
   // 選択された商品を取り出す
   $exhibit = $exh->getRecord('exhibits','EXHIBIT_ID',$exhibit_id);
+
   // Dbdataオブジェクトを生成する
   $usr = new Dbdata();
   // 出品者情報を取り出す
@@ -71,14 +72,27 @@
             <hr>
             <?= $exhibit['EXHIBIT_TEXT'] ?>
             <hr>
+            <?php 
+            $usr=$_SESSION['user_id'];
+             $trade = new DbData( );
+             $data = $trade->getRecord('trades','EXHIBIT_ID',$exhibit_id);
+             
+            if(empty($data)){
+            ?>
             <h2>トレード申請</h2>
-            <textarea class="dealingrequest-textarea" type="text"></textarea>
-            <button class="dealingrequest-button">トレード申請する</button>
+            <form action="./tr_add.php?id=<?php echo $exhibit['EXHIBIT_ID'] ?>" method="post" enctype="multipart/form-data" >
+            <textarea name="apply_text" class="dealingrequest-textarea" ></textarea>
+            <button class="dealingrequest-button" type="submit">トレード申請する</button>
+            <?php
+            }else{
+              $trade_id=$data['TRADE_ID'];
+            ?>
+            <button class="dealingrequest-button" onclick="location.href='./chat.php?id=<?php echo $usr ?>&trade_id=<?php echo $trade_id ?>'">チャットへ移動</button>
+            <?php
+            }
+            ?>
           </div>
         </div>
-
-            
-      
       </section>
      
      <!-- サイドコンテンツ -->

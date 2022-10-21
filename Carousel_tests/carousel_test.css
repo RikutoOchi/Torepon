@@ -82,8 +82,18 @@ body {
     }
 }
 
+
+
+
+/*          この部分が画像表示に関するゾーン            */
+
 .carousel-list:nth-child(1) {
+
     background-image: url(./Test_images/T_img1.jpg);
+
+    /* イメージ
+        background-image: url(<?php $hoge['hoge'] ?>);
+    */
 }
 
 .carousel-list:nth-child(2) {
@@ -101,6 +111,13 @@ body {
 .carousel-list:nth-child(5) {
     background-image: url(./Test_images/T_img5.jpg);
 }
+
+
+
+/* ---------------------------------------------------- */
+
+
+
 
 
 /* clipで非表示指定（スクリーンリーダー対策） */

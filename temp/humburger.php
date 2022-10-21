@@ -6,6 +6,7 @@
             <li class="nav-item"><a href="./profile.php">プロフィール</a></li>
             <li class="nav-item"><a href="./Disp-Post.php">出品する</a></li>
             <li class="nav-item"><a href="./ex-list.php?sort_id=0&sarch_id=0">出品リスト</a></li>
+            <li class="nav-item"><a href="./tradelist.php">トレードリスト<a></li>
             <li class="nav-item"><a href="./fav-list.php">お気に入りリスト<a></li>
             <li class="nav-item"><a href="./check.php">チケット確認</a></li>
             <li class="nav-item"><a href="./chat.php?id=0">チャット</a></li>

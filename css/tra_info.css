@@ -1,0 +1,45 @@
+.tra-info {
+    position: relative;
+    display: grid;
+}
+
+.info-title {}
+
+
+.item-info {
+
+    text-align: left;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 5% 5%;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "item-img item-img counter-info"
+        "item-img item-img item-deta"
+        "delivery-address delivery-address delivery-address";
+    grid-area: item-info;
+}
+
+.item-img {
+    grid-area: item-img;
+    transform: scale(60%);
+}
+
+.counter-info {
+    grid-area: counter-info;
+}
+
+.counter-info img {
+    transform: scale(60%);
+}
+
+.item-deta {
+    grid-area: item-deta;
+}
+
+.delivery-address {
+    grid-area: delivery-address;
+    text-align: center;
+    border: solid 1px black;
+}

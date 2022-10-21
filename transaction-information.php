@@ -50,7 +50,7 @@
 
         require_once __DIR__ . './classes/dbdata.php';
         $exh = new Dbdata();
-        $sql = "select * from EXHIBITS LEFT OUTER JOIN TRADES ON EXHIBITS.EXHIBIT_ID = TRADES.EXHIBIT_ID
+        $sql = "select * from EXHIBITS LEFT OUTER JOIN TRADES ON EXHIBITS.EXHIBIT_ID = TRADES.USER_ID
                 where EXHIBITS.EXHIBIT_ID = '" . $id . "'";
         $data = $exh->getRecord_0($sql);
         

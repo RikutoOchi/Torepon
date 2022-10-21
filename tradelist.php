@@ -16,7 +16,7 @@
   require_once __DIR__ . './classes/dbdata.php';
   $exh = new Dbdata();
   // user_id（出品者のユーザーID）が自分のユーザーIDと同じ、もしくは、other_party_id（申請者のユーザーID）が自分のユーザーIDと同じ
-  $sql =  "select * from EXHIBITS LEFT OUTER JOIN TRADES ON EXHIBITS.EXHIBIT_ID = TRADES.EXHIBIT_ID 
+  $sql =  "select * from EXHIBITS LEFT OUTER JOIN TRADES ON EXHIBITS.EXHIBIT_ID = TRADES.USER_ID 
            where TRADES.OTHER_PARTY_ID = '" . $_SESSION['user_id'] . "' 
            order by TRADE_START_TIME";
   $data = $exh->getRecord_0($sql);
@@ -85,7 +85,7 @@
                   $exhibit_id = $detail['EXHIBIT_ID'];
 
                   $exh = new Dbdata();
-                  $sql3 = "select * from EXHIBITS LEFT OUTER JOIN TRADES ON EXHIBITS.EXHIBIT_ID = TRADES.EXHIBIT_ID
+                  $sql3 = "select * from EXHIBITS LEFT OUTER JOIN TRADES ON EXHIBITS.EXHIBIT_ID = TRADES.USER_ID
                            where EXHIBITS.EXHIBIT_ID = '" . $exhibit_id . "' order by TRADE_PROGRESS , TRADE_START_TIME";
                   $data3 = $exh->getRecord_0($sql3);
                   

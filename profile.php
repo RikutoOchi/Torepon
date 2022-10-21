@@ -12,20 +12,9 @@
 
 <?php
     // 取引件数の取得SQL
-    $number_of_transactions_sql = "select USER_TRADE_COUNT from USERS where USER_ID = '" . $_SESSION['user_id'] . "'";
-
-    // DB接続（修正　要必要）
-    $pdo = new PDO('mysql:host=localhost;dbname=torepon;charset=utf8','shopping','site');
-
-    // 取引件数の取得
-    $number_of_transactions_tentative = $pdo->query($number_of_transactions_sql);
-
-    unset($pdo);
-
-    // $number_of_transactions=取引件数）
-    foreach($number_of_transactions_tentative as $number_of_transactions_tentative_data){
-        $number_of_transactions = $number_of_transactions_tentative_data['USER_TRADE_COUNT'];
-    }
+    require_once __DIR__ . './classes/dbdata.php';
+    $cou = new Dbdata();
+    $number_of_transactions = $cou->getRecord('users','USER_ID', $_SESSION['user_id']);
 ?>
 
 <main class="main-side-content">
@@ -50,7 +39,7 @@
 
                 <div class="box1" style="margin-left:30px">
                     <h3>
-                        <p>過去の取引数：<?php echo $number_of_transactions ?></p>
+                        <p>過去の取引数：<?php echo $number_of_transactions['USER_TRADE_COUNT'] ?></p>
                         <br>
                         <p>最近の取引</p>
 
@@ -80,10 +69,8 @@
                     <div class="btn"><input type="button" class="info_change_btn" value="変更する" onclick="location.href='./profile_data.php'"/></div>
                 <div>
             </div>
-
+            
         </div>
-
-
 
     </section>
      

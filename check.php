@@ -3,7 +3,16 @@
   // Dbdataオブジェクトを生成する
   $exh = new Dbdata();
   // ガチャタイトルを取り出す
-  $exhibit_gacha = $exh->getRecord('gacha_titles','GACHA_TITLE_ID',$exhibit['GACHA_TITLE_ID']);
+  $exhibit_gacha = $exh->getRecords('gacha_titles','GACHA_TITLE_ID',$exhibit['GACHA_TITLE_ID']);
+  foreach($exhibit_gacha as $data_part){?>
+    <div class="responsive">
+      <div class="img">
+        <a target="_blank" href="./ex-confirm.php?ident=<?php echo $data_part['EXHIBIT_ID'] ?>">
+          <img src="<?= $data_part['EXHIBIT_PIC_URL'] ?>" />
+        </a>
+      </div>
+    </div>
+  <?php }
 ?>
 <!-- ヘッドの全体に関わる共有部分 -->
 <?php require_once('./temp/head.php'); ?>

@@ -20,7 +20,7 @@
 <!-- /ヘッダー -->
 <main class="main-side-content">
   <section class="main-content">
-    </div>
+    <div>
 
       <label>トレード履歴:</label>
       <a href = "./ticket-confirm.php">詳細</a><br><br><br>

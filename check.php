@@ -1,3 +1,10 @@
+<?php
+  require_once __DIR__ . './classes/dbdata.php';
+  // Dbdataオブジェクトを生成する
+  $exh = new Dbdata();
+  // ガチャタイトルを取り出す
+  $exhibit_gacha = $exh->getRecord('gacha_titles','GACHA_TITLE_ID',$exhibit['GACHA_TITLE_ID']);
+?>
 <!-- ヘッドの全体に関わる共有部分 -->
 <?php require_once('./temp/head.php'); ?>
 <!-- /ヘッドの全体に関わる共有部分 -->
@@ -11,12 +18,10 @@
 <!-- ヘッダー -->
 <?php require_once("./temp/header.php"); ?>
 <!-- /ヘッダー -->
+<main class="main-side-content">
+  <section class="main-content">
+    </div>
 
-  <main class="main-side-content">
-      <section class="main-content">
-    </dl>
-
-    
       <label>トレード履歴:</label>
       <a href = "./ticket-confirm.php">詳細</a><br><br><br>
       
@@ -62,15 +67,13 @@
       </table>
     </div>
   </section>
- 
-
-   <!-- サイドコンテンツ -->
+  <!-- サイドコンテンツ -->
      <?php require_once('./temp/side.php'); ?>
-     <!-- /サイドコンテンツ -->
+  <!-- /サイドコンテンツ -->
 
 </main>
 <!-- /mainコンテンツ -->
 
-    <!-- フッター -->
-    <?php require_once('./temp/footer.php'); ?>
-    <!-- /フッター -->
+<!-- フッター -->
+<?php require_once('./temp/footer.php'); ?>
+<!-- /フッター -->

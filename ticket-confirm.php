@@ -12,10 +12,10 @@
 <?php require_once("./temp/header.php"); ?>
 <!-- /ヘッダー -->
 <main class="main-side-content">
-      <section class="main-content">
-    </dl>
+  <section class="main-content">
+    </div>
     
-    <font size="5">トレード履歴</font>
+      <font size="5">トレード履歴</font>
       <table border="1">
         <tr bgcolor="#87cefa">
           <th>チケット名</th>

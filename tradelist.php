@@ -17,9 +17,8 @@
   $exh = new Dbdata();
   // user_id（出品者のユーザーID）が自分のユーザーIDと同じ、もしくは、other_party_id（申請者のユーザーID）が自分のユーザーIDと同じ
   $sql =  "select * from EXHIBITS LEFT OUTER JOIN TRADES ON EXHIBITS.EXHIBIT_ID = TRADES.EXHIBIT_ID 
-           where EXHIBITS.USER_ID = '" . $_SESSION['user_id'] . "' 
-           or TRADES.OTHER_PARTY_ID = '" . $_SESSION['user_id'] . "' 
-           or TRADES.USER_ID = '" . $_SESSION['user_id'] . "' order by TRADE_START_TIME";
+           where TRADES.OTHER_PARTY_ID = '" . $_SESSION['user_id'] . "' 
+           order by TRADE_START_TIME";
   $data = $exh->getRecord_0($sql);
 ?>
 

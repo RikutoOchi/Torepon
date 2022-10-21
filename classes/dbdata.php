@@ -6,8 +6,8 @@
       public function __construct( ) {   // コンストラクタ     
           // PDOオブジェクトを生成する                     
           $dsn = 'mysql:host=localhost;dbname=torepon;charset=utf8';                     
-          $user = 'root';                     
-          $password = '';                     
+          $user = 'shopping';                     
+          $password = 'site';                     
           try{                      
               $this->pdo = new PDO($dsn, $user, $password);                     
           } catch(Exception  $e){                     
@@ -33,6 +33,11 @@
         $records = $stmt->fetchAll( );
         return  $records;
     }
+    public function getRecord_0($sql){
+        $stmt = $this->query($sql, []);
+        $record = $stmt->fetchall();
+        return $record;
+    }   
                           
                       
       protected function exec ( $sql,  $array_params ) {  

@@ -101,7 +101,7 @@
                                 MAKERS.MAKER_NAME LIKE '" . $meka . "' and
                                 EXHIBITS.EXHIBIT_TIME >= '" . $nitizi_start . "' and
                                 EXHIBITS.TICKET_TYPE_ID LIKE '" . $syurui . "' and
-                                EXHIBITS.NUMBER_OF_TICKETS <= '" . $maisu_end . "' and
+                                EXHIBITS.NUMBER_OF_TICKETS <= '" . $maisu_end . " and
                                 GACHA_TITLES.GACHA_TITLE_NAME LIKE '" . $Searchdata . "' or EXHIBITS.EXHIBIT_NAME LIKE '" . $Searchdata . "' order by EXHIBIT_TIME";
                     } elseif($sort_id == 1){
                         // SQL文（抽出対象：ガチャタイトル、出品名）
@@ -114,7 +114,7 @@
                                 MAKERS.MAKER_NAME LIKE '" . $meka . "' and
                                 EXHIBITS.EXHIBIT_TIME >= '" . $nitizi_start . "' and
                                 EXHIBITS.TICKET_TYPE_ID LIKE '" . $syurui . "' and
-                                EXHIBITS.NUMBER_OF_TICKETS <= '" . $maisu_end . "' and
+                                EXHIBITS.NUMBER_OF_TICKETS <= '" . $maisu_end . " and
                                 GACHA_TITLES.GACHA_TITLE_NAME LIKE '" . $Searchdata . "' or EXHIBITS.EXHIBIT_NAME LIKE '" . $Searchdata . "' order by EXHIBIT_TIME desc";
                     } elseif($sort_id == 2){
                         // SQL文（抽出対象：ガチャタイトル、出品名）
@@ -127,7 +127,7 @@
                                 MAKERS.MAKER_NAME LIKE '" . $meka . "' and
                                 EXHIBITS.EXHIBIT_TIME >= '" . $nitizi_start . "' and
                                 EXHIBITS.TICKET_TYPE_ID LIKE '" . $syurui . "' and
-                                EXHIBITS.NUMBER_OF_TICKETS <= '" . $maisu_end . "' and
+                                EXHIBITS.NUMBER_OF_TICKETS <= '" . $maisu_end . " and
                                 GACHA_TITLES.GACHA_TITLE_NAME LIKE '" . $Searchdata . "' or EXHIBITS.EXHIBIT_NAME LIKE '" . $Searchdata . "' order by NUMBER_OF_TICKETS";
                     } elseif($sort_id == 3){
                         // SQL文（抽出対象：ガチャタイトル、出品名）
@@ -140,7 +140,7 @@
                                 MAKERS.MAKER_NAME LIKE '" . $meka . "' and
                                 EXHIBITS.EXHIBIT_TIME >= '" . $nitizi_start . "' and
                                 EXHIBITS.TICKET_TYPE_ID LIKE '" . $syurui . "' and
-                                EXHIBITS.NUMBER_OF_TICKETS <= '" . $maisu_end . "' and
+                                EXHIBITS.NUMBER_OF_TICKETS <= '" . $maisu_end . " and
                                 GACHA_TITLES.GACHA_TITLE_NAME LIKE '" . $Searchdata . "' or EXHIBITS.EXHIBIT_NAME LIKE '" . $Searchdata . "' order by NUMBER_OF_TICKETS desc";
                     }
 
@@ -160,7 +160,7 @@
                                 MAKERS.MAKER_NAME LIKE '" . $meka . "' and
                                 EXHIBITS.EXHIBIT_TIME >= '" . $nitizi_start . "' and
                                 EXHIBITS.TICKET_TYPE_ID LIKE '" . $syurui . "' and
-                                EXHIBITS.NUMBER_OF_TICKETS <= '" . $maisu_end . "' and
+                                EXHIBITS.NUMBER_OF_TICKETS <= '" . $maisu_end . " and
                                 EXHIBITS.EXHIBIT_NAME LIKE '" . $Searchdata . "' ORDER BY EXHIBIT_TIME";
                     } elseif($sort_id == 1){
                         // SQL文（抽出対象：出品名）
@@ -173,7 +173,7 @@
                                 MAKERS.MAKER_NAME LIKE '" . $meka . "' and
                                 EXHIBITS.EXHIBIT_TIME >= '" . $nitizi_start . "' and
                                 EXHIBITS.TICKET_TYPE_ID LIKE '" . $syurui . "' and
-                                EXHIBITS.NUMBER_OF_TICKETS <= '" . $maisu_end . "' and
+                                EXHIBITS.NUMBER_OF_TICKETS <= '" . $maisu_end . " and
                                 EXHIBITS.EXHIBIT_NAME LIKE '" . $Searchdata . "' ORDER BY EXHIBIT_TIME DESC";
                     } elseif($sort_id == 2){
                         // SQL文（抽出対象：出品名）
@@ -186,7 +186,7 @@
                                 MAKERS.MAKER_NAME LIKE '" . $meka . "' and
                                 EXHIBITS.EXHIBIT_TIME >= '" . $nitizi_start . "' and
                                 EXHIBITS.TICKET_TYPE_ID LIKE '" . $syurui . "' and
-                                EXHIBITS.NUMBER_OF_TICKETS <= '" . $maisu_end . "' and
+                                EXHIBITS.NUMBER_OF_TICKETS <= '" . $maisu_end . " and
                                 EXHIBITS.EXHIBIT_NAME LIKE '" . $Searchdata . "' order by NUMBER_OF_TICKETS";
                     } elseif($sort_id == 3){
                         // SQL文（抽出対象：出品名）
@@ -199,7 +199,7 @@
                                 MAKERS.MAKER_NAME LIKE '" . $meka . "' and
                                 EXHIBITS.EXHIBIT_TIME >= '" . $nitizi_start . "' and
                                 EXHIBITS.TICKET_TYPE_ID LIKE '" . $syurui . "' and
-                                EXHIBITS.NUMBER_OF_TICKETS <= '" . $maisu_end . "' and
+                                EXHIBITS.NUMBER_OF_TICKETS <= '" . $maisu_end . " and
                                 EXHIBITS.EXHIBIT_NAME LIKE '" . $Searchdata . "' order by NUMBER_OF_TICKETS desc";
                     }
 
@@ -219,7 +219,7 @@
                                 MAKERS.MAKER_NAME LIKE '" . $meka . "' and
                                 EXHIBITS.EXHIBIT_TIME >= '" . $nitizi_start . "' and
                                 EXHIBITS.TICKET_TYPE_ID LIKE '" . $syurui . "' and
-                                EXHIBITS.NUMBER_OF_TICKETS <= '" . $maisu_end . "' and
+                                EXHIBITS.NUMBER_OF_TICKETS <= '" . $maisu_end . " and
                                 ORIGINAL_TITLES.ORIGINAL_TITLE_NAME LIKE '" . $Searchdata . "' or EXHIBITS.EXHIBIT_NAME LIKE '" . $Searchdata . "' ORDER BY EXHIBIT_TIME";
                     } elseif($sort_id == 1){
                         $sql = "select EXHIBITS.EXHIBIT_PIC_URL,EXHIBITS.EXHIBIT_ID,EXHIBITS.EXHIBIT_NAME 
@@ -231,7 +231,7 @@
                                 MAKERS.MAKER_NAME LIKE '" . $meka . "' and
                                 EXHIBITS.EXHIBIT_TIME >= '" . $nitizi_start . "' and
                                 EXHIBITS.TICKET_TYPE_ID LIKE '" . $syurui . "' and
-                                EXHIBITS.NUMBER_OF_TICKETS <= '" . $maisu_end . "' and
+                                EXHIBITS.NUMBER_OF_TICKETS <= '" . $maisu_end . " and
                                 ORIGINAL_TITLES.ORIGINAL_TITLE_NAME LIKE '" . $Searchdata . "' or EXHIBITS.EXHIBIT_NAME LIKE '" . $Searchdata . "' ORDER BY EXHIBIT_TIME DESC";
                     } elseif($sort_id == 2){
                         $sql = "select EXHIBITS.EXHIBIT_PIC_URL,EXHIBITS.EXHIBIT_ID,EXHIBITS.EXHIBIT_NAME,EXHIBITS.NUMBER_OF_TICKETS  
@@ -243,7 +243,7 @@
                                 MAKERS.MAKER_NAME LIKE '" . $meka . "' and
                                 EXHIBITS.EXHIBIT_TIME >= '" . $nitizi_start . "' and
                                 EXHIBITS.TICKET_TYPE_ID LIKE '" . $syurui . "' and
-                                EXHIBITS.NUMBER_OF_TICKETS <= '" . $maisu_end . "' and
+                                EXHIBITS.NUMBER_OF_TICKETS <= '" . $maisu_end . " and
                                 ORIGINAL_TITLES.ORIGINAL_TITLE_NAME LIKE '" . $Searchdata . "' or EXHIBITS.EXHIBIT_NAME LIKE '" . $Searchdata . "' order by NUMBER_OF_TICKETS";
                     } elseif($sort_id == 3){
                         $sql = "select EXHIBITS.EXHIBIT_PIC_URL,EXHIBITS.EXHIBIT_ID,EXHIBITS.EXHIBIT_NAME,EXHIBITS.NUMBER_OF_TICKETS  
@@ -255,7 +255,7 @@
                                 MAKERS.MAKER_NAME LIKE '" . $meka . "' and
                                 EXHIBITS.EXHIBIT_TIME >= '" . $nitizi_start . "' and
                                 EXHIBITS.TICKET_TYPE_ID LIKE '" . $syurui . "' and
-                                EXHIBITS.NUMBER_OF_TICKETS <= '" . $maisu_end . "' and
+                                EXHIBITS.NUMBER_OF_TICKETS <= '" . $maisu_end . " and
                                 ORIGINAL_TITLES.ORIGINAL_TITLE_NAME LIKE '" . $Searchdata . "' or EXHIBITS.EXHIBIT_NAME LIKE '" . $Searchdata . "' order by NUMBER_OF_TICKETS desc";
                     }
 
@@ -275,7 +275,7 @@
                                 ORIGINAL_TITLES.ORIGINAL_TITLE_NAME LIKE '" . $gensaku . "' and
                                 EXHIBITS.EXHIBIT_TIME >= '" . $nitizi_start . "' and
                                 EXHIBITS.TICKET_TYPE_ID LIKE '" . $syurui . "' and
-                                EXHIBITS.NUMBER_OF_TICKETS <= '" . $maisu_end . "' and
+                                EXHIBITS.NUMBER_OF_TICKETS <= '" . $maisu_end . " and
                                 MAKERS.MAKER_NAME LIKE '" . $Searchdata . "' or EXHIBITS.EXHIBIT_NAME LIKE '" . $Searchdata . "' ORDER BY EXHIBIT_TIME";
                     } elseif($sort_id == 1){
                         // SQL文（抽出対象：メーカー名、出品名）
@@ -288,7 +288,7 @@
                                 ORIGINAL_TITLES.ORIGINAL_TITLE_NAME LIKE '" . $gensaku . "' and
                                 EXHIBITS.EXHIBIT_TIME >= '" . $nitizi_start . "' and
                                 EXHIBITS.TICKET_TYPE_ID LIKE '" . $syurui . "' and
-                                EXHIBITS.NUMBER_OF_TICKETS <= '" . $maisu_end . "' and
+                                EXHIBITS.NUMBER_OF_TICKETS <= '" . $maisu_end . " and
                                 MAKERS.MAKER_NAME LIKE '" . $Searchdata . "' or EXHIBITS.EXHIBIT_NAME LIKE '" . $Searchdata . "' ORDER BY EXHIBIT_TIME DESC";
                     } elseif($sort_id == 2){
                         // SQL文（抽出対象：メーカー名、出品名）
@@ -301,7 +301,7 @@
                                 ORIGINAL_TITLES.ORIGINAL_TITLE_NAME LIKE '" . $gensaku . "' and
                                 EXHIBITS.EXHIBIT_TIME >= '" . $nitizi_start . "' and
                                 EXHIBITS.TICKET_TYPE_ID LIKE '" . $syurui . "' and
-                                EXHIBITS.NUMBER_OF_TICKETS <= '" . $maisu_end . "' and
+                                EXHIBITS.NUMBER_OF_TICKETS <= '" . $maisu_end . " and
                                 MAKERS.MAKER_NAME LIKE '" . $Searchdata . "' or EXHIBITS.EXHIBIT_NAME LIKE '" . $Searchdata . "' order by NUMBER_OF_TICKETS";
                     } elseif($sort_id == 3){
                         // SQL文（抽出対象：メーカー名、出品名）
@@ -314,7 +314,7 @@
                                 ORIGINAL_TITLES.ORIGINAL_TITLE_NAME LIKE '" . $gensaku . "' and
                                 EXHIBITS.EXHIBIT_TIME >= '" . $nitizi_start . "' and
                                 EXHIBITS.TICKET_TYPE_ID LIKE '" . $syurui . "' and
-                                EXHIBITS.NUMBER_OF_TICKETS <= '" . $maisu_end . "' and
+                                EXHIBITS.NUMBER_OF_TICKETS <= '" . $maisu_end . " and
                                 MAKERS.MAKER_NAME LIKE '" . $Searchdata . "' or EXHIBITS.EXHIBIT_NAME LIKE '" . $Searchdata . "' ORDER BY EXHIBIT_TIME DESC";
                     }
                     
@@ -329,28 +329,14 @@
 
                     <font size="4">絞り込み条件</font><br>
                     <font size="2">
-                        <form action="./dataretention2.php?id=1" method="post" name="terms_form">
-                            <?php if($sort_id == 0){ ?>
-                                　キャラクター名　：　　<input type="text" name="kyara"><br>
-                                　原作　　　　　　：　　<input type="text" name="gensaku"><br>
-                                　メーカー　　　　：　　<input type="text" name="me-ka-"><br>
-                            <?php }elseif($sort_id == 1) {?>
-                                　ガチャタイトル：<input type="text" name="gatya"><br>
-                                　原作　　　　　　：　　<input type="text" name="gensaku"><br>
-                                　メーカー　　　　：　　<input type="text" name="me-ka-"><br>
-                            <?php }elseif($sort_id == 2) {?>
-                                　ガチャタイトル：<input type="text" name="gatya"><br>
-                                　キャラクター名　：　　<input type="text" name="kyara"><br>
-                                　メーカー　　　　：　　<input type="text" name="me-ka-"><br>
-                            <?php }elseif($sort_id == 3) {?>
-                                　ガチャタイトル：<input type="text" name="gatya"><br>
-                                　キャラクター名　：　　<input type="text" name="kyara"><br>
-                                　原作　　　　　　：　　<input type="text" name="gensaku"><br>
-                            <?php } ?>
-                            　出　品　日　時　：　　<input type="date" name="nitizi-start">～<br>
-                            　チケット種類　　：　　<input type="text" name="syurui"><br>
-                            　チケット枚数　　：　～<input type="text" name="maisu-end">　<input type="button" value="絞り込む" class="search" onclick="location.href='dataretention2.php?id=1'"/><br><br>
-                        </form>            
+                        <?php if($sort_id == 0){ ?>
+                            　キャラクター名：<input type="text" name="kyara"><br>
+                        <?php }elseif($sort_id == 1) {?>
+                            　ガチャタイトル：<input type="text" name="kyara"><br>
+                        <?php } ?>
+                        　出　品　日　時：<input type="date" name="kyara">～<input type="date" name="kyara"><br>
+                        　チケット種類　：<input type="text" name="kyara"><br>
+                        　チケット枚数　：<input type="text" name="kyara">～<input type="text" name="kyara">　<input type="button" value="絞り込む" class="search" onclick="location.href='SearchResults.php?sort_id=1'"/><br><br>
                     </font>
                     <!--
                         <br><br><input type="button" value="詳細な条件から絞り込む" class="search" onclick="location.href='SearchResults.php?sort_id=1'"/>

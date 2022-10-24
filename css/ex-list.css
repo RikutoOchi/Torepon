@@ -3,8 +3,6 @@ div.item-list {
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 10px;
 }
-.responsive {
-}
 .img {
   border: 3px solid #ccc;
 }
@@ -24,4 +22,61 @@ div.desc {
   display: flex; /*---上下左右中央揃え---*/
   align-items: center;
   justify-content: center; /*---/上下左右中央揃え---*/
+}
+
+/*---------------------*/
+/*------sort style-----*/
+/*---------------------*/
+.searchBy-list {
+}
+.searchBy-list li {
+  margin-bottom: 10px;
+  list-style: none;
+}
+.searchBy-list li .searchBy-text {
+  width: 200px;
+  margin: 0 13px 0 13px;
+  padding: 5px;
+  font-size: 1rem;
+}
+.searchBy-list li .searchBy-text:focus {
+  box-shadow: 0 0 5px 0 rgb(120, 119, 119);
+  border: 2px solid #fff !important;
+  outline: 0;
+}
+.searchBy-list li .searchBy-text.ml-none {
+  margin-left: 0;
+}
+.searchBy-list li .searchBy-text.mr-none {
+  margin-right: 0;
+}
+.searchBy-ttl {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  font-weight: 400;
+}
+.sortBy-box {
+  margin-bottom: 5px;
+}
+.sort-btn {
+  margin-bottom: 10px;
+}
+.search-box {
+  position: relative;
+}
+.none {
+  display: none;
+}
+.disp-search {
+  font-size: 2rem;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 13.5%;
+}
+.disp-search::after {
+  content: "+";
+}
+.disp-search.nodisp::after {
+  content: "-";
 }

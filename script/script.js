@@ -8,6 +8,17 @@ $(".header-select").on("click", function () {
   $(".header-select").toggleClass("opened");
 });
 
+//headerセレクト
+$(".header-select").on("click", function () {
+  $(".header-select").toggleClass("opened");
+});
+
+//絞り込み表示非表示アニメーション
+$(".disp-search").on("click", function () {
+  $(".searchBy-list").toggleClass("none");
+  $(this).toggleClass("nodisp");
+});
+
 //ログイン画面アニメーション
 $(".email_text")
   .focus(function () {

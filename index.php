@@ -19,10 +19,10 @@
             <div class="PopularTags">
                 <h1 class="sub-ttl">人気</h1>
                 <ul class="Tags">
-                    <li class="GenreTag1"><a hreF="./">ジャンル1</a></li>
-                    <li class="GenreTag2"><a hreF="./">ジャンル2</a></li>
-                    <li class="GenreTag3"><a hreF="./">ジャンル3</a></li>
-                    <li class="GenreTag4"><a hreF="./">ジャンル4</a></li>
+                    <li class="GenreTag1"><a hreF="./">ワンピース</a></li>
+                    <li class="GenreTag2"><a hreF="./">ドラえもん</a></li>
+                    <li class="GenreTag3"><a hreF="./">鬼滅の刃</a></li>
+                    <li class="GenreTag4"><a hreF="./">動物</a></li>
                 </ul>
             </div>
             <!--おすすめアイテム カルーセルバナー-->
@@ -38,26 +38,15 @@
             </div>
             <!-- 商品リスト -->
 
-            <!-- 追記 -->
-            <?php
-                require_once __DIR__ . './classes/dbdata.php';
-                $exh = new Dbdata();
-                $sql = "select EXHIBIT_ID,EXHIBIT_NAME,EXHIBIT_PIC_URL from EXHIBITS ORDER BY EXHIBIT_TIME LIMIT 6";
-                $data = $exh->getRecord_0($sql);
-            ?>
-            <!---------->
-
             <h1 class="sub-ttl">新着アイテム</h1>
             <ul class="goods-list">
-                <?php foreach($data as $data_part){ ?>
-                    <a href="./ex-confirm.php?ident=<?php echo $data_part['EXHIBIT_ID'] ?>">
-                        <li class="goods-item">
-                            <?php $data_part['EXHIBIT_NAME'] ?>
-                            <img src="<?= $data_part['EXHIBIT_PIC_URL'] ?>" />
-                        </li>
-                    </a>
-                <?php } ?>
-            </ul>        
+               <a href="./ex-confirm.php"><li class="goods-item"><img src="./Carousel_tests/Test_images/keyholder1.png" alt=""></li></a> 
+               <a href="./ex-confirm.php"><li class="goods-item"><img src="./Carousel_tests/Test_images/keyholder2.png" alt=""></li></a> 
+               <a href="./ex-confirm.php"><li class="goods-item"><img src="./Carousel_tests/Test_images/keyholder3.png" alt=""></li></a>
+               <a href="./ex-confirm.php"><li class="goods-item"><img src="./Carousel_tests/Test_images/kuma1.jpg" alt=""></li></a> 
+               <a href="./ex-confirm.php"><li class="goods-item"><img src="./Carousel_tests/Test_images/kuma2.jpg" alt=""></li></a>
+               <a href="./ex-confirm.php"><li class="goods-item"><img src="./Carousel_tests/Test_images/kuma3.jpg" alt=""></li></a>
+            </ul> 
         </section>
 
 <!-- サイドコンテンツ -->

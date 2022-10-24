@@ -263,7 +263,6 @@ button {
 /*         メインコンテンツ         */
 /*********************************/
 
-
 /**********************************/
 /*           メイン　             */
 /*********************************/
@@ -303,105 +302,115 @@ button {
 }
 
 .news h2 {
-	margin: 0 0 20px 0;
-	font-size: 20px;
+  margin: 0 0 20px 0;
+  font-size: 20px;
 }
 .news-contents {
-	margin: 0;
-	padding: 0;
-	list-style: none;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 .news-contents li {
-	overflow: hidden;
-	margin: 0 0 10px 0;
-	padding: 10px;
-	border: 1px solid #dadada;
+  overflow: hidden;
+  margin: 0 0 10px 0;
+  /* padding: 10px; */
+  border: 1px solid #dadada;
+}
+.news-contents li a {
+  color: #000;
+  display: block;
+  text-decoration: none;
+  padding: 10px;
+}
+.news-contents li a:hover {
+  opacity: 0.7;
 }
 .news-contents li img {
-	float: left;
-	margin-right: 10px;
+  float: left;
+  margin-right: 10px;
 }
 .news-contents li p {
-	margin: 0;
+  margin: 0;
 }
 
 /*進行バー*/
 .Group {
-  margin-bottom: 24px;
+  margin-top: 10px;
+  /* margin-bottom: 24px; */
   position: relative;
   width: 100%;
-  max-width: 320px;
+  max-width: 500px;
   display: flex;
   justify-content: space-between;
   z-index: 0;
-  }
-  .Group-Bar {
+}
+.Group-Bar {
   position: absolute;
   top: 12px;
-  left: 2.5%;
+  left: 5%;
   width: 90%;
   height: 2px;
-  background-color: #eaeaea;/*バーの色*/
+  background-color: #eaeaea; /*バーの色*/
   z-index: -1;
-  }
-  @media screen and (min-width: 768px) {
+}
+@media screen and (min-width: 768px) {
   .Group-Bar {
-  top: 17px;
-  height: 5px;
+    top: 17px;
+    height: 5px;
   }
-  }
-  .Shapeborder.isActive {
+}
+.Shapeborder.isActive {
   border: 1px solid #e2264d;
-  }
-  .Circle {
+}
+.Circle {
   border-radius: 50%;
-  }
-  .Group-Item {
+}
+.Group-Item {
   color: #b7b7b7;
   display: flex;
   flex-direction: column;
   align-items: center;
-  }
-  .Group-Item.isActive {
+}
+.Group-Item.isActive {
   color: #e2264d;
-  }
-  .Group-Item-CircleOuter {
+}
+.Group-Item-CircleOuter {
   width: 26px;
   height: 26px;
   display: flex;
   justify-content: center;
   align-items: center;
-  }
-  @media screen and (min-width: 768px) {
+}
+@media screen and (min-width: 768px) {
   .Group-Item-CircleOuter {
-  width: 39px;
-  height: 39px;
+    width: 39px;
+    height: 39px;
   }
-  }
-  .Group-Item-CircleOuter.isActive {
+}
+.Group-Item-CircleOuter.isActive {
   background: #fff;
-  }
-  .Group-Item-CircleInner {
+}
+.Group-Item-CircleInner {
   width: 16px;
   height: 16px;
   background-color: #b7b7b7;
   display: flex;
   align-items: center;
-  }
-  @media screen and (min-width: 768px) {
+}
+@media screen and (min-width: 768px) {
   .Group-Item-CircleInner {
-  width: 25px;
-  height: 25px;
+    width: 25px;
+    height: 25px;
   }
-  }
-  .Group-Item-CircleInner.isActive {
+}
+.Group-Item-CircleInner.isActive {
   background: #e2264d;
-  }
-  .Group-Item-CircleInner:last-of-type::after {
+}
+.Group-Item-CircleInner:last-of-type::after {
   content: none;
-  }
-  .Group-Item-Text {
+}
+.Group-Item-Text {
   margin-top: 10px;
   font-size: 1.4rem;
   font-weight: 600;
-  }
+}

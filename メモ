@@ -11,3 +11,33 @@ https://qiita.com/Michi1090/items/a4b69e40a45ac32a2ebb
 
 
 
+
+"select EXHIBITS.EXHIBIT_PIC_URL,EXHIBITS.EXHIBIT_ID,EXHIBITS.EXHIBIT_NAME 
+from EXHIBITS LEFT OUTER JOIN GACHA_TITLES ON EXHIBITS.GACHA_TITLE_ID = GACHA_TITLES.GACHA_TITLE_ID 
+where GACHA_TITLE_NAME LIKE '" . $Searchdata . "' or EXHIBITS.EXHIBIT_NAME LIKE '" . $Searchdata . "' ORDER BY EXHIBIT_TIME";
+
+
+
+
+<!-- 追記 -->
+            <?php
+                require_once __DIR__ . './classes/dbdata.php';
+                $exh = new Dbdata();
+                $sql = "select EXHIBIT_ID,EXHIBIT_NAME,EXHIBIT_PIC_URL from EXHIBITS ORDER BY EXHIBIT_TIME LIMIT 6";
+                $data = $exh->getRecord_0($sql);
+            ?>
+            <!---------->
+
+            <h1 class="sub-ttl">新着アイテム</h1>
+            <ul class="goods-list">
+                <?php foreach($data as $data_part){ ?>
+                    <a href="./ex-confirm.php?ident=<?php echo $data_part['EXHIBIT_ID'] ?>">
+                        <li class="goods-item">
+                            <?php $data_part['EXHIBIT_NAME'] ?>
+                            <img src="<?= $data_part['EXHIBIT_PIC_URL'] ?>" />
+                        </li>
+                    </a>
+                <?php } ?>
+            </ul>
+
+

@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="./css/tra-info.css" />
     <script src="https://kit.fontawesome.com/95076eb005.js" crossorigin="anonymous"></script>
 
+    <script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
+
     <title>取引情報確認画面 </title>
 </head>
 
@@ -72,29 +74,38 @@
                 </div>
                 <div class="delivery-address">
                     <p>お届け先</p>
+                    <!-- ▼郵便番号入力フィールド(7桁) -->
+                    <p>郵便番号　(例:1234567)</p>
+                    <input type="text" name="zip01" size="10" maxlength="8" onKeyUp="AjaxZip3.zip2addr(this,'','pref01','addr01');">
+                    <!-- ▼住所入力フィールド(都道府県) -->
+                    <p>都道府県</p>
+                    <input type="text" name="pref01" size="20">
+                    <!-- ▼住所入力フィールド(都道府県以降の住所) -->
+                    <p>都道府県以降の住所</p>
+                    <input type="text" name="addr01" size="60">
                 </div>
             </div>
         </div>
-            <!-- /mainコンテンツ -->
-            <aside class="side-content">
-                <!-- 広告コンテンツ -->
-                <nav class="humburger-nav">
-                    <ul class="nav-list">
-                        <li class="nav-item"><a href="./index.html">HOME</a></li>
-                        <li class="nav-item"><a href="./profile.html">プロフィール</a></li>
-                        <li class="nav-item"><a href="./ex-list.html">出品リスト</a></li>
-                        <li class="nav-item"><a href="./fav-list.html">お気に入りリスト</a></li>
-                        <li class="nav-item"><a href="./ticket-confirm.html">チケット確認</a></li>
-                        <li class="nav-item"><a href="./login.html">ログイン</a></li>
-                    </ul>
-                </nav>
-                <ul class="ad-list">
-                    <li class="ad-item"><img src="" alt=""></li>
-                    <li class="ad-item"><img src="" alt=""></li>
-                    <li class="ad-item"><img src="" alt=""></li>
+        <!-- /mainコンテンツ -->
+        <aside class="side-content">
+            <!-- 広告コンテンツ -->
+            <nav class="humburger-nav">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="./index.html">HOME</a></li>
+                    <li class="nav-item"><a href="./profile.html">プロフィール</a></li>
+                    <li class="nav-item"><a href="./ex-list.html">出品リスト</a></li>
+                    <li class="nav-item"><a href="./fav-list.html">お気に入りリスト</a></li>
+                    <li class="nav-item"><a href="./ticket-confirm.html">チケット確認</a></li>
+                    <li class="nav-item"><a href="./login.html">ログイン</a></li>
                 </ul>
-                <!-- /広告コンテンツ -->
-            </aside>
+            </nav>
+            <ul class="ad-list">
+                <li class="ad-item"><img src="" alt=""></li>
+                <li class="ad-item"><img src="" alt=""></li>
+                <li class="ad-item"><img src="" alt=""></li>
+            </ul>
+            <!-- /広告コンテンツ -->
+        </aside>
     </main>
     <footer class="footer">
         <div class="footer-wrapper">

@@ -5,19 +5,14 @@
 
 .info-title {}
 
-
 .item-info {
-
     text-align: left;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    gap: 5% 5%;
+    grid-template-columns: 0.5fr 0.5fr 0.5fr;
+    grid-template-rows: 0.5fr 0.5fr 0.5fr;
+    gap: 5px 5px;
     grid-auto-flow: row;
-    grid-template-areas:
-        "item-img item-img counter-info"
-        "item-img item-img item-deta"
-        "delivery-address delivery-address delivery-address";
+    grid-template-areas: "item-img item-img counter-info" "item-img item-img item-deta" "delivery-address delivery-address delivery-address";
     grid-area: item-info;
 }
 

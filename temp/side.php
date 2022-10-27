@@ -5,13 +5,14 @@
 
              <!-- 広告コンテンツ -->
             <ul class="ad-list">
-                <li class="ad-item"><img src="https://placehold.jp/fbf7a2/000000/250x150.png?text=%E5%BA%83%E5%91%8A" alt="ad"></li>
-                <li class="ad-item"><img src="https://placehold.jp/fbf7a2/000000/250x150.png?text=%E5%BA%83%E5%91%8A" alt="ad"></li>
-                <li class="ad-item ad-none"><img src="https://placehold.jp/fbf7a2/000000/250x150.png?text=%E5%BA%83%E5%91%8A" alt="ad"></li>
-                <li class="ad-item ad-none"><img src="https://placehold.jp/fbf7a2/000000/250x150.png?text=%E5%BA%83%E5%91%8A" alt="ad"></li>
-                <li class="ad-item ad-none"><img src="https://placehold.jp/fbf7a2/000000/250x150.png?text=%E5%BA%83%E5%91%8A" alt="ad"></li>
-                <li class="ad-item ad-none"><img src="https://placehold.jp/fbf7a2/000000/250x150.png?text=%E5%BA%83%E5%91%8A" alt="ad"></li>
-                <li class="ad-item ad-none"><img src="https://placehold.jp/fbf7a2/000000/250x150.png?text=%E5%BA%83%E5%91%8A" alt="ad"></li>
+
+                <li class="ad-item"><img src="./images/ads1.jpg" alt="ad"></li>
+                <li class="ad-item"><img src="./images/ads2.jpg" alt="ad"></li>
+                <li class="ad-item ad-none"><img src="./images/ads3.jpg" alt="ad"></li>
+                <li class="ad-item ad-none"><img src="./images/ads4.jpg" alt="ad"></li>
+                <li class="ad-item ad-none"><img src="./images/ads1.jpg" alt="ad"></li>
+                <li class="ad-item ad-none"><img src="./images/ads2.jpg" alt="ad"></li>
+                <li class="ad-item ad-none"><img src="./images/ads3.jpg" alt="ad"></li>
             </ul>
             <!-- /広告コンテンツ -->
 </aside>

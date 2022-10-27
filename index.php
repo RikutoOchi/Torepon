@@ -19,10 +19,10 @@
             <div class="PopularTags">
                 <h1 class="sub-ttl">人気</h1>
                 <ul class="Tags">
-                    <li class="GenreTag1"><a hreF="./">ジャンル1</a></li>
-                    <li class="GenreTag2"><a hreF="./">ジャンル2</a></li>
-                    <li class="GenreTag3"><a hreF="./">ジャンル3</a></li>
-                    <li class="GenreTag4"><a hreF="./">ジャンル4</a></li>
+                    <li class="GenreTag1"><a hreF="./">ワンピース</a></li>
+                    <li class="GenreTag2"><a hreF="./">ドラえもん</a></li>
+                    <li class="GenreTag3"><a hreF="./">鬼滅の刃</a></li>
+                    <li class="GenreTag4"><a hreF="./">動物</a></li>
                 </ul>
             </div>
             <!--おすすめアイテム カルーセルバナー-->
@@ -46,6 +46,7 @@
                <a href="./ex-confirm.php"><li class="goods-item">グッズ４</li></a> 
                <a href="./ex-confirm.php"><li class="goods-item">グッズ５</li></a>
                <a href="./ex-confirm.php"><li class="goods-item">グッズ6</li></a>
+
             </ul> 
         </section>
 

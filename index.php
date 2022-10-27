@@ -22,7 +22,7 @@
                     <li class="GenreTag1"><a hreF="./">ワンピース</a></li>
                     <li class="GenreTag2"><a hreF="./">ドラえもん</a></li>
                     <li class="GenreTag3"><a hreF="./">鬼滅の刃</a></li>
-                    <li class="GenreTag4"><a hreF="./">動物</a></li>
+                    <li class="GenreTag4"><a hreF="./">動物 </a></li>
                 </ul>
             </div>
             <!--おすすめアイテム カルーセルバナー-->

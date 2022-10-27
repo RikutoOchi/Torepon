@@ -5,19 +5,14 @@
 
 .info-title {}
 
-
 .item-info {
-
     text-align: left;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    gap: 5% 5%;
+    grid-template-columns: 0.5fr 0.5fr 0.5fr;
+    grid-template-rows: 0.5fr 0.5fr 0.5fr;
+    gap: 5px 5px;
     grid-auto-flow: row;
-    grid-template-areas:
-        "item-img item-img counter-info"
-        "item-img item-img item-deta"
-        "delivery-address delivery-address delivery-address";
+    grid-template-areas: "item-img item-img counter-info" "item-img item-img item-deta" "delivery-address delivery-address delivery-address";
     grid-area: item-info;
 }
 
@@ -42,4 +37,57 @@
     grid-area: delivery-address;
     text-align: center;
     border: solid 1px black;
+}
+
+
+/*以下ボタン用css*/
+
+*,
+*:before,
+*:after {
+    -webkit-box-sizing: inherit;
+    box-sizing: inherit;
+}
+
+html {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-size: 62.5%;
+    /*rem算出をしやすくするために*/
+}
+
+.btn,
+a.btn,
+button.btn {
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1.5;
+    position: relative;
+    display: inline-block;
+    padding: 1rem 4rem;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    color: #212529;
+    border-radius: 0.5rem;
+}
+
+.btn--orange,
+a.btn--orange {
+    color: #fff;
+    background-color: #eb6100;
+}
+
+.btn--orange:hover,
+a.btn--orange:hover {
+    color: #fff;
+    background: #f56500;
 }

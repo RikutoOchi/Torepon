@@ -96,7 +96,7 @@
                     <img src="<?php echo $exhibit_pic_url ?>">
                 </div>
                 <div class="counter-info">
-                    <img class="counter-icon" src="<?php echo $user_icon ?>">
+                <img class="counter-icon" src="<?php echo $user_icon ?>">
                     <p class="counter-name">取引相手の名前　：　<?php echo $user_name ?></p>
                     <p class="counter-id">取引相手のID　：　<?php echo $partner_user_id ?></p>
                 </div>
@@ -104,8 +104,7 @@
                     <p>商品タイトル　：　<?php echo $exhibit_title ?></p>
                     <p>商品名　：　<?php echo $exhibit_name ?></p>
                     <p>商品コンディション　：　<?php echo $exhibit_condition ?></p>
-                    <p>必要チケット種類　：　<?php echo $ticket_type_id ?>
-                    <p>枚数　：　<?php echo $number_pf_tickets ?></p>
+                    <p>必要チケット種類・枚数　：　<?php echo $ticket_type_id."　".$number_pf_tickets ?>
                 </div>
                 <div class="delivery-address">
                     <p>お届け先　：　<?php echo $address ?></p>

@@ -5,7 +5,6 @@
 
              <!-- 広告コンテンツ -->
             <ul class="ad-list">
-
                 <li class="ad-item"><img src="./images/ads1.jpg" alt="ad"></li>
                 <li class="ad-item"><img src="./images/ads2.jpg" alt="ad"></li>
                 <li class="ad-item ad-none"><img src="./images/ads3.jpg" alt="ad"></li>

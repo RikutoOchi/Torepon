@@ -22,7 +22,7 @@
                     <li class="GenreTag1"><a hreF="./">ワンピース</a></li>
                     <li class="GenreTag2"><a hreF="./">ドラえもん</a></li>
                     <li class="GenreTag3"><a hreF="./">鬼滅の刃</a></li>
-                    <li class="GenreTag4"><a hreF="./">動物</a></li>
+                    <li class="GenreTag4"><a hreF="./">動物 </a></li>
                 </ul>
             </div>
             <!--おすすめアイテム カルーセルバナー-->
@@ -40,13 +40,12 @@
 
             <h1 class="sub-ttl">新着アイテム</h1>
             <ul class="goods-list">
-               <a href="./ex-confirm.php"><li class="goods-item">グッズ１</li></a> 
-               <a href="./ex-confirm.php"><li class="goods-item">グッズ２</li></a> 
-               <a href="./ex-confirm.php"><li class="goods-item">グッズ３</li></a>
-               <a href="./ex-confirm.php"><li class="goods-item">グッズ４</li></a> 
-               <a href="./ex-confirm.php"><li class="goods-item">グッズ５</li></a>
-               <a href="./ex-confirm.php"><li class="goods-item">グッズ6</li></a>
-
+               <a href="./ex-confirm.php"><li class="goods-item"><img src="./Carousel_tests/Test_images/keyholder1.png" alt=""></li></a> 
+               <a href="./ex-confirm.php"><li class="goods-item"><img src="./Carousel_tests/Test_images/keyholder2.png" alt=""></li></a> 
+               <a href="./ex-confirm.php"><li class="goods-item"><img src="./Carousel_tests/Test_images/keyholder3.png" alt=""></li></a>
+               <a href="./ex-confirm.php"><li class="goods-item"><img src="./Carousel_tests/Test_images/kuma1.jpg" alt=""></li></a> 
+               <a href="./ex-confirm.php"><li class="goods-item"><img src="./Carousel_tests/Test_images/kuma2.jpg" alt=""></li></a>
+               <a href="./ex-confirm.php"><li class="goods-item"><img src="./Carousel_tests/Test_images/kuma3.jpg" alt=""></li></a>
             </ul> 
         </section>
 

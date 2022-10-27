@@ -54,19 +54,17 @@
 
         require_once __DIR__ . './classes/transaction-information.php';
         $dat= new Transaction_information_data();
-        $data = $dat->getRecord_transaction_information_data('exhibits','trades','EXHIBIT_ID','USER_ID',$id);
+        $data = $dat->getRecord_transaction_information_data('exhibits','trades','users','EXHIBIT_ID','TRADE_ID','USER_ID',$id);
         
         foreach($data as $detail){
             // ユーザーアイコン
-            $user_icon = $_SESSION['user_icon_url'];
+            $user_icon = $detail['USER_ICON_URL'];
             // 商品画像
             $exhibit_pic_url = $detail['EXHIBIT_PIC_URL'];
             // 取引相手のユーザーIDの取得
-            if( $detail['OTHER_PARTY_ID'] == $_SESSION['user_id']){
-                $partner_user_id = $detail['USER_ID'];
-            } else if( $detail['USER_ID'] == $_SESSION['user_id']) {
-                $partner_user_id = $detail['OTHER_PARTY_ID'];
-            }
+            $partner_user_id = $detail['USER_ID'];
+            //
+            $user_name = $detail['USER_NAME'];
             // 商品タイトルの取得
             $exhibit_title = "-----";
             // 商品名
@@ -82,14 +80,6 @@
             
         }
 
-        // 取引相手のユーザーIDから取引相手の情報を取得
-        require_once __DIR__ . './classes/dbdata.php';
-        $dat2 = new Dbdata();
-        $data2 = $dat2->getRecords('users','USER_ID',$partner_user_id);
-
-        foreach($data2 as $detail2){
-            $user_name = $detail2['USER_NAME'];
-        }
     }
 
 ?>

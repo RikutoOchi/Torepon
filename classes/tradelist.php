@@ -11,13 +11,6 @@
     }
   }
 
-  // select * from exhibits left outer join trades on exhibits.exhibits_id = trades.user_id where exhibits.exhibits_id = exhibit>id order by trade_progress,trade_start_time
-
- // ('exhibits','trades','EXHIBIT_ID','TRADES_ID','USER_ID','TRADE_START_TIME',$_SESSION['user_id']);
-
-
- //exhibits','USER_ID','EXHIBIT_TIME',$_SESSION['user_id']
- // select * from exhibits where user_id = $_session['user_id'] order by exhibit_time
   class Tradelist_application extends DbData{
     public  function  getRecords_order_by ($table,$colum,$colum2,$value) {
         $sql = "select * from $table where $colum = ? order by $colum2";

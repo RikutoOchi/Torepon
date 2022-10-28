@@ -33,6 +33,8 @@
                     <p>商品名</p>
                     <p>商品コンディション</p>
                     <p>必要チケット種類・枚数</p>
+                    <p>取引開始日時</p>
+                    <p>yyyy/mm/dd</p>
                     <div class="chat-return">
                         <a href="chat.php" class="btn btn--orange btn--radius">チャットにもどる</a>
                     </div>

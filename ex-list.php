@@ -22,7 +22,6 @@
       $sarch_id = $_GET['sarch_id'];
     /* ------------------------------------------ */
 
-
     if($sarch_id != 0){
       /* ---------------------------------- $_SESSIONの各情報 --------------------------------- */
 
@@ -86,7 +85,6 @@
       require_once __DIR__ . './classes/dbdata.php';
       $exh = new Dbdata();
     /* -------------------------------------------------------------------------------------- */
-
       if ($sort_id == 0) {
         $sql = "select EXHIBITS.EXHIBIT_PIC_URL,EXHIBITS.EXHIBIT_ID,EXHIBITS.EXHIBIT_NAME 
         from (((EXHIBITS LEFT OUTER JOIN GACHA_TITLES ON EXHIBITS.GACHA_TITLE_ID = GACHA_TITLES.GACHA_TITLE_ID) 

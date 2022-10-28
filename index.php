@@ -19,10 +19,10 @@
             <div class="PopularTags">
                 <h1 class="sub-ttl">人気</h1>
                 <ul class="Tags">
-                    <li class="GenreTag1"><a hreF="./">ジャンル1</a></li>
-                    <li class="GenreTag2"><a hreF="./">ジャンル2</a></li>
-                    <li class="GenreTag3"><a hreF="./">ジャンル3</a></li>
-                    <li class="GenreTag4"><a hreF="./">ジャンル4</a></li>
+                    <li class="GenreTag1"><a hreF="./">ワンピース</a></li>
+                    <li class="GenreTag2"><a hreF="./">ドラえもん</a></li>
+                    <li class="GenreTag3"><a hreF="./">鬼滅の刃</a></li>
+                    <li class="GenreTag4"><a hreF="./">動物 </a></li>
                 </ul>
             </div>
             <!--おすすめアイテム カルーセルバナー-->
@@ -37,7 +37,6 @@
                 <iframe src="./Carousel_tests/carousel_test.html"></iframe>
             </div>
             <!-- 商品リスト -->
-
             <!-- 追記 -->
             <?php
                 require_once __DIR__ . './classes/dbdata.php';

@@ -21,6 +21,7 @@
             </div>
             <div class="item-info">
                 <div class="item-img">
+                    <!--商品アイコン-->
                     <img src="images/kuma1.jpg">
                 </div>
                 <div class="counter-info">
@@ -29,18 +30,18 @@
                     <p class="counter-id">取引相手のID</p>
                 </div>
                 <div class="item-deta">
-                    <p>商品タイトル</p>
+                    <p>取引開始日時 : yyyy/mm/dd</p>
                     <p>商品名</p>
                     <p>商品コンディション</p>
-                    <p>必要チケット種類・枚数</p>
+                    <p>獲得チケット種類・枚数</p>
                     <div class="chat-return">
                         <a href="chat.php" class="btn btn--orange btn--radius">チャットにもどる</a>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
-
     <!-- サイドコンテンツ -->
     <?php require_once('./temp/side.php'); ?>
     <!-- /サイドコンテンツ -->

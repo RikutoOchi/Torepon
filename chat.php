@@ -103,6 +103,7 @@
     
         <div class="my-message">
           <a href = "cancel.html">取引キャンセル申請</a>
+          <a href = "tr_forward.php?id=<?php echo $trade_id ?>">取引進行申請</a>
           <div>
             <form action="./chat_db.php?id=<?php echo $partner_user_id ?>" method="post" name="chat_form">
               <input class="message-send" type="text" placeholder="メッセージを入力" name="chat_text">

@@ -27,8 +27,8 @@
         $record = $stmt->fetch();
         return $record;
     }
-      public function updateField($table,$column,$id,$column_update,$value_update){
-        $sql = "update $table SET $column = $update_value where $column = ?";
+      public function updateField($table,$column,$id,$column_update,$update_value){
+        $sql = "update $table set $column_update = $update_value where $column = ?";
         $stmt = $this->query($sql, [$id]);
         $record = $stmt->fetch();
         return $record;

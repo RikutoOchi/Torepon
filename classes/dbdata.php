@@ -27,6 +27,13 @@
         $record = $stmt->fetch();
         return $record;
     }
+      public function updateField($table,$column,$id,$column_update,$update_value){
+        $sql = "update $table set $column_update = $update_value where $column = ?";
+        $stmt = $this->query($sql, [$id]);
+        $record = $stmt->fetch();
+        return $record;
+    }
+
       public  function  getRecords ($table,$column,$value) {
         $sql = "select * from $table where $column = ?";
         $stmt = $this->query($sql, [$value]);
@@ -35,7 +42,7 @@
     }
     public function getRecord_0($sql){
         $stmt = $this->query($sql, []);
-        $record = $stmt->fetchall();
+        $record = $stmt->fetchAll();
         return $record;
     }   
                           

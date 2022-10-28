@@ -3,10 +3,12 @@ $(".burger-btn").on("click", function () {
   $(".humburger-nav").toggleClass("active");
   $(this).toggleClass("cross");
 });
+
 //headerセレクト
 $(".header-select").on("click", function () {
   $(".header-select").toggleClass("opened");
 });
+
 
 //headerセレクト
 $(".header-select").on("click", function () {

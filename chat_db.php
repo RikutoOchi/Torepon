@@ -12,9 +12,6 @@
 
         $user_id = $_SESSION['user_id'];    // ユーザーID
         $trade_id = 1; //$trade_id = $_SESSION['trade_id'];  // トレードID 
-
-
-        // データ格納
         $pdo = new PDO(
             'mysql:host=localhost;dbname=torepon;charset=utf8',     //　mysql:host=localhost;dbname="作成したデータベース名”;charset=utf8
             'shopping',     // ユーザー名
@@ -28,7 +25,6 @@
         $stmt->bindValue(':chat_text', $chat_text);
         $stmt->execute();
         unset($pdo);
-        
         header('Location:chat.php?id='.$partner_user_id.'');
     }
 

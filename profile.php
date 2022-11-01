@@ -43,7 +43,7 @@
   unset($pdo);
 
   foreach($data as $row){
-    $user_icon_url = $row['USER_ICON_Url'];
+    // $user_icon_url = $row['USER_ICON_Url']; エラーがでてたため一度コメントアウト
     $user_name = $row['USER_NAME'];
     $mail = $row['MAIL_ADDRESS'];
     $user_text = $row['USER_TEXT'];

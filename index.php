@@ -49,7 +49,7 @@
             <h1 class="sub-ttl">新着アイテム</h1>
             <ul class="goods-list">
                 <?php foreach($data as $data_part){ ?>
-                    <a href="./ex-confirm.php?ident=<?php echo $data_part['EXHIBIT_ID'] ?>">
+                    <a href="./ex-confirm.php?id=<?php echo $data_part['EXHIBIT_ID'] ?>">
                         <li class="goods-item">
                             <?php $data_part['EXHIBIT_NAME'] ?>
                             <img src="<?= $data_part['EXHIBIT_PIC_URL'] ?>" />

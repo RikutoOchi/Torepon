@@ -10,20 +10,43 @@
   align-items: center;
   justify-content: space-around;
 }
+.flex {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 20px;
+}
 
-/* アイコン */
-.square_box {
-  width: 30vw;
-  height: 30vw;
-  background: grey;
+.a {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
 }
 
 .img {
   border-radius: 50%; /* 角丸の半径を50%に*/
-  width: 250px;
-  height: 250px;
+}
+.b {
+  grid-column: 2 / 4;
+  grid-row: 1 / 2;
 }
 
+.c {
+  grid-column: 1 / 4;
+  grid-row: 2 / 3;
+}
+
+/* ユーザー画像 */
+.UserIcon {
+  width: 250px;
+  height: 250px;
+  margin-left: 50px;
+  margin-right: 10px;
+  border: 1px solid #000;
+  border-radius: 50%;
+}
+.UserIcon img {
+  object-fit: cover;
+}
 .img2 {
   width: 250px;
   height: 46px;
@@ -151,6 +174,22 @@
   -ms-transition-duration: 0.3s;
 }
 
+.display {
+  font-size: 20px;
+}
+
+.display_line {
+  font-size: 20px;
+  text-align: left;
+  border-bottom: solid 3px #87cefa;
+}
+
+.textarea {
+  width: 100%;
+  font-size: 15px;
+  resize: none;
+}
+
 .box1 {
   padding: 10px 20px;
   margin: 0em 0;
@@ -191,4 +230,12 @@
 }
 .boxContainer .box {
   margin-top: 40px;
+}
+.img3 {
+  width: 150px;
+  height: 150px;
+}
+
+.border {
+  border: 1px solid black;
 }

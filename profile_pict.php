@@ -1,40 +1,61 @@
-<!DOCTYPE html>
-<html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/reset.css" />
-    <link rel="stylesheet" href="./css/style.css" />
-    <link rel="stylesheet" href="./css/news.css">
-    <link rel="stylesheet" href="./css/profile.css" />
-    <script
-      src="https://kit.fontawesome.com/95076eb005.js"
-      crossorigin="anonymous"
-    ></script>
-    <title>home</title>
-  </head>
-  <body>
-    <br>
-    <input type="file" name="example" style="margin-left:30px" accept="image/jpeg, image/png" onchange="previewImage(this);">
-    <br>
-    <p style="margin-left:30px">
-      <br>
-      Preview:<br>
-      <img id="preview" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
-    </p>
-    <script>
-      function previewImage(obj)
-      {
-        var fileReader = new FileReader();
-        fileReader.onload = (function() {
-          document.getElementById('preview').src = fileReader.result;
-        });
-        fileReader.readAsDataURL(obj.files[0]);
-      }
-    </script>
-    <br>
-    <input type="button" class="btn4" style="margin-left:30px" value="キャンセル" onClick="window.close()"/>
-    <input type="button" class="btn3" style="margin-left:520px" value="変更する" href="./index.html"/>
-  </body>
-</html>
+<!-- ヘッドの全体に関わる共有部分 -->
+<?php require_once('./temp/head.php'); ?>
+<!-- /ヘッドの全体に関わる共有部分 -->
+
+<!-- ↓↓↓　ここに各画面専用のスタイルのリンクタグを書きます ↓↓↓ -->
+<link rel="stylesheet" href="./css/profile.css">
+<!-- ↑↑↑　/ここに各画面専用のスタイルのリンクタグを書きます　↑↑↑ -->
+
+<!-- ヘッダー -->
+<?php require_once("./temp/header.php"); ?>
+<!-- /ヘッダー -->
+
+<main class="main-side-content">
+    <section class="main-content">
+
+        <!-- mainコンテンツ -->
+        <center><h1><p>プロフィール画像変更</p></h1></center>
+        <br><br>
+
+        <center>
+          <form method="post" action="./profile_pict_db.php" enctype="multipart/form-data" >
+
+            <input type="file" name="user_icon" style="margin-left:30px" accept="image/jpeg, image/png" onchange="previewImage(this);">
+            <br><br>
+            <p style="margin-left:30px">
+              <br>
+              　　Preview<br><br>
+              <img id="preview" class="UserIcon" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+            </p>
+            <script>
+              function previewImage(obj)
+              {
+                var fileReader = new FileReader();
+                fileReader.onload = (function() {
+                  document.getElementById('preview').src = fileReader.result;
+                });
+                fileReader.readAsDataURL(obj.files[0]);
+              }
+            </script>
+            <br><br>
+
+                <input type="button" value="　キャンセル　" onclick="location.href='./profile.php'"/>
+                　　　　　
+                <button type="submit">　変 更 す る　</button>
+          </center>
+
+        </form>
+        
+    </section>
+     
+
+<!-- サイドコンテンツ -->
+<?php require_once('./temp/side.php'); ?>
+<!-- /サイドコンテンツ -->
+
+</main>
+<!-- /mainコンテンツ -->
+
+<!-- フッター -->
+<?php require_once('./temp/footer.php'); ?>
+<!-- /フッター -->

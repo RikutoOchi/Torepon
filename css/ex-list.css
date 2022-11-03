@@ -3,6 +3,7 @@ div.item-list {
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 10px;
 }
+
 .img {
   border: 3px solid #ccc;
 }

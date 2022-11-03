@@ -1,0 +1,14 @@
+.margin_left{
+    margin-left:15%;
+}
+
+.size{
+    width:60%;
+}
+
+
+.textarea_size{
+    width:70%;
+    font-size:15px;
+    resize: none;
+}

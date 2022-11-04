@@ -19,56 +19,53 @@
 
             <!-- mainコンテンツ -->
             <?php
-            /* -------------- ソート順の情報 ------------- */
                 $sarch_id = $_GET['sarch_id'];
-                $sort_id = $_GET['sort_id'];
-            /* ------------------------------------------- */
 
-            /* ------- 絞り込み条件が設定された場合 ------ */
                 if($sarch_id != 0){
+                    $gatya_session = $_SESSION["gatya"];
+                    $kyara_session = $_SESSION["kyara"];
+                    $gensaku_session = $_SESSION["gensaku"];
+                    $meka_session = $_SESSION["me-ka-"];
+                    $nitizi_start_session = $_SESSION["nitizi-start"];
+                    $syurui_session = $_SESSION["syurui"];
+                    $maisu_end_session = $_SESSION["maisu-end"];
 
-                    if($_SESSION["gatya"] == ""){
-                    $gatya = "%_%";
+                    if($gatya_session == ""){
+                        $gatya = "%_%";
                     } else{
-                    $gatya = $_SESSION['gatya']; 
-                    }
-
-                    if($_SESSION['kyara'] == ""){
-                    $kyara = "%_%";
+                        $gatya = $_SESSION['gatya']; 
+                    };
+                    if($kyara_session == ""){
+                        $kyara = "%_%";
                     } else{
-                    $kyara = $_SESSION['kyara']; 
-                    }
+                        $kyara = $_SESSION['kyara']; 
+                    };
 
-                    if($_SESSION['gensaku'] == ""){
-                    $gensaku = "%_%";
+                    if($gensaku_session == ""){
+                        $gensaku = "%_%";
                     } else{
-                    $gensaku = $_SESSION['gensaku']; 
-                    }
-
-                    if($_SESSION['me-ka-'] == ""){
-                    $meka = "%_%";
+                        $gensaku = $_SESSION['gensaku']; 
+                    };
+                    if($meka_session == ""){
+                        $meka = "%_%";
                     } else{
-                    $meka = $_SESSION['me-ka-']; 
-                    }
-
-                    if($_SESSION['nitizi-start'] == ""){
-                    $nitizi_start = "0000-01-01";
+                        $meka = $_SESSION['me-ka-']; 
+                    };
+                    if($nitizi_start_session == ""){
+                        $nitizi_start = "0000-01-01";
                     } else{
-                    $nitizi_start = $_SESSION['nitizi-start']; 
-                    }
-
-                    if($_SESSION['syurui'] == ""){
-                    $syurui = "%_%";
+                        $nitizi_start = $_SESSION['nitizi-start']; 
+                    };
+                    if($syurui_session == ""){
+                        $syurui = "%_%";
                     } else{
-                    $syurui = $_SESSION['syurui']; 
-                    }
-
-                    if($_SESSION['maisu-end'] == ""){
-                    $maisu_end = "9999999";
+                        $syurui = $_SESSION['syurui']; 
+                    };
+                    if($maisu_end_session == ""){
+                        $maisu_end = "9999999";
                     } else{
-                    $maisu_end = $_SESSION['maisu-end']; 
-                    }
-
+                        $maisu_end = $_SESSION['maisu-end']; 
+                    };
                 } else{
                     $gatya = "%_%";
                     $kyara = "%_%";
@@ -77,29 +74,18 @@
                     $nitizi_start = "0000-01-01";
                     $syurui = "%_%";
                     $maisu_end = "9999999";
-
-                    $_SESSION["gatya"] = $gatya;
-                    $_SESSION["kyara"] = $kyara;
-                    $_SESSION["gensaku"] = $gensaku;
-                    $_SESSION["me-ka-"] = $meka;
-                    $_SESSION["nitizi-start"] = $nitizi_start;
-                    $_SESSION["syurui"] = $syurui;
-                    $_SESSION["maisu-end"] = $maisu_end;
                 }
 
-            /* ------------------------------------------- */
-            
-            /* ------------- DB接続に必要なもの ---------- */
                 require_once __DIR__ . './classes/dbdata.php';
-                $exh = new Dbdata();
-            /* ------------------------------------------- */
-            
-            /* --- 何の条件で検索されたかの情報取得 ------ */
-                $select = $_SESSION['select'];      // ガチャタイトルとかの項目
-                $text = $_SESSION['text'];          // 入力された文字
-            /* ------------------------------------ ------ */
 
-                $Searchdata = "%" . $text . "%";    // 検索文字列と一致 or 検索文字列が含まれる　に加工
+                $sort_id = $_GET['sort_id'];
+                $select = $_SESSION['select'];
+                $text = $_SESSION['text'];
+
+                $exh = new Dbdata();
+
+                //　検索文字列と一致 or 検索文字列が含まれる　に加工
+                $Searchdata = "%" . $text . "%";
 
                 // タイトルで検索された場合
                 if ( $select == 'title' ) {
@@ -349,7 +335,7 @@
                                 　原作　　　　　　：　　<input type="text" name="gensaku"><br>
                                 　メーカー　　　　：　　<input type="text" name="me-ka-"><br>
                             <?php }elseif($sort_id == 1) {?>
-                                　ガチャタイトル　：　　<input type="text" name="gatya"><br>
+                                　ガチャタイトル：<input type="text" name="gatya"><br>
                                 　原作　　　　　　：　　<input type="text" name="gensaku"><br>
                                 　メーカー　　　　：　　<input type="text" name="me-ka-"><br>
                             <?php }elseif($sort_id == 2) {?>
@@ -405,7 +391,7 @@
                             <?php foreach ($data as $data_part){ ?>
                                 <div class="responsive">
                                     <div class="img">
-                                        <a target="_blank" href="./ex-confirm.php?id=<?php echo $data_part['EXHIBIT_ID'] ?>">
+                                        <a target="_blank" href="./ex-confirm.php?ident=<?php echo $dat['EXHIBIT_ID'] ?>">
                                             <img src="<?= $data_part['EXHIBIT_PIC_URL'] ?>" />
                                         </a>
                                         <div class="desc">

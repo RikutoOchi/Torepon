@@ -80,14 +80,10 @@ body {
   }
 }
 
-/*          この部分が画像表示に関するゾーン            */
-
 .carousel-list:nth-child(1) {
-  background-image: url(./Test_images/T_img1.jpg);
-
-  /* イメージ
-        background-image: url(<?php $hoge['hoge'] ?>);
-    */
+  background-image: url(./Test_images/series1.jpg);
+  background-size: 100% 100% contain;
+  background-repeat: no-repeat;
 }
 
 .carousel-list:nth-child(2) {
@@ -105,8 +101,6 @@ body {
 .carousel-list:nth-child(5) {
   background-image: url(./Test_images/animal_dance.png);
 }
-
-/* ---------------------------------------------------- */
 
 /* clipで非表示指定（スクリーンリーダー対策） */
 

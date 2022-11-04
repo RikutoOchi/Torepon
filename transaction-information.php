@@ -11,7 +11,6 @@
 <!-- ヘッダー -->
 <?php require_once("./temp/header.php"); ?>
 <!-- /ヘッダー -->
-
 <?php
 
     // どの商品の詳細画面に飛ぶかの情報
@@ -86,7 +85,6 @@
     }
 
 ?>
-
     <main class="main-side-content">
       <section class="main-content">
         <!-- mainコンテンツ -->
@@ -113,6 +111,7 @@
                     <div class="chat-return">
                         <a href="chat.php" class="btn btn--orange btn--radius">チャットにもどる</a>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -127,4 +126,3 @@
 
 <!-- フッター -->
 <?php require_once('./temp/footer.php'); ?>
-<!-- /フッター -->

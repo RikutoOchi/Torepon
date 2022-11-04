@@ -15,7 +15,10 @@
 <script type="text/javascript" src="ajax.js?ver=1.0"></script>
 
   <?php
-    $_SESSION['id'] = $_GET['id'];
+
+    $user = $_SESSION['user_id'];   // 自分のuser_idの取得
+    $partner_user_id = $_GET['id'];   //相手のuser_id取得
+    $trade_id=$_GET['trade_id'];
     require_once __DIR__ . './classes/dbdata.php';
     $exh = new Dbdata();
 
@@ -45,10 +48,8 @@
       ?>
 
       <?php foreach($chat_user_data as $user_info) { ?>
-        <?php 
-          $partner_user_id = $user_info['PARTNER_USER_ID'];
-        ?>
-        <li class="ChatUser"><?php if($partner_user_id == $_SESSION['id']) { ?><a class='ChatUser-choise' href="./chat.php?id=<?php echo $partner_user_id ?>"><?php } else { ?><a class='ChatUser-not-choise' href="./chat.php?id=<?php echo $partner_user_id ?>"> <?php } ?>
+        <?php $partner_user_id = $user_info['PARTNER_USER_ID']; ?>
+        <li class="ChatUser"><a href="./chat.php?id=<?php echo $partner_user_id ?>">
           <div class="ChatUser-detail">
           <div class="UserIcon"><img src="./images/プリキュア.png" alt=""></div>
           <div class="UserInfo">
@@ -83,7 +84,7 @@
     </ul>
   </section>
   <!-- チャットユーザーリストの表示 -->
-  <?php if($_SESSION['id'] != 0){ ?>
+  <?php if($partner_user_id != -1){ ?>
     <section class="main-content">
     <!-- /mainコンテンツ -->
     <!--追加-->

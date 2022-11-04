@@ -37,7 +37,6 @@
           <div class="maincol-container">
             <div class="news">
               <h2>進行中のトレードリスト</h2>
-
               <div class="tab-wrap">
 
                 <input id="tab01" type="radio" name="tab" class="tab-switch" checked="checked"><label class="tab-label" for="tab01">取引情報（出品物）</label>
@@ -191,6 +190,7 @@
                 </div>
 
               </div>
+
             </div>
           </div>
         </div>

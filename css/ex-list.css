@@ -56,11 +56,28 @@ div.desc {
   margin-bottom: 10px;
   font-weight: 400;
 }
+.search {
+  color: white;
+  font-weight: bold;
+  letter-spacing: 0.5pt;
+  text-decoration: none;
+  background-color: #414bb2;
+  border: 1px solid #4169e1;
+  border-radius: 10px;
+  cursor: pointer;
+}
 .sortBy-box {
   margin-bottom: 5px;
 }
 .sort-btn {
-  margin-bottom: 10px;
+  color: white;
+  font-weight: bold;
+  letter-spacing: 0.5pt;
+  text-decoration: none;
+  background-color: #414bb2;
+  border: 1px solid #4169e1;
+  border-radius: 10px;
+  cursor: pointer;
 }
 .search-box {
   position: relative;

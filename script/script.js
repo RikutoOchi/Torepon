@@ -9,7 +9,6 @@ $(".header-select").on("click", function () {
   $(".header-select").toggleClass("opened");
 });
 
-
 //headerセレクト
 $(".header-select").on("click", function () {
   $(".header-select").toggleClass("opened");

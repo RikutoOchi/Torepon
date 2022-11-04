@@ -12,21 +12,29 @@
 <?php require_once("./temp/header.php"); ?>
 <!-- /ヘッダー -->
 
-<meta http-equiv="refresh" content="10; url="<?php echo $_SERVER['PHP_SELF']; ?>">
+<script type="text/javascript" src="ajax.js?ver=1.0"></script>
 
   <?php
-
-    $user = $_SESSION['user_id'];   // 自分のuser_idの取得
-    $partner_user_id = $_GET['id'];   //相手のuser_id取得
-    $trade_id=$_GET['trade_id'];
+    $_SESSION['id'] = $_GET['id'];
     require_once __DIR__ . './classes/dbdata.php';
     $exh = new Dbdata();
+
+    // トレードIDの取得
+    $sql = "select TRADE_ID from CHATS where USER_ID = '" . $_SESSION['user_id'] . "' and PARTNER_USER_ID = '" . $_SESSION['id'] . "'";
+    $data = $exh->getRecord_0($sql);
+    // $trae_id（トレードID）
+    foreach($data as $info){
+        $trade_id = $info['TRADE_ID'];
+    }
+    
   ?>
 
 <main class="chat-main-side-container">
   <!-- チャットユーザーリストの表示 -->
   <section class="ChatUser-disp">
     <ul class="ChatUser-list">
+
+    <div id="ajaxreload">
 
       <!--　チャット相手の情報取得＆表示 -->
       <?php
@@ -37,9 +45,10 @@
       ?>
 
       <?php foreach($chat_user_data as $user_info) { ?>
-
-        <?php $partner_user_id = $user_info['PARTNER_USER_ID']; ?>
-        <li class="ChatUser"><a href="./chat.php?id=<?php echo $partner_user_id ?>">
+        <?php 
+          $partner_user_id = $user_info['PARTNER_USER_ID'];
+        ?>
+        <li class="ChatUser"><?php if($partner_user_id == $_SESSION['id']) { ?><a class='ChatUser-choise' href="./chat.php?id=<?php echo $partner_user_id ?>"><?php } else { ?><a class='ChatUser-not-choise' href="./chat.php?id=<?php echo $partner_user_id ?>"> <?php } ?>
           <div class="ChatUser-detail">
           <div class="UserIcon"><img src="./images/プリキュア.png" alt=""></div>
           <div class="UserInfo">
@@ -66,23 +75,33 @@
           </div>
         </a></li>
       <?php } ?>
+
+    </div>
+
       <!-- /各ユーザーのチャット画面に遷移 -->
 
     </ul>
   </section>
   <!-- チャットユーザーリストの表示 -->
-  <?php if($partner_user_id != -1){ ?>
+  <?php if($_SESSION['id'] != 0){ ?>
     <section class="main-content">
     <!-- /mainコンテンツ -->
     <!--追加-->
       <div class="message-content">
         <ul class="kaiwa imessage">
 
+        <div id="ajaxreload2">
+
           <?php
             $sql = "select CHAT_TEXT,USER_ID,PARTNER_USER_ID 
                     from CHATS
-                    where TRADE_ID = '" . $trade_id . "' and (USER_ID = '" . $user . "' or PARTNER_USER_ID = '" . $user . "') ORDER BY CHAT_TIME";
-
+                    where USER_ID = '" . $_SESSION['id'] . "' and PARTNER_USER_ID = '" . $_SESSION['user_id'] . "' and FLAG = 0
+                    or USER_ID = '" . $_SESSION['user_id'] . "' and PARTNER_USER_ID = '" . $_SESSION['id'] . "' and FLAG = 0 ORDER BY CHAT_TIME";
+            // チャット相手のユーザーアイコン取り出しSQL
+            $partner_user_icon_sql = "select USER_ID,USER_ICON_URL 
+                                      from USERS
+                                      where USER_ID = '" . $_SESSION['id'] . "'";
+            // チャット内容取り出しSQL実行                   
             $data = $exh->getRecord_0($sql);
           ?>
         
@@ -99,13 +118,16 @@
               </li>
             <?php } ?>
           <?php } ?>
+
+        </div>
+
         </ul>
     
         <div class="my-message">
           <a href = "cancel.html">取引キャンセル申請</a>
           <a href = "tr_forward.php?id=<?php echo $trade_id ?>">取引進行申請</a>
           <div>
-            <form action="./chat_db.php?id=<?php echo $partner_user_id ?>" method="post" name="chat_form">
+            <form action="./chat_db.php?id=<?php echo $_SESSION['id'] ?>" method="post" name="chat_form">
               <input class="message-send" type="text" placeholder="メッセージを入力" name="chat_text">
               <button><i class="fa-solid fa-paper-plane"></i></button>
             </form>

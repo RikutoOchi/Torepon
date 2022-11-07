@@ -3,16 +3,16 @@
   // Dbdataオブジェクトを生成する
   $exh = new Dbdata();
   // ガチャタイトルを取り出す
-  $exhibit_gacha = $exh->getRecords('gacha_titles','GACHA_TITLE_ID',$exhibit['GACHA_TITLE_ID']);
-  foreach($exhibit_gacha as $data_part){?>
-    <div class="responsive">
-      <div class="img">
-        <a target="_blank" href="./ex-confirm.php?ident=<?php echo $data_part['EXHIBIT_ID'] ?>">
-          <img src="<?= $data_part['EXHIBIT_PIC_URL'] ?>" />
-        </a>
-      </div>
-    </div>
-  <?php }
+  $exhibit_gacha=$exh->getRecord('gacha_titles','GACHA_TITLE_ID',1);
+  // $exhibit_gacha = $exh->getRecords('gacha_titles','USER_ID',$exhibit['GACHA_TITLE_ID']);
+  // foreach($exhibit_gacha as $data_part){
+  //   $gc_name=$data_part['GACHA_TITLE_ID'];
+  // }
+  $now=new Dbdata();
+  //$exhibit_user = $now->getRecord('users','USER_ID',$exhibit['USER_ID']);
+  //$now('SELECT COUNT(EXHIBIT_ID) FROM exhibits WHERE USER_ID='1')
+  //$time=new Dbdata();
+  //$pdo->query('select * FROM exhibits') as $time
 ?>
 <!-- ヘッドの全体に関わる共有部分 -->
 <?php require_once('./temp/head.php'); ?>
@@ -44,7 +44,7 @@
         <tr>
           <th><?= $exhibit_gacha['GACHA_TITLE_NAME'] ?>用チケット</th>
           <th>&nbsp;</th>
-          <th>&nbsp;</th>
+          <th>htmlspecialchars($time['EXHIBIT_TIME'])</th>
         </tr>
         <tr>
           <th>&nbsp;</th>

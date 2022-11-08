@@ -145,7 +145,7 @@
   <!-- mainコンテンツ -->
     <h1>出品リスト</h1><br>
 
-    <font size="4">絞り込み条件</font><br>
+    <div class="search-box"><div class="searchBy-ttl">絞り込み条件</div><button class="disp-search"></button></div>
       <font size="2">
 
 <!------------- セッション（$_SESSION）にデータを格納させるために、data retension.phpへデータを飛ばす ------------>

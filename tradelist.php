@@ -20,11 +20,11 @@
   
   // 自分が申請者になっているものを取得
   $get_id = new Tradelist_exhibit();
-  $applicant_info = $get_id->getRecord_tradelist_number_of_transactions('exhibits','trades','EXHIBIT_ID','TRADE_ID','USER_ID','TRADE_START_TIME',$_SESSION['user_id']);
+  $applicant_info = $get_id->getRecord_tradelist_number_of_transactions($_SESSION['user_id']);
 
   // 自分が出品したものの詳細情報取得
   $myself = new Tradelist_application();
-  $myself_info = $myself->getRecords_order_by('exhibits','USER_ID','EXHIBIT_TIME',$_SESSION['user_id']);
+  $myself_info = $myself->getRecords_order_by($_SESSION['user_id']);
   
 ?>
 <!--- /DB関連 -->

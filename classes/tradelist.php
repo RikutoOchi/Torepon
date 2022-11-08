@@ -2,9 +2,9 @@
   require_once __DIR__ . '/dbdata.php';
 
   class Tradelist_exhibit extends DbData{
-     public function getRecord_tradelist_number_of_transactions ($table1,$table2,$colum1,$colum2,$colum3,$colum4,$value) {
-        $sql = "select * from $table1 left outer join $table2 on $table1.$colum1 = $table2.$colum2
-                where $table2.$colum3 = ? order by $colum4";
+     public function getRecord_tradelist_number_of_transactions ($value) {
+        $sql = "select * from exhibits left outer join trades on exhibits.EXHIBIT_ID = trades.TRADE_ID 
+                where trades.USER_ID = ? order by TRADE_START_TIME";
         $stmt = $this->query($sql, [$value]);
         $records = $stmt->fetchAll( );
         return  $records;
@@ -12,8 +12,8 @@
   }
 
   class Tradelist_application extends DbData{
-    public  function  getRecords_order_by ($table,$colum,$colum2,$value) {
-        $sql = "select * from $table where $colum = ? order by $colum2";
+    public  function  getRecords_order_by ($value) {
+        $sql = "select * from exhibits where USER_ID = ? order by EXHIBIT_TIME";
         $stmt = $this->query($sql, [$value]);
         $records = $stmt->fetchAll( );
         return  $records;

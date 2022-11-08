@@ -13,3 +13,19 @@
     $ex = new Exhibit( );
     $ex->ex_add($_SESSION['user_id'],$_POST['exhibit_name'], $_POST['exhibit_text'], $_POST['gacha_title_id'], $_POST['ticket_type_id'],$_POST['number_of_tickets']);
 ?>
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/ex-add.css">
+    <title>出品完了画面</title>
+</head>
+<body>
+    <h1 class="copy-text">出品が完了しました。</h1>
+    <a href="./">ホームへ戻る</a>
+    <a href="./">他の商品を出品する</a>
+</body>
+</html>

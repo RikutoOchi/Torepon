@@ -51,42 +51,79 @@
                         <p><?php echo $myself_info_detail['EXHIBIT_NAME'] ?></p>
 
                         <div class="Group">
+
                           <div class="Group-Bar"></div>
 
-                          <div class="Group-Item isActive">
-                            <div class="Group-Item-CircleOuter Circle Shapeborder isActive">
-                              <div class="Group-Item-CircleInner Circle Shapeborder isActive"></div>
+                          <?php if( $myself_info_detail['TRADE_PROGRESS'] == 1 or $myself_info_detail['TRADE_PROGRESS'] == ''){ ?>
+                            <div class="Group-Item isActive">
+                              <div class="Group-Item-CircleOuter Circle Shapeborder isActive">
+                                <div class="Group-Item-CircleInner Circle Shapeborder isActive"></div>
+                              </div>
+                          <?php } else { ?>
+                            <div class="Group-Item">
+                              <div class="Group-Item-CircleOuter Circle Shapeborder">
+                                <div class="Group-Item-CircleInner Circle Shapeborder"></div>
+                              </div>
+                          <?php } ?>
+                                <p class="Group-Item-Text">申請</p>
                             </div>
-                            <p class="Group-Item-Text">申請</p>
-                          </div>
 
-                          <div class="Group-Item">
-                            <div class="Group-Item-CircleOuter Circle Shapeborder">
-                              <div class="Group-Item-CircleInner Circle Shapeborder"></div>
+                          <?php if( $myself_info_detail['TRADE_PROGRESS'] == 2 ){ ?>
+                            <div class="Group-Item isActive">
+                              <div class="Group-Item-CircleOuter Circle Shapeborder isActive">
+                                <div class="Group-Item-CircleInner Circle Shapeborder isActive"></div>
+                              </div>
+                          <?php } else { ?>
+                            <div class="Group-Item">
+                              <div class="Group-Item-CircleOuter Circle Shapeborder">
+                                <div class="Group-Item-CircleInner Circle Shapeborder"></div>
+                              </div>
+                          <?php } ?>
+                              <p class="Group-Item-Text">承認・拒否</p>
                             </div>
-                            <p class="Group-Item-Text">承認・拒否</p>
-                          </div>
+                                  
+                          <?php if( $myself_info_detail['TRADE_PROGRESS'] == 3 ){ ?>
+                            <div class="Group-Item isActive">
+                              <div class="Group-Item-CircleOuter Circle Shapeborder isActive">
+                                <div class="Group-Item-CircleInner Circle Shapeborder isActive"></div>
+                              </div>
+                          <?php } else{ ?>
+                            <div class="Group-Item">
+                              <div class="Group-Item-CircleOuter Circle Shapeborder">
+                                <div class="Group-Item-CircleInner Circle Shapeborder"></div>
+                              </div>
+                          <?php } ?>
+                              <p class="Group-Item-Text">交渉中</p>
+                            </div>
 
-                          <div class="Group-Item">
-                            <div class="Group-Item-CircleOuter Circle Shapeborder">
-                              <div class="Group-Item-CircleInner Circle Shapeborder"></div>
+                          <?php if( $myself_info_detail['TRADE_PROGRESS'] == 4 ){ ?>
+                            <div class="Group-Item isActive">
+                              <div class="Group-Item-CircleOuter Circle Shapeborder isActive">
+                                <div class="Group-Item-CircleInner Circle Shapeborder isActive"></div>
+                              </div>
+                          <?php } else { ?>
+                            <div class="Group-Item">
+                              <div class="Group-Item-CircleOuter Circle Shapeborder">
+                                <div class="Group-Item-CircleInner Circle Shapeborder"></div>
+                              </div>
+                          <?php } ?>
+                              <p class="Group-Item-Text">発送中</p>
                             </div>
-                            <p class="Group-Item-Text">交渉中</p>
-                          </div>
 
-                          <div class="Group-Item">
-                            <div class="Group-Item-CircleOuter Circle Shapeborder">
-                              <div class="Group-Item-CircleInner Circle Shapeborder"></div>
+                          <?php if( $myself_info_detail['TRADE_PROGRESS'] == 5 ){ ?>
+                            <div class="Group-Item isActive">
+                              <div class="Group-Item-CircleOuter Circle Shapeborder isActive">
+                                <div class="Group-Item-CircleInner Circle Shapeborder isActive"></div>
                             </div>
-                            <p class="Group-Item-Text">発送中</p>
-                          </div>
+                          <?php } else { ?>
+                            <div class="Group-Item">
+                              <div class="Group-Item-CircleOuter Circle Shapeborder">
+                                <div class="Group-Item-CircleInner Circle Shapeborder"></div>
+                              </div>
+                          <?php } ?>
+                              <p class="Group-Item-Text">到着</p>
+                            </div>
 
-                          <div class="Group-Item">
-                            <div class="Group-Item-CircleOuter Circle Shapeborder">
-                              <div class="Group-Item-CircleInner Circle Shapeborder"></div>
-                            </div>
-                            <p class="Group-Item-Text">到着</p>
-                          </div>
                         </div>
                       
                       </li></a>

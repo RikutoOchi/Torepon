@@ -41,13 +41,16 @@
 
         <?php foreach( $chicket_history_data as $chicket_history_data_detail) { ?>
           <tr>
-            <th><?php echo $chicket_history_data_detail['GACHA_TITLE_NAME'] ?></th>
-            <?php if($chicket_history_data_detail['USER_ID'] == $_SESSION['user_id']){ ?>
-              <th><?php echo $chicket_history_data_detail['NUMBER_OF_TICKETS'] ?></th>
-            <?php } else { ?>
-              <th><?php echo "-".$chicket_history_data_detail['NUMBER_OF_TICKETS'] ?></th>
-            <?php } ?>
-            <th><?php echo $chicket_history_data_detail['TRADE_FINISH_TIME'] ?></th>
+          <?php if($chicket_history_data_detail['USER_ID'] == $_SESSION['user_id']){ ?>
+            <th><label style="color:blue"><?php echo $chicket_history_data_detail['GACHA_TITLE_NAME'] ?></label></th>
+            <th><label style="color:blue"><?php echo $chicket_history_data_detail['NUMBER_OF_TICKETS'] ?></label></th>
+            <th><label style="color:blue"><?php echo $chicket_history_data_detail['TRADE_FINISH_TIME'] ?></label></th>
+          <?php } else { ?>
+            <th><label style="color:red"><?php echo $chicket_history_data_detail['GACHA_TITLE_NAME'] ?></label></th>
+            <th><label style="color:red"><?php echo "-".$chicket_history_data_detail['NUMBER_OF_TICKETS'] ?></label></th>
+            <th><label style="color:red"><?php echo $chicket_history_data_detail['TRADE_FINISH_TIME'] ?></label></th>
+          <?php } ?>
+
           </tr> 
         <?php } ?>
 

@@ -11,6 +11,7 @@
 <!-- ヘッダー -->
 <?php require_once("./temp/header.php"); ?>
 <!-- /ヘッダー -->
+
 <main class="main-side-content">
       <section class="main-content">
     </dl>

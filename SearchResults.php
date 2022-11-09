@@ -111,7 +111,8 @@
                                 from (((EXHIBITS LEFT OUTER JOIN GACHA_TITLES ON EXHIBITS.GACHA_TITLE_ID = GACHA_TITLES.GACHA_TITLE_ID) 
                                 LEFT OUTER JOIN ORIGINAL_TITLES ON GACHA_TITLES.ORIGINAL_TITLE_ID = ORIGINAL_TITLES.ORIGINAL_TITLE_ID)
                                 LEFT OUTER JOIN MAKERS ON GACHA_TITLES.MAKER_ID = MAKERS.MAKER_ID)
-                                where EXHIBITS.EXHIBIT_TEXT LIKE '" . $kyara . "' and
+                                where not exists(select TRADE_ID from TRADES where TRADE_ID = EXHIBIT_ID and TRADE_PROGRESS > 2) and
+                                EXHIBITS.EXHIBIT_TEXT LIKE '" . $kyara . "' and
                                 ORIGINAL_TITLES.ORIGINAL_TITLE_NAME LIKE '" . $gensaku . "' and
                                 MAKERS.MAKER_NAME LIKE '" . $meka . "' and
                                 EXHIBITS.EXHIBIT_TIME >= '" . $nitizi_start . "' and
@@ -124,7 +125,8 @@
                                 from (((EXHIBITS LEFT OUTER JOIN GACHA_TITLES ON EXHIBITS.GACHA_TITLE_ID = GACHA_TITLES.GACHA_TITLE_ID) 
                                 LEFT OUTER JOIN ORIGINAL_TITLES ON GACHA_TITLES.ORIGINAL_TITLE_ID = ORIGINAL_TITLES.ORIGINAL_TITLE_ID)
                                 LEFT OUTER JOIN MAKERS ON GACHA_TITLES.MAKER_ID = MAKERS.MAKER_ID)
-                                where EXHIBITS.EXHIBIT_TEXT LIKE '" . $kyara . "' and
+                                where not exists(select TRADE_ID from TRADES where TRADE_ID = EXHIBIT_ID and TRADE_PROGRESS > 2) and
+                                EXHIBITS.EXHIBIT_TEXT LIKE '" . $kyara . "' and
                                 ORIGINAL_TITLES.ORIGINAL_TITLE_NAME LIKE '" . $gensaku . "' and
                                 MAKERS.MAKER_NAME LIKE '" . $meka . "' and
                                 EXHIBITS.EXHIBIT_TIME >= '" . $nitizi_start . "' and
@@ -137,7 +139,8 @@
                                 from (((EXHIBITS LEFT OUTER JOIN GACHA_TITLES ON EXHIBITS.GACHA_TITLE_ID = GACHA_TITLES.GACHA_TITLE_ID) 
                                 LEFT OUTER JOIN ORIGINAL_TITLES ON GACHA_TITLES.ORIGINAL_TITLE_ID = ORIGINAL_TITLES.ORIGINAL_TITLE_ID)
                                 LEFT OUTER JOIN MAKERS ON GACHA_TITLES.MAKER_ID = MAKERS.MAKER_ID)
-                                where EXHIBITS.EXHIBIT_TEXT LIKE '" . $kyara . "' and
+                                where not exists(select TRADE_ID from TRADES where TRADE_ID = EXHIBIT_ID and TRADE_PROGRESS > 2) and
+                                EXHIBITS.EXHIBIT_TEXT LIKE '" . $kyara . "' and
                                 ORIGINAL_TITLES.ORIGINAL_TITLE_NAME LIKE '" . $gensaku . "' and
                                 MAKERS.MAKER_NAME LIKE '" . $meka . "' and
                                 EXHIBITS.EXHIBIT_TIME >= '" . $nitizi_start . "' and
@@ -150,7 +153,8 @@
                                 from (((EXHIBITS LEFT OUTER JOIN GACHA_TITLES ON EXHIBITS.GACHA_TITLE_ID = GACHA_TITLES.GACHA_TITLE_ID) 
                                 LEFT OUTER JOIN ORIGINAL_TITLES ON GACHA_TITLES.ORIGINAL_TITLE_ID = ORIGINAL_TITLES.ORIGINAL_TITLE_ID)
                                 LEFT OUTER JOIN MAKERS ON GACHA_TITLES.MAKER_ID = MAKERS.MAKER_ID)
-                                where EXHIBITS.EXHIBIT_TEXT LIKE '" . $kyara . "' and
+                                where not exists(select TRADE_ID from TRADES where TRADE_ID = EXHIBIT_ID and TRADE_PROGRESS > 2) and
+                                EXHIBITS.EXHIBIT_TEXT LIKE '" . $kyara . "' and
                                 ORIGINAL_TITLES.ORIGINAL_TITLE_NAME LIKE '" . $gensaku . "' and
                                 MAKERS.MAKER_NAME LIKE '" . $meka . "' and
                                 EXHIBITS.EXHIBIT_TIME >= '" . $nitizi_start . "' and
@@ -170,7 +174,8 @@
                                 from (((EXHIBITS LEFT OUTER JOIN GACHA_TITLES ON EXHIBITS.GACHA_TITLE_ID = GACHA_TITLES.GACHA_TITLE_ID) 
                                 LEFT OUTER JOIN ORIGINAL_TITLES ON GACHA_TITLES.ORIGINAL_TITLE_ID = ORIGINAL_TITLES.ORIGINAL_TITLE_ID)
                                 LEFT OUTER JOIN MAKERS ON GACHA_TITLES.MAKER_ID = MAKERS.MAKER_ID)
-                                where GACHA_TITLES.GACHA_TITLE_NAME LIKE '" . $gatya . "' and
+                                where not exists(select TRADE_ID from TRADES where TRADE_ID = EXHIBIT_ID and TRADE_PROGRESS > 2) and
+                                GACHA_TITLES.GACHA_TITLE_NAME LIKE '" . $gatya . "' and
                                 ORIGINAL_TITLES.ORIGINAL_TITLE_NAME LIKE '" . $gensaku . "' and
                                 MAKERS.MAKER_NAME LIKE '" . $meka . "' and
                                 EXHIBITS.EXHIBIT_TIME >= '" . $nitizi_start . "' and
@@ -183,7 +188,8 @@
                                 from (((EXHIBITS LEFT OUTER JOIN GACHA_TITLES ON EXHIBITS.GACHA_TITLE_ID = GACHA_TITLES.GACHA_TITLE_ID) 
                                 LEFT OUTER JOIN ORIGINAL_TITLES ON GACHA_TITLES.ORIGINAL_TITLE_ID = ORIGINAL_TITLES.ORIGINAL_TITLE_ID)
                                 LEFT OUTER JOIN MAKERS ON GACHA_TITLES.MAKER_ID = MAKERS.MAKER_ID)
-                                where GACHA_TITLES.GACHA_TITLE_NAME LIKE '" . $gatya . "' and
+                                where not exists(select TRADE_ID from TRADES where TRADE_ID = EXHIBIT_ID and TRADE_PROGRESS > 2) and
+                                GACHA_TITLES.GACHA_TITLE_NAME LIKE '" . $gatya . "' and
                                 ORIGINAL_TITLES.ORIGINAL_TITLE_NAME LIKE '" . $gensaku . "' and
                                 MAKERS.MAKER_NAME LIKE '" . $meka . "' and
                                 EXHIBITS.EXHIBIT_TIME >= '" . $nitizi_start . "' and
@@ -196,7 +202,8 @@
                                 from (((EXHIBITS LEFT OUTER JOIN GACHA_TITLES ON EXHIBITS.GACHA_TITLE_ID = GACHA_TITLES.GACHA_TITLE_ID) 
                                 LEFT OUTER JOIN ORIGINAL_TITLES ON GACHA_TITLES.ORIGINAL_TITLE_ID = ORIGINAL_TITLES.ORIGINAL_TITLE_ID)
                                 LEFT OUTER JOIN MAKERS ON GACHA_TITLES.MAKER_ID = MAKERS.MAKER_ID)
-                                where GACHA_TITLES.GACHA_TITLE_NAME LIKE '" . $gatya . "' and
+                                where not exists(select TRADE_ID from TRADES where TRADE_ID = EXHIBIT_ID and TRADE_PROGRESS > 2) and
+                                GACHA_TITLES.GACHA_TITLE_NAME LIKE '" . $gatya . "' and
                                 ORIGINAL_TITLES.ORIGINAL_TITLE_NAME LIKE '" . $gensaku . "' and
                                 MAKERS.MAKER_NAME LIKE '" . $meka . "' and
                                 EXHIBITS.EXHIBIT_TIME >= '" . $nitizi_start . "' and
@@ -209,7 +216,8 @@
                                 from (((EXHIBITS LEFT OUTER JOIN GACHA_TITLES ON EXHIBITS.GACHA_TITLE_ID = GACHA_TITLES.GACHA_TITLE_ID) 
                                 LEFT OUTER JOIN ORIGINAL_TITLES ON GACHA_TITLES.ORIGINAL_TITLE_ID = ORIGINAL_TITLES.ORIGINAL_TITLE_ID)
                                 LEFT OUTER JOIN MAKERS ON GACHA_TITLES.MAKER_ID = MAKERS.MAKER_ID)
-                                where GACHA_TITLES.GACHA_TITLE_NAME LIKE '" . $gatya . "' and
+                                where not exists(select TRADE_ID from TRADES where TRADE_ID = EXHIBIT_ID and TRADE_PROGRESS > 2) and
+                                GACHA_TITLES.GACHA_TITLE_NAME LIKE '" . $gatya . "' and
                                 ORIGINAL_TITLES.ORIGINAL_TITLE_NAME LIKE '" . $gensaku . "' and
                                 MAKERS.MAKER_NAME LIKE '" . $meka . "' and
                                 EXHIBITS.EXHIBIT_TIME >= '" . $nitizi_start . "' and
@@ -229,7 +237,8 @@
                                 from (((EXHIBITS LEFT OUTER JOIN GACHA_TITLES ON EXHIBITS.GACHA_TITLE_ID = GACHA_TITLES.GACHA_TITLE_ID) 
                                 LEFT OUTER JOIN ORIGINAL_TITLES ON GACHA_TITLES.ORIGINAL_TITLE_ID = ORIGINAL_TITLES.ORIGINAL_TITLE_ID)
                                 LEFT OUTER JOIN MAKERS ON GACHA_TITLES.MAKER_ID = MAKERS.MAKER_ID)
-                                where GACHA_TITLES.GACHA_TITLE_NAME LIKE '" . $gatya . "' and
+                                where not exists(select TRADE_ID from TRADES where TRADE_ID = EXHIBIT_ID and TRADE_PROGRESS > 2) and
+                                GACHA_TITLES.GACHA_TITLE_NAME LIKE '" . $gatya . "' and
                                 EXHIBITS.EXHIBIT_TEXT LIKE '" . $kyara . "' and
                                 MAKERS.MAKER_NAME LIKE '" . $meka . "' and
                                 EXHIBITS.EXHIBIT_TIME >= '" . $nitizi_start . "' and
@@ -241,7 +250,8 @@
                                 from (((EXHIBITS LEFT OUTER JOIN GACHA_TITLES ON EXHIBITS.GACHA_TITLE_ID = GACHA_TITLES.GACHA_TITLE_ID) 
                                 LEFT OUTER JOIN ORIGINAL_TITLES ON GACHA_TITLES.ORIGINAL_TITLE_ID = ORIGINAL_TITLES.ORIGINAL_TITLE_ID)
                                 LEFT OUTER JOIN MAKERS ON GACHA_TITLES.MAKER_ID = MAKERS.MAKER_ID)
-                                where GACHA_TITLES.GACHA_TITLE_NAME LIKE '" . $gatya . "' and
+                                where not exists(select TRADE_ID from TRADES where TRADE_ID = EXHIBIT_ID and TRADE_PROGRESS > 2) and
+                                GACHA_TITLES.GACHA_TITLE_NAME LIKE '" . $gatya . "' and
                                 EXHIBITS.EXHIBIT_TEXT LIKE '" . $kyara . "' and
                                 MAKERS.MAKER_NAME LIKE '" . $meka . "' and
                                 EXHIBITS.EXHIBIT_TIME >= '" . $nitizi_start . "' and
@@ -253,7 +263,8 @@
                                 from (((EXHIBITS LEFT OUTER JOIN GACHA_TITLES ON EXHIBITS.GACHA_TITLE_ID = GACHA_TITLES.GACHA_TITLE_ID) 
                                 LEFT OUTER JOIN ORIGINAL_TITLES ON GACHA_TITLES.ORIGINAL_TITLE_ID = ORIGINAL_TITLES.ORIGINAL_TITLE_ID)
                                 LEFT OUTER JOIN MAKERS ON GACHA_TITLES.MAKER_ID = MAKERS.MAKER_ID)
-                                where GACHA_TITLES.GACHA_TITLE_NAME LIKE '" . $gatya . "' and
+                                where not exists(select TRADE_ID from TRADES where TRADE_ID = EXHIBIT_ID and TRADE_PROGRESS > 2) and
+                                GACHA_TITLES.GACHA_TITLE_NAME LIKE '" . $gatya . "' and
                                 EXHIBITS.EXHIBIT_TEXT LIKE '" . $kyara . "' and
                                 MAKERS.MAKER_NAME LIKE '" . $meka . "' and
                                 EXHIBITS.EXHIBIT_TIME >= '" . $nitizi_start . "' and
@@ -265,7 +276,8 @@
                                 from (((EXHIBITS LEFT OUTER JOIN GACHA_TITLES ON EXHIBITS.GACHA_TITLE_ID = GACHA_TITLES.GACHA_TITLE_ID) 
                                 LEFT OUTER JOIN ORIGINAL_TITLES ON GACHA_TITLES.ORIGINAL_TITLE_ID = ORIGINAL_TITLES.ORIGINAL_TITLE_ID)
                                 LEFT OUTER JOIN MAKERS ON GACHA_TITLES.MAKER_ID = MAKERS.MAKER_ID)
-                                where GACHA_TITLES.GACHA_TITLE_NAME LIKE '" . $gatya . "' and
+                                where not exists(select TRADE_ID from TRADES where TRADE_ID = EXHIBIT_ID and TRADE_PROGRESS > 2) and 
+                                GACHA_TITLES.GACHA_TITLE_NAME LIKE '" . $gatya . "' and
                                 EXHIBITS.EXHIBIT_TEXT LIKE '" . $kyara . "' and
                                 MAKERS.MAKER_NAME LIKE '" . $meka . "' and
                                 EXHIBITS.EXHIBIT_TIME >= '" . $nitizi_start . "' and
@@ -285,7 +297,8 @@
                                 from (((EXHIBITS LEFT OUTER JOIN GACHA_TITLES ON EXHIBITS.GACHA_TITLE_ID = GACHA_TITLES.GACHA_TITLE_ID) 
                                 LEFT OUTER JOIN ORIGINAL_TITLES ON GACHA_TITLES.ORIGINAL_TITLE_ID = ORIGINAL_TITLES.ORIGINAL_TITLE_ID)
                                 LEFT OUTER JOIN MAKERS ON GACHA_TITLES.MAKER_ID = MAKERS.MAKER_ID)
-                                where GACHA_TITLES.GACHA_TITLE_NAME LIKE '" . $gatya . "' and
+                                where not exists(select TRADE_ID from TRADES where TRADE_ID = EXHIBIT_ID and TRADE_PROGRESS > 2) and
+                                GACHA_TITLES.GACHA_TITLE_NAME LIKE '" . $gatya . "' and
                                 EXHIBITS.EXHIBIT_TEXT LIKE '" . $kyara . "' and
                                 ORIGINAL_TITLES.ORIGINAL_TITLE_NAME LIKE '" . $gensaku . "' and
                                 EXHIBITS.EXHIBIT_TIME >= '" . $nitizi_start . "' and
@@ -298,7 +311,8 @@
                                 from (((EXHIBITS LEFT OUTER JOIN GACHA_TITLES ON EXHIBITS.GACHA_TITLE_ID = GACHA_TITLES.GACHA_TITLE_ID) 
                                 LEFT OUTER JOIN ORIGINAL_TITLES ON GACHA_TITLES.ORIGINAL_TITLE_ID = ORIGINAL_TITLES.ORIGINAL_TITLE_ID)
                                 LEFT OUTER JOIN MAKERS ON GACHA_TITLES.MAKER_ID = MAKERS.MAKER_ID)
-                                where GACHA_TITLES.GACHA_TITLE_NAME LIKE '" . $gatya . "' and
+                                where not exists(select TRADE_ID from TRADES where TRADE_ID = EXHIBIT_ID and TRADE_PROGRESS > 2) and
+                                GACHA_TITLES.GACHA_TITLE_NAME LIKE '" . $gatya . "' and
                                 EXHIBITS.EXHIBIT_TEXT LIKE '" . $kyara . "' and
                                 ORIGINAL_TITLES.ORIGINAL_TITLE_NAME LIKE '" . $gensaku . "' and
                                 EXHIBITS.EXHIBIT_TIME >= '" . $nitizi_start . "' and
@@ -311,7 +325,8 @@
                                 from (((EXHIBITS LEFT OUTER JOIN GACHA_TITLES ON EXHIBITS.GACHA_TITLE_ID = GACHA_TITLES.GACHA_TITLE_ID) 
                                 LEFT OUTER JOIN ORIGINAL_TITLES ON GACHA_TITLES.ORIGINAL_TITLE_ID = ORIGINAL_TITLES.ORIGINAL_TITLE_ID)
                                 LEFT OUTER JOIN MAKERS ON GACHA_TITLES.MAKER_ID = MAKERS.MAKER_ID)
-                                where GACHA_TITLES.GACHA_TITLE_NAME LIKE '" . $gatya . "' and
+                                where not exists(select TRADE_ID from TRADES where TRADE_ID = EXHIBIT_ID and TRADE_PROGRESS > 2) and
+                                GACHA_TITLES.GACHA_TITLE_NAME LIKE '" . $gatya . "' and
                                 EXHIBITS.EXHIBIT_TEXT LIKE '" . $kyara . "' and
                                 ORIGINAL_TITLES.ORIGINAL_TITLE_NAME LIKE '" . $gensaku . "' and
                                 EXHIBITS.EXHIBIT_TIME >= '" . $nitizi_start . "' and
@@ -324,7 +339,8 @@
                                 from (((EXHIBITS LEFT OUTER JOIN GACHA_TITLES ON EXHIBITS.GACHA_TITLE_ID = GACHA_TITLES.GACHA_TITLE_ID) 
                                 LEFT OUTER JOIN ORIGINAL_TITLES ON GACHA_TITLES.ORIGINAL_TITLE_ID = ORIGINAL_TITLES.ORIGINAL_TITLE_ID)
                                 LEFT OUTER JOIN MAKERS ON GACHA_TITLES.MAKER_ID = MAKERS.MAKER_ID)
-                                where GACHA_TITLES.GACHA_TITLE_NAME LIKE '" . $gatya . "' and
+                                where not exists(select TRADE_ID from TRADES where TRADE_ID = EXHIBIT_ID and TRADE_PROGRESS > 2) and
+                                GACHA_TITLES.GACHA_TITLE_NAME LIKE '" . $gatya . "' and
                                 EXHIBITS.EXHIBIT_TEXT LIKE '" . $kyara . "' and
                                 ORIGINAL_TITLES.ORIGINAL_TITLE_NAME LIKE '" . $gensaku . "' and
                                 EXHIBITS.EXHIBIT_TIME >= '" . $nitizi_start . "' and

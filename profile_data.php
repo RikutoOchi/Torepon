@@ -1,29 +1,50 @@
-<!DOCTYPE html>
-<html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/reset.css" />
-    <link rel="stylesheet" href="./css/style.css" />
-    <link rel="stylesheet" href="./css/profile.css" />
-    <title>home</title>
-  </head>
-  <body>
-    <form action="./profile_data_db.php" method="post">
-      <br>
-      <p style="margin-left:50px">ユ ー ザ ー 名　：<input type="text" name="user_name"></p>
-      <br>
-      <p style="margin-left:50px">メールアドレス ：<input type="text" name="address"></p>
-      <br>
-      <p style="margin-left:50px">自己紹介　　　</p>
-      <textarea name="appeal" style="margin-left:50px" rows="4" cols="60"></textarea>
-      <br>
-      <br>
-      <br>
-      <input type="button" class="btn4" style="margin-left:50px" value="キャンセル" onClick="window.close()"/>
-      <input type="button" class="btn3" style="margin-left:190px" value="変更する"  onclick="location.href='./profile_data_db.php'"/>
-    </form>
-  </body>
+<!-- ヘッドの全体に関わる共有部分 -->
+<?php require_once('./temp/head.php'); ?>
+<!-- /ヘッドの全体に関わる共有部分 -->
 
-</html>
+<!-- ↓↓↓　ここに各画面専用のスタイルのリンクタグを書きます ↓↓↓ -->
+<link rel="stylesheet" href="./css/profile_data.css">
+<!-- ↑↑↑　/ここに各画面専用のスタイルのリンクタグを書きます　↑↑↑ -->
+
+<!-- ヘッダー -->
+<?php require_once("./temp/header.php"); ?>
+<!-- /ヘッダー -->
+
+<main class="main-side-content">
+    <section class="main-content">
+
+        <!-- mainコンテンツ -->
+        <center><h1><p>プロフィール情報変更</p></h1></center>
+        <br><br>
+
+        <form action="./profile_data_db.php" method="post" enctype="multipart/form-data" >
+
+            <p class="margin_left">ユ ー ザ ー 名　　：　　<input type="text" name="user_name" class="size"></p>
+            <br>
+            <p class="margin_left">メールアドレス 　：　　<input type="text" name="address"  class="size"></p>
+            <br>
+            <p class="margin_left">自己紹介</p>
+            <textarea name="appeal" class="margin_left textarea_size" rows="5"></textarea>
+            <br><br>
+
+            <center>
+                <input type="button" value="　キャンセル　" onclick="location.href='./profile.php'"/>
+                　　　　　
+                <button type="submit" >　変 更 す る　</button>
+            </center>
+
+        </form>
+        
+    </section>
+     
+
+<!-- サイドコンテンツ -->
+<?php require_once('./temp/side.php'); ?>
+<!-- /サイドコンテンツ -->
+
+</main>
+<!-- /mainコンテンツ -->
+
+<!-- フッター -->
+<?php require_once('./temp/footer.php'); ?>
+<!-- /フッター -->

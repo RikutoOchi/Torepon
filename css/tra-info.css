@@ -14,11 +14,13 @@
     grid-auto-flow: row;
     grid-template-areas: "item-img item-img counter-info" "item-img item-img item-deta" "delivery-address delivery-address delivery-address";
     grid-area: item-info;
+    transform: translate(0%, -10%);
 }
 
 .item-img {
     grid-area: item-img;
-    transform: scale(60%);
+    transform: scale(80%);
+    transform: translate(30%, 25%);
 }
 
 .counter-info {
@@ -28,7 +30,7 @@
 }
 
 .counter-info img {
-    transform: scale(60%);
+    transform: scale(40%);
     position: relative;
     right: 30%;
     top: 15%

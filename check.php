@@ -41,10 +41,12 @@
 
         <?php foreach( $chicket_history_data as $chicket_history_data_detail) { ?>
           <tr>
+          <!-- 青文字で表示 -->
           <?php if($chicket_history_data_detail['USER_ID'] == $_SESSION['user_id']){ ?>
             <th><label style="color:blue"><?php echo $chicket_history_data_detail['GACHA_TITLE_NAME'] ?></label></th>
             <th><label style="color:blue"><?php echo $chicket_history_data_detail['NUMBER_OF_TICKETS'] ?></label></th>
             <th><label style="color:blue"><?php echo $chicket_history_data_detail['TRADE_FINISH_TIME'] ?></label></th>
+          <!-- 赤文字で表示 -->
           <?php } else { ?>
             <th><label style="color:red"><?php echo $chicket_history_data_detail['GACHA_TITLE_NAME'] ?></label></th>
             <th><label style="color:red"><?php echo "-".$chicket_history_data_detail['NUMBER_OF_TICKETS'] ?></label></th>

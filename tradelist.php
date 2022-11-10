@@ -46,7 +46,16 @@
                   <ul class="news-contents">
                     <?php foreach($myself_info as $myself_info_detail){ ?>
                       <li>
-                        <a href="./transaction-information.php?id=<?php echo $myself_info_detail['EXHIBIT_ID']?>&flag=0"><img src="<?= $myself_info_detail['EXHIBIT_PIC_URL']?>" height="100" alt="">
+                      <!-- $flag→SQL文の選択のために必要 -->
+                        <?php
+                          if($myself_info_detail['TRADE_PROGRESS'] == ''){
+                            $flag = 0;
+                          } else {
+                            $flag = 1;
+                          }
+                        ?>
+                      <!-- /$flag→SQL文の選択のために必要 -->
+                        <a href="./transaction-information.php?id=<?php echo $myself_info_detail['EXHIBIT_ID'] ?>&flag=<?php echo $flag ?>"><img src="<?= $myself_info_detail['EXHIBIT_PIC_URL']?>" height="100" alt="">
                         
                         <p><?php echo $myself_info_detail['EXHIBIT_NAME'] ?></p>
 

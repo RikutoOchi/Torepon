@@ -29,7 +29,8 @@
     // トレードIDの取得
     $sql = "select TRADE_ID from CHATS where USER_ID = '" . $_SESSION['user_id'] . "' and PARTNER_USER_ID = '" . $_SESSION['id'] . "'";
     $data = $exh->getRecord_0($sql);
-    // $trae_id（トレードID）
+
+    // TRADE_IDを取り出し、$trae_idに格納
     foreach($data as $info){
         $trade_id = $info['TRADE_ID'];
     }

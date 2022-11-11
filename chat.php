@@ -1,3 +1,10 @@
+<!-- 注意事項
+
+・DBのバージョン要確認　2022/11/04 11:30 時点以降のバージョンを使用する必要あり
+
+/注意事項-->
+
+
 <!-- ヘッドの全体に関わる共有部分 -->
 <?php require_once('./temp/head.php'); ?>
 <!-- /ヘッドの全体に関わる共有部分 -->
@@ -25,7 +32,8 @@
     // トレードIDの取得
     $sql = "select TRADE_ID from CHATS where USER_ID = '" . $_SESSION['user_id'] . "' and PARTNER_USER_ID = '" . $_SESSION['id'] . "'";
     $data = $exh->getRecord_0($sql);
-    // $trae_id（トレードID）
+
+    // TRADE_IDを取り出し、$trae_idに格納
     foreach($data as $info){
         $trade_id = $info['TRADE_ID'];
     }
@@ -41,9 +49,9 @@
 
       <!--　チャット相手の情報取得＆表示 -->
       <?php
-        $chat_user_data_sql = "select DISTINCT CHATS.PARTNER_USER_ID,USERS.USER_NAME 
+        $chat_user_data_sql = "select DISTINCT CHATS.PARTNER_USER_ID,USERS.USER_NAME,USERS.USER_ICON_URL 
                                from CHATS LEFT OUTER JOIN USERS ON CHATS.PARTNER_USER_ID = USERS.USER_ID
-                               where CHATS.USER_ID = '" . $user . "'";
+                               where CHATS.USER_ID = '" . $_SESSION['user_id'] . "'";
         $chat_user_data = $exh->getRecord_0($chat_user_data_sql);
       ?>
 
@@ -51,7 +59,7 @@
         <?php $partner_user_id = $user_info['PARTNER_USER_ID']; ?>
         <li class="ChatUser"><a href="./chat.php?id=<?php echo $partner_user_id ?>">
           <div class="ChatUser-detail">
-          <div class="UserIcon"><img src="./images/プリキュア.png" alt=""></div>
+          <div class="UserIcon"><img src="<?php echo $user_info['USER_ICON_URL'] ?>" alt=""></div>
           <div class="UserInfo">
             <ul class="UserInfo-list">
               <li class="UserName"><?php echo $user_info['USER_NAME'] ?></li>
@@ -62,8 +70,8 @@
             <?php
               $chat_detail_sql = "select CHAT_TEXT
                                   from CHATS
-                                  where USER_ID = '" . $user . "' and PARTNER_USER_ID = '" . $partner_user_id . "' 
-                                  or USER_ID = '" . $partner_user_id . "' and PARTNER_USER_ID = '" . $user . "' ORDER BY CHAT_TIME DESC LIMIT 1";
+                                  where USER_ID = '" . $_SESSION['user_id'] . "' and PARTNER_USER_ID = '" . $partner_user_id . "' 
+                                  or USER_ID = '" . $partner_user_id . "' and PARTNER_USER_ID = '" . $_SESSION['user_id'] . "' ORDER BY CHAT_TIME DESC LIMIT 1";
               $chat_detail = $exh->getRecord_0($chat_detail_sql);
             ?>
 
@@ -107,14 +115,14 @@
           ?>
         
           <?php foreach($data as $data_detail) { ?>
-            <?php if($data_detail['USER_ID'] != $user) { ?>
+            <?php if($data_detail['USER_ID'] != $_SESSION['user_id']) { ?>
               <li class="message-disp left">
-                <div class="UserIcon"><img src="./images/プリキュア.png" alt=""></div>
+                <div class="UserIcon"><img src="<?php echo $partner_user_icon ?>" alt=""></div>
                 <p class="fukidasi left"><?php echo $data_detail['CHAT_TEXT'] ?></p>                         
               </li>
             <?php } else { ?>
               <li class="message-disp right">
-                <div class="UserIcon"><img src="./images/ハンコック.png" alt=""></div>
+                <div class="UserIcon"><img src="<?php echo $_SESSION['user_icon_url'] ?>" alt=""></div>
                 <p class="fukidasi right"><?php echo $data_detail['CHAT_TEXT'] ?></p> 
               </li>
             <?php } ?>

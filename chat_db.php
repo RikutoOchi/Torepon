@@ -1,13 +1,18 @@
 <?php
 
-    $chat_text = $_POST["chat_text"];   // チャットメッセージ
-    $partner_user_id = $_GET['id'];     // 相手先
+    // チャット内容
+    $chat_text = $_POST["chat_text"];
+    // チャット相手のユーザーID
+    $partner_user_id = $_GET['id'];
 
+    // チャットの入力欄が空欄で送信マークが押された時、何もせずに戻る
     if(empty($chat_text) == True){
         header('Location:chat.php?id='.$partner_user_id.'');
+    // チャットの入力欄に何かが入力された状態で送信ボタンが押された時、DBに内容を保存
     } else {
-        session_start();
-        date_default_timezone_set ('Asia/Tokyo');   // 日本時間
+        session_start();    // セッションのスタート
+
+        date_default_timezone_set ('Asia/Tokyo');   // 日本時間に設定
         $chat_time = date('Y-m-d H:i:s');   // チャット時間の取得
 
         $user_id = $_SESSION['user_id'];    // ユーザーID

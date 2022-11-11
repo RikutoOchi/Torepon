@@ -15,7 +15,7 @@
     
     <div class="modalreview">
       <div class="modalreview-box">
-        <div>空のボックス</div>
+        <div></div>
         <ul class="modalitem-list marge">
           <li class="modalitem">最低</li>
           <li class="modalitem">最高</li>

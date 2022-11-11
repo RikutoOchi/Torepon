@@ -109,9 +109,9 @@
             </div>
             
         </div>
-      <div class="modal-wrap">
-      <div class="overlay"></div>
-      <div class="modal-block ">
+      <div class="modal-wrap none">
+      <div class="overlay none"></div>
+      <div class="modal-block none">
           <div class="modal-box">
           <p class="modal-ttl">取引アンケート<button class="close">×</button></p>
           <div class="modalreview">

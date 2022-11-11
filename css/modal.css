@@ -1,0 +1,104 @@
+.modal-block {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal-box {
+  box-shadow: 0 0 6px gray;
+  border-radius: 30px;
+  background: rgb(255, 255, 255);
+  width: 800px;
+  height: auto;
+  /* padding: 20px 60px; */
+}
+.modal-ttl {
+  position: relative;
+  border-radius: 30px 30px 0 0;
+  background-color: rgb(236, 171, 106);
+  width: 100%;
+  font-size: 2rem;
+  text-align: center;
+  padding: 20px 10px;
+}
+.modal-ttl .close {
+  position: absolute;
+  right: 2%;
+  top: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  font-size: 3rem;
+  /*-------ボタンリセットスタイル--------*/
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  appearance: none;
+  /*-------ボタンリセットスタイル--------*/
+}
+.modal-ttl .close:hover {
+  opacity: 0.4;
+}
+.modalreview-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 0 10px;
+  padding: 20px 60px 5px;
+}
+.modalreview p {
+}
+li {
+  list-style: none;
+}
+.modalstars,
+.modalitem-list {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+.modalstars.marge,
+.modalitem-list.marge {
+  margin: 5px 0;
+}
+.modalcomment {
+  padding: 0 60px 10px 60px;
+}
+.modalcomment p {
+  margin-bottom: 10px;
+}
+.modaltextarea {
+  padding: 5px;
+  width: 100%;
+  height: 80px;
+  font-size: 1.4rem;
+}
+.modalstar {
+  cursor: pointer;
+}
+.modalstar p {
+  font-size: 2rem;
+}
+.modalsubmit-block {
+  text-align: center;
+  padding-bottom: 20px;
+}
+.modalsubmit-block .submit {
+  font-size: 2.4rem;
+
+  /*-------ボタンリセットスタイル--------*/
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  appearance: none;
+  /*-------ボタンリセットスタイル--------*/
+}
+.modalsubmit-block .submit:hover {
+  opacity: 0.4;
+}
+/* .none {
+  display: none;
+} */

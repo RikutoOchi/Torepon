@@ -55,8 +55,8 @@
 
 ?>
 
-<main class="main-side-content">
-    <section class="main-content">
+<main class="main-side-content .noscroll">
+    <section class="main-content ">
 
         <!-- mainコンテンツ -->
         <div class="flex">
@@ -95,7 +95,7 @@
 
             <div class="b">
                 <br>
-                <label class="display display_line">ユーザーネーム　：　<?php echo $_SESSION['user_name'] ?></label>
+                <label class="display display_line">ユーザーネーム　：　<?php echo $_SESSION['user_name'] ?></label> <button class="hyouka">評価する</button>
                 <br><br>
                 <label class="display display_line">メールアドレス　：　<?php echo $_SESSION['mail'] ?></label>
                 <br><br>
@@ -109,7 +109,56 @@
             </div>
             
         </div>
+      <div class="modal-wrap">
+      <div class="overlay"></div>
+      <div class="modal-block ">
+          <div class="modal-box">
+          <p class="modal-ttl">取引アンケート<button class="close">×</button></p>
+          <div class="modalreview">
+          <div class="modalreview-box">
+          <div>空のボックス</div>
+            <ul class="modalitem-list">
+          <li class="modalitem">最低</li>
+          <li class="modalitem">最高</li>
+            </ul>
+           <p>マナー</p>
+        <ul class="modalstars">
+        <!-- クリック時色の変化（後ほどjsで実装する） -->
+          <li class="modalstar" value="1"><p>☆</p></li>
+          <li class="modalstar" value="2"><p>☆</p></li>
+          <li class="modalstar" value="3"><p>☆</p></li>
+          <li class="modalstar" value="4"><p>☆</p></li>
+          <li class="modalstar" value="5"><p>☆</p></li>
+        </ul>
+        <p>言葉遣い・言動</p>
+        <ul class="modalstars">
+        <!-- クリック時色の変化（後ほどjsで実装する） -->
+          <li class="modalstar" value="1"><p>☆</p></li>
+          <li class="modalstar" value="2"><p>☆</p></li>
+          <li class="modalstar" value="3"><p>☆</p></li>
+          <li class="modalstar" value="4"><p>☆</p></li>
+          <li class="modalstar" value="5"><p>☆</p></li>
+        </ul>
+        <p>返信スピード</p>
+        <ul class="modalstars">
+        <!-- クリック時色の変化（後ほどjsで実装する） -->
+          <li class="modalstar" value="1"><p>☆</p></li>
+          <li class="modalstar" value="2"><p>☆</p></li>
+          <li class="modalstar" value="3"><p>☆</p></li>
+          <li class="modalstar" value="4"><p>☆</p></li>
+          <li class="modalstar" value="5"><p>☆</p></li>
+        </ul>
+        </div>
+        <div class="modalcomment">
+        <p>コメント</p>
+        <textarea class="modaltextarea" name="comment" id="comment" cols="30" rows="10"></textarea>
+        </div>
+            <div class="modalsubmit-block"><button class="submit">完了</button></div>
+            </div>
+          </div>
+      </div>
 
+      </div>
     </section>
      
 

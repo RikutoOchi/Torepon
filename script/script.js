@@ -9,16 +9,14 @@ $(".header-select").on("click", function () {
   $(".header-select").toggleClass("opened");
 });
 
-
-//headerセレクト
-$(".header-select").on("click", function () {
-  $(".header-select").toggleClass("opened");
-});
-
 //絞り込み表示非表示アニメーション
 $(".disp-search").on("click", function () {
   $(".searchBy-list").toggleClass("none");
   $(this).toggleClass("nodisp");
+});
+//モーダルウィンドウ表示非表示
+$(".hyouka").on("click", function () {
+  $(".modal-block").toggleClass("none");
 });
 
 //ログイン画面アニメーション

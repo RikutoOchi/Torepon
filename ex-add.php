@@ -2,7 +2,6 @@
 <?php require_once('./temp/head.php'); ?>
 <?php session_start(); ?>
 <!-- /ヘッドの全体に関わる共有部分 -->
-
 <?php
     $uploadfile = __DIR__.'/./uploads/exhibit_pic_name.jpeg';
  
@@ -24,8 +23,10 @@
     <title>出品完了画面</title>
 </head>
 <body>
-    <h1 class="copy-text">出品が完了しました。</h1>
-    <a href="./">ホームへ戻る</a>
-    <a href="./">他の商品を出品する</a>
+    <h1 class="copy-text">出品が完了しました</h1>
+<div class="btn-center">
+<input type="button" value="ホームへ戻る" class="btn"  onclick="location.href='./index.php'"/>
+<input type="button" value="他の商品を出品する" class="btn"  onclick="location.href='./Disp-Post.php'"/>
+</div>
 </body>
 </html>

@@ -72,25 +72,23 @@
             <hr>
             <?= $exhibit['EXHIBIT_TEXT'] ?>
             <hr>
+
             <?php 
-            $usr=$_SESSION['user_id'];
-             $trade = new DbData( );
-             $data = $trade->getRecord('trades','EXHIBIT_ID',$exhibit_id);
-             
-            if(empty($data)){
+              require_once __DIR__ . './classes/dbdata.php';
+              $trade = new DbData( );
+              // trade_id = exhibit_id とする（trade_idはexhibit_idで作成するようにする）
+              $data = $trade->getRecord('trades','TRADE_ID',$exhibit_id);
             ?>
-            <h2>トレード申請</h2>
-            <form action="./tr_add.php?id=<?php echo $exhibit['EXHIBIT_ID'] ?>" method="post" enctype="multipart/form-data" >
-            <textarea name="apply_text" class="dealingrequest-textarea" ></textarea>
-            <button class="dealingrequest-button" type="submit">トレード申請する</button>
-            <?php
-            }else{
-              $trade_id=$data['TRADE_ID'];
-            ?>
-            <button class="dealingrequest-button" onclick="location.href='./chat.php?id=<?php echo $usr ?>&trade_id=<?php echo $trade_id ?>'">チャットへ移動</button>
-            <?php
-            }
-            ?>
+              
+            <?php if(empty($data)){ ?>
+              <h2>トレード申請</h2>
+              <form action="./tr_add.php?id=<?php echo $exhibit['EXHIBIT_ID'] ?>" method="post" enctype="multipart/form-data" >
+              <textarea name="apply_text" class="dealingrequest-textarea" ></textarea>
+              <button class="dealingrequest-button" type="submit">トレード申請する</button>
+            <?php } else { ?>
+              <button class="dealingrequest-button" onclick="location.href='./chat.php?id=<?php echo $_SESSION['user_id'] ?>&trade_id=<?php echo $data['TRADE_ID'] ?>'">チャットへ移動</button>
+            <?php } ?>
+
           </div>
         </div>
       </section>

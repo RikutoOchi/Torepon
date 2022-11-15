@@ -11,59 +11,64 @@
 <!-- ヘッダー -->
 <?php require_once("./temp/header.php"); ?>
 <!-- /ヘッダー -->
-<main class="main-side-content">
-  <section class="main-content">
-    </div>
+
+<?php
+
+  require_once __DIR__ . './classes/check.php';
+
+  // チケットの入手履歴の情報取得
+  $chicket_history = new Check_chicket_data();
+  $chicket_history_data = $chicket_history->getRecord_check_chicket_data($_SESSION['user_id']);
+
+?>
+
+  <main class="main-side-content">
+      <section class="main-content">
+    </dl>
+
     
-      <font size="5">トレード履歴</font>
+      <label>チケット残数:</label>
+      <a href = "check.php">詳細</a><br><br><br>
+      
+      <font size="5">チケット履歴</font>
       <table border="1">
+
         <tr bgcolor="#87cefa">
           <th>チケット名</th>
           <th>枚数</th>
           <th>利用日時</th>
         </tr>
-        <tr>
-          <th>&nbsp;</th>
-          <th>&nbsp;</th>
-          <th>&nbsp;</th>
-        </tr> 
-        <tr>
-          <th>&nbsp;</th>
-          <th>&nbsp;</th>
-          <th>&nbsp;</th>
-        </tr> 
-        <tr>
-          <th>&nbsp;</th>
-          <th>&nbsp;</th>
-          <th>&nbsp;</th>
-        </tr> 
-        <tr>
-          <th>&nbsp;</th>
-          <th>&nbsp;</th>
-          <th>&nbsp;</th>
-        </tr>
-        <tr>
-          <th>&nbsp;</th>
-          <th>&nbsp;</th>
-          <th>&nbsp;</th>
-        </tr>
-        <tr>
-          <th>&nbsp;</th>
-          <th>&nbsp;</th>
-          <th>&nbsp;</th>
-        </tr>
-        
+
+        <?php foreach( $chicket_history_data as $chicket_history_data_detail) { ?>
+          <tr>
+          <!-- 青文字で表示（チケット入手履歴） -->
+          <?php if($chicket_history_data_detail['USER_ID'] == $_SESSION['user_id']){ ?>
+            <th><label style="color:blue"><?php echo $chicket_history_data_detail['GACHA_TITLE_NAME'] ?></label></th>
+            <th><label style="color:blue"><?php echo $chicket_history_data_detail['NUMBER_OF_TICKETS'] ?></label></th>
+            <th><label style="color:blue"><?php echo $chicket_history_data_detail['TRADE_FINISH_TIME'] ?></label></th>
+          <!-- 赤文字で表示（チケット使用履歴） -->
+          <?php } else { ?>
+            <th><label style="color:red"><?php echo $chicket_history_data_detail['GACHA_TITLE_NAME'] ?></label></th>
+            <th><label style="color:red"><?php echo "-".$chicket_history_data_detail['NUMBER_OF_TICKETS'] ?></label></th>
+            <th><label style="color:red"><?php echo $chicket_history_data_detail['TRADE_FINISH_TIME'] ?></label></th>
+          <?php } ?>
+
+          </tr> 
+        <?php } ?>
 
       </table>
+
     </div>
   </section>
- <!-- サイドコンテンツ -->
- <?php require_once('./temp/side.php'); ?>
- <!-- /サイドコンテンツ -->
+ 
+
+   <!-- サイドコンテンツ -->
+     <?php require_once('./temp/side.php'); ?>
+     <!-- /サイドコンテンツ -->
 
 </main>
 <!-- /mainコンテンツ -->
 
-<!-- フッター -->
-<?php require_once('./temp/footer.php'); ?>
-<!-- /フッター -->
+    <!-- フッター -->
+    <?php require_once('./temp/footer.php'); ?>
+    <!-- /フッター -->

@@ -25,6 +25,7 @@
             /* ------------------------------------------- */
 
             /* ------- 絞り込み条件が設定された場合 ------ */
+                // 絞り込み条件が設定された場合
                 if($sarch_id != 0){
 
                     if($_SESSION["gatya"] == ""){
@@ -70,21 +71,21 @@
                     }
 
                 } else{
-                    $gatya = "%_%";
-                    $kyara = "%_%";
-                    $gensaku = "%_%";
-                    $meka = "%_%";
-                    $nitizi_start = "0000-01-01";
-                    $syurui = "%_%";
-                    $maisu_end = "9999999";
+                $gatya = "%_%";
+                $kyara = "%_%";
+                $gensaku = "%_%";
+                $meka = "%_%";
+                $nitizi_start = "0000-01-01";
+                $syurui = "%_%";
+                $maisu_end = "9999999";
 
-                    $_SESSION["gatya"] = $gatya;
-                    $_SESSION["kyara"] = $kyara;
-                    $_SESSION["gensaku"] = $gensaku;
-                    $_SESSION["me-ka-"] = $meka;
-                    $_SESSION["nitizi-start"] = $nitizi_start;
-                    $_SESSION["syurui"] = $syurui;
-                    $_SESSION["maisu-end"] = $maisu_end;
+                $_SESSION["gatya"] = $gatya;
+                $_SESSION["kyara"] = $kyara;
+                $_SESSION["gensaku"] = $gensaku;
+                $_SESSION["me-ka-"] = $meka;
+                $_SESSION["nitizi-start"] = $nitizi_start;
+                $_SESSION["syurui"] = $syurui;
+                $_SESSION["maisu-end"] = $maisu_end;
                 }
 
             /* ------------------------------------------- */
@@ -110,7 +111,8 @@
                                 from (((EXHIBITS LEFT OUTER JOIN GACHA_TITLES ON EXHIBITS.GACHA_TITLE_ID = GACHA_TITLES.GACHA_TITLE_ID) 
                                 LEFT OUTER JOIN ORIGINAL_TITLES ON GACHA_TITLES.ORIGINAL_TITLE_ID = ORIGINAL_TITLES.ORIGINAL_TITLE_ID)
                                 LEFT OUTER JOIN MAKERS ON GACHA_TITLES.MAKER_ID = MAKERS.MAKER_ID)
-                                where EXHIBITS.EXHIBIT_TEXT LIKE '" . $kyara . "' and
+                                where not exists(select TRADE_ID from TRADES where TRADE_ID = EXHIBIT_ID and TRADE_PROGRESS > 2) and
+                                EXHIBITS.EXHIBIT_TEXT LIKE '" . $kyara . "' and
                                 ORIGINAL_TITLES.ORIGINAL_TITLE_NAME LIKE '" . $gensaku . "' and
                                 MAKERS.MAKER_NAME LIKE '" . $meka . "' and
                                 EXHIBITS.EXHIBIT_TIME >= '" . $nitizi_start . "' and
@@ -123,7 +125,8 @@
                                 from (((EXHIBITS LEFT OUTER JOIN GACHA_TITLES ON EXHIBITS.GACHA_TITLE_ID = GACHA_TITLES.GACHA_TITLE_ID) 
                                 LEFT OUTER JOIN ORIGINAL_TITLES ON GACHA_TITLES.ORIGINAL_TITLE_ID = ORIGINAL_TITLES.ORIGINAL_TITLE_ID)
                                 LEFT OUTER JOIN MAKERS ON GACHA_TITLES.MAKER_ID = MAKERS.MAKER_ID)
-                                where EXHIBITS.EXHIBIT_TEXT LIKE '" . $kyara . "' and
+                                where not exists(select TRADE_ID from TRADES where TRADE_ID = EXHIBIT_ID and TRADE_PROGRESS > 2) and
+                                EXHIBITS.EXHIBIT_TEXT LIKE '" . $kyara . "' and
                                 ORIGINAL_TITLES.ORIGINAL_TITLE_NAME LIKE '" . $gensaku . "' and
                                 MAKERS.MAKER_NAME LIKE '" . $meka . "' and
                                 EXHIBITS.EXHIBIT_TIME >= '" . $nitizi_start . "' and
@@ -136,7 +139,8 @@
                                 from (((EXHIBITS LEFT OUTER JOIN GACHA_TITLES ON EXHIBITS.GACHA_TITLE_ID = GACHA_TITLES.GACHA_TITLE_ID) 
                                 LEFT OUTER JOIN ORIGINAL_TITLES ON GACHA_TITLES.ORIGINAL_TITLE_ID = ORIGINAL_TITLES.ORIGINAL_TITLE_ID)
                                 LEFT OUTER JOIN MAKERS ON GACHA_TITLES.MAKER_ID = MAKERS.MAKER_ID)
-                                where EXHIBITS.EXHIBIT_TEXT LIKE '" . $kyara . "' and
+                                where not exists(select TRADE_ID from TRADES where TRADE_ID = EXHIBIT_ID and TRADE_PROGRESS > 2) and
+                                EXHIBITS.EXHIBIT_TEXT LIKE '" . $kyara . "' and
                                 ORIGINAL_TITLES.ORIGINAL_TITLE_NAME LIKE '" . $gensaku . "' and
                                 MAKERS.MAKER_NAME LIKE '" . $meka . "' and
                                 EXHIBITS.EXHIBIT_TIME >= '" . $nitizi_start . "' and
@@ -149,7 +153,8 @@
                                 from (((EXHIBITS LEFT OUTER JOIN GACHA_TITLES ON EXHIBITS.GACHA_TITLE_ID = GACHA_TITLES.GACHA_TITLE_ID) 
                                 LEFT OUTER JOIN ORIGINAL_TITLES ON GACHA_TITLES.ORIGINAL_TITLE_ID = ORIGINAL_TITLES.ORIGINAL_TITLE_ID)
                                 LEFT OUTER JOIN MAKERS ON GACHA_TITLES.MAKER_ID = MAKERS.MAKER_ID)
-                                where EXHIBITS.EXHIBIT_TEXT LIKE '" . $kyara . "' and
+                                where not exists(select TRADE_ID from TRADES where TRADE_ID = EXHIBIT_ID and TRADE_PROGRESS > 2) and
+                                EXHIBITS.EXHIBIT_TEXT LIKE '" . $kyara . "' and
                                 ORIGINAL_TITLES.ORIGINAL_TITLE_NAME LIKE '" . $gensaku . "' and
                                 MAKERS.MAKER_NAME LIKE '" . $meka . "' and
                                 EXHIBITS.EXHIBIT_TIME >= '" . $nitizi_start . "' and
@@ -169,7 +174,8 @@
                                 from (((EXHIBITS LEFT OUTER JOIN GACHA_TITLES ON EXHIBITS.GACHA_TITLE_ID = GACHA_TITLES.GACHA_TITLE_ID) 
                                 LEFT OUTER JOIN ORIGINAL_TITLES ON GACHA_TITLES.ORIGINAL_TITLE_ID = ORIGINAL_TITLES.ORIGINAL_TITLE_ID)
                                 LEFT OUTER JOIN MAKERS ON GACHA_TITLES.MAKER_ID = MAKERS.MAKER_ID)
-                                where GACHA_TITLES.GACHA_TITLE_NAME LIKE '" . $gatya . "' and
+                                where not exists(select TRADE_ID from TRADES where TRADE_ID = EXHIBIT_ID and TRADE_PROGRESS > 2) and
+                                GACHA_TITLES.GACHA_TITLE_NAME LIKE '" . $gatya . "' and
                                 ORIGINAL_TITLES.ORIGINAL_TITLE_NAME LIKE '" . $gensaku . "' and
                                 MAKERS.MAKER_NAME LIKE '" . $meka . "' and
                                 EXHIBITS.EXHIBIT_TIME >= '" . $nitizi_start . "' and
@@ -182,7 +188,8 @@
                                 from (((EXHIBITS LEFT OUTER JOIN GACHA_TITLES ON EXHIBITS.GACHA_TITLE_ID = GACHA_TITLES.GACHA_TITLE_ID) 
                                 LEFT OUTER JOIN ORIGINAL_TITLES ON GACHA_TITLES.ORIGINAL_TITLE_ID = ORIGINAL_TITLES.ORIGINAL_TITLE_ID)
                                 LEFT OUTER JOIN MAKERS ON GACHA_TITLES.MAKER_ID = MAKERS.MAKER_ID)
-                                where GACHA_TITLES.GACHA_TITLE_NAME LIKE '" . $gatya . "' and
+                                where not exists(select TRADE_ID from TRADES where TRADE_ID = EXHIBIT_ID and TRADE_PROGRESS > 2) and
+                                GACHA_TITLES.GACHA_TITLE_NAME LIKE '" . $gatya . "' and
                                 ORIGINAL_TITLES.ORIGINAL_TITLE_NAME LIKE '" . $gensaku . "' and
                                 MAKERS.MAKER_NAME LIKE '" . $meka . "' and
                                 EXHIBITS.EXHIBIT_TIME >= '" . $nitizi_start . "' and
@@ -195,7 +202,8 @@
                                 from (((EXHIBITS LEFT OUTER JOIN GACHA_TITLES ON EXHIBITS.GACHA_TITLE_ID = GACHA_TITLES.GACHA_TITLE_ID) 
                                 LEFT OUTER JOIN ORIGINAL_TITLES ON GACHA_TITLES.ORIGINAL_TITLE_ID = ORIGINAL_TITLES.ORIGINAL_TITLE_ID)
                                 LEFT OUTER JOIN MAKERS ON GACHA_TITLES.MAKER_ID = MAKERS.MAKER_ID)
-                                where GACHA_TITLES.GACHA_TITLE_NAME LIKE '" . $gatya . "' and
+                                where not exists(select TRADE_ID from TRADES where TRADE_ID = EXHIBIT_ID and TRADE_PROGRESS > 2) and
+                                GACHA_TITLES.GACHA_TITLE_NAME LIKE '" . $gatya . "' and
                                 ORIGINAL_TITLES.ORIGINAL_TITLE_NAME LIKE '" . $gensaku . "' and
                                 MAKERS.MAKER_NAME LIKE '" . $meka . "' and
                                 EXHIBITS.EXHIBIT_TIME >= '" . $nitizi_start . "' and
@@ -208,7 +216,8 @@
                                 from (((EXHIBITS LEFT OUTER JOIN GACHA_TITLES ON EXHIBITS.GACHA_TITLE_ID = GACHA_TITLES.GACHA_TITLE_ID) 
                                 LEFT OUTER JOIN ORIGINAL_TITLES ON GACHA_TITLES.ORIGINAL_TITLE_ID = ORIGINAL_TITLES.ORIGINAL_TITLE_ID)
                                 LEFT OUTER JOIN MAKERS ON GACHA_TITLES.MAKER_ID = MAKERS.MAKER_ID)
-                                where GACHA_TITLES.GACHA_TITLE_NAME LIKE '" . $gatya . "' and
+                                where not exists(select TRADE_ID from TRADES where TRADE_ID = EXHIBIT_ID and TRADE_PROGRESS > 2) and
+                                GACHA_TITLES.GACHA_TITLE_NAME LIKE '" . $gatya . "' and
                                 ORIGINAL_TITLES.ORIGINAL_TITLE_NAME LIKE '" . $gensaku . "' and
                                 MAKERS.MAKER_NAME LIKE '" . $meka . "' and
                                 EXHIBITS.EXHIBIT_TIME >= '" . $nitizi_start . "' and
@@ -228,7 +237,8 @@
                                 from (((EXHIBITS LEFT OUTER JOIN GACHA_TITLES ON EXHIBITS.GACHA_TITLE_ID = GACHA_TITLES.GACHA_TITLE_ID) 
                                 LEFT OUTER JOIN ORIGINAL_TITLES ON GACHA_TITLES.ORIGINAL_TITLE_ID = ORIGINAL_TITLES.ORIGINAL_TITLE_ID)
                                 LEFT OUTER JOIN MAKERS ON GACHA_TITLES.MAKER_ID = MAKERS.MAKER_ID)
-                                where GACHA_TITLES.GACHA_TITLE_NAME LIKE '" . $gatya . "' and
+                                where not exists(select TRADE_ID from TRADES where TRADE_ID = EXHIBIT_ID and TRADE_PROGRESS > 2) and
+                                GACHA_TITLES.GACHA_TITLE_NAME LIKE '" . $gatya . "' and
                                 EXHIBITS.EXHIBIT_TEXT LIKE '" . $kyara . "' and
                                 MAKERS.MAKER_NAME LIKE '" . $meka . "' and
                                 EXHIBITS.EXHIBIT_TIME >= '" . $nitizi_start . "' and
@@ -240,7 +250,8 @@
                                 from (((EXHIBITS LEFT OUTER JOIN GACHA_TITLES ON EXHIBITS.GACHA_TITLE_ID = GACHA_TITLES.GACHA_TITLE_ID) 
                                 LEFT OUTER JOIN ORIGINAL_TITLES ON GACHA_TITLES.ORIGINAL_TITLE_ID = ORIGINAL_TITLES.ORIGINAL_TITLE_ID)
                                 LEFT OUTER JOIN MAKERS ON GACHA_TITLES.MAKER_ID = MAKERS.MAKER_ID)
-                                where GACHA_TITLES.GACHA_TITLE_NAME LIKE '" . $gatya . "' and
+                                where not exists(select TRADE_ID from TRADES where TRADE_ID = EXHIBIT_ID and TRADE_PROGRESS > 2) and
+                                GACHA_TITLES.GACHA_TITLE_NAME LIKE '" . $gatya . "' and
                                 EXHIBITS.EXHIBIT_TEXT LIKE '" . $kyara . "' and
                                 MAKERS.MAKER_NAME LIKE '" . $meka . "' and
                                 EXHIBITS.EXHIBIT_TIME >= '" . $nitizi_start . "' and
@@ -252,7 +263,8 @@
                                 from (((EXHIBITS LEFT OUTER JOIN GACHA_TITLES ON EXHIBITS.GACHA_TITLE_ID = GACHA_TITLES.GACHA_TITLE_ID) 
                                 LEFT OUTER JOIN ORIGINAL_TITLES ON GACHA_TITLES.ORIGINAL_TITLE_ID = ORIGINAL_TITLES.ORIGINAL_TITLE_ID)
                                 LEFT OUTER JOIN MAKERS ON GACHA_TITLES.MAKER_ID = MAKERS.MAKER_ID)
-                                where GACHA_TITLES.GACHA_TITLE_NAME LIKE '" . $gatya . "' and
+                                where not exists(select TRADE_ID from TRADES where TRADE_ID = EXHIBIT_ID and TRADE_PROGRESS > 2) and
+                                GACHA_TITLES.GACHA_TITLE_NAME LIKE '" . $gatya . "' and
                                 EXHIBITS.EXHIBIT_TEXT LIKE '" . $kyara . "' and
                                 MAKERS.MAKER_NAME LIKE '" . $meka . "' and
                                 EXHIBITS.EXHIBIT_TIME >= '" . $nitizi_start . "' and
@@ -264,7 +276,8 @@
                                 from (((EXHIBITS LEFT OUTER JOIN GACHA_TITLES ON EXHIBITS.GACHA_TITLE_ID = GACHA_TITLES.GACHA_TITLE_ID) 
                                 LEFT OUTER JOIN ORIGINAL_TITLES ON GACHA_TITLES.ORIGINAL_TITLE_ID = ORIGINAL_TITLES.ORIGINAL_TITLE_ID)
                                 LEFT OUTER JOIN MAKERS ON GACHA_TITLES.MAKER_ID = MAKERS.MAKER_ID)
-                                where GACHA_TITLES.GACHA_TITLE_NAME LIKE '" . $gatya . "' and
+                                where not exists(select TRADE_ID from TRADES where TRADE_ID = EXHIBIT_ID and TRADE_PROGRESS > 2) and 
+                                GACHA_TITLES.GACHA_TITLE_NAME LIKE '" . $gatya . "' and
                                 EXHIBITS.EXHIBIT_TEXT LIKE '" . $kyara . "' and
                                 MAKERS.MAKER_NAME LIKE '" . $meka . "' and
                                 EXHIBITS.EXHIBIT_TIME >= '" . $nitizi_start . "' and
@@ -284,7 +297,8 @@
                                 from (((EXHIBITS LEFT OUTER JOIN GACHA_TITLES ON EXHIBITS.GACHA_TITLE_ID = GACHA_TITLES.GACHA_TITLE_ID) 
                                 LEFT OUTER JOIN ORIGINAL_TITLES ON GACHA_TITLES.ORIGINAL_TITLE_ID = ORIGINAL_TITLES.ORIGINAL_TITLE_ID)
                                 LEFT OUTER JOIN MAKERS ON GACHA_TITLES.MAKER_ID = MAKERS.MAKER_ID)
-                                where GACHA_TITLES.GACHA_TITLE_NAME LIKE '" . $gatya . "' and
+                                where not exists(select TRADE_ID from TRADES where TRADE_ID = EXHIBIT_ID and TRADE_PROGRESS > 2) and
+                                GACHA_TITLES.GACHA_TITLE_NAME LIKE '" . $gatya . "' and
                                 EXHIBITS.EXHIBIT_TEXT LIKE '" . $kyara . "' and
                                 ORIGINAL_TITLES.ORIGINAL_TITLE_NAME LIKE '" . $gensaku . "' and
                                 EXHIBITS.EXHIBIT_TIME >= '" . $nitizi_start . "' and
@@ -297,7 +311,8 @@
                                 from (((EXHIBITS LEFT OUTER JOIN GACHA_TITLES ON EXHIBITS.GACHA_TITLE_ID = GACHA_TITLES.GACHA_TITLE_ID) 
                                 LEFT OUTER JOIN ORIGINAL_TITLES ON GACHA_TITLES.ORIGINAL_TITLE_ID = ORIGINAL_TITLES.ORIGINAL_TITLE_ID)
                                 LEFT OUTER JOIN MAKERS ON GACHA_TITLES.MAKER_ID = MAKERS.MAKER_ID)
-                                where GACHA_TITLES.GACHA_TITLE_NAME LIKE '" . $gatya . "' and
+                                where not exists(select TRADE_ID from TRADES where TRADE_ID = EXHIBIT_ID and TRADE_PROGRESS > 2) and
+                                GACHA_TITLES.GACHA_TITLE_NAME LIKE '" . $gatya . "' and
                                 EXHIBITS.EXHIBIT_TEXT LIKE '" . $kyara . "' and
                                 ORIGINAL_TITLES.ORIGINAL_TITLE_NAME LIKE '" . $gensaku . "' and
                                 EXHIBITS.EXHIBIT_TIME >= '" . $nitizi_start . "' and
@@ -310,7 +325,8 @@
                                 from (((EXHIBITS LEFT OUTER JOIN GACHA_TITLES ON EXHIBITS.GACHA_TITLE_ID = GACHA_TITLES.GACHA_TITLE_ID) 
                                 LEFT OUTER JOIN ORIGINAL_TITLES ON GACHA_TITLES.ORIGINAL_TITLE_ID = ORIGINAL_TITLES.ORIGINAL_TITLE_ID)
                                 LEFT OUTER JOIN MAKERS ON GACHA_TITLES.MAKER_ID = MAKERS.MAKER_ID)
-                                where GACHA_TITLES.GACHA_TITLE_NAME LIKE '" . $gatya . "' and
+                                where not exists(select TRADE_ID from TRADES where TRADE_ID = EXHIBIT_ID and TRADE_PROGRESS > 2) and
+                                GACHA_TITLES.GACHA_TITLE_NAME LIKE '" . $gatya . "' and
                                 EXHIBITS.EXHIBIT_TEXT LIKE '" . $kyara . "' and
                                 ORIGINAL_TITLES.ORIGINAL_TITLE_NAME LIKE '" . $gensaku . "' and
                                 EXHIBITS.EXHIBIT_TIME >= '" . $nitizi_start . "' and
@@ -323,7 +339,8 @@
                                 from (((EXHIBITS LEFT OUTER JOIN GACHA_TITLES ON EXHIBITS.GACHA_TITLE_ID = GACHA_TITLES.GACHA_TITLE_ID) 
                                 LEFT OUTER JOIN ORIGINAL_TITLES ON GACHA_TITLES.ORIGINAL_TITLE_ID = ORIGINAL_TITLES.ORIGINAL_TITLE_ID)
                                 LEFT OUTER JOIN MAKERS ON GACHA_TITLES.MAKER_ID = MAKERS.MAKER_ID)
-                                where GACHA_TITLES.GACHA_TITLE_NAME LIKE '" . $gatya . "' and
+                                where not exists(select TRADE_ID from TRADES where TRADE_ID = EXHIBIT_ID and TRADE_PROGRESS > 2) and
+                                GACHA_TITLES.GACHA_TITLE_NAME LIKE '" . $gatya . "' and
                                 EXHIBITS.EXHIBIT_TEXT LIKE '" . $kyara . "' and
                                 ORIGINAL_TITLES.ORIGINAL_TITLE_NAME LIKE '" . $gensaku . "' and
                                 EXHIBITS.EXHIBIT_TIME >= '" . $nitizi_start . "' and
@@ -373,29 +390,29 @@
                     <h2 style=display:inline;>検索結果</h2>
                     <br><label>　ソート順：</label>
                     <?php if($sort_id == 0){ ?>
-                        <input type="button" value="新しい順" class="sort-btn" style="background-color:#87CEFA" onclick="location.href='SearchResults.php?sort_id=0'"/>
-                        <input type="button" value="古い順" class="sort-btn" onclick="location.href='SearchResults.php?sort_id=1'"/>
+                        <input type="button" value="新しい順" class="sort-btn" style="background-color:#87CEFA" onclick="location.href='SearchResults.php?sort_id=0&sarch_id=1'"/>
+                        <input type="button" value="古い順" class="sort-btn" onclick="location.href='SearchResults.php?sort_id=1&sarch_id=1'"/>
                         <label>　　</label>
-                        <input type="button" value="チケット数　昇順" class="sort-btn" onclick="location.href='SearchResults.php?sort_id=2'"/>
-                        <input type="button" value="チケット数　降順" class="sort-btn" onclick="location.href='SearchResults.php?sort_id=3'"/>
+                        <input type="button" value="チケット数　昇順" class="sort-btn" onclick="location.href='SearchResults.php?sort_id=2&sarch_id=1'"/>
+                        <input type="button" value="チケット数　降順" class="sort-btn" onclick="location.href='SearchResults.php?sort_id=3&sarch_id=1'"/>
                     <?php } elseif($sort_id == 1){ ?>
-                        <input type="button" value="新しい順" class="sort-btn" onclick="location.href='SearchResults.php?sort_id=0'"/>
-                        <input type="button" value="古い順" class="sort-btn" style="background-color:#87CEFA" onclick="location.href='SearchResults.php?sort_id=1'"/>
+                        <input type="button" value="新しい順" class="sort-btn" onclick="location.href='SearchResults.php?sort_id=0&sarch_id=1'"/>
+                        <input type="button" value="古い順" class="sort-btn" style="background-color:#87CEFA" onclick="location.href='SearchResults.php?sort_id=1&sarch_id=1'"/>
                         <label>　　</label>
-                        <input type="button" value="チケット数　昇順" class="sort-btn" onclick="location.href='SearchResults.php?sort_id=2'"/>
-                        <input type="button" value="チケット数　降順" class="sort-btn" onclick="location.href='SearchResults.php?sort_id=3'"/>
+                        <input type="button" value="チケット数　昇順" class="sort-btn" onclick="location.href='SearchResults.php?sort_id=2&sarch_id=1'"/>
+                        <input type="button" value="チケット数　降順" class="sort-btn" onclick="location.href='SearchResults.php?sort_id=3&sarch_id=1'"/>
                     <?php } elseif($sort_id == 2){ ?>
-                        <input type="button" value="新しい順" class="sort-btn" onclick="location.href='SearchResults.php?sort_id=0'"/>
-                        <input type="button" value="古い順" class="sort-btn" onclick="location.href='SearchResults.php?sort_id=1'"/>
+                        <input type="button" value="新しい順" class="sort-btn" onclick="location.href='SearchResults.php?sort_id=0&sarch_id=1'"/>
+                        <input type="button" value="古い順" class="sort-btn" onclick="location.href='SearchResults.php?sort_id=1&sarch_id=1'"/>
                         <label>　　</label>
-                        <input type="button" value="チケット数　昇順" class="sort-btn" style="background-color:#87CEFA" onclick="location.href='SearchResults.php?sort_id=2'"/>
-                        <input type="button" value="チケット数　降順" class="sort-btn" onclick="location.href='SearchResults.php?sort_id=3'"/>
+                        <input type="button" value="チケット数　昇順" class="sort-btn" style="background-color:#87CEFA" onclick="location.href='SearchResults.php?sort_id=2&sarch_id=1'"/>
+                        <input type="button" value="チケット数　降順" class="sort-btn" onclick="location.href='SearchResults.php?sort_id=3&sarch_id=1'"/>
                     <?php } elseif($sort_id == 3){ ?>
-                        <input type="button" value="新しい順" class="sort-btn" onclick="location.href='SearchResults.php?sort_id=0'"/>
-                        <input type="button" value="古い順" class="sort-btn" onclick="location.href='SearchResults.php?sort_id=1'"/>
+                        <input type="button" value="新しい順" class="sort-btn" onclick="location.href='SearchResults.php?sort_id=0&sarch_id=1'"/>
+                        <input type="button" value="古い順" class="sort-btn" onclick="location.href='SearchResults.php?sort_id=1&sarch_id=1'"/>
                         <label>　　</label>
                         <input type="button" value="チケット数　昇順" class="sort-btn" onclick="location.href='SearchResults.php?sort_id=2'"/>
-                        <input type="button" value="チケット数　降順" class="sort-btn" style="background-color:#87CEFA" onclick="location.href='SearchResults.php?sort_id=3'"/>
+                        <input type="button" value="チケット数　降順" class="sort-btn" style="background-color:#87CEFA" onclick="location.href='SearchResults.php?sort_id=3&sarch_id=1'"/>
                     <?php } ?>
                         <br><br>
 

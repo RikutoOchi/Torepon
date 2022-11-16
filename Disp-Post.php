@@ -13,6 +13,13 @@
 <?php require_once("./temp/header.php"); ?>
 <!-- /ヘッダー -->
 
+<!-- ガチャタイトル一覧の取り出し -->
+<?php 
+    require_once __DIR__ . './classes/Disp_Post_class.php';
+    $Gacha_title = new Disp_Post_class();
+    $Gacha_title_data = $Gacha_title->get_records_gacha_title();
+?>
+
     <main class="main-side-content">
      
         <!-- mainコンテンツ -->
@@ -44,9 +51,9 @@
 
                     <h2>シリーズタイトル</h2>
                     <select name="gacha_title_id" class="Genre_pref">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
+                        <?php foreach($Gacha_title_data as $Gacha_title_data_detail) { ?>
+                            <option value="<?php echo $Gacha_title_data_detail['GACHA_TITLE_ID'] ?>"><?php echo $Gacha_title_data_detail['GACHA_TITLE_NAME'] ?></option>
+                        <?php } ?>
                     </select>
 
                     <h2>商品の説明</h2>
@@ -54,9 +61,9 @@
 
                     <h2>必要チケット</h2>
                     <select name="ticket_type_id" class="Ticet_pref">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
                     </select>
 
                     <h2>枚数</h2>

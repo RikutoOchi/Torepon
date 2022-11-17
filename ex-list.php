@@ -242,3 +242,4 @@
   
   <!-- フッター -->
   <?php require_once('./temp/footer.php'); ?>
+  <!-- /フッター -->

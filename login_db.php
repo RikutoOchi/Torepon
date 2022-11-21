@@ -2,21 +2,17 @@
 
     // 入力したメールアドレス・パスワードが合っている、【ユーザーID】を取り出す
     require_once __DIR__ . './classes/login_db_class.php';
-    $log_che = new login();
-    $login_id = $log_che->login_check($_POST['email'],$_POST['password']);
+    $login_check = new login();
+    $login = $login_check->login_check($_POST['email'],$_POST['password']);
 
     // OKの場合
-    if(empty($login_id) == false){
-
-        // ログインユーザーの登録情報の取得
-        $use_inf = new login_user_info();
-        $user_info = $use_inf->login_user_info($_POST['email'],$_POST['password']);
+    if(empty($login) == false){
 
         // セッションスタート
         session_start();
 
         // セッション変数に【ユーザーID、メールアドレス、ユーザー名、アイコン、ひと言】格納
-        foreach($user_info as $row) {
+        foreach($login as $row) {
             $_SESSION['user_id'] = $row['USER_ID'];                 // ユーザーID
             $_SESSION['mail'] = $row['MAIL_ADDRESS'];               // メールアドレス
             $_SESSION['user_name'] = $row['USER_NAME'];             // ユーザー名

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/mail.css" />
+    <script src="https://kit.fontawesome.com/95076eb005.js" crossorigin="anonymous"></script>
+
+    <script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
+
+    <title>郵送手続き</title>
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-wrapper">
+            <div class="header-innder">
+                <h1 class="header-logo">
+                    <a href="./index.html"><img src="" alt="L" /></a>
+                </h1>
+                <form action="./" method="post" class="header-form">
+                    <select name="select" class="header-select">
+                        <option value="title">ガチャタイトル</option>
+                        <option value="character">キャラクター名</option>
+                        <option value="gensaku">原作</option>
+                        <option value="maker">メーカー</option>
+                        <option value="maker">タグ</option>
+                    </select>
+                    <input type="text" placeholder="何かお探しですか？" class="index-text" /><span class="header-search-icon"><i
+                            class="fa-solid fa-magnifying-glass fa-lg"></i></span>
+                </form>
+                <ul class="header-list">
+                    <li class="header-item">
+                        <a href="./news.html" class="news-btn">お知らせ</a>
+                    </li>
+                    <li class="header-item">
+                        <div class="icon-wrapper">
+                            <a href="./"><i class="fa-solid fa-circle-user fa-2x"></i></i></a>
+                        </div>
+                    </li>
+                    <button class="burger-btn">
+                        <span class="bar bar_top"></span>
+                        <span class="bar bar_mid"></span>
+                        <span class="bar bar_bottom"></span>
+                    </button>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <main class="main-side-content">
+        <!-- mainコンテンツ -->
+        <div class="mail-pro">
+            <h1>お客様情報</h1>
+
+            <form class="mail-input">
+                <label>
+                    <span>氏名</span>
+                    <input type="text" name="name" autocomplete="name">
+                </label>
+
+                <label>
+                    <span>電話番号</span>
+                    <input type="tel" name="tel" autocomplete="tel">
+                </label>
+
+                <label> 
+                    <span>郵便番号</span>
+                    <input type="text" name="postal_code" minlength="7" maxlength="8" pattern="\d*" autocomplete="shipping postal-code">
+                </label>
+
+                <label>
+                    <span>都道府県</span>
+                    <select name="prefecture" autocomplete="shipping address-level1">
+                        <option value="北海道">北海道</option>
+                        <option value="2">青森県</option>
+                        <option value="3">岩手県</option>
+                        <option value="4">宮城県</option>
+                        <option value="5">秋田県</option>
+                        <option value="6">山形県</option>
+                        <option value="7">福島県</option>
+                        <option value="8">茨城県</option>
+                        <option value="9">栃木県</option>
+                        <option value="10">群馬県</option>
+                        <option value="11">埼玉県</option>
+                        <option value="12">千葉県</option>
+                        <option value="13">東京都</option>
+                        <option value="14">神奈川県</option>
+                        <option value="15">新潟県</option>
+                        <option value="16">富山県</option>
+                        <option value="17">石川県</option>
+                        <option value="18">福井県</option>
+                        <option value="19">山梨県</option>
+                        <option value="20">長野県</option>
+                        <option value="21">岐阜県</option>
+                        <option value="22">静岡県</option>
+                        <option value="23">愛知県</option>
+                        <option value="24">三重県</option>
+                        <option value="25">滋賀県</option>
+                        <option value="26">京都府</option>
+                        <option value="27">大阪府</option>
+                        <option value="28">兵庫県</option>
+                        <option value="29">奈良県</option>
+                        <option value="30">和歌山県</option>
+                        <option value="31">鳥取県</option>
+                        <option value="32">島根県</option>
+                        <option value="33">岡山県</option>
+                        <option value="34">広島県</option>
+                        <option value="35">山口県</option>
+                        <option value="36">徳島県</option>
+                        <option value="37">香川県</option>
+                        <option value="38">愛媛県</option>
+                        <option value="39">高知県</option>
+                        <option value="40">福岡県</option>
+                        <option value="41">佐賀県</option>
+                        <option value="42">長崎県</option>
+                        <option value="43">熊本県</option>
+                        <option value="44">大分県</option>
+                        <option value="45">宮崎県</option>
+                        <option value="46">鹿児島県</option>
+                        <option value="47">沖縄県</option>
+                    </select>
+                </label>
+
+                <label>
+                    <span>市区町村</span>
+                    <input type="text" name="city" autocomplete="shipping address-level2">
+                </label>
+
+                <label>
+                    <span>町名・番地</span>
+                    <input type="text" name="address1" autocomplete="shipping address-line1">
+                </label>
+
+                <label>
+                    <span>建物名等</span>
+                    <input type="text" name="address2" autocomplete="shipping address-line2">
+                </label>
+                <input type="button" name="submit" value="情報を確定する">
+            </form>
+
+        </div>
+        <!-- /mainコンテンツ -->
+
+        <aside class="side-content">
+            <!-- 広告コンテンツ -->
+            <nav class="humburger-nav">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="./index.html">HOME</a></li>
+                    <li class="nav-item"><a href="./profile.html">プロフィール</a></li>
+                    <li class="nav-item"><a href="./ex-list.html">出品リスト</a></li>
+                    <li class="nav-item"><a href="./fav-list.html">お気に入りリスト</a></li>
+                    <li class="nav-item"><a href="./ticket-confirm.html">チケット確認</a></li>
+                    <li class="nav-item"><a href="./login.html">ログイン</a></li>
+                </ul>
+            </nav>
+            <ul class="ad-list">
+                <li class="ad-item"><img src="" alt=""></li>
+                <li class="ad-item"><img src="" alt=""></li>
+                <li class="ad-item"><img src="" alt=""></li>
+            </ul>
+            <!-- /広告コンテンツ -->
+        </aside>
+    </main>
+    <footer class="footer">
+        <div class="footer-wrapper">
+            <div class="footer-inner">
+                <p class="copy-text">&copy;PBL2_G班</p>
+            </div>
+        </div>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="./script/script.js"></script>
+</body>
+
+</html>

@@ -405,6 +405,11 @@ button {
 
 /*********************************/
 
+
+.Disp-Post
+{
+    background-color: #fff;
+}
 .Disp-Post h1 {
     font-size: 30px;
     text-align: center;

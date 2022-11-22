@@ -60,80 +60,55 @@
             <div class="item-info">
                 <div class="item-img">
                     <!--商品アイコン-->
-                    <img id="mypic" src="images/keyholder1.png">
-                    <input type="button" value="<" onclick="go_back()">
-                    <input type="button" value=">" onclick="go_forward()">
+                    <img src="images/kuma1.jpg">
                 </div>
-                <div class=" counter-info ">
-                    <img class="counter-icon " src="images/userIcon.png ">
-                    <p class="counter-name ">取引相手の名前</p>
-                    <p class="counter-id ">取引相手のID</p>
+                <div class="counter-info">
+                    <img class="counter-icon" src="images/userIcon.png">
+                    <p class="counter-name">取引相手の名前</p>
+                    <p class="counter-id">取引相手のID</p>
                 </div>
-                <div class="item-deta ">
+                <div class="item-deta">
                     <p>取引開始日時 : yyyy/mm/dd</p>
                     <p>商品名</p>
                     <p>商品コンディション</p>
                     <p>獲得チケット種類・枚数</p>
-                    <div class="chat-return ">
-                        <a href="chat.php " class="btn btn--orange btn--radius ">チャットにもどる</a>
+                    <div class="chat-return">
+                        <a href="chat.php" class="btn btn--orange btn--radius">チャットにもどる</a>
                     </div>
                 </div>
 
             </div>
         </div>
         <!-- /mainコンテンツ -->
-        <aside class="side-content ">
+        <aside class="side-content">
             <!-- 広告コンテンツ -->
-            <nav class="humburger-nav ">
-                <ul class="nav-list ">
-                    <li class="nav-item "><a href="./index.html ">HOME</a></li>
-                    <li class="nav-item "><a href="./profile.html ">プロフィール</a></li>
-                    <li class="nav-item "><a href="./ex-list.html ">出品リスト</a></li>
-                    <li class="nav-item "><a href="./fav-list.html ">お気に入りリスト</a></li>
-                    <li class="nav-item "><a href="./ticket-confirm.html ">チケット確認</a></li>
-                    <li class="nav-item "><a href="./login.html ">ログイン</a></li>
+            <nav class="humburger-nav">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="./index.html">HOME</a></li>
+                    <li class="nav-item"><a href="./profile.html">プロフィール</a></li>
+                    <li class="nav-item"><a href="./ex-list.html">出品リスト</a></li>
+                    <li class="nav-item"><a href="./fav-list.html">お気に入りリスト</a></li>
+                    <li class="nav-item"><a href="./ticket-confirm.html">チケット確認</a></li>
+                    <li class="nav-item"><a href="./login.html">ログイン</a></li>
                 </ul>
             </nav>
-            <ul class="ad-list ">
-                <li class="ad-item "><img src=" " alt=" "></li>
-                <li class="ad-item "><img src=" " alt=" "></li>
-                <li class="ad-item "><img src=" " alt=" "></li>
+            <ul class="ad-list">
+                <li class="ad-item"><img src="" alt=""></li>
+                <li class="ad-item"><img src="" alt=""></li>
+                <li class="ad-item"><img src="" alt=""></li>
             </ul>
             <!-- /広告コンテンツ -->
         </aside>
     </main>
-    <footer class="footer ">
-        <div class="footer-wrapper ">
-            <div class="footer-inner ">
-                <p class="copy-text ">&copy;PBL2_G班</p>
+    <footer class="footer">
+        <div class="footer-wrapper">
+            <div class="footer-inner">
+                <p class="copy-text">&copy;PBL2_G班</p>
             </div>
         </div>
     </footer>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js "></script>
-    <script src="./script/script.js "></script>
-    <!--画像表示用スクリプト-->
-    <script>
-        var pics_src = new Array("images/keyholder1.png", "images/keyholder2.png", "images/keyholder3.png");
-        var num = 0;
-
-        function go_forward() {
-            if (num == 2) {
-                num = 0;
-            } else {
-                num++;
-            }
-            document.getElementById("mypic").src = pics_src[num];
-        }
-
-        function go_back() {
-            if (num == 0) {
-                num = 2;
-            } else {
-                num--;
-            }
-            document.getElementById("mypic").src = pics_src[num];
-        }
-    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="./script/script.js"></script>
 </body>
 
 </html>

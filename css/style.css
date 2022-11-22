@@ -145,10 +145,15 @@ select {
 
 .news-btn {
   text-decoration: none;
-  color: #000;
-  padding: 3px 6px;
+  padding: 5px;
+  color: black;
+  font-weight: bold;
+  letter-spacing: 0.5pt;
+  text-decoration: none;
   background-color: #fff;
-  border: 1px solid #000;
+  border: 1px solid #000000;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
 .icon-wrapper a {
@@ -349,19 +354,19 @@ button {
   display: inline;
   padding: 10px;
   margin: 0 50px 0 60px;
-  border: 1px solid#b7b7b7;
-  background-color: rgb(255, 243, 165);
-  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  letter-spacing: 0.5pt;
+  text-decoration: none;
+  background-color: #fc9725;
+  border: 1px solid #f9982a;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
 .PopularTags a {
   text-decoration: none;
-  color: black;
-}
-
-.PopularTags a {
-  text-decoration: none;
-  color: black;
+  color: #fff;
 }
 /*おすすめアイテム*/
 

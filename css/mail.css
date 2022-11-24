@@ -1,9 +1,22 @@
+    .mail-pro {
+        text-align: center;
+    }
+    
     .mail-input {
         text-align: center;
     }
     
+    label {
+        margin: 1%;
+    }
+    
     label,
-    input {
+    span {
         text-align: center;
         display: block;
+    }
+    
+    #mail-input {
+        border-radius: 10px;
+        width: 40%;
     }

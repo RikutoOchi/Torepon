@@ -56,25 +56,25 @@
         <div class="mail-pro">
             <h1>お客様情報</h1>
 
-            <form class="mail-input">
+            <form action="mail-confirm.html" method="post" class="mail-input">
                 <label>
                     <span>氏名</span>
-                    <input type="text" name="name" autocomplete="name">
+                    <input type="text" name="name" autocomplete="name" style="text-align:center;" id="mail-input">
                 </label>
 
                 <label>
                     <span>電話番号</span>
-                    <input type="tel" name="tel" autocomplete="tel">
+                    <input type="tel" name="tel" autocomplete="tel" id="mail-input">
                 </label>
 
                 <label> 
                     <span>郵便番号</span>
-                    <input type="text" name="postal_code" minlength="7" maxlength="8" pattern="\d*" autocomplete="shipping postal-code">
+                    <input type="text" name="postal_code" minlength="7" maxlength="8" pattern="\d*" autocomplete="shipping postal-code" id="mail-input">
                 </label>
 
                 <label>
                     <span>都道府県</span>
-                    <select name="prefecture" autocomplete="shipping address-level1">
+                    <select name="prefecture" autocomplete="shipping address-level1" id="mail-input">
                         <option value="北海道">北海道</option>
                         <option value="2">青森県</option>
                         <option value="3">岩手県</option>
@@ -127,19 +127,19 @@
 
                 <label>
                     <span>市区町村</span>
-                    <input type="text" name="city" autocomplete="shipping address-level2">
+                    <input type="text" name="city" autocomplete="shipping address-level2" id="mail-input">
                 </label>
 
                 <label>
                     <span>町名・番地</span>
-                    <input type="text" name="address1" autocomplete="shipping address-line1">
+                    <input type="text" name="address1" autocomplete="shipping address-line1" id="mail-input">
                 </label>
 
                 <label>
                     <span>建物名等</span>
-                    <input type="text" name="address2" autocomplete="shipping address-line2">
+                    <input type="text" name="address2" autocomplete="shipping address-line2" id="mail-input">
                 </label>
-                <input type="button" name="submit" value="情報を確定する">
+                <input type="button" name="submit" value="情報を確認する" onclick="location.href='./mail-confirm.html'">
             </form>
 
         </div>
@@ -175,5 +175,36 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="./script/script.js"></script>
 </body>
+
+
+<script>
+    'use strinct';
+    // submit時にイベント実行をする関数
+    document.getElementById('form').onsubmit = function(event) {
+        event.preventDefault(); // 再読み込み防止
+
+        let inputForm_name = document.getElementById('form').name.value; // 入力フォームの内容を取得
+        document.getElementById('name').textContent = `${inputForm}`; // 入力内容を画面に出力
+
+
+        let inputForm_tel = document.getElementById('form').tel.value; // 入力フォームの内容を取得
+        document.getElementById('tel').textContent = `${inputForm_tel}`; // 入力内容を画面に出力
+
+        let inputForm_code = document.getElementById('form').postal_code.value; // 入力フォームの内容を取得
+        document.getElementById('postal-code').textContent = `${inputForm_code}`; // 入力内容を画面に出力
+
+        let inputForm_prefecture = document.getElementById('form').prefecture.value; // 入力フォームの内容を取得
+        document.getElementById('prefecture').textContent = `${inputForm_prefecture}`; // 入力内容を画面に出力
+
+        let inputForm_city = document.getElementById('form').city.value; // 入力フォームの内容を取得
+        document.getElementById('city').textContent = `${inputForm_city}`; // 入力内容を画面に出力
+
+        let inputForm_address1 = document.getElementById('form').address1.value; // 入力フォームの内容を取得
+        document.getElementById('address1').textContent = `${inputForm_address1}`; // 入力内容を画面に出力
+
+        let inputForm_address2 = document.getElementById('form').address2.value; // 入力フォームの内容を取得
+        document.getElementById('address2').textContent = `${inputForm_address2}`; // 入力内容を画面に出力
+    }
+</script>
 
 </html>

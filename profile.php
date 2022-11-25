@@ -11,7 +11,6 @@
 <!-- /ヘッダー -->
 
 <?php
-
   $data1 = $_SESSION['user_id'];
 
   $sql = "select MAIL_ADDRESS,USER_NAME,USER_ICON_URL,USER_TEXT,USER_RATING

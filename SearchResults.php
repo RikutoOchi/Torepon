@@ -19,20 +19,13 @@
 
             <!-- mainコンテンツ -->
             <?php
+            /* -------------- ソート順の情報 ------------- */
                 $sarch_id = $_GET['sarch_id'];
-
-
+                $sort_id = $_GET['sort_id'];
+            /* ------------------------------------------- */
             /* ------- 絞り込み条件が設定された場合 ------ */
                 // 絞り込み条件が設定された場合
                 if($sarch_id != 0){
-                    $gatya_session = $_SESSION["gatya"];
-                    $kyara_session = $_SESSION["kyara"];
-                    $gensaku_session = $_SESSION["gensaku"];
-                    $meka_session = $_SESSION["me-ka-"];
-                    $nitizi_start_session = $_SESSION["nitizi-start"];
-                    $syurui_session = $_SESSION["syurui"];
-                    $maisu_end_session = $_SESSION["maisu-end"];
-
                     if($gatya_session == ""){
                         $gatya = "%_%";
                     } else{
@@ -70,7 +63,6 @@
                         $maisu_end = $_SESSION['maisu-end']; 
                     };
                 } else{
-
                 $gatya = "%_%";
                 $kyara = "%_%";
                 $gensaku = "%_%";
@@ -88,16 +80,19 @@
                 $_SESSION["maisu-end"] = $maisu_end;
                 }
 
+            /* ------------------------------------------- */
+            
+            /* ------------- DB接続に必要なもの ---------- */
                 require_once __DIR__ . './classes/dbdata.php';
-
-                $sort_id = $_GET['sort_id'];
-                $select = $_SESSION['select'];
-                $text = $_SESSION['text'];
-
                 $exh = new Dbdata();
+            /* ------------------------------------------- */
+            
+            /* --- 何の条件で検索されたかの情報取得 ------ */
+                $select = $_SESSION['select'];      // ガチャタイトルとかの項目
+                $text = $_SESSION['text'];          // 入力された文字
+            /* ------------------------------------ ------ */
 
-                //　検索文字列と一致 or 検索文字列が含まれる　に加工
-                $Searchdata = "%" . $text . "%";
+                $Searchdata = "%" . $text . "%";    // 検索文字列と一致 or 検索文字列が含まれる　に加工
 
                 // タイトルで検索された場合
                 if ( $select == 'title' ) {
@@ -363,7 +358,7 @@
                                 　原作　　　　　　：　　<input type="text" name="gensaku"><br>
                                 　メーカー　　　　：　　<input type="text" name="me-ka-"><br>
                             <?php }elseif($sort_id == 1) {?>
-                                　ガチャタイトル：<input type="text" name="gatya"><br>
+                                　ガチャタイトル　：　　<input type="text" name="gatya"><br>
                                 　原作　　　　　　：　　<input type="text" name="gensaku"><br>
                                 　メーカー　　　　：　　<input type="text" name="me-ka-"><br>
                             <?php }elseif($sort_id == 2) {?>
@@ -419,7 +414,7 @@
                             <?php foreach ($data as $data_part){ ?>
                                 <div class="responsive">
                                     <div class="img">
-                                        <a target="_blank" href="./ex-confirm.php?ident=<?php echo $dat['EXHIBIT_ID'] ?>">
+                                        <a target="_blank" href="./ex-confirm.php?id=<?php echo $data_part['EXHIBIT_ID'] ?>">
                                             <img src="<?= $data_part['EXHIBIT_PIC_URL'] ?>" />
                                         </a>
                                         <div class="desc">

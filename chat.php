@@ -58,6 +58,7 @@
       <?php foreach($chat_user_data as $user_info) { ?>
         <?php $partner_user_id = $user_info['PARTNER_USER_ID']; ?>
         <li class="ChatUser"><a href="./chat.php?id=<?php echo $partner_user_id ?>">
+
           <div class="ChatUser-detail">
           <div class="UserIcon"><img src="<?php echo $user_info['USER_ICON_URL'] ?>" alt=""></div>
           <div class="UserInfo">

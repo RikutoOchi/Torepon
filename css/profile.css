@@ -11,7 +11,6 @@
 }
 
 .b {
-  position: relative;
   grid-column: 2 / 4;
   grid-row: 1 / 2;
 }
@@ -74,31 +73,6 @@
   border-radius: 10px;
   cursor: pointer;
 }
-
-/*
-.box_white {
-  margin       : auto;
-  width        : 250px;
-  height       : 250px;
-  background   : #white;
-}
-*/
-
-.relative {
-  position: relative;
-  width: 300px;
-}
-
-.absolute {
-  position: absolute;
-  left: 90px;
-  bottom: 5px;
-}
-
-.boxContainer {
-  overflow: hidden;
-}
-
 .btn {
   float: right;
 }
@@ -147,6 +121,7 @@
   font-size: 12px;
   border-radius: 2px;
 }
+
 .img3 {
   width: 150px;
   height: 150px;
@@ -154,159 +129,4 @@
 
 .border {
   border: 1px solid black;
-}
-
-/*************************/
-/*    評価項目スタイル    */
-/*************************/
-
-.hyouka {
-  font-size: 2rem;
-  position: absolute;
-  right: 20%;
-  /*-------ボタンリセットスタイル--------*/
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  outline: none;
-  padding: 0;
-  appearance: none;
-  /*-------ボタンリセットスタイル--------*/
-}
-.hyouka:hover {
-  opacity: 0.4;
-}
-
-.modal-block {
-  /* background-color: #fff; */
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.modal-box {
-  box-shadow: 0 0 6px gray;
-  border-radius: 30px;
-  background: rgb(255, 255, 255);
-  width: 800px;
-  height: auto;
-  /* padding: 20px 60px; */
-}
-.modal-ttl {
-  position: relative;
-  border-radius: 30px 30px 0 0;
-  background-color: rgb(236, 171, 106);
-  width: 100%;
-  font-size: 2rem;
-  text-align: center;
-  padding: 20px 10px;
-}
-.modal-ttl .close {
-  position: absolute;
-  right: 2%;
-  top: 50%;
-  transform: translateY(-50%) translateX(-50%);
-  font-size: 3rem;
-  /*-------ボタンリセットスタイル--------*/
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  outline: none;
-  padding: 0;
-  appearance: none;
-  /*-------ボタンリセットスタイル--------*/
-}
-.modal-ttl .close:hover {
-  opacity: 0.4;
-}
-
-.modalreview-box {
-  /* background-color: #fff; */
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  gap: 0 10px;
-  padding: 20px 60px 5px;
-}
-
-li {
-  list-style: none;
-}
-.modalstars,
-.modalitem-list {
-  display: flex;
-  justify-content: space-between;
-  margin: 10px 0;
-}
-.modalstars.marge,
-.modalitem-list.marge {
-  margin: 5px 0;
-}
-.modalcomment {
-  padding: 0 60px 10px 60px;
-}
-.modalcomment p {
-  margin-bottom: 10px;
-}
-.modaltextarea {
-  padding: 5px;
-  width: 100%;
-  height: 80px;
-  font-size: 1.4rem;
-}
-.modalstar {
-  cursor: pointer;
-}
-.modalstar p {
-  font-size: 2rem;
-}
-.modalsubmit-block {
-  text-align: center;
-  padding-bottom: 20px;
-}
-.modalsubmit-block .submit {
-  font-size: 2.4rem;
-
-  /*-------ボタンリセットスタイル--------*/
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  outline: none;
-  padding: 0;
-  appearance: none;
-  /*-------ボタンリセットスタイル--------*/
-}
-.modalsubmit-block .submit:hover {
-  opacity: 0.4;
-}
-.none {
-  display: none;
-}
-/* .modal-wrap {
-  position: fixed;
-  top: 0;
-  left: 0;
-  display: block;
-  width: 100%;
-  height: 100vh;
-  opacity: 1;
-  visibility: visible;
-  transition: opacity 0.3s linear, visibility 0.3s linear;
-  z-index: 100000;
-} */
-/* .modal-wrap .overlay {
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  display: block;
-  top: 0;
-  right: 0;
-  background-color: #333;
-  opacity: 0.8;
-} */
-body .modal-open {
-  position: fixed;
-  top: 0;
-  left: 0;
 }

@@ -11,7 +11,9 @@
 <!-- ヘッダー -->
 <?php require_once("./temp/header.php"); ?>
 <!-- /ヘッダー -->
+
 <?php
+
     // どの商品の詳細画面に飛ぶかの情報
     $id = $_GET['id'];
     // 自分が出品した物か否か
@@ -25,8 +27,10 @@
 
         // DBから取り出した各種データの取得
         foreach($data as $detail){
+
+
             // ユーザーアイコン
-            $user_icon = './images/userIcon.png';
+            $user_icon = $_SESSION['user_icon_url'];
             // 商品画像
             $exhibit_pic_url = $detail['EXHIBIT_PIC_URL'];
             // 取引相手のユーザーIDの取得
@@ -41,13 +45,11 @@
             $ticket_type_id = $detail['TICKET_TYPE_ID'];
             // 必要枚数
             $number_pf_tickets = $detail['NUMBER_OF_TICKETS'];
-            // 
-            $user_id = "----------";
-            // 取引相手のユーザーID
-            $user_name = "----------";
-            //
-            $day = "----------";
 
+            // お届け先
+            $address = "-----";
+            // 取引相手のユーザーID
+            $user_name = '-----';
         }
         
     } else if ( $flag == 1 ){
@@ -77,14 +79,13 @@
             $number_pf_tickets =  $detail['NUMBER_OF_TICKETS'];
             // お届け先
             $address = "-----";
-            //
-            $day = $detail['TRADE_START_TIME'];
             
         }
 
     }
 
 ?>
+
     <main class="main-side-content">
       <section class="main-content">
         <!-- mainコンテンツ -->
@@ -97,7 +98,7 @@
                     <img src="<?php echo $exhibit_pic_url ?>">
                 </div>
                 <div class="counter-info">
-                    <img class="counter-icon" src="<?php echo $user_icon ?>">
+                <img class="counter-icon" src="<?php echo $user_icon ?>">
                     <p class="counter-name">取引相手の名前　：　<?php echo $user_name ?></p>
                     <p class="counter-id">取引相手のID　：　<?php echo $partner_user_id ?></p>
                 </div>
@@ -105,13 +106,11 @@
                     <p>商品タイトル　：　<?php echo $exhibit_title ?></p>
                     <p>商品名　：　<?php echo $exhibit_name ?></p>
                     <p>商品コンディション　：　<?php echo $exhibit_condition ?></p>
-                    <p>必要チケット種類・枚数　：　<?php echo $ticket_type_id."　".$number_pf_tickets ?></p>
-                    <p>取引開始日時　：　<?php echo $day ?></p>
 
-                    <div class="chat-return">
-                        <a href="chat.php" class="btn btn--orange btn--radius">チャットにもどる</a>
-                    </div>
-
+                    <p>必要チケット種類・枚数　：　<?php echo $ticket_type_id."　".$number_pf_tickets ?>
+                </div>
+                <div class="delivery-address">
+                    <p>お届け先　：　<?php echo $address ?></p>
                 </div>
             </div>
         </div>
@@ -126,3 +125,4 @@
 
 <!-- フッター -->
 <?php require_once('./temp/footer.php'); ?>
+<!-- /フッター -->

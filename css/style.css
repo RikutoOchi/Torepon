@@ -222,7 +222,7 @@ button {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
+  min-height: 100%;
   padding: 0 10px;
   border-left: 1px solid gray;
   background-color: #fff;
@@ -248,9 +248,9 @@ button {
   margin: 0 auto;
 }
 
-/* .ad-item:last-of-type {
+.ad-item:last-of-type {
   margin-bottom: 30px;
-} */
+}
 
 /**********************************/
 /*         ハンバーガー            */

@@ -3,6 +3,12 @@ $(".burger-btn").on("click", function () {
   $(".humburger-nav").toggleClass("active");
   $(this).toggleClass("cross");
 });
+
+//headerセレクト
+$(".header-select").on("click", function () {
+  $(".header-select").toggleClass("opened");
+});
+
 //headerセレクト
 $(".header-select").on("click", function () {
   $(".header-select").toggleClass("opened");
@@ -12,10 +18,6 @@ $(".header-select").on("click", function () {
 $(".disp-search").on("click", function () {
   $(".searchBy-list").toggleClass("none");
   $(this).toggleClass("nodisp");
-});
-//モーダルウィンドウ表示非表示
-$(".hyouka").on("click", function () {
-  $(".modal-block").toggleClass("none");
 });
 
 //ログイン画面アニメーション

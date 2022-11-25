@@ -21,9 +21,6 @@
       $sort_id = $_GET['sort_id'];
       $sarch_id = $_GET['sarch_id'];
     /* ------------------------------------------ */
-   if($sarch_id != 0){
-      /* ---------------------------------- $_SESSIONの各情報 --------------------------------- */
-
 
     // 絞り込み条件が設定された場合
     if($sarch_id != 0){
@@ -32,38 +29,44 @@
           $gatya = "%_%";
         } else{
           $gatya = $_SESSION['gatya']; 
-        };
-        if($kyara_session == ""){
+        }
+
+        if($_SESSION['kyara'] == ""){
           $kyara = "%_%";
         } else{
           $kyara = $_SESSION['kyara']; 
-        };
+        }
 
-        if($gensaku_session == ""){
+        if($_SESSION['gensaku'] == ""){
           $gensaku = "%_%";
         } else{
           $gensaku = $_SESSION['gensaku']; 
-        };
-        if($meka_session == ""){
+        }
+
+        if($_SESSION['me-ka-'] == ""){
           $meka = "%_%";
         } else{
           $meka = $_SESSION['me-ka-']; 
-        };
-        if($nitizi_start_session == ""){
+        }
+
+        if($_SESSION['nitizi-start'] == ""){
           $nitizi_start = "0000-01-01";
         } else{
           $nitizi_start = $_SESSION['nitizi-start']; 
-        };
-        if($syurui_session == ""){
+        }
+
+        if($_SESSION['syurui'] == ""){
           $syurui = "%_%";
         } else{
           $syurui = $_SESSION['syurui']; 
-        };
-        if($maisu_end_session == ""){
+        }
+
+        if($_SESSION['maisu-end'] == ""){
           $maisu_end = "9999999";
         } else{
           $maisu_end = $_SESSION['maisu-end']; 
         }
+
     } else{
       $gatya = "%_%";
       $kyara = "%_%";
@@ -73,7 +76,6 @@
       $syurui = "%_%";
       $maisu_end = "9999999";
 
-
       $_SESSION["gatya"] = $gatya;
       $_SESSION["kyara"] = $kyara;
       $_SESSION["gensaku"] = $gensaku;
@@ -82,13 +84,13 @@
       $_SESSION["syurui"] = $syurui;
       $_SESSION["maisu-end"] = $maisu_end;
     }
-  
 
 
     /* ----------------------------------- db接続関連 --------------------------------------- */
       require_once __DIR__ . './classes/dbdata.php';
       $exh = new Dbdata();
     /* -------------------------------------------------------------------------------------- */
+
       // 新しい順（投稿日時が新しい順）
       if ($sort_id == 0) {
         $sql = "select EXHIBITS.EXHIBIT_PIC_URL,EXHIBITS.EXHIBIT_ID,EXHIBITS.EXHIBIT_NAME 
@@ -103,7 +105,7 @@
         EXHIBITS.EXHIBIT_TIME >= '" . $nitizi_start . "' and
         EXHIBITS.TICKET_TYPE_ID LIKE '" . $syurui . "' and
         EXHIBITS.NUMBER_OF_TICKETS <= '" . $maisu_end . "' order by EXHIBIT_TIME";
-        //$sql = "select EXHIBIT_ID,EXHIBIT_PIC_URL,EXHIBIT_NAME from exhibits order by EXHIBIT_TIME";
+      // 古い順（投稿日時が古い順）
       } elseif($sort_id == 1) {
         $sql = "select EXHIBITS.EXHIBIT_PIC_URL,EXHIBITS.EXHIBIT_ID,EXHIBITS.EXHIBIT_NAME 
         from (((EXHIBITS LEFT OUTER JOIN GACHA_TITLES ON EXHIBITS.GACHA_TITLE_ID = GACHA_TITLES.GACHA_TITLE_ID) 
@@ -117,9 +119,9 @@
         EXHIBITS.EXHIBIT_TIME >= '" . $nitizi_start . "' and 
         EXHIBITS.TICKET_TYPE_ID LIKE '" . $syurui . "' and
         EXHIBITS.NUMBER_OF_TICKETS <= '" . $maisu_end . "' order by EXHIBIT_TIME desc";
-        // $sql = "select EXHIBIT_ID,EXHIBIT_PIC_URL,EXHIBIT_NAME from exhibits order by EXHIBIT_TIME desc";
+      // 必要チケット枚数　昇順（多い順）
       } elseif($sort_id == 2) {
-        $sql = "select EXHIBITS.EXHIBIT_PIC_URL,EXHIBITS.EXHIBIT_ID,EXHIBITS.EXHIBIT_NAME 
+        $sql = "select EXHIBITS.EXHIBIT_PIC_URL,EXHIBITS.EXHIBIT_ID,EXHIBITS.EXHIBIT_NAME,NUMBER_OF_TICKETS
         from (((EXHIBITS LEFT OUTER JOIN GACHA_TITLES ON EXHIBITS.GACHA_TITLE_ID = GACHA_TITLES.GACHA_TITLE_ID) 
         LEFT OUTER JOIN ORIGINAL_TITLES ON GACHA_TITLES.ORIGINAL_TITLE_ID = ORIGINAL_TITLES.ORIGINAL_TITLE_ID)
         LEFT OUTER JOIN MAKERS ON GACHA_TITLES.MAKER_ID = MAKERS.MAKER_ID)
@@ -131,9 +133,9 @@
         EXHIBITS.EXHIBIT_TIME >= '" . $nitizi_start . "' and
         EXHIBITS.TICKET_TYPE_ID LIKE '" . $syurui . "' and
         EXHIBITS.NUMBER_OF_TICKETS <= '" . $maisu_end . "' order by NUMBER_OF_TICKETS";
-        //$sql = "select EXHIBIT_ID,EXHIBIT_PIC_URL,EXHIBIT_NAME, NUMBER_OF_TICKETS from exhibits order by NUMBER_OF_TICKETS";
+      // 必要チケット枚数　降順（少ない順）
       } elseif($sort_id == 3) {
-        $sql = "select EXHIBITS.EXHIBIT_PIC_URL,EXHIBITS.EXHIBIT_ID,EXHIBITS.EXHIBIT_NAME 
+        $sql = "select EXHIBITS.EXHIBIT_PIC_URL,EXHIBITS.EXHIBIT_ID,EXHIBITS.EXHIBIT_NAME,NUMBER_OF_TICKETS
         from (((EXHIBITS LEFT OUTER JOIN GACHA_TITLES ON EXHIBITS.GACHA_TITLE_ID = GACHA_TITLES.GACHA_TITLE_ID) 
         LEFT OUTER JOIN ORIGINAL_TITLES ON GACHA_TITLES.ORIGINAL_TITLE_ID = ORIGINAL_TITLES.ORIGINAL_TITLE_ID)
         LEFT OUTER JOIN MAKERS ON GACHA_TITLES.MAKER_ID = MAKERS.MAKER_ID)
@@ -145,7 +147,6 @@
         EXHIBITS.EXHIBIT_TIME >= '" . $nitizi_start . "' and
         EXHIBITS.TICKET_TYPE_ID LIKE '" . $syurui . "' and
         EXHIBITS.NUMBER_OF_TICKETS <= '" . $maisu_end . "' order by NUMBER_OF_TICKETS desc";
-        //$sql = "select EXHIBIT_ID,EXHIBIT_PIC_URL,EXHIBIT_NAME, NUMBER_OF_TICKETS from exhibits order by NUMBER_OF_TICKETS desc";
       }
 
       $data = $exh->getRecord_0($sql);

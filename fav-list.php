@@ -15,22 +15,21 @@
 <main class="main-side-content">
   <section class="main-content">
   <!-- mainコンテンツ -->
-      <h1 class="sub-ttl fav-subttl">お気に入りリスト</h1>
-    <div class="item-list"> 
+      <h1>お気に入りリスト</h1>
+      <div class="item-list"> 
       <div class="responsive">
         <div class="img">
         <a target="_blank" href="./ex-confirm.html">
-        <img src=".\images\keyholder_kuma.png" alt="くま">
+        <img src=".\images\keyholder_kuma.png" alt="くま" width="300" height="300">
         </a>
         <div class="desc">動物キーホルダー くま</div>
         </div>
-       
       </div>
  
       <div class="responsive">
         <div class="img">
         <a target="_blank" href="./ex-confirm.html">
-        <img src="https://www.takaratomy-arts.co.jp/upfiles/products/Y050022_s.jpg" alt="アイテム名">
+        <img src="https://www.takaratomy-arts.co.jp/upfiles/products/Y050022_s.jpg" alt="アイテム名" width="300" height="300">
         </a>
         <div class="desc">アイテム名</div>
         </div>
@@ -39,7 +38,7 @@
       <div class="responsive">
         <div class="img">
         <a target="_blank" href="./ex-confirm.html">
-        <img src="https://www.takaratomy-arts.co.jp/upfiles/products/Y051838_s.jpg" alt="アイテム名">
+        <img src="https://www.takaratomy-arts.co.jp/upfiles/products/Y051838_s.jpg" alt="アイテム名" width="300" height="300">
         </a>
         <div class="desc">アイテム名</div>
         </div>
@@ -48,12 +47,12 @@
       <div class="responsive">
         <div class="img">
         <a target="_blank" href="./ex-confirm.html">
-        <img src="https://www.takaratomy-arts.co.jp/upfiles/products/Y893759_s.jpg" alt="アイテム名">
+        <img src="https://www.takaratomy-arts.co.jp/upfiles/products/Y893759_s.jpg" alt="アイテム名" width="300" height="300">
         </a>
         <div class="desc">アイテム名</div>
         </div>
       </div>
-    </div>
+      </div>
 </section>
 
       <!-- サイドコンテンツ -->

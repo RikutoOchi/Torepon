@@ -23,45 +23,53 @@
                 $sarch_id = $_GET['sarch_id'];
                 $sort_id = $_GET['sort_id'];
             /* ------------------------------------------- */
+
             /* ------- 絞り込み条件が設定された場合 ------ */
                 // 絞り込み条件が設定された場合
                 if($sarch_id != 0){
-                    if($gatya_session == ""){
-                        $gatya = "%_%";
-                    } else{
-                        $gatya = $_SESSION['gatya']; 
-                    };
-                    if($kyara_session == ""){
-                        $kyara = "%_%";
-                    } else{
-                        $kyara = $_SESSION['kyara']; 
-                    };
 
-                    if($gensaku_session == ""){
-                        $gensaku = "%_%";
+                    if($_SESSION["gatya"] == ""){
+                    $gatya = "%_%";
                     } else{
-                        $gensaku = $_SESSION['gensaku']; 
-                    };
-                    if($meka_session == ""){
-                        $meka = "%_%";
+                    $gatya = $_SESSION['gatya']; 
+                    }
+
+                    if($_SESSION['kyara'] == ""){
+                    $kyara = "%_%";
                     } else{
-                        $meka = $_SESSION['me-ka-']; 
-                    };
-                    if($nitizi_start_session == ""){
-                        $nitizi_start = "0000-01-01";
+                    $kyara = $_SESSION['kyara']; 
+                    }
+
+                    if($_SESSION['gensaku'] == ""){
+                    $gensaku = "%_%";
                     } else{
-                        $nitizi_start = $_SESSION['nitizi-start']; 
-                    };
-                    if($syurui_session == ""){
-                        $syurui = "%_%";
+                    $gensaku = $_SESSION['gensaku']; 
+                    }
+
+                    if($_SESSION['me-ka-'] == ""){
+                    $meka = "%_%";
                     } else{
-                        $syurui = $_SESSION['syurui']; 
-                    };
-                    if($maisu_end_session == ""){
-                        $maisu_end = "9999999";
+                    $meka = $_SESSION['me-ka-']; 
+                    }
+
+                    if($_SESSION['nitizi-start'] == ""){
+                    $nitizi_start = "0000-01-01";
                     } else{
-                        $maisu_end = $_SESSION['maisu-end']; 
-                    };
+                    $nitizi_start = $_SESSION['nitizi-start']; 
+                    }
+
+                    if($_SESSION['syurui'] == ""){
+                    $syurui = "%_%";
+                    } else{
+                    $syurui = $_SESSION['syurui']; 
+                    }
+
+                    if($_SESSION['maisu-end'] == ""){
+                    $maisu_end = "9999999";
+                    } else{
+                    $maisu_end = $_SESSION['maisu-end']; 
+                    }
+
                 } else{
                 $gatya = "%_%";
                 $kyara = "%_%";

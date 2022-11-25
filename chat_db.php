@@ -16,7 +16,19 @@
         $chat_time = date('Y-m-d H:i:s');   // チャット時間の取得
 
         $user_id = $_SESSION['user_id'];    // ユーザーID
-        $trade_id = 1; //$trade_id = $_SESSION['trade_id'];  // トレードID 
+
+        
+        require_once __DIR__ . './classes/dbdata.php';
+        $exh = new Dbdata();
+        $sql = "select TRADE_ID from CHATS where USER_ID = '" . $_SESSION['user_id'] . "' and PARTNER_USER_ID = '" . $partner_user_id . "'";
+        $data = $exh->getRecord_0($sql);
+
+        foreach($data as $info){
+            $trade_id = $info['TRADE_ID'];
+        }
+
+
+        // データ格納（flag無し）
         $pdo = new PDO(
             'mysql:host=localhost;dbname=torepon;charset=utf8',     //　mysql:host=localhost;dbname="作成したデータベース名”;charset=utf8
             'shopping',     // ユーザー名

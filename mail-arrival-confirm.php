@@ -19,13 +19,12 @@
 
         <!-- 到着が未完了と完了時で表示を切り替える -->
       <div class="center">
-        <h1 class="sub-ttl ">〇〇(商品名)は郵送中です。</h1>
-        <h1 class="none sub-ttl">〇〇(商品名)は郵送完了しました。</h1>
+        <h1 class="none sub-ttl ">〇〇(商品名)は郵送中です。</h1>
+        <h1 class="sub-ttl">〇〇(商品名)は郵送完了しました。</h1>
       </div>
        <!-- /到着が未完了と完了時で表示を切り替える -->
        <div class="btn-block">
-        <a class="back-btn" href="./">戻る</a>
-        <!-- <a class="confirm-btn" href="./transaction-information.php">トレード詳細画面へ</a> -->
+        <a class="q-btn" href="./questionnaire-form.php">評価する</a>
        </div>
 
 

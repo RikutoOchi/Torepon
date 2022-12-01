@@ -6,6 +6,11 @@
         text-align: center;
     }
     
+    .mail-comp {
+        text-align: center;
+        margin: 20%;
+    }
+    
     label {
         margin: 1%;
     }

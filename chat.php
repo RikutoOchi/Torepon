@@ -19,22 +19,25 @@
 <?php require_once("./temp/header.php"); ?>
 <!-- /ヘッダー -->
 
+<!-- dbで使用するやつの呼び出し -->
+<?php
+  require_once __DIR__ . './classes/chat_class.php';
+?>
+<!-- /dbで使用するやつの呼び出し -->
+
 <script type="text/javascript" src="ajax.js?ver=1.0"></script>
 
   <?php
+    // チャット相手のユーザーIDの取得等
     $_SESSION['id'] = $_GET['id'];
-    require_once __DIR__ . './classes/dbdata.php';
-    $exh = new Dbdata();
 
     // トレードIDの取得
-    $sql = "select TRADE_ID from CHATS where USER_ID = '" . $_SESSION['user_id'] . "' and PARTNER_USER_ID = '" . $_SESSION['id'] . "'";
-    $data = $exh->getRecord_0($sql);
+    $chicket_history = new Chat_trade_id();
+    $trade_id = $chicket_history->get_trade_id($_SESSION['user_id'],$_SESSION['id']);
 
-    // TRADE_IDを取り出し、$trae_idに格納
-    foreach($data as $info){
-        $trade_id = $info['TRADE_ID'];
-    }
-    
+    // チャット相手の情報取得
+    $chat_user = new Chat_user_info();
+    $chat_user_data = $chat_user->get_chat_user_info($_SESSION['user_id']);
   ?>
 
 <main class="chat-main-side-container">
@@ -44,34 +47,22 @@
 
     <div id="ajaxreload">
 
-      <!--　チャット相手の情報取得＆表示 -->
-      <?php
-        $chat_user_data_sql = "select DISTINCT CHATS.PARTNER_USER_ID,USERS.USER_NAME,USERS.USER_ICON_URL 
-                               from CHATS LEFT OUTER JOIN USERS ON CHATS.PARTNER_USER_ID = USERS.USER_ID
-                               where CHATS.USER_ID = '" . $_SESSION['user_id'] . "'";
-        $chat_user_data = $exh->getRecord_0($chat_user_data_sql);
-      ?>
-
+      <!--　チャット相手の情報表示 -->
       <?php foreach($chat_user_data as $user_info) { ?>
-        <?php 
-          $partner_user_id = $user_info['PARTNER_USER_ID'];
-        ?>
-        <li class="ChatUser"><?php if($partner_user_id == $_SESSION['id']) { ?><a class='ChatUser-choise' href="./chat.php?id=<?php echo $partner_user_id ?>"><?php } else { ?><a class='ChatUser-not-choise' href="./chat.php?id=<?php echo $partner_user_id ?>"> <?php } ?>
+        <li class="ChatUser"><?php if($user_info['PARTNER_USER_ID'] == $_SESSION['id']) { ?><a class='ChatUser-choise' href="./chat.php?id=<?php echo $user_info['PARTNER_USER_ID'] ?>"><?php } else { ?><a class='ChatUser-not-choise' href="./chat.php?id=<?php echo $user_info['PARTNER_USER_ID'] ?>"> <?php } ?>
           <div class="ChatUser-detail">
           <div class="UserIcon"><img src="<?php echo $user_info['USER_ICON_URL'] ?>" alt=""></div>
           <div class="UserInfo">
             <ul class="UserInfo-list">
               <li class="UserName"><?php echo $user_info['USER_NAME'] ?></li>
-              <li class="UserId"><?php echo $partner_user_id ?></li>
+              <li class="UserId"><?php echo $user_info['PARTNER_USER_ID'] ?></li>
             </ul>
 
             <!-- 最新のチャット内容の取り出し -->
             <?php
-              $chat_detail_sql = "select CHAT_TEXT
-                                  from CHATS
-                                  where USER_ID = '" . $_SESSION['user_id'] . "' and PARTNER_USER_ID = '" . $partner_user_id . "' 
-                                  or USER_ID = '" . $partner_user_id . "' and PARTNER_USER_ID = '" . $_SESSION['user_id'] . "' ORDER BY CHAT_TIME DESC LIMIT 1";
-              $chat_detail = $exh->getRecord_0($chat_detail_sql);
+            // チャット相手の情報取得
+              $chat_detail_info = new Chat_detail();
+              $chat_detail = $chat_detail_info->get_chat_detail($_SESSION['user_id'],$user_info['PARTNER_USER_ID']);
             ?>
 
             <!-- 最新チャット内容の冒頭10文字 + ..... -->
@@ -101,16 +92,14 @@
         <div id="ajaxreload2">
 
           <?php
-            $sql = "select CHAT_TEXT,USER_ID,PARTNER_USER_ID 
-                    from CHATS
-                    where USER_ID = '" . $_SESSION['id'] . "' and PARTNER_USER_ID = '" . $_SESSION['user_id'] . "' and FLAG = 0
-                    or USER_ID = '" . $_SESSION['user_id'] . "' and PARTNER_USER_ID = '" . $_SESSION['id'] . "' and FLAG = 0 ORDER BY CHAT_TIME";
-            // チャット相手のユーザーアイコン取り出しSQL
-            $partner_user_icon_sql = "select USER_ID,USER_ICON_URL 
-                                      from USERS
-                                      where USER_ID = '" . $_SESSION['id'] . "'";
-            // チャット内容取り出しSQL実行                   
-            $data = $exh->getRecord_0($sql);
+
+            // チャット相手の情報取得
+            $chat_text = new Chat_text();
+            $data = $chat_text->get_chat_text($_SESSION['id'],$_SESSION['user_id']);
+
+            // チャット相手のユーザーアイコン取り出しSQL実行
+            $chat_partner_user_icon = new Chat_partner_user_icon();
+            $partner_user_icon_data = $chat_partner_user_icon->get_partner_user_icon($_SESSION['id']);
           ?>
         
           <?php foreach($data as $data_detail) { ?>

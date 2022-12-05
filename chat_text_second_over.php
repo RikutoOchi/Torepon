@@ -4,31 +4,20 @@
 
   session_start();
 
-  require_once __DIR__ . './classes/dbdata.php';
-  $exh = new Dbdata();
+  require_once __DIR__ . './classes/chat_text_second_over_class.php';
 
   ?>
 
   <?php
 
-    $chat_user_data_sql = "select DISTINCT CHATS.PARTNER_USER_ID,USERS.USER_NAME,USERS.USER_ICON_URL  
-                            from CHATS LEFT OUTER JOIN USERS ON CHATS.PARTNER_USER_ID = USERS.USER_ID
-                            where CHATS.USER_ID = '" . $_SESSION['user_id'] . "'";
-    $chat_user_data = $exh->getRecord_0($chat_user_data_sql);
+    // トレードIDの取得
+    $chat_detail = new Chat_text_second_over_chat_detail();
+    $data = $chat_detail->get_chat_detail($_SESSION['id'],$_SESSION['user_id']);
 
-    // チャット内容取り出しSQL
-    $sql = "select CHAT_TEXT,USER_ID,PARTNER_USER_ID 
-            from CHATS
-            where USER_ID = '" . $_SESSION['id'] . "' and PARTNER_USER_ID = '" . $_SESSION['user_id'] . "' and FLAG = 0
-            or USER_ID = '" . $_SESSION['user_id'] . "' and PARTNER_USER_ID = '" . $_SESSION['id'] . "' and FLAG = 0 ORDER BY CHAT_TIME";
-    // チャット相手のユーザーアイコン取り出しSQL
-    $partner_user_icon_sql = "select USER_ID,USER_ICON_URL 
-                              from USERS
-                              where USER_ID = '" . $_SESSION['id'] . "'";
-    // チャット内容取り出しSQL実行                   
-    $data = $exh->getRecord_0($sql);
-    // チャット相手のユーザーアイコン取り出しSQL実行
-    $partner_user_icon_data = $exh->getRecord_0($partner_user_icon_sql);
+    // チャット相手のユーザーアイコン取り出し
+    $chat_detail = new Chat_text_second_over_user_icon();
+    $partner_user_icon_data = $chat_detail->get_user_icon($_SESSION['id']);
+    
   ?>
           
   <?php

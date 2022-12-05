@@ -218,6 +218,7 @@
                   <?php echo $data_part['EXHIBIT_NAME'] ?>
                   <br>
                   <?php echo '出品日時：'.$data_part['EXHIBIT_TIME'] ?>
+                  <br>
 
                   <!-- 交換に必要なチケット数（チケット数）でソートした場合のみ発動 -->
                   <?php

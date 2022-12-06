@@ -19,9 +19,8 @@
 
         <!-- 到着が未完了と完了時で表示を切り替える -->
       <div class="center">
-        <h1 class="sub-ttl">郵送手続きが完了しました。</h1>
+        <h1 class="sub-ttl">住所の入力が完了しました。</h1>
       </div>
-       <!-- /到着が未完了と完了時で表示を切り替える -->
        <div class="btn-block">
         <a class="back-btn" href="./">戻る</a>
        </div>

@@ -19,6 +19,6 @@
     unset($_SESSION['address2']);
 
     // index.phpへ
-    header('Location:index.php');
+    header('Location:mail-end.php');
 
 ?>

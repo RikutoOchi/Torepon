@@ -23,3 +23,15 @@
 到着確認画面
 「商品が到着しました。」
 →相手を評価する
+
+(出品者画面)※ファイル名は変えるべきかも？
+mail-arrival-confirm.php
+            ↓
+questionnaire-form.php
+
+
+(購入者画面)
+mail-arrival-confirm2.php
+            ↓
+questionnaire-form2.php
+

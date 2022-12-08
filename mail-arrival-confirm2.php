@@ -18,15 +18,15 @@
         
 
         <!-- 到着が未完了と完了時で表示を切り替える -->
-        <!-- 出品者側の画面 -->
-        <!-- 出品者側は発送が完了した時点でアンケート評価 -->
+        <!-- 購入者側の画面 -->
+        <!-- 購入者側は商品が到着した時点でアンケート評価 -->
       <div class="center">
         <h1 class="none sub-ttl ">〇〇(商品名)は発送中です。</h1>
-        <h1 class="sub-ttl">〇〇(商品名)は発送完了しました。</h1>
+        <h1 class="sub-ttl">〇〇(商品名)が到着しました。</h1>
       </div>
        <!-- /到着が未完了と完了時で表示を切り替える -->
        <div class="btn-block">
-        <a class="q-btn" href="./questionnaire-form.php">評価する</a>
+        <a class="q-btn" href="./questionnaire-form2.php">評価する</a>
        </div>
 
 

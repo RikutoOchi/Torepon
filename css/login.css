@@ -1,9 +1,14 @@
+body{
+  background-color: #fff;
+}
+
 .form-content {
   max-width: 600px;
   margin: 0 auto;
   padding: 100px 0;
   height: 100vh;
 }
+
 .ttl-text {
   text-align: center;
   font-size: 2.4rem;

@@ -1,8 +1,10 @@
 <!-- ヘッドの全体に関わる共有部分 -->
 <?php require_once('./temp/head.php'); ?>
-<?php session_start(); ?>
 <!-- /ヘッドの全体に関わる共有部分 -->
-
+<!-- ヘッダー -->
+<?php require_once("./temp/header.php"); ?>
+<?php session_start(); ?>
+<!-- /ヘッダー -->
 <?php
     //現在時刻の取得
     date_default_timezone_set ('Asia/Tokyo');   // 日本時間に設定

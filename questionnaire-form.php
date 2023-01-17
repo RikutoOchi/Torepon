@@ -9,7 +9,7 @@
   <title>modal</title>
 </head>
 <body>
-  <div class="modal-block none">
+  <div class="modal-block">
     <div class="modal-box">
     <p class="modal-ttl">取引アンケート<button class="close">×</button></p>
     

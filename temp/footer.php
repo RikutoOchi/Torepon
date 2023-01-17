@@ -9,7 +9,9 @@
 
 
 <!-- 全体に関わるJSファイルだけここに記述する -->
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Modaal/0.4.4/js/modaal.min.js"></script>
     <script src="./script/script.js"></script>
 </body>
 </html>

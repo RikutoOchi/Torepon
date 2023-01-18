@@ -368,7 +368,6 @@ button {
   text-decoration: none;
   color: #fff;
 }
-
 /*おすすめアイテム*/
 
 .RecommendedItems {
@@ -466,6 +465,12 @@ button {
 
 .sub-ttl {
   margin-top: 40px;
+}
+.center {
+  text-align: center;
+}
+.none {
+  display: none;
 }
 
 .ResultItem img {

@@ -2,6 +2,10 @@ body{
     background-color: #fff;
 }
 
+main{
+    background-color: #fff;
+}
+
 .copy-text {
     text-align: center;
     font-size: 4.5rem;

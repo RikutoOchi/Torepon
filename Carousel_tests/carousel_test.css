@@ -83,7 +83,7 @@ body {
 /*          この部分が画像表示に関するゾーン            */
 
 .carousel-list:nth-child(1) {
-  background-image: url(./Test_images/T_img1.jpg);
+  background-image: url(../images/img1.jpg);
 
   /* イメージ
         background-image: url(<?php $hoge['hoge'] ?>);
@@ -91,19 +91,19 @@ body {
 }
 
 .carousel-list:nth-child(2) {
-  background-image: url(./Test_images/series2.jpg);
+  background-image: url(../images/img2.jpg);
 }
 
 .carousel-list:nth-child(3) {
-  background-image: url(./Test_images/series3.jpg);
+  background-image: url(../images/img3.jpg);
 }
 
 .carousel-list:nth-child(4) {
-  background-image: url(./Test_images/series4.jpg);
+  background-image: url(../images/img4.jpg);
 }
 
 .carousel-list:nth-child(5) {
-  background-image: url(./Test_images/animal_dance.png);
+  background-image: url(../images/img5.png);
 }
 
 /* ---------------------------------------------------- */

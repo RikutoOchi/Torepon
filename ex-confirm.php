@@ -86,7 +86,7 @@
               <textarea name="apply_text" class="dealingrequest-textarea" ></textarea>
               <button class="dealingrequest-button" type="submit">トレード申請する</button>
             <?php } else { ?>
-              <button class="dealingrequest-button" onclick="location.href='./chat.php?id=<?php echo $_SESSION['user_id'] ?>&trade_id=<?php echo $data['TRADE_ID'] ?>'">チャットへ移動</button>
+              <button class="dealingrequest-button" onclick="location.href='./chat.php?id=<?php echo $exhibit['USER_ID'] ?>'">チャットへ移動</button>
             <?php } ?>
 
           </div>

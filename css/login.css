@@ -1,3 +1,7 @@
+html{
+  background-color: #fff;
+}
+
 .form-content {
   max-width: 600px;
   margin: 0 auto;
@@ -85,14 +89,23 @@
 }
 .login-btn-center {
   text-align: center;
+  position: relative;
+  bottom: 25px;
 }
 .login-btn {
   cursor: pointer;
-  background-color: transparent;
+  background-color:transparent;
   width: 80px;
   height: 40px;
-  border: 1px solid #000;
-  border-radius: 5px;
+
+  color: white;
+  font-weight: bold;
+  letter-spacing: 0.5pt;
+  text-decoration: none;
+  background-color: #414bb2;
+  border: 1px solid #4169e1;
+  border-radius: 10px;
+  cursor: pointer;
 }
 .login-btn:hover {
   opacity: 0.7;

@@ -1,18 +1,9 @@
-<!-- 注意事項
-
-・DBのバージョン要確認　2022/11/04 11:30 時点以降のバージョンを使用する必要あり
-
-/注意事項-->
-
-
 <!-- ヘッドの全体に関わる共有部分 -->
 <?php require_once('./temp/head.php'); ?>
 <!-- /ヘッドの全体に関わる共有部分 -->
 
 <!-- ↓↓↓　ここに各画面専用のスタイルのリンクタグを書きます ↓↓↓ -->
-
 <link rel="stylesheet" href="./css/chat.css">
-
 <!-- ↑↑↑　/ここに各画面専用のスタイルのリンクタグを書きます　↑↑↑ -->
 
 <!-- ヘッダー -->
@@ -20,24 +11,30 @@
 <!-- /ヘッダー -->
 
 <!-- dbで使用するやつの呼び出し -->
-<?php
-  require_once __DIR__ . './classes/chat_class.php';
-?>
+<?php require_once __DIR__ . './classes/chat_class.php'; ?>
 <!-- /dbで使用するやつの呼び出し -->
 
 <script type="text/javascript" src="ajax.js?ver=1.0"></script>
 
   <?php
-    // チャット相手のユーザーIDの取得等
-    $_SESSION['id'] = $_GET['id'];
 
-    // トレードIDの取得
-    $chicket_history = new Chat_trade_id();
-    $trade_id = $chicket_history->get_trade_id($_SESSION['user_id'],$_SESSION['id']);
+    $_SESSION['id'] = $_GET['id'];                    // チャット相手のユーザーIDの取得等
+    $_SESSION['trade_id'] = $_GET['id2'];             // トレードIDの取得
 
     // チャット相手の情報取得
     $chat_user = new Chat_user_info();
-    $chat_user_data = $chat_user->get_chat_user_info($_SESSION['user_id']);
+    $chat_user_data = $chat_user->get_chat_user_info($_SESSION['user_id'],$_SESSION['trade_id']);
+
+    // 現在の取引の進行状況の取得
+    $switch = new Chat_switching();
+    $switch_data = $switch->get_switching_data($_SESSION['user_id'],$_SESSION['trade_id'],$_SESSION['id']);
+
+    // 表示するボタンの差別化に使用
+    foreach($switch_data as $data) {
+      $situation = $data['USER_ID'];   // 申請者のユーザーID
+      $progress = $data['TRADE_PROGRESS'];    // トレードの進行状況
+    }
+
   ?>
 
 <main class="chat-main-side-container">
@@ -49,7 +46,7 @@
 
       <!--　チャット相手の情報表示 -->
       <?php foreach($chat_user_data as $user_info) { ?>
-        <li class="ChatUser"><?php if($user_info['PARTNER_USER_ID'] == $_SESSION['id']) { ?><a class='ChatUser-choise' href="./chat.php?id=<?php echo $user_info['PARTNER_USER_ID'] ?>"><?php } else { ?><a class='ChatUser-not-choise' href="./chat.php?id=<?php echo $user_info['PARTNER_USER_ID'] ?>"> <?php } ?>
+        <li class="ChatUser"><?php if($user_info['PARTNER_USER_ID'] == $_SESSION['id']) { ?><a class='ChatUser-choise' href="./chat.php?id=<?php echo $user_info['PARTNER_USER_ID'] ?>&id2=<?php echo $trade_id ?>"><?php } else { ?><a class='ChatUser-not-choise' href="./chat.php?id=<?php echo $user_info['PARTNER_USER_ID'] ?>&id2=<?php echo $trade_id ?>"> <?php } ?>
           <div class="ChatUser-detail">
           <div class="UserIcon"><img src="<?php echo $user_info['USER_ICON_URL'] ?>" alt=""></div>
           <div class="UserInfo">
@@ -121,10 +118,28 @@
         </ul>
     
         <div class="my-message">
-          <a href = "cancel.html">取引キャンセル申請</a>
-          <a href = "tr_forward.php?id=<?php echo $trade_id ?>">取引進行申請</a>
+
+          <?php if($progress == 1 and $situation != $_SESSION['user_id'] ){ ?>
+            <!-- 出品者側のみに表示 -->
+            <a href = "cansel.php?id=<?php echo $_SESSION['trade_id'] ?>&id2=<?php echo $_SESSION['id'] ?>">取引キャンセル申請</a>
+            <a href = "tr_forward.php?id=<?php echo $_SESSION['trade_id'] ?>&id2=<?php echo $_SESSION['id'] ?>">取引進行申請</a>
+            <!-- /出品者側のみに表示 -->
+          <?php } elseif($progress == 2 and $situation != $_SESSION['user_id']) { ?>
+            <!-- 出品者側側にのみ表示 -->
+            <a href = "cancel.php?id=<?php echo $_SESSION['trade_id'] ?>&id2=<?php echo $_SESSION['id'] ?>">取引キャンセル申請</a>
+            <a href = "tr_forward.php?id=<?php echo $_SESSION['trade_id'] ?>&id2=<?php echo $_SESSION['id'] ?>">発送完了</a>
+            <!-- /出品者側にのみ表示-->
+          <?php } elseif($progress == 5) { ?>
+            <!-- 出品者・申請者の両方に表示 -->
+            <a href = "cancel.html">アンケートに回答する</a>
+            <!-- /出品者・申請者の両方に表示 -->
+          <?php } else { ?>
+            <a href = ""></a>
+            <a href = ""></a>
+          <?php } ?>
+
           <div>
-            <form action="./chat_db.php?id=<?php echo $_SESSION['id'] ?>" method="post" name="chat_form">
+            <form action="./chat_db.php?id=<?php echo $_SESSION['id'] ?>&id2=<?php echo $_SESSION['trade_id'] ?>" method="post" name="chat_form">
               <input class="message-send" type="text" placeholder="メッセージを入力" name="chat_text">
               <button><i class="fa-solid fa-paper-plane"></i></button>
             </form>
@@ -135,7 +150,8 @@
   <?php } ?>
   
 <section class="chat-ad">
-  <!-- サイドコンテンツ -->
+
+<!-- サイドコンテンツ -->
 <?php require_once('./temp/side.php'); ?>
 <!-- /サイドコンテンツ -->
 </section>

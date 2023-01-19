@@ -2,9 +2,12 @@
 
     <?php
 
+        // セッションスタート
         session_start();
 
+        // DB実行のための外部ファイルの読み込み
         require_once __DIR__ . './classes/dbdata.php';
+        
         $exh = new Dbdata();
 
     ?>
@@ -13,7 +16,8 @@
     <?php
     $chat_user_data_sql = "select DISTINCT CHATS.PARTNER_USER_ID,USERS.USER_NAME,USERS.USER_ICON_URL  
                             from CHATS LEFT OUTER JOIN USERS ON CHATS.PARTNER_USER_ID = USERS.USER_ID
-                            where CHATS.USER_ID = '" . $_SESSION['user_id'] . "'";
+                            where CHATS.USER_ID = '" . $_SESSION['user_id'] . "'
+                            and CHATS.TRADE_ID = '" . $_SESSION['trade_id'] . "'";
     $chat_user_data = $exh->getRecord_0($chat_user_data_sql);
     ?>
 
@@ -21,7 +25,7 @@
     <?php 
         $partner_user_id = $user_info['PARTNER_USER_ID'];
     ?>
-    <li class="ChatUser"><?php if($partner_user_id == $_SESSION['id']) { ?><a class='ChatUser-choise' href="./chat.php?id=<?php echo $partner_user_id ?>"><?php } else { ?><a class='ChatUser-not-choise' href="./chat.php?id=<?php echo $partner_user_id ?>"> <?php } ?>
+    <li class="ChatUser"><?php if($partner_user_id == $_SESSION['id']) { ?><a class='ChatUser-choise' href="./chat.php?id=<?php echo $partner_user_id ?>&id2=<?php echo $_SESSION['trade_id'] ?>"><?php } else { ?><a class='ChatUser-not-choise' href="./chat.php?id=<?php echo $partner_user_id ?>&id2=<?php echo $_SESSION['trade_id'] ?>"> <?php } ?>
         <div class="ChatUser-detail">
         <div class="UserIcon"><img src="<?php echo $user_info['USER_ICON_URL'] ?>" alt=""></div>
         <div class="UserInfo">

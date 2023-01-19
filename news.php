@@ -12,25 +12,33 @@
 <?php require_once("./temp/header.php"); ?>
 <!-- /ヘッダー -->
 
+<?php
+    
+?>
+
     <main class="main-side-content">
       <section class="main-content">
         <!-- mainコンテンツ -->
         <h1 class="ttl-text">お知らせ</h1>
-        <div class="news-wrapper">
-            <div class="news-inner">
-                <ul class="news-list">
-                    <li class="news-item">
-                        <a href="./">サンプルサンプルサンプルサンプル</a>
-                        <span class="date">2022/06/15</span>
-                    </li>
-                    <li class="news-item"><a href="./">サンプルサンプルサンプルサンプル</a><span class="date">2022/06/15</span></li>
-                    <li class="news-item"><a href="./">サンプルサンプルサンプルサンプル</a><span class="date">2022/06/15</span></li>
-                    <li class="news-item"><a href="./">サンプルサンプルサンプルサンプル</a><span class="date">2022/06/15</span></li>
-                    <li class="news-item"><a href="./">サンプルサンプルサンプルサンプル</a><span class="date">2022/06/15</span></li>
-                   
-                </ul>
+
+        <div id="ajaxreload3">
+
+            <div class="news-wrapper">
+                <div class="news-inner">
+                    <ul class="news-list">
+                        
+                        <?php foreach(){ ?>
+                            <li class="news-item">
+                            
+                            </li>
+                        <?php } ?>
+                    
+                    </ul>
+                </div>
             </div>
+
         </div>
+
       </section>
      
 

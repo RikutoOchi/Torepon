@@ -11,10 +11,18 @@
 <!-- /ヘッダー -->
 
 <?php
-    // 取引件数の取得SQL
-    require_once __DIR__ . './classes/dbdata.php';
-    $cou = new Dbdata();
-    $number_of_transactions = $cou->getRecord('users','USER_ID', $_SESSION['user_id']);
+    require_once __DIR__ . './classes/profile_class.php';
+
+    $tra = new Profile();
+    $dat = $tra->transaction($_SESSION['user_id']);
+
+    $tran = new Transaction();
+    $transaction = $tran->transaction_data($_SESSION['user_id']);
+
+    foreach($dat as $data){
+        $user_rating = $data['USER_RATING'];
+        $trade_number = $data['USER_TRADE_COUNT'];
+    }
 ?>
 
 <main class="main-side-content">
@@ -27,7 +35,27 @@
                 <img class="UserIcon" src="<?php echo $_SESSION['user_icon_url'] ?>" alt="">
                 <input type="button" class="margin-left img_change_btn" value="変更する" onclick="location.href='./profile_pict.php'"/>
                 <br><br>
-                <img class="evaluation" src="<?php /*評価の画像*/ ?>" alt="">
+                <?php if($user_rating < 1.5) { ?>
+                    <img class="evaluation" src="./images/評価1～1.4.png" alt="">
+                <?php }elseif($user_rating < 2) { ?>
+                    <img class="evaluation" src="./images/評価1.5～1.9.png" alt="">
+                <?php }elseif($user_rating < 2.5) { ?>    
+                    <img class="evaluation" src="./images/評価2～2.4.png" alt="">
+                <?php }elseif($user_rating < 3) { ?>
+                    <img class="evaluation" src="./images/評価2.5～2.9.png" alt="">
+                <?php }elseif($user_rating < 3.5) { ?>
+                    <img class="evaluation" src="./images/評価3～3.4.png" alt="">
+                <?php }elseif($user_rating < 4) { ?>
+                    <img class="evaluation" src="./images/評価3.5～3.9.png" alt="">
+                <?php }elseif($user_rating < 4.5) { ?>
+                    <img class="evaluation" src="./images/評価4～4.4.png" alt="">
+                <?php }elseif($user_rating < 5) { ?>
+                    <img class="evaluation" src="./images/評価4.5～4.9.png" alt="">
+                <?php }elseif($user_rating == 5) { ?>
+                    <img class="evaluation" src="./images/評価5.png" alt="">
+                <?php } ?>
+
+
                 <label class="evaluation_margin-left">評価</label>
             </div>
 
@@ -39,16 +67,16 @@
 
                 <div class="box1" style="margin-left:30px">
                     <h3>
-                        <p>過去の取引数：<?php echo $number_of_transactions['USER_TRADE_COUNT'] ?></p>
+                        <p>過去の取引数：<?php echo $trade_number ?></p>
                         <br>
                         <p>最近の取引</p>
 
                         <div class="div-equal-box">
-                            <div><a href="<?php ?>"><img class="img3 border" src="<?php ?>"></a></div>
-                            <div><a href="<?php ?>"><img class="img3 border" src="<?php ?>"></a></div>
-                            <div><a href="<?php ?>"><img class="img3 border" src="<?php ?>"></a></div>
-                            <div><a href="<?php ?>"><img class="img3 border" src="<?php ?>"></a></div>
-                            <div><a href="<?php ?>"><img class="img3 border" src="<?php ?>"></a></div>
+
+                            <?php foreach($transaction as $data){ ?>
+                                <div><a href="./ex-confirm.php?id=<?php echo $data['EXHIBIT_ID'] ?>"><img class="img3 border" src="<?= $data['EXHIBIT_PIC_URL'] ?>"></a></div>
+                            <?php } ?>
+
                         </div>
                     </h3>
                 </div>

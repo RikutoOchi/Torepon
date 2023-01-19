@@ -1,3 +1,12 @@
+<!--
+  注釈１：トレード申請がされている場合（チャット相手がいる場合）、「チャットへ」ボタンを表示させる
+  　　　　トレード申請がされていない場合（チャット相手がいない場合）、「トレード申請」ボタンを表示させる
+
+  注釈２：出品者のユーザーID（$id['sell_id'])が自分のものなら、申請者のユーザーID（$id['buy_id']）を、$partner_user_id（チャット相手のユーザーID）に格納
+  　　　　申請者のユーザーID（$id['buy_id']）が自分のものなら、出品者のユーザーID（$id['sell_id'])を、$partner_user_id（チャット相手のユーザーID）に格納
+-->
+
+
 <?php
   // 送られてきた商品番号を受け取る（エスケープ処理は不要）
   $exhibit_id = $_GET['id'];
@@ -23,9 +32,7 @@
 <!-- /ヘッドの全体に関わる共有部分 -->
 
 <!-- ↓↓↓　ここに各画面専用のスタイルのリンクタグを書きます ↓↓↓ -->
-
 <link rel="stylesheet" href="./css/ex-confirm.css">
-
 <!-- ↑↑↑　/ここに各画面専用のスタイルのリンクタグを書きます　↑↑↑ -->
 
 <!-- ヘッダー -->
@@ -79,14 +86,31 @@
               // trade_id = exhibit_id とする（trade_idはexhibit_idで作成するようにする）
               $data = $trade->getRecord('trades','TRADE_ID',$exhibit_id);
             ?>
-              
+            
+            <!-- 注釈１ -->
             <?php if(empty($data)){ ?>
               <h2>トレード申請</h2>
               <form action="./tr_add.php?id=<?php echo $exhibit['EXHIBIT_ID'] ?>" method="post" enctype="multipart/form-data" >
               <textarea name="apply_text" class="dealingrequest-textarea" ></textarea>
               <button class="dealingrequest-button" type="submit">トレード申請する</button>
             <?php } else { ?>
-              <button class="dealingrequest-button" onclick="location.href='./chat.php?id=<?php echo $exhibit['USER_ID'] ?>'">チャットへ移動</button>
+              <?php
+                  // ユーザーIDの取得
+                  $id = new Ex_confirm();
+                  $data = $id->get_partner_user_id($_SESSION['user_id'],$exhibit_id);
+
+                  // 連想配列からデータの取り出し
+                  foreach($data as $id){
+                    // 注釈２
+                    if($id['sell_id'] == $_SESSION['user_id']){
+                      $partner_user_id = $id['buy_id'];
+                    } elseif($id['buy_id'] == $_SESSION['user_id']) {
+                      $partner_user_id = $id['sell_id'];
+                    }
+                  }
+              ?>
+              <!-- チャット相手のユーザーIDとトレードID（exhibit_id と trade_id　は同じ値）を添付し、chat.phpへ -->
+              <button class="dealingrequest-button" onclick="location.href='./chat.php?id=<?php echo $partner_user_id ?>&id2=<?php echo $exhibit_id ?>'">チャットへ移動</button>
             <?php } ?>
 
           </div>

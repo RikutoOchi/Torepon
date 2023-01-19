@@ -104,7 +104,9 @@
         MAKERS.MAKER_NAME LIKE '" . $meka . "' and
         EXHIBITS.EXHIBIT_TIME >= '" . $nitizi_start . "' and
         EXHIBITS.TICKET_TYPE_ID LIKE '" . $syurui . "' and
-        EXHIBITS.NUMBER_OF_TICKETS <= '" . $maisu_end . "' order by EXHIBIT_TIME desc";
+        EXHIBITS.NUMBER_OF_TICKETS <= '" . $maisu_end . "' and
+        EXHIBITS.EXHIBIT_ID != '".$_SESSION['user_id']."'
+        order by EXHIBIT_TIME desc";
       // 古い順（投稿日時が古い順）
       } elseif($sort_id == 1) {
         $sql = "select EXHIBITS.EXHIBIT_PIC_URL,EXHIBITS.EXHIBIT_ID,EXHIBITS.EXHIBIT_NAME,EXHIBITS.EXHIBIT_TIME 
@@ -118,7 +120,9 @@
         MAKERS.MAKER_NAME LIKE '" . $meka . "' and
         EXHIBITS.EXHIBIT_TIME >= '" . $nitizi_start . "' and 
         EXHIBITS.TICKET_TYPE_ID LIKE '" . $syurui . "' and
-        EXHIBITS.NUMBER_OF_TICKETS <= '" . $maisu_end . "' order by EXHIBIT_TIME";
+        EXHIBITS.NUMBER_OF_TICKETS <= '" . $maisu_end . "' and
+        EXHIBITS.EXHIBIT_ID != '".$_SESSION['user_id']."'
+        order by EXHIBIT_TIME";
       // 必要チケット枚数　昇順（多い順）
       } elseif($sort_id == 2) {
         $sql = "select EXHIBITS.EXHIBIT_PIC_URL,EXHIBITS.EXHIBIT_ID,EXHIBITS.EXHIBIT_NAME,NUMBER_OF_TICKETS,EXHIBITS.EXHIBIT_TIME 
@@ -132,7 +136,9 @@
         MAKERS.MAKER_NAME LIKE '" . $meka . "' and
         EXHIBITS.EXHIBIT_TIME >= '" . $nitizi_start . "' and
         EXHIBITS.TICKET_TYPE_ID LIKE '" . $syurui . "' and
-        EXHIBITS.NUMBER_OF_TICKETS <= '" . $maisu_end . "' order by NUMBER_OF_TICKETS";
+        EXHIBITS.NUMBER_OF_TICKETS <= '" . $maisu_end . "' and
+        EXHIBITS.EXHIBIT_ID != '".$_SESSION['user_id']."'
+        order by NUMBER_OF_TICKETS";
       // 必要チケット枚数　降順（少ない順）
       } elseif($sort_id == 3) {
         $sql = "select EXHIBITS.EXHIBIT_PIC_URL,EXHIBITS.EXHIBIT_ID,EXHIBITS.EXHIBIT_NAME,NUMBER_OF_TICKETS,EXHIBITS.EXHIBIT_TIME 
@@ -146,7 +152,9 @@
         MAKERS.MAKER_NAME LIKE '" . $meka . "' and
         EXHIBITS.EXHIBIT_TIME >= '" . $nitizi_start . "' and
         EXHIBITS.TICKET_TYPE_ID LIKE '" . $syurui . "' and
-        EXHIBITS.NUMBER_OF_TICKETS <= '" . $maisu_end . "' order by NUMBER_OF_TICKETS desc";
+        EXHIBITS.NUMBER_OF_TICKETS <= '" . $maisu_end . "' and
+        EXHIBITS.EXHIBIT_ID != '".$_SESSION['user_id']."'
+        order by NUMBER_OF_TICKETS desc";
       }
 
       $data = $exh->getRecord_0($sql);
@@ -211,7 +219,7 @@
           <div class="responsive">
             <div class="img">
               <a target="_blank" href="./ex-confirm.php?id=<?php echo $data_part['EXHIBIT_ID'] ?>">
-                <img src="<?= $data_part['EXHIBIT_PIC_URL'] ?>" />
+                <img src="<?= $data_part['EXHIBIT_PIC_URL'] ?>"/>
               </a>
               <div class="desc">
                 <center>

@@ -107,7 +107,21 @@
 
                     if($sort_id == 0){
                         // SQL文（抽出対象：ガチャタイトル、出品名）
-                        $sql = "select EXHIBITS.EXHIBIT_PIC_URL,EXHIBITS.EXHIBIT_ID,EXHIBITS.EXHIBIT_NAME 
+                        $sql = "select EXHIBITS.EXHIBIT_PIC_URL,EXHIBITS.EXHIBIT_ID,EXHIBITS.EXHIBIT_NAME,EXHIBITS.EXHIBIT_TIME 
+                                from (((EXHIBITS LEFT OUTER JOIN GACHA_TITLES ON EXHIBITS.GACHA_TITLE_ID = GACHA_TITLES.GACHA_TITLE_ID) 
+                                LEFT OUTER JOIN ORIGINAL_TITLES ON GACHA_TITLES.ORIGINAL_TITLE_ID = ORIGINAL_TITLES.ORIGINAL_TITLE_ID)
+                                LEFT OUTER JOIN MAKERS ON GACHA_TITLES.MAKER_ID = MAKERS.MAKER_ID)
+                                where not exists(select TRADE_ID from TRADES where TRADE_ID = EXHIBIT_ID and TRADE_PROGRESS > 2) and
+                                EXHIBITS.EXHIBIT_TEXT LIKE '" . $kyara . "' and
+                                ORIGINAL_TITLES.ORIGINAL_TITLE_NAME LIKE '" . $gensaku . "' and
+                                MAKERS.MAKER_NAME LIKE '" . $meka . "' and
+                                EXHIBITS.EXHIBIT_TIME >= '" . $nitizi_start . "' and
+                                EXHIBITS.TICKET_TYPE_ID LIKE '" . $syurui . "' and
+                                EXHIBITS.NUMBER_OF_TICKETS <= '" . $maisu_end . "' and
+                                GACHA_TITLES.GACHA_TITLE_NAME LIKE '" . $Searchdata . "' or EXHIBITS.EXHIBIT_NAME LIKE '" . $Searchdata . "' order by EXHIBIT_TIME DESC";
+                    } elseif($sort_id == 1){
+                        // SQL文（抽出対象：ガチャタイトル、出品名）
+                        $sql = "select EXHIBITS.EXHIBIT_PIC_URL,EXHIBITS.EXHIBIT_ID,EXHIBITS.EXHIBIT_NAME,EXHIBITS.EXHIBIT_TIME 
                                 from (((EXHIBITS LEFT OUTER JOIN GACHA_TITLES ON EXHIBITS.GACHA_TITLE_ID = GACHA_TITLES.GACHA_TITLE_ID) 
                                 LEFT OUTER JOIN ORIGINAL_TITLES ON GACHA_TITLES.ORIGINAL_TITLE_ID = ORIGINAL_TITLES.ORIGINAL_TITLE_ID)
                                 LEFT OUTER JOIN MAKERS ON GACHA_TITLES.MAKER_ID = MAKERS.MAKER_ID)
@@ -119,23 +133,9 @@
                                 EXHIBITS.TICKET_TYPE_ID LIKE '" . $syurui . "' and
                                 EXHIBITS.NUMBER_OF_TICKETS <= '" . $maisu_end . "' and
                                 GACHA_TITLES.GACHA_TITLE_NAME LIKE '" . $Searchdata . "' or EXHIBITS.EXHIBIT_NAME LIKE '" . $Searchdata . "' order by EXHIBIT_TIME";
-                    } elseif($sort_id == 1){
-                        // SQL文（抽出対象：ガチャタイトル、出品名）
-                        $sql = "select EXHIBITS.EXHIBIT_PIC_URL,EXHIBITS.EXHIBIT_ID,EXHIBITS.EXHIBIT_NAME 
-                                from (((EXHIBITS LEFT OUTER JOIN GACHA_TITLES ON EXHIBITS.GACHA_TITLE_ID = GACHA_TITLES.GACHA_TITLE_ID) 
-                                LEFT OUTER JOIN ORIGINAL_TITLES ON GACHA_TITLES.ORIGINAL_TITLE_ID = ORIGINAL_TITLES.ORIGINAL_TITLE_ID)
-                                LEFT OUTER JOIN MAKERS ON GACHA_TITLES.MAKER_ID = MAKERS.MAKER_ID)
-                                where not exists(select TRADE_ID from TRADES where TRADE_ID = EXHIBIT_ID and TRADE_PROGRESS > 2) and
-                                EXHIBITS.EXHIBIT_TEXT LIKE '" . $kyara . "' and
-                                ORIGINAL_TITLES.ORIGINAL_TITLE_NAME LIKE '" . $gensaku . "' and
-                                MAKERS.MAKER_NAME LIKE '" . $meka . "' and
-                                EXHIBITS.EXHIBIT_TIME >= '" . $nitizi_start . "' and
-                                EXHIBITS.TICKET_TYPE_ID LIKE '" . $syurui . "' and
-                                EXHIBITS.NUMBER_OF_TICKETS <= '" . $maisu_end . "' and
-                                GACHA_TITLES.GACHA_TITLE_NAME LIKE '" . $Searchdata . "' or EXHIBITS.EXHIBIT_NAME LIKE '" . $Searchdata . "' order by EXHIBIT_TIME desc";
                     } elseif($sort_id == 2){
                         // SQL文（抽出対象：ガチャタイトル、出品名）
-                        $sql = "select EXHIBITS.EXHIBIT_PIC_URL,EXHIBITS.EXHIBIT_ID,EXHIBITS.EXHIBIT_NAME,EXHIBITS.NUMBER_OF_TICKETS  
+                        $sql = "select EXHIBITS.EXHIBIT_PIC_URL,EXHIBITS.EXHIBIT_ID,EXHIBITS.EXHIBIT_NAME,EXHIBITS.NUMBER_OF_TICKETS,EXHIBITS.EXHIBIT_TIME 
                                 from (((EXHIBITS LEFT OUTER JOIN GACHA_TITLES ON EXHIBITS.GACHA_TITLE_ID = GACHA_TITLES.GACHA_TITLE_ID) 
                                 LEFT OUTER JOIN ORIGINAL_TITLES ON GACHA_TITLES.ORIGINAL_TITLE_ID = ORIGINAL_TITLES.ORIGINAL_TITLE_ID)
                                 LEFT OUTER JOIN MAKERS ON GACHA_TITLES.MAKER_ID = MAKERS.MAKER_ID)
@@ -149,7 +149,7 @@
                                 GACHA_TITLES.GACHA_TITLE_NAME LIKE '" . $Searchdata . "' or EXHIBITS.EXHIBIT_NAME LIKE '" . $Searchdata . "' order by NUMBER_OF_TICKETS";
                     } elseif($sort_id == 3){
                         // SQL文（抽出対象：ガチャタイトル、出品名）
-                        $sql = "select EXHIBITS.EXHIBIT_PIC_URL,EXHIBITS.EXHIBIT_ID,EXHIBITS.EXHIBIT_NAME,EXHIBITS.NUMBER_OF_TICKETS  
+                        $sql = "select EXHIBITS.EXHIBIT_PIC_URL,EXHIBITS.EXHIBIT_ID,EXHIBITS.EXHIBIT_NAME,EXHIBITS.NUMBER_OF_TICKETS,EXHIBITS.EXHIBIT_TIME 
                                 from (((EXHIBITS LEFT OUTER JOIN GACHA_TITLES ON EXHIBITS.GACHA_TITLE_ID = GACHA_TITLES.GACHA_TITLE_ID) 
                                 LEFT OUTER JOIN ORIGINAL_TITLES ON GACHA_TITLES.ORIGINAL_TITLE_ID = ORIGINAL_TITLES.ORIGINAL_TITLE_ID)
                                 LEFT OUTER JOIN MAKERS ON GACHA_TITLES.MAKER_ID = MAKERS.MAKER_ID)
@@ -170,21 +170,7 @@
 
                     if($sort_id == 0){
                         // SQL文（抽出対象：出品名）
-                        $sql = "select EXHIBITS.EXHIBIT_PIC_URL,EXHIBITS.EXHIBIT_ID,EXHIBITS.EXHIBIT_NAME 
-                                from (((EXHIBITS LEFT OUTER JOIN GACHA_TITLES ON EXHIBITS.GACHA_TITLE_ID = GACHA_TITLES.GACHA_TITLE_ID) 
-                                LEFT OUTER JOIN ORIGINAL_TITLES ON GACHA_TITLES.ORIGINAL_TITLE_ID = ORIGINAL_TITLES.ORIGINAL_TITLE_ID)
-                                LEFT OUTER JOIN MAKERS ON GACHA_TITLES.MAKER_ID = MAKERS.MAKER_ID)
-                                where not exists(select TRADE_ID from TRADES where TRADE_ID = EXHIBIT_ID and TRADE_PROGRESS > 2) and
-                                GACHA_TITLES.GACHA_TITLE_NAME LIKE '" . $gatya . "' and
-                                ORIGINAL_TITLES.ORIGINAL_TITLE_NAME LIKE '" . $gensaku . "' and
-                                MAKERS.MAKER_NAME LIKE '" . $meka . "' and
-                                EXHIBITS.EXHIBIT_TIME >= '" . $nitizi_start . "' and
-                                EXHIBITS.TICKET_TYPE_ID LIKE '" . $syurui . "' and
-                                EXHIBITS.NUMBER_OF_TICKETS <= '" . $maisu_end . "' and
-                                EXHIBITS.EXHIBIT_NAME LIKE '" . $Searchdata . "' ORDER BY EXHIBIT_TIME";
-                    } elseif($sort_id == 1){
-                        // SQL文（抽出対象：出品名）
-                        $sql = "select EXHIBITS.EXHIBIT_PIC_URL,EXHIBITS.EXHIBIT_ID,EXHIBITS.EXHIBIT_NAME 
+                        $sql = "select EXHIBITS.EXHIBIT_PIC_URL,EXHIBITS.EXHIBIT_ID,EXHIBITS.EXHIBIT_NAME,EXHIBITS.EXHIBIT_TIME 
                                 from (((EXHIBITS LEFT OUTER JOIN GACHA_TITLES ON EXHIBITS.GACHA_TITLE_ID = GACHA_TITLES.GACHA_TITLE_ID) 
                                 LEFT OUTER JOIN ORIGINAL_TITLES ON GACHA_TITLES.ORIGINAL_TITLE_ID = ORIGINAL_TITLES.ORIGINAL_TITLE_ID)
                                 LEFT OUTER JOIN MAKERS ON GACHA_TITLES.MAKER_ID = MAKERS.MAKER_ID)
@@ -196,9 +182,23 @@
                                 EXHIBITS.TICKET_TYPE_ID LIKE '" . $syurui . "' and
                                 EXHIBITS.NUMBER_OF_TICKETS <= '" . $maisu_end . "' and
                                 EXHIBITS.EXHIBIT_NAME LIKE '" . $Searchdata . "' ORDER BY EXHIBIT_TIME DESC";
+                    } elseif($sort_id == 1){
+                        // SQL文（抽出対象：出品名）
+                        $sql = "select EXHIBITS.EXHIBIT_PIC_URL,EXHIBITS.EXHIBIT_ID,EXHIBITS.EXHIBIT_NAME,EXHIBITS.EXHIBIT_TIME  
+                                from (((EXHIBITS LEFT OUTER JOIN GACHA_TITLES ON EXHIBITS.GACHA_TITLE_ID = GACHA_TITLES.GACHA_TITLE_ID) 
+                                LEFT OUTER JOIN ORIGINAL_TITLES ON GACHA_TITLES.ORIGINAL_TITLE_ID = ORIGINAL_TITLES.ORIGINAL_TITLE_ID)
+                                LEFT OUTER JOIN MAKERS ON GACHA_TITLES.MAKER_ID = MAKERS.MAKER_ID)
+                                where not exists(select TRADE_ID from TRADES where TRADE_ID = EXHIBIT_ID and TRADE_PROGRESS > 2) and
+                                GACHA_TITLES.GACHA_TITLE_NAME LIKE '" . $gatya . "' and
+                                ORIGINAL_TITLES.ORIGINAL_TITLE_NAME LIKE '" . $gensaku . "' and
+                                MAKERS.MAKER_NAME LIKE '" . $meka . "' and
+                                EXHIBITS.EXHIBIT_TIME >= '" . $nitizi_start . "' and
+                                EXHIBITS.TICKET_TYPE_ID LIKE '" . $syurui . "' and
+                                EXHIBITS.NUMBER_OF_TICKETS <= '" . $maisu_end . "' and
+                                EXHIBITS.EXHIBIT_NAME LIKE '" . $Searchdata . "' ORDER BY EXHIBIT_TIME";
                     } elseif($sort_id == 2){
                         // SQL文（抽出対象：出品名）
-                        $sql = "select EXHIBITS.EXHIBIT_PIC_URL,EXHIBITS.EXHIBIT_ID,EXHIBITS.EXHIBIT_NAME,EXHIBITS.NUMBER_OF_TICKETS  
+                        $sql = "select EXHIBITS.EXHIBIT_PIC_URL,EXHIBITS.EXHIBIT_ID,EXHIBITS.EXHIBIT_NAME,EXHIBITS.NUMBER_OF_TICKETS,EXHIBITS.EXHIBIT_TIME 
                                 from (((EXHIBITS LEFT OUTER JOIN GACHA_TITLES ON EXHIBITS.GACHA_TITLE_ID = GACHA_TITLES.GACHA_TITLE_ID) 
                                 LEFT OUTER JOIN ORIGINAL_TITLES ON GACHA_TITLES.ORIGINAL_TITLE_ID = ORIGINAL_TITLES.ORIGINAL_TITLE_ID)
                                 LEFT OUTER JOIN MAKERS ON GACHA_TITLES.MAKER_ID = MAKERS.MAKER_ID)
@@ -212,7 +212,7 @@
                                 EXHIBITS.EXHIBIT_NAME LIKE '" . $Searchdata . "' order by NUMBER_OF_TICKETS";
                     } elseif($sort_id == 3){
                         // SQL文（抽出対象：出品名）
-                        $sql = "select EXHIBITS.EXHIBIT_PIC_URL,EXHIBITS.EXHIBIT_ID,EXHIBITS.EXHIBIT_NAME,EXHIBITS.NUMBER_OF_TICKETS  
+                        $sql = "select EXHIBITS.EXHIBIT_PIC_URL,EXHIBITS.EXHIBIT_ID,EXHIBITS.EXHIBIT_NAME,EXHIBITS.NUMBER_OF_TICKETS,EXHIBITS.EXHIBIT_TIME  
                                 from (((EXHIBITS LEFT OUTER JOIN GACHA_TITLES ON EXHIBITS.GACHA_TITLE_ID = GACHA_TITLES.GACHA_TITLE_ID) 
                                 LEFT OUTER JOIN ORIGINAL_TITLES ON GACHA_TITLES.ORIGINAL_TITLE_ID = ORIGINAL_TITLES.ORIGINAL_TITLE_ID)
                                 LEFT OUTER JOIN MAKERS ON GACHA_TITLES.MAKER_ID = MAKERS.MAKER_ID)
@@ -233,20 +233,7 @@
 
                     if($sort_id == 0){
                         // SQL文（抽出対象：原作タイトル名、出品名）
-                        $sql = "select EXHIBITS.EXHIBIT_PIC_URL,EXHIBITS.EXHIBIT_ID,EXHIBITS.EXHIBIT_NAME 
-                                from (((EXHIBITS LEFT OUTER JOIN GACHA_TITLES ON EXHIBITS.GACHA_TITLE_ID = GACHA_TITLES.GACHA_TITLE_ID) 
-                                LEFT OUTER JOIN ORIGINAL_TITLES ON GACHA_TITLES.ORIGINAL_TITLE_ID = ORIGINAL_TITLES.ORIGINAL_TITLE_ID)
-                                LEFT OUTER JOIN MAKERS ON GACHA_TITLES.MAKER_ID = MAKERS.MAKER_ID)
-                                where not exists(select TRADE_ID from TRADES where TRADE_ID = EXHIBIT_ID and TRADE_PROGRESS > 2) and
-                                GACHA_TITLES.GACHA_TITLE_NAME LIKE '" . $gatya . "' and
-                                EXHIBITS.EXHIBIT_TEXT LIKE '" . $kyara . "' and
-                                MAKERS.MAKER_NAME LIKE '" . $meka . "' and
-                                EXHIBITS.EXHIBIT_TIME >= '" . $nitizi_start . "' and
-                                EXHIBITS.TICKET_TYPE_ID LIKE '" . $syurui . "' and
-                                EXHIBITS.NUMBER_OF_TICKETS <= '" . $maisu_end . "' and
-                                ORIGINAL_TITLES.ORIGINAL_TITLE_NAME LIKE '" . $Searchdata . "' or EXHIBITS.EXHIBIT_NAME LIKE '" . $Searchdata . "' ORDER BY EXHIBIT_TIME";
-                    } elseif($sort_id == 1){
-                        $sql = "select EXHIBITS.EXHIBIT_PIC_URL,EXHIBITS.EXHIBIT_ID,EXHIBITS.EXHIBIT_NAME 
+                        $sql = "select EXHIBITS.EXHIBIT_PIC_URL,EXHIBITS.EXHIBIT_ID,EXHIBITS.EXHIBIT_NAME,EXHIBITS.EXHIBIT_TIME 
                                 from (((EXHIBITS LEFT OUTER JOIN GACHA_TITLES ON EXHIBITS.GACHA_TITLE_ID = GACHA_TITLES.GACHA_TITLE_ID) 
                                 LEFT OUTER JOIN ORIGINAL_TITLES ON GACHA_TITLES.ORIGINAL_TITLE_ID = ORIGINAL_TITLES.ORIGINAL_TITLE_ID)
                                 LEFT OUTER JOIN MAKERS ON GACHA_TITLES.MAKER_ID = MAKERS.MAKER_ID)
@@ -258,8 +245,21 @@
                                 EXHIBITS.TICKET_TYPE_ID LIKE '" . $syurui . "' and
                                 EXHIBITS.NUMBER_OF_TICKETS <= '" . $maisu_end . "' and
                                 ORIGINAL_TITLES.ORIGINAL_TITLE_NAME LIKE '" . $Searchdata . "' or EXHIBITS.EXHIBIT_NAME LIKE '" . $Searchdata . "' ORDER BY EXHIBIT_TIME DESC";
+                    } elseif($sort_id == 1){
+                        $sql = "select EXHIBITS.EXHIBIT_PIC_URL,EXHIBITS.EXHIBIT_ID,EXHIBITS.EXHIBIT_NAME,EXHIBITS.EXHIBIT_TIME 
+                                from (((EXHIBITS LEFT OUTER JOIN GACHA_TITLES ON EXHIBITS.GACHA_TITLE_ID = GACHA_TITLES.GACHA_TITLE_ID) 
+                                LEFT OUTER JOIN ORIGINAL_TITLES ON GACHA_TITLES.ORIGINAL_TITLE_ID = ORIGINAL_TITLES.ORIGINAL_TITLE_ID)
+                                LEFT OUTER JOIN MAKERS ON GACHA_TITLES.MAKER_ID = MAKERS.MAKER_ID)
+                                where not exists(select TRADE_ID from TRADES where TRADE_ID = EXHIBIT_ID and TRADE_PROGRESS > 2) and
+                                GACHA_TITLES.GACHA_TITLE_NAME LIKE '" . $gatya . "' and
+                                EXHIBITS.EXHIBIT_TEXT LIKE '" . $kyara . "' and
+                                MAKERS.MAKER_NAME LIKE '" . $meka . "' and
+                                EXHIBITS.EXHIBIT_TIME >= '" . $nitizi_start . "' and
+                                EXHIBITS.TICKET_TYPE_ID LIKE '" . $syurui . "' and
+                                EXHIBITS.NUMBER_OF_TICKETS <= '" . $maisu_end . "' and
+                                ORIGINAL_TITLES.ORIGINAL_TITLE_NAME LIKE '" . $Searchdata . "' or EXHIBITS.EXHIBIT_NAME LIKE '" . $Searchdata . "' ORDER BY EXHIBIT_TIME";
                     } elseif($sort_id == 2){
-                        $sql = "select EXHIBITS.EXHIBIT_PIC_URL,EXHIBITS.EXHIBIT_ID,EXHIBITS.EXHIBIT_NAME,EXHIBITS.NUMBER_OF_TICKETS  
+                        $sql = "select EXHIBITS.EXHIBIT_PIC_URL,EXHIBITS.EXHIBIT_ID,EXHIBITS.EXHIBIT_NAME,EXHIBITS.NUMBER_OF_TICKETS,EXHIBITS.EXHIBIT_TIME 
                                 from (((EXHIBITS LEFT OUTER JOIN GACHA_TITLES ON EXHIBITS.GACHA_TITLE_ID = GACHA_TITLES.GACHA_TITLE_ID) 
                                 LEFT OUTER JOIN ORIGINAL_TITLES ON GACHA_TITLES.ORIGINAL_TITLE_ID = ORIGINAL_TITLES.ORIGINAL_TITLE_ID)
                                 LEFT OUTER JOIN MAKERS ON GACHA_TITLES.MAKER_ID = MAKERS.MAKER_ID)
@@ -272,7 +272,7 @@
                                 EXHIBITS.NUMBER_OF_TICKETS <= '" . $maisu_end . "' and
                                 ORIGINAL_TITLES.ORIGINAL_TITLE_NAME LIKE '" . $Searchdata . "' or EXHIBITS.EXHIBIT_NAME LIKE '" . $Searchdata . "' order by NUMBER_OF_TICKETS";
                     } elseif($sort_id == 3){
-                        $sql = "select EXHIBITS.EXHIBIT_PIC_URL,EXHIBITS.EXHIBIT_ID,EXHIBITS.EXHIBIT_NAME,EXHIBITS.NUMBER_OF_TICKETS  
+                        $sql = "select EXHIBITS.EXHIBIT_PIC_URL,EXHIBITS.EXHIBIT_ID,EXHIBITS.EXHIBIT_NAME,EXHIBITS.NUMBER_OF_TICKETS,EXHIBITS.EXHIBIT_TIME 
                                 from (((EXHIBITS LEFT OUTER JOIN GACHA_TITLES ON EXHIBITS.GACHA_TITLE_ID = GACHA_TITLES.GACHA_TITLE_ID) 
                                 LEFT OUTER JOIN ORIGINAL_TITLES ON GACHA_TITLES.ORIGINAL_TITLE_ID = ORIGINAL_TITLES.ORIGINAL_TITLE_ID)
                                 LEFT OUTER JOIN MAKERS ON GACHA_TITLES.MAKER_ID = MAKERS.MAKER_ID)
@@ -293,21 +293,7 @@
 
                     if($sort_id == 0){
                         // SQL文（抽出対象：メーカー名、出品名）
-                        $sql = "select EXHIBITS.EXHIBIT_PIC_URL,EXHIBITS.EXHIBIT_ID,EXHIBITS.EXHIBIT_NAME 
-                                from (((EXHIBITS LEFT OUTER JOIN GACHA_TITLES ON EXHIBITS.GACHA_TITLE_ID = GACHA_TITLES.GACHA_TITLE_ID) 
-                                LEFT OUTER JOIN ORIGINAL_TITLES ON GACHA_TITLES.ORIGINAL_TITLE_ID = ORIGINAL_TITLES.ORIGINAL_TITLE_ID)
-                                LEFT OUTER JOIN MAKERS ON GACHA_TITLES.MAKER_ID = MAKERS.MAKER_ID)
-                                where not exists(select TRADE_ID from TRADES where TRADE_ID = EXHIBIT_ID and TRADE_PROGRESS > 2) and
-                                GACHA_TITLES.GACHA_TITLE_NAME LIKE '" . $gatya . "' and
-                                EXHIBITS.EXHIBIT_TEXT LIKE '" . $kyara . "' and
-                                ORIGINAL_TITLES.ORIGINAL_TITLE_NAME LIKE '" . $gensaku . "' and
-                                EXHIBITS.EXHIBIT_TIME >= '" . $nitizi_start . "' and
-                                EXHIBITS.TICKET_TYPE_ID LIKE '" . $syurui . "' and
-                                EXHIBITS.NUMBER_OF_TICKETS <= '" . $maisu_end . "' and
-                                MAKERS.MAKER_NAME LIKE '" . $Searchdata . "' or EXHIBITS.EXHIBIT_NAME LIKE '" . $Searchdata . "' ORDER BY EXHIBIT_TIME";
-                    } elseif($sort_id == 1){
-                        // SQL文（抽出対象：メーカー名、出品名）
-                        $sql = "select EXHIBITS.EXHIBIT_PIC_URL,EXHIBITS.EXHIBIT_ID,EXHIBITS.EXHIBIT_NAME 
+                        $sql = "select EXHIBITS.EXHIBIT_PIC_URL,EXHIBITS.EXHIBIT_ID,EXHIBITS.EXHIBIT_NAME,EXHIBITS.EXHIBIT_TIME 
                                 from (((EXHIBITS LEFT OUTER JOIN GACHA_TITLES ON EXHIBITS.GACHA_TITLE_ID = GACHA_TITLES.GACHA_TITLE_ID) 
                                 LEFT OUTER JOIN ORIGINAL_TITLES ON GACHA_TITLES.ORIGINAL_TITLE_ID = ORIGINAL_TITLES.ORIGINAL_TITLE_ID)
                                 LEFT OUTER JOIN MAKERS ON GACHA_TITLES.MAKER_ID = MAKERS.MAKER_ID)
@@ -319,9 +305,23 @@
                                 EXHIBITS.TICKET_TYPE_ID LIKE '" . $syurui . "' and
                                 EXHIBITS.NUMBER_OF_TICKETS <= '" . $maisu_end . "' and
                                 MAKERS.MAKER_NAME LIKE '" . $Searchdata . "' or EXHIBITS.EXHIBIT_NAME LIKE '" . $Searchdata . "' ORDER BY EXHIBIT_TIME DESC";
+                    } elseif($sort_id == 1){
+                        // SQL文（抽出対象：メーカー名、出品名）
+                        $sql = "select EXHIBITS.EXHIBIT_PIC_URL,EXHIBITS.EXHIBIT_ID,EXHIBITS.EXHIBIT_NAME,EXHIBITS.EXHIBIT_TIME 
+                                from (((EXHIBITS LEFT OUTER JOIN GACHA_TITLES ON EXHIBITS.GACHA_TITLE_ID = GACHA_TITLES.GACHA_TITLE_ID) 
+                                LEFT OUTER JOIN ORIGINAL_TITLES ON GACHA_TITLES.ORIGINAL_TITLE_ID = ORIGINAL_TITLES.ORIGINAL_TITLE_ID)
+                                LEFT OUTER JOIN MAKERS ON GACHA_TITLES.MAKER_ID = MAKERS.MAKER_ID)
+                                where not exists(select TRADE_ID from TRADES where TRADE_ID = EXHIBIT_ID and TRADE_PROGRESS > 2) and
+                                GACHA_TITLES.GACHA_TITLE_NAME LIKE '" . $gatya . "' and
+                                EXHIBITS.EXHIBIT_TEXT LIKE '" . $kyara . "' and
+                                ORIGINAL_TITLES.ORIGINAL_TITLE_NAME LIKE '" . $gensaku . "' and
+                                EXHIBITS.EXHIBIT_TIME >= '" . $nitizi_start . "' and
+                                EXHIBITS.TICKET_TYPE_ID LIKE '" . $syurui . "' and
+                                EXHIBITS.NUMBER_OF_TICKETS <= '" . $maisu_end . "' and
+                                MAKERS.MAKER_NAME LIKE '" . $Searchdata . "' or EXHIBITS.EXHIBIT_NAME LIKE '" . $Searchdata . "' ORDER BY EXHIBIT_TIME";
                     } elseif($sort_id == 2){
                         // SQL文（抽出対象：メーカー名、出品名）
-                        $sql = "select EXHIBITS.EXHIBIT_PIC_URL,EXHIBITS.EXHIBIT_ID,EXHIBITS.EXHIBIT_NAME,EXHIBITS.NUMBER_OF_TICKETS 
+                        $sql = "select EXHIBITS.EXHIBIT_PIC_URL,EXHIBITS.EXHIBIT_ID,EXHIBITS.EXHIBIT_NAME,EXHIBITS.NUMBER_OF_TICKETS,EXHIBITS.EXHIBIT_TIME 
                                 from (((EXHIBITS LEFT OUTER JOIN GACHA_TITLES ON EXHIBITS.GACHA_TITLE_ID = GACHA_TITLES.GACHA_TITLE_ID) 
                                 LEFT OUTER JOIN ORIGINAL_TITLES ON GACHA_TITLES.ORIGINAL_TITLE_ID = ORIGINAL_TITLES.ORIGINAL_TITLE_ID)
                                 LEFT OUTER JOIN MAKERS ON GACHA_TITLES.MAKER_ID = MAKERS.MAKER_ID)
@@ -335,7 +335,7 @@
                                 MAKERS.MAKER_NAME LIKE '" . $Searchdata . "' or EXHIBITS.EXHIBIT_NAME LIKE '" . $Searchdata . "' order by NUMBER_OF_TICKETS";
                     } elseif($sort_id == 3){
                         // SQL文（抽出対象：メーカー名、出品名）
-                        $sql = "select EXHIBITS.EXHIBIT_PIC_URL,EXHIBITS.EXHIBIT_ID,EXHIBITS.EXHIBIT_NAME,EXHIBITS.NUMBER_OF_TICKETS 
+                        $sql = "select EXHIBITS.EXHIBIT_PIC_URL,EXHIBITS.EXHIBIT_ID,EXHIBITS.EXHIBIT_NAME,EXHIBITS.NUMBER_OF_TICKETS,EXHIBITS.EXHIBIT_TIME 
                                 from (((EXHIBITS LEFT OUTER JOIN GACHA_TITLES ON EXHIBITS.GACHA_TITLE_ID = GACHA_TITLES.GACHA_TITLE_ID) 
                                 LEFT OUTER JOIN ORIGINAL_TITLES ON GACHA_TITLES.ORIGINAL_TITLE_ID = ORIGINAL_TITLES.ORIGINAL_TITLE_ID)
                                 LEFT OUTER JOIN MAKERS ON GACHA_TITLES.MAKER_ID = MAKERS.MAKER_ID)
@@ -428,6 +428,8 @@
                                         <div class="desc">
                                             <center>
                                                 <?php echo $data_part['EXHIBIT_NAME'] ?>
+                                                <br>
+                                                <?php echo '出品日時：'.$data_part['EXHIBIT_TIME'] ?>
                                                 <br>
 
                                                 <!-- 交換に必要なチケット数（チケット数）でソートした場合のみ発動 -->

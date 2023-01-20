@@ -25,27 +25,6 @@
         $insert = new Chat_db_insert();
         $data_insert = $insert->insert($_GET['id2'],$_SESSION['user_id'],$_GET['id'],$chat_time,$_POST["chat_text"]);
 
-    /* --------------------------------------------- 通知機能 ------------------------------------------------------------------ */
-
-        /*　概要等
-            $user_id　　　　　　　→　メッセージ受信者のユーザーID
-            $_SESSION['user_id']　→　メッセージ送信者のユーザーID
-            $content　　　　　　　→　メッセージの内容（〇〇さんからメッセージが届きました。）
-        */
-
-        
-        $notification = new Trade_notification();
-        $notification_data =  $notification->notification_add($_GET['id'],$_SESSION['user_id'],$content,$chat_time);
-
-        // メッセージ内容の作成
-        $content = $user_name.'からメッセージが届きました。';
-
-        // 各種情報をDBに格納
-        $notification = new Trade_notification();
-        $notification_data =  $notification->notification_add($_GET['id'],$_SESSION['user_id'],$content,$chat_time);
-
-    /* -------------------------------------------- /通知機能 ------------------------------------------------------------------ */   
-
     }
 
     // チャット相手のユーザーID（$_GET_['id']）トレードID（$_GET['id2']）を添付して、chat.phpへ

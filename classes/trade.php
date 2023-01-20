@@ -14,7 +14,7 @@
   class Trade_user_info extends DbData{
     // トレードIDを取得
     public function get_user_info($trade_id,$user_id,$s_time){
-        $sql = "select exhibits.USER_ID,exhibits.USER_NAME
+        $sql = "select exhibits.USER_ID
                 from trades left outer join exhibits 
                 on exhibits.EXHIBIT_ID = trades.TRADE_ID
                 where trades.TRADE_ID = ?

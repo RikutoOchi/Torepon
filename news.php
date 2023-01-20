@@ -13,33 +13,45 @@
 <!-- /ヘッダー -->
 
 <?php
-    
+    // DB実行のためのファイルの読み込み
+    require_once __DIR__ . './classes/news_class.php';
+
+    // 自分が関係しているトレードのトレードIDをすべて取得
+    $dat = new News();
+    $data = $dat->news_get_massege($_SESSION['user_id']);
 ?>
+
+<script>
+    // 10秒ごとにリロード
+    var timer = "10000"; //指定ミリ秒単位
+    function ReloadPage(){
+    window.location.reload();
+    }
+    setTimeout(ReloadPage, timer);
+</script>
 
     <main class="main-side-content">
       <section class="main-content">
         <!-- mainコンテンツ -->
         <h1 class="ttl-text">お知らせ</h1>
 
-        <div id="ajaxreload3">
-
-            <div class="news-wrapper">
-                <div class="news-inner">
-                    <ul class="news-list">
+        <div class="news-wrapper">
+            <div class="news-inner">
+                <ul class="news-list">
                         
-                        <?php foreach(){ ?>
-                            <li class="news-item">
-                            
-                            </li>
-                        <?php } ?>
+                    <?php foreach($data as $detail){ ?>
+                        <li class="news-item">
+                            <?php echo $detail['USER_NAME'].'からメッセージがあります。' ?>
+                            <br>
+                            <?php echo $detail['CHAT_TIME'] ?>
+                        </li>
+                    <?php } ?>
                     
-                    </ul>
-                </div>
+                </ul>
             </div>
-
         </div>
 
-      </section>
+    </section>
      
 
 <!-- サイドコンテンツ -->

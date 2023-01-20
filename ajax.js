@@ -40,5 +40,5 @@ window.addEventListener('load', function () {
     setInterval(function () {
         ajaxUpdate(url2, div2);
     }, 500);
- 
+    
 });

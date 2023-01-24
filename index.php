@@ -39,17 +39,17 @@
     <!-- 商品リスト -->
     <!-- 追記 -->
     <?php
-  require_once __DIR__ . './classes/dbdata.php';
-  $exh = new Dbdata();
-  $sql = "select EXHIBIT_ID,EXHIBIT_NAME,EXHIBIT_PIC_URL from EXHIBITS ORDER BY
+    require_once __DIR__ . './classes/dbdata.php';
+    $exh = new Dbdata();
+    $sql = "select EXHIBIT_ID,EXHIBIT_NAME,EXHIBIT_PIC_URL from EXHIBITS ORDER BY
   EXHIBIT_TIME LIMIT 6";
-  $data = $exh->getRecord_0($sql);
-  ?>
+    $data = $exh->getRecord_0($sql);
+    ?>
     <!---------->
 
     <h1 class="sub-ttl">新着アイテム</h1>
     <ul class="goods-list">
-      <?php foreach($data as $data_part){ ?>
+      <?php foreach ($data as $data_part) { ?>
       <a href="./ex-confirm.php?id=<?php echo $data_part['EXHIBIT_ID'] ?>">
         <li class="goods-item">
           <?php $data_part['EXHIBIT_NAME'] ?>
@@ -60,7 +60,6 @@
     </ul>
   </section>
 
-  >>>>>>> origin/Kurata
   <!-- サイドコンテンツ -->
   <?php require_once('./temp/side.php'); ?>
   <!-- /サイドコンテンツ -->

@@ -22,7 +22,7 @@
                     <li class="GenreTag1"><a hreF="./">どうぶつ</a></li>
                     <li class="GenreTag2"><a hreF="./">キーホルダー</a></li>
                     <li class="GenreTag3"><a hreF="./">マスコット</a></li>
-                    <li class="GenreTag4"><a hreF="./">クリップ</a></li>
+                    <li class="GenreTag4"><a hreF="./">フィギュア</a></li>
                 </ul>
             </div>
             <!--おすすめアイテム カルーセルバナー-->

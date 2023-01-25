@@ -41,9 +41,11 @@
                         
                     <?php foreach($data as $detail){ ?>
                         <li class="news-item">
-                            <?php echo $detail['USER_NAME'].'からメッセージがあります。' ?>
+                            <?php echo $detail['USER_NAME'].'から新着メッセージがあります。' ?>
                             <br>
                             <?php echo $detail['CHAT_TIME'] ?>
+                            <br>
+                            <button type="button" style="padding: 2px 10px;background:#ff7f7f;color: #ffffff; margin:0px 0px 2px 0px" onclick="location.href=''">チャットへ</button>
                         </li>
                     <?php } ?>
                     

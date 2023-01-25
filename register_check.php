@@ -1,5 +1,7 @@
 <?php
 
+    session_start();
+
     require_once __DIR__ . './classes/dbdata.php';
 
     // データを受け取る
@@ -32,6 +34,8 @@
         $judge = False;
     }
 
+    /* ---------------------- sndmailトラブル以下変更------------------------------
+
     // 分岐（NO→再度入力画面へ　OK→メールアドレス認証へ）
     if($judge == False){
         header('Location:register.php?mail=' . $mail . '&length=' . $length . '');
@@ -43,4 +47,14 @@
         header('Location:register_mail.php');
         exit();
     }
+    ----------------------------------------------------------------------------- */
+
+    if($judge ==False){
+        header('Location:register.php?mail=' . $mail . '&length=' . $length . '');
+    } else {
+        $_SESSION['new_user_mail'] = $email;
+        $_SESSION['new_user_password'] = $password;
+        header('Location:register_db.php');
+    }
+
 ?>

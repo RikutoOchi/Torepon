@@ -95,6 +95,7 @@
               <button class="dealingrequest-button" type="submit">トレード申請する</button>
             <?php } else { ?>
               <?php
+                    require_once __DIR__ . './classes/ex-confirm_class.php';
                   // ユーザーIDの取得
                   $id = new Ex_confirm();
                   $data = $id->get_partner_user_id($_SESSION['user_id'],$exhibit_id);

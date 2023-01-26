@@ -493,39 +493,21 @@ html {
     font-size: 62.5%;
 }
 
-.btn,
-a.btn,
-button.btn {
-    font-size: 1.6rem;
-    font-weight: 700;
-    line-height: 1.5;
-    position: relative;
-    display: inline-block;
-    padding: 1rem 4rem;
-    cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    -webkit-transition: all 0.3s;
-    transition: all 0.3s;
-    text-align: center;
-    vertical-align: middle;
-    text-decoration: none;
-    letter-spacing: 0.1em;
-    color: #212529;
-    border-radius: 0.5rem;
+.button{
+    display       : inline-block;
+    border-radius : 5%;          /* 角丸       */
+    font-size     : 16pt;        /* 文字サイズ */
+    text-align    : center;      /* 文字位置   */
+    cursor        : pointer;     /* カーソル   */
+    padding       : 12px 12px;   /* 余白       */
+    background    : #ff7f7f;     /* 背景色     */
+    color         : #ffffff;     /* 文字色     */
+    line-height   : 1em;         /* 1行の高さ  */
+    transition    : .3s;         /* なめらか変化 */
+    border        : 2px solid #ff7f7f;    /* 枠の指定 */
 }
 
-a.btn--yellow {
-    color: #000;
-    background-color: #ffc0c0;
-    border-bottom: 5px solid #df9999;
-}
-
-a.btn--yellow:hover {
-    margin-top: 3px;
-    color: #000;
-    background: #ffc0c0;
-    border-bottom: 2px solid #df9999;
+.button:hover {
+    color         : #ff7f7f;     /* 背景色     */
+    background    : #ffffff;     /* 文字色     */
 }

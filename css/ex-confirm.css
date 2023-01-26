@@ -3,6 +3,7 @@
 }
 .ex-images{
   width: 40%;
+  margin: 10px 20px 30px 40px;
 }
 ul.ex-subimagelist{
  list-style: none;
